@@ -1,4 +1,4 @@
-# Polygon ID tutorials (work in progress)
+# Polygon ID tutorials
 
 
 ## How to run this documentation 

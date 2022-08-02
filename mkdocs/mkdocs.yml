@@ -1,11 +1,11 @@
-site_name: Polygon ID Documentation tutorials (work in progress)
+site_name: Polygon ID Documentation tutorials
 
 site_url: https://polygon.technology/polygon-id/
 theme:
   name: material
   palette:
-    primary: indigo
-  logo: logo.svg
+    primary: deep purple
+  logo: logo-white.svg
   favicon: favicon.ico
   features:
     - navigation.tabs
