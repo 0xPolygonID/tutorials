@@ -1,4 +1,4 @@
-# Iden3 tutorials (work in progress)
+# Polygon ID tutorials (work in progress)
 
 
 ## How to run this documentation 

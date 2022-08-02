@@ -1,6 +1,6 @@
-site_name: Iden3 Documentation tutorials (work in progress)
+site_name: Polygon ID Documentation tutorials (work in progress)
 
-site_url: https://iden3.io/
+site_url: https://polygon.technology/polygon-id/
 theme:
   name: material
   palette:
