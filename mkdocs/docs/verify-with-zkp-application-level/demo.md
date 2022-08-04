@@ -10,7 +10,7 @@ To demo the interaction between a verifier application and a wallet:
 
     - Add a QR code representing on the client side in order to interact with the identity wallet.
 
-    > Check out this [static folder](https://github.com/iden3/tutorial-examples/tree/main/verifier-integration/js) to render the QR code containing the auth Request in a HTML page
+    > Check out this [static folder](https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js) to render the QR code containing the auth Request in a HTML page
 
 2. **Download the identity wallet**
 

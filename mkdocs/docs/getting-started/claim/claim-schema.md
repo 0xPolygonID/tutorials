@@ -2,7 +2,9 @@
 
 The reusability of claims across platforms and services is guaranteed by [Claim Schema](https://docs.iden3.io/protocol/claim-schema/) consistency. 
 
-As an issuer it is advised to check if any of the [existing claim schemas](https://github.com/iden3/claim-schema-vocab/tree/main/schemas/json-ld) can accomodate the type of information you are interested to issue.
+As an issuer it is advised to check if any of the [existing claim schemas](https://github.com/0xPolygonID/schemas/tree/main/jsonld) can accomodate the type of information you are interested to issue.
+
+Polygon ID use [JSON-LD documents](https://json-ld.org/learn.html) to represent Claim Schemas.
 
 If not, here's the guide to create a new claim schema. Let us create a shared and reusable claim schema of type **ProofOfDaoMembership**.
 
@@ -12,7 +14,7 @@ If not, here's the guide to create a new claim schema. Let us create a shared an
 
     Information such as the identifier of the DAO or the identifier of the subject of the claim don't need to be encoded inside one of the four data slots allocated for claim information (i_2,i_3, v_2, v_3): 
 
-    - The information about the specific DAO can be inferred by the claim issuer identifier
+    - The information about the specific DAO can be inferred from the claim issuer identifier
     - The information about the individual subject of the claim is already stored in the i_1 or v_1 data slot of the claim
 
     A further information that must be included in the claim is the *role* of the individual inside a DAO. This will be the added inside one of the data slots (i_2,i_3,v_2,v_3). 
@@ -32,7 +34,7 @@ If not, here's the guide to create a new claim schema. Let us create a shared an
 
 3. **Describe the vocabulary of the schema**
 
-    Create a markdown file in your repository to describe the vocabulary used in the claim. This should contain a description of the key type *role* and its possible values
+    Create a markdown file in your repository to describe the vocabulary used in the claim. This should contain a description of the key type *role* and its possible values:
 
     ```js
     # role
@@ -48,7 +50,7 @@ If not, here's the guide to create a new claim schema. Let us create a shared an
 
     Add a file inside your repository with extension .json-ld and populate it.
 
-    The `@id` key should contain the identifier of the Schema Type "ProofOfDaoMembership", in this case the unique url to the json-ld document.
+    The `@id` key should contain the identifier of the Schema Type "ProofOfDaoMembership", in this case the unique url to the JSON-LD document.
     The `proof-of-dao-vocab` key should contain the url that describes the vocabulary of the claim schema.
 
     ``` json
@@ -111,4 +113,4 @@ If not, here's the guide to create a new claim schema. Let us create a shared an
     }
     ```
 
-> The executable code can be found [here](https://github.com/iden3/tutorial-examples/tree/main/claim-schema)
+> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/tree/main/claim-schema)

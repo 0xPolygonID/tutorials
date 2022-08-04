@@ -1,10 +1,9 @@
-# Verify the proof on-chain
+# Verify the Proof On-Chain
 
 In order to complete the State Transition process it is necessary to verify the proof inside the `State.sol` contract.
 
 The `transitState` public function of the contract takes the proof generated in the previous section and verifies it on-chain. On verification, the `identities` mapping associated with the `ID` that is executing the transition gets updated.
 
-> The executable code can be found [here](https://github.com/iden3/tutorial-examples/tree/main/hardhat-transit-state)
 
 ### Hardhat
 
@@ -41,6 +40,8 @@ The `transitState` public function of the contract takes the proof generated in 
       const c = ["0x0873f0c6ad05f760775b74a8a6e391beb5b5d3a040a3259f6f5c2429b9d37f8d", "0x15ff3cb9c37c9a07b0fdb2f24cad7bf56adc632c625d9d236841676d731f661b"]
       ```
 
+      > Note: Do not use these same inputs for the next section of the tutorial. I already executed the State Transition using these inputs, so the transaction will fail. Instead, use the inputs that you locally generated.
+
    5. **Fetch identity state before state transition**
 
       ```js
@@ -65,11 +66,12 @@ The `transitState` public function of the contract takes the proof generated in 
 
 Congratulations! You have successfully completed the identity state transition. 
 
-Starting from the identifier, people will be able to track the status of an identity in a timestamped and tamper-proof way. The identifier remains fixed for the entire existence of an identity, while the identity state changes every time an identity gets updated, for example, while issuing a new claim. As we'll see in the next section, every ZK proof generated from an identity will be checked against the identity state published on-chain.
+Starting from the identifier, people will be able to track the status of an identity in a timestamped and tamper-proof way. The identifier remains fixed for the entire existence of an identity, while the identity state changes every time an identity gets updated, for example, when issuing or revoking a claim. As we'll see in the next section, every ZK proof generated from an identity will be checked against the identity state published on-chain.
 
 It is important to underline that:
 
 - The mapping that associates an identifier with its current identity state is the only piece of information stored on-chain. 
 - Starting from the identifier and the identity state, it is impossible to retrieve any information stored in the identity trees, for example, reading the content of a claim (which is stored off-chain).
-- There is no association between the Ethereum key used to execute the state transition and the Identifier associated with someone's identity. 
 - There is no association between the ECDSA (Elliptical Curve Digital Signature Algorithm) key pair associated with the Ethereum address that executes the State Transition and the Baby Jubjub key pair which is used to control an identity.
+
+> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/tree/main/hardhat-transit-state)

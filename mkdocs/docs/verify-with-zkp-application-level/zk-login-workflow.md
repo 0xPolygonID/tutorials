@@ -52,7 +52,7 @@ The body of the Auth Request includes:
 Focusing of the scope, it contains:
 
 - `id`, uniquely identitfies the request
-- `circuit_id`, describes the type of circuit that must be used to generate the proof
+- `circuit_id`, describes the type of circuit that must be used to generate the proof. It can be `credentialAtomicQuerySig` or `credentialAtomicQueryMTP` depending on whether the requested claims was published via a Digital Signature or by adding it to the Claims Tree.
 - `rules` that must apply by the user when generating the proof such as: 
   - `query`, that includes `allowed_issuers`, which is an array of IDs of allowed issuers, and a set of requirement `req` for that specific claim, for example that the value `birthday` inside user's Claim is less than (`$lt`) 2000/01/01. 
   - `schema` includes the `url` of the claim JSON schema and `type` of the claim requested
@@ -83,7 +83,7 @@ The JWZ, similarly similarly to JWT, contains a `header`, a `payload` and a `sig
 
 The `payload` contains the ZK proof based on the query presented inside the Auth Request.
 
-The `signature` is a special Zero Knowledge signature. It contains a proof of identity ownership generated using the [authorization circuit](../circuits/main-circuits.md#authentication)
+The `signature` is a special Zero Knowledge signature. It contains a proof of identity ownership generated using the [authentication circuit](../circuits/main-circuits.md#authentication)
 
 **[To understand how a JWZ looks like](./jwz.md)**
 
@@ -98,5 +98,5 @@ The server, after receiveing the JWZ from the identity wallet, performs the veri
 
 At the end of the workflow:
 
-- The web-client is able to authenticate the user using its identifier `ID` after establishing that the user controls that identity and satisfies the query presented in the auth request.
+- The web-client is able to authenticate the user using its identifier `ID` after having established that the user controls that identity and satisfies the query presented in the auth request.
 - The user is able to log-in to the platform without disclosing any personal information to the client exept for its identifier

@@ -1,4 +1,4 @@
-# Execute the state transition inside a circuit
+# Generate Proof for State Transition
 
 The output of the previous tutorial was the result of a locally executed computation by the Identity Owner, namely moving from the genesis state to state 1. 
 
@@ -6,7 +6,7 @@ The output of the previous tutorial was the result of a locally executed computa
 
 To ensure the state transition happens in a trustless way, it must be verified inside a circuit. 
 
-The State Transition inputs generated earlier will be passed into the [State Transition Circuit](../../circuits/main-circuits.md) to generate a proof of the executed state transition. 
+The State Transition inputs generated earlier will be passed into the [State Transition Circuit](../../circuits/main-circuits.md#statetransition) to generate a proof of the executed state transition. 
 
 1. **Install [Circom and SnarkJS.](https://docs.circom.io/getting-started/installation/#installing-circom)**
 
@@ -20,7 +20,7 @@ The State Transition inputs generated earlier will be passed into the [State Tra
 
 3. **Create a .json file with the state transition inputs from the previous tutorial**
 
-    For this, create a file named `input.json` inside the `.stateTransition//stateTransition_js` and then paste in this .json file all the inputs you generated in the previous tutorial. These inputs will be passed to the circuit and will be used to generate the zk proof.
+    For this, create a file named `input.json` inside the `.stateTransition/stateTransition_js` and then paste the inputs you generated in the previous tutorial. These inputs will be passed to the circuit and will be used to generate the zk proof.
 
 4. **Generate the proof**
 
@@ -65,5 +65,3 @@ The Solidity calldata output represents:
     - `public[4]`, namely the public inputs of the circuit 
 
 In the next tutorial, we shall pass this proof to the State.sol smart contract in order to complete the State Transition function.
-
-> Note: Do not use these same inputs for the next section of the tutorial. I already executed the State Transition using these inputs, so the transaction will fail. Instead, use the inputs that you locally generated.

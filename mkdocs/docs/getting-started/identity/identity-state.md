@@ -13,7 +13,7 @@ The identity state gets stored on-chain and represents the status of an identity
 
 <div align="center">
 <img src= "../../../imgs/identity-state-diagram.png" align="center" width="600"/>
-<div align="center"><span style="font-size: 17px;"><b>Identity State Diagram  </b></div>
+<div align="center"><span style="font-size: 17px;"><b> Identity State Diagram </b></div>
 </div>
 
 **Retrieve the Identity State `IdS`**
@@ -54,4 +54,4 @@ Every verification inside Iden3 protocol is executed against the Identity State.
 - user B needs to produce a merkle proof of the existence of that claim inside user's A `ClR`
 - user B needs to produce a merkle proof of non existence of the corresponding revocation nonce inside user's A `ReT`
 
-> The executable code can be found [here](https://github.com/iden3/tutorial-examples/blob/main/issuer-protocol/main.go#L112)
+> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L112)

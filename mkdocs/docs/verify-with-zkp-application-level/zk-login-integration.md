@@ -1,19 +1,17 @@
 # ZK Login Integration
 
-The intergation of this workflow inside your application only requires to embed button to initiate the login process on the front-end. After this button is pressed, the front-end makes a request to the back-end to generate an `auth request` and displays it in a QR code. When a user scans the QR code using their wallet, it generates a zk proof and sends this proof packed inside a JWZ to the call-back URL in order to verify it. 
+The intergation of this workflow inside your application only requires to embed a button to initiate the login process on the front-end. After this button is pressed, the front-end makes a request to the back-end to generate an `auth request` and displays it in a QR code. When a user scans the QR code using their wallet, it generates a zk proof and sends this proof packed inside a JWZ to the call-back URL in order to verify it. 
 
 Overall there are 2 endpoints to be added to the verifier's backend: 
 
 - GET /api/sign-in - should return auth request inside a QR code
 - POST /api/callback - should receive the callback request from the identity wallet containing the proof and verify it
 
-The user should have the identity wallet installed on their device.
-
-> The full executable code for this section can be found [here](https://github.com/iden3/tutorial-examples/tree/main/verifier-integration)
+The user should have the Polygon ID identity wallet (or any compatible wallet) installed on their device.
 
 ## Integrate with Javascript and GoLang
 
-> Context: You are a platform that wants to authenticate users according to their age. If they are younger than a certain age, users are not allowed to log-in. The naive web2 way to perform this action would be to make users fill up a form with personal information. In web3 we can perform the same without never having to access any user's PII.
+> Context: You are a platform that wants to authenticate users according to their age. If they are younger than a certain age, users are not allowed to log-in. The naive web2 way to perform this action would be to make users fill up a form with personal information. In web3 we can perform the same never accessing any user's PII.
 
 1. **Add the authorization package to your project** 
 
@@ -214,7 +212,7 @@ The user should have the identity wallet installed on their device.
 
 	The callback post endpoint receives the JWZ from the identity wallet. The role of the callback endpoint is to execute the verification on the proof and further verification based on its input. The verification is executed inside the `verifier.FullVerify` function 
 
-	> To ADD: The identity state `contractAddress` on polygon mainnet is 0xb8a86e138C3fe64CbCba9731216B1a638EEc55c8. The public verification keys for iden3 circuits generated after the trusted setup can be found [here](https://github.com/iden3/tutorial-examples/tree/main/verifier-integration/keys) and must be added to your project inside a folder called `keys`. Also, don't forget to add the RPC endpoint inside the `ethURL` variable!
+	> To ADD: The identity state `contractAddress` on polygon mainnet is 0xb8a86e138C3fe64CbCba9731216B1a638EEc55c8. The public verification keys for iden3 circuits generated after the trusted setup can be found [here](https://github.com/iden3/tutorial-examples/tree/main/verifier-integration/keys) and must be added to your project inside a folder called `keys`. Also, don't forget to add the RPC endpoint (such as Alchemy or Infura) inside the `ethURL` variable!
 
 	=== "GoLang"
 
@@ -317,7 +315,7 @@ The auth library provides a simple handler to extract all the necessary metadata
 Starting from the circuit specific public verification key, the proof and the public inputs provided by the user inside the JWZ it is possible to verify the proof. In this case the Proof verification involves: 
 
 - Verification of the proof contained in the JWZ signature based on the [`Auth Circuit`](../circuits/main-circuits.md#authentication)
-- Verification of the proof contained in the JWZ payload based on the [`AtomicQuerySig Circuit`](../circuits/main-circuits.md#credentialatomicquerysig)
+- Verification of the proof contained in the JWZ payload based on the [`AtomicQuerySig Circuit`](../circuits/main-circuits.md#credentialatomicquerysig) or [`AtomicQueryMTP`](../circuits/main-circuits.md#credentialatomicquerymtp) based on the query.
 
 ### Verification of On-chain Identity States
 
@@ -333,3 +331,6 @@ This involves a verification based on the public inputs of the circuits used to 
   - The rules such as the `query` or the claim `schema` used as public input for the circuit match the ones included inside the auth request. 
   
 This "off-circuit" verification is important because a user can potentially modify the query and present a valid proof. A user born the 2000-12-31 shouldn't pass the check. But if they generate a proof using a query input `"$lt": 20010101`, the verifier would see it as a valid proof. By doing verifying the public inputs of the circuit, the verifier is able to detect the cheat.
+
+> The executable code for this section can be found [here](https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration)
+

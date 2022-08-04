@@ -6,7 +6,7 @@ State contract addresses:
 - [Mumbai: 0x46Fd04eEa588a3EA7e9F055dd691C688c4148ab3](https://mumbai.polygonscan.com/address/0x46Fd04eEa588a3EA7e9F055dd691C688c4148ab3)
 - [Polygon Mainnet: 0xb8a86e138C3fe64CbCba9731216B1a638EEc55c8](https://polygonscan.com/address/0xb8a86e138C3fe64CbCba9731216B1a638EEc55c8)
 
-[State.sol on Github](https://github.com/iden3/contracts/blob/master/contracts/State.sol)
+[State.sol - Github](https://github.com/iden3/contracts/blob/master/contracts/State.sol)
 
 The core role of State smart contract is to:
 

@@ -2,11 +2,11 @@
 
 The most important building block of an identity is the Key Authorization Claim. This claim stores user's Baby Jubjub public key. 
 
-An [Authorization Claim](https://docs.iden3.io/protocol/bjjkey/) is the first claim that is included in an Identity Tree. All the actions performed by an Idenitity (such as claim issuance or revocation) require users to prove via a digital signature that they own the private key associated with the public key stored in the `AuthClaim`.
+An [Auth Claim](https://docs.iden3.io/protocol/bjjkey/) **must** be included as a leaf inside the  Identity Tree. All the actions performed by an Idenitity (such as claim issuance or revocation) require users to prove via a digital signature that they own the private key associated with the public key stored in the `AuthClaim`.
 
 1. **Define the claim schema.**
 
-    The [auth schema](./claim-schema.md) is pre-defined and should always be the same when creating an `AuthClaim`. The schema hash is: *`ca938857241db9451ea329256b9c06e5`*. According to the this schema, the X and Y coordinate of the Baby Jubjub public key must be stored, respectively, in the first and second index data slot.
+    The [auth schema](https://github.com/iden3/claim-schema-vocab/blob/main/schemas/json-ld/auth.json-ld) is pre-defined and should always be the same when creating an `AuthClaim`. The schema hash is: *`ca938857241db9451ea329256b9c06e5`*. According to the this schema, the X and Y coordinate of the Baby Jubjub public key must be stored, respectively, in the first and second index data slot.
 
 2. **Generate an AuthClaim.** 
 
@@ -67,7 +67,9 @@ Value:
 }	
 ```
 
-Note: The data stored in position 1 of the Value contains the Revocation Nonce. This value will be used to revoke/invalidate an `AuthClaim`. More on that in the next section.
+The data stored in position 1 of the Value contains the Revocation Nonce. This value will be used to revoke/invalidate an `AuthClaim`. More on that in the next section.
+
+> Note: the auth claim hasn't been added to the Identity Tree yet!
 
 
-> The executable code can be found [here](https://github.com/iden3/tutorial-examples/blob/main/issuer-protocol/main.go#L77)
+> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L77)

@@ -2,10 +2,10 @@
 
 This iden3 circuits are the heart of the protocol. The main ones are: 
 
-- `stateTransition.circom`, checks the execution of the identity state transtion by taking the old identity state and the new identity state as inputs.
-- `authentication.circom`, checks that the prover is owner of an identity.
-- `credentialAtomicQueryMTP.circom`, checks that a claim issued to the prover (and added to issuer's Claims Tree) satisfies a query set by the verifier.
-- `credentialAtomicQuerySig.circom` checks that a claim issued to the prover (and signed by the Issuer) satisfies a query set by the verifier.
+- [`stateTransition.circom`](main-circuits.md#statetransition), checks the execution of the identity state transtion by taking the old identity state and the new identity state as inputs.
+- [`authentication.circom`](main-circuits.md#authentication), checks that the prover is owner of an identity.
+- [`credentialAtomicQueryMTP.circom`](main-circuits.md#credentialatomicquerymtp), checks that a claim issued to the prover (and added to issuer's Claims Tree) satisfies a query set by the verifier.
+- [`credentialAtomicQuerySig.circom`](main-circuits.md#credentialatomicquerysig) checks that a claim issued to the prover (and signed by the Issuer) satisfies a query set by the verifier.
 
 You can find all the source code on [Github - Iden3 Circuits](https://github.com/iden3/circuits) and here are the details of the [Iden3 Protocol Phase2 Trusted Setup Ceremony](https://github.com/iden3/phase2ceremony#auth-circuit)
 
@@ -51,7 +51,7 @@ You can find all the source code on [Github - Iden3 Circuits](https://github.com
 
 - [Final zkey `circuit_final.zkey`](https://iden3-circuits-bucket.s3.eu-west-1.amazonaws.com/circuits/v0.1.0/auth/circuit_final.zkey)
 - [Verification Key `verification_key.json`](https://iden3-circuits-bucket.s3.eu-west-1.amazonaws.com/circuits/v0.1.0/auth/verification_key.json)
-- [WASM Witness Generator `circuit.wasm](https://iden3-circuits-bucket.s3.eu-west-1.amazonaws.com/circuits/v0.1.0/auth/circuit.wasm)
+- [WASM Witness Generator `circuit.wasm`](https://iden3-circuits-bucket.s3.eu-west-1.amazonaws.com/circuits/v0.1.0/auth/circuit.wasm)
 
 ## authentication
 

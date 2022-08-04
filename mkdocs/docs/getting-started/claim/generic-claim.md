@@ -1,8 +1,6 @@
 # Generic Claim
 
-A [Claim](https://docs.iden3.io/protocol/spec/#claims) is a statement made by one identity about another identity or about itself.
-
-In some cases Claims can be stored as leaves in the Identity Sparse Merkle Tree. In particular, they get stored in case if represent an Auth Claim, so should be "linked" to identity via inclusion in identity's SMT. As other example, a claim can be included into the state of an identity, which **issues** the claim if the SMT root is published on-chain and the issuance timestamping is desired.
+A [Claim](https://docs.iden3.io/protocol/spec/#claims) is a statement made by one identity about another identity or about itself. In some cases claims can be stored as leaves in the Identity Sparse Merkle Tree (we'll see later why this is not always the case). Let's see how they look like.
 
 1. **Update the required dependencies.**
 
@@ -17,8 +15,6 @@ In some cases Claims can be stored as leaves in the Identity Sparse Merkle Tree.
     The hash of the schema is generated from the content of the schema document. For our example, the hash of the schema is: *`ce38102464833febf36e714922a83050`*
 
 	Note, that the age schema example is provided only for illustrative purposes. In real life, you would store some constant information like the date of birth, but not the age, which changes over time.
-
-
 
 3. **Create a generic claim.**  
 
@@ -77,4 +73,4 @@ The data stored in the first position of the Index contains a reference to the s
 
 **The claim is a flexible and modular data primitive that can be used to represent any identity-related information**
 
-> The executable code can be found [here](https://github.com/iden3/tutorial-examples/blob/main/issuer-protocol/main.go#L62)
+> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L62)

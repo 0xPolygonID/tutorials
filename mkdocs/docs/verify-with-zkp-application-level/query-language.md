@@ -1,6 +1,6 @@
 # Query Language
 
-The `Atomic Query Signature and Atomic Query MTP Circuits` have been designed as generic circuits to do ZK verification based on user's claims. 
+The [`Atomic Query Signature Circuit`](../circuits/main-circuits.md#credentialatomicquerysig) and [`Atomic Query MTP`](../circuits/main-circuits.md#credentialatomicquerymtp) circuits have been designed as generic circuits to do ZK verification based on user's claims. 
 
 The Query language sits on top of these circuits to provide a way for developers to design customised requirements based on someone's claims.
 

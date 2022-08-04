@@ -26,8 +26,8 @@ markdown_extensions:
 
 nav:
   - Issuer Protocol:
-    - Getting started: "getting-started/getting-started.md"
-    - Keypair: "getting-started/babyjubjub.md"
+    - Introduction: "getting-started/getting-started.md"
+    - Baby Jubjub Keypair: "getting-started/babyjubjub.md"
     - Sparse Merkle Tree: "getting-started/mt.md"
     - Claim: 
       - Generic Claim: "getting-started/claim/generic-claim.md"
@@ -39,11 +39,11 @@ nav:
       - Identifier: "getting-started/identity/identifier.md"
     - State Transition: 
       - Overview: "getting-started/state-transition/overview.md"
-      - Modify Identity State: "getting-started/state-transition/new-identity-state.md"
-      - Generate Proof: "getting-started/state-transition/state-transition-proof.md"
-      - Verify on-chain: "getting-started/state-transition/on-chain-state-transition.md"
+      - Add Claim to the Claims Tree: "getting-started/state-transition/new-identity-state.md"
+      - Generate Proof for State Transition: "getting-started/state-transition/state-transition-proof.md"
+      - Verify the Proof On-Chain: "getting-started/state-transition/on-chain-state-transition.md"
   - Verifier Intergration: 
-    - Intro: "verify-with-zkp-application-level/intro.md"
+    - Introduction: "verify-with-zkp-application-level/intro.md"
     - ZK login workflow: "verify-with-zkp-application-level/zk-login-workflow.md"
     - ZK login integration: "verify-with-zkp-application-level/zk-login-integration.md"
     - Demo: "verify-with-zkp-application-level/demo.md"

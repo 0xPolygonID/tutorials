@@ -1,6 +1,6 @@
 # Introduction
 
-You should now be able to setup an issuer, issue claims to yourself and/or other identities and publish the state on-chain.
+You should now be able to setup an issuer, issue claims to yourself and/or other identities and publish them.
 
 Now it comes the cool part: **being able to verify Claims with Zero Knowledge**.
 
@@ -25,9 +25,12 @@ In particular:
 - [ZKLogin integration](./zk-login-integration.md), to integrate it in your platform with a few lines of code
 - [Demo](./demo.md), to demo it
 - [JSON Web ZeroKnowledge - JWZ](./jwz.md), to understand the core primitive of web2 ZK-based communication
-- [Query Language](./query-language), to understand how to design customized queries
+- [Query Language](./query-language), to design customized queries
 
-The tutorial is designed to integrate ZKP verification on the web client side. The user interacting with the client must have the identity wallet app installed.
+The tutorial is designed to integrate ZKP verification on the web client side. 
+
+The user interacting with the client must have the identity wallet app ([Polygon ID iOS](https://apps.apple.com/ca/app/polygon-id/id1629870183), [Polygon ID Android](https://play.google.com/store/apps/details?id=com.polygonid.wallet) or any compatible wallet) installed: 
+
 
 ## Libraries
 

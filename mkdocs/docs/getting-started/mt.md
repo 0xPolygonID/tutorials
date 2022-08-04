@@ -71,5 +71,5 @@ A data block inside the tree is represented by a `index` and a `value`. The inde
 
 The `GenerateProof` method shown above allows verifying the membership of a leaf in the merkle tree starting from its root. 
 
-> The executable code can be found [here](https://github.com/iden3/tutorial-examples/blob/main/issuer-protocol/main.go#L31)
+> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L31)
 
