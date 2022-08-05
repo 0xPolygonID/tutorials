@@ -4,13 +4,14 @@ The role of the issuer is to create any type of identity related information in 
 
 Claims can be viewed as Soul Bound Tokens (SBTs) on steroids. Similar to SBTs, the ownership is cryptographically guaranteed allowing control and reusability across platforms. Differently to SBTs, claims live off-chain ensuring users privacy over their Personal Identifiable Information. 
 
-This tutorial walks you through the core primitives necessary to set up an issuer and start issuing claims:
+The first part of the tutorial walks you through the core components of Iden3 protocol necessary to initiate an identity and design claims: 
 
 - [Baby Jubjub Keypair](babyjubjub.md)
 - [Sparse Merkle Tree](mt.md) 
 - [Claim](claim/generic-claim.md)
 - [Identity](identity/identity-structure.md)
-- [State Transition](state-transition/overview.md)
+
+Having understood the primitives you will be then able to start [**issuing claims**](./issue-claim-overview.md).
 
 > The tutorial follows a cascade strucuture: each step relies on the data and code snippets generated in the previous ones. The full executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/tree/main/issuer-protocol)
 

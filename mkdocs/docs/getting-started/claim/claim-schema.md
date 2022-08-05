@@ -2,9 +2,9 @@
 
 The reusability of claims across platforms and services is guaranteed by [Claim Schema](https://docs.iden3.io/protocol/claim-schema/) consistency. 
 
-As an issuer it is advised to check if any of the [existing claim schemas](https://github.com/0xPolygonID/schemas/tree/main/jsonld) can accomodate the type of information you are interested to issue.
-
 Polygon ID use [JSON-LD documents](https://json-ld.org/learn.html) to represent Claim Schemas.
+
+As an issuer it is advised to check if any of the [existing claim schemas](https://github.com/0xPolygonID/schemas/tree/main/jsonld) can accomodate the type of information you are interested to issue.
 
 If not, here's the guide to create a new claim schema. Let us create a shared and reusable claim schema of type **ProofOfDaoMembership**.
 
@@ -23,7 +23,7 @@ If not, here's the guide to create a new claim schema. Let us create a shared an
 
 2. **Decide where to store this information, should it be inside index data slots or value data slots?**
 
-    Claim's index determines its uniqueness inside the issuer's identity tree. There cannot be more than one claim with the same index. If it is decided to store the identifier of the subject of the claim inside i_1 and leave the other index data slots empty, it means that there can only be one claim issued to a specific identity inside the tree.
+    Claim's index determines its uniqueness inside the issuer's claims tree. There cannot be more than one claim with the same index. If it is decided to store the identifier of the subject of the claim inside i_1 and leave the other index data slots empty, it means that there can only be one claim issued to a specific identity inside the tree.
 
     In this case, the question is whether to store the information with type *role* inside i_2 or v_2.
 

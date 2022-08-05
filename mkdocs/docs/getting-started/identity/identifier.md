@@ -35,10 +35,10 @@ ID:
 11AbuG9EKnWVXK1tooT2NyStQod2EnLhfccSajkwJA
 ```
 
-Hereafter, this identity is represented as a mapping: `ID => IdS`. This gets published, together with all other identities, inside the `identities` mapping, which is part of the `State.sol` [contract](https://github.com/iden3/contracts/blob/master/contracts/State.sol#L54). While the ID remains constant, the Identity State will get updated as soon as the identity adds or revokes claims in its trees. 
+Hereafter, this identity is represented as a mapping: `ID => IdS`. This gets published, together with all other identities, inside the `identities` mapping, which is part of the `State.sol` [contract](../../contracts/overview.md). While the ID remains constant, the Identity State will get updated as soon as the identity adds or revokes claims in its trees. 
 
 > No Personal Identifiable Information (PPI) is stored on-chain. From the IdS is impossible to retrieve any information (represented as claim) stored inside the Identity Claims Tree
 
-The Identity State hasn't been published on-chain yet. For this you have to go through the Identity State Transition, which is the subject of the next section. 
+The Identity State hasn't been published on-chain yet as claims haven't been issued yet. This is the subject of the next section.
 
 > The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L121)

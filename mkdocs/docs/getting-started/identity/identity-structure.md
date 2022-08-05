@@ -45,6 +45,6 @@ func main() {
 We just generated the three identity trees! For now, we only added a leaf correponding to the `authClaim` to the Claims tree `ClT`. The Revocation tree `ReT` and the `RoT` remain empty. In particular:
 
 - The revocation tree gets updated whenever an identity decides to revoke a claim. For instance, if a user decides to rotate her keys, then she generates a key pair, creates a new authClaim with the public key from the key pair and adds the claim to the Claims Tree. Now the user can revoke the old public key, so she adds an entry to the Revocation Tree with the claim revocation nonce as an Index and zero as a Value. 
-- The Roots Tree gets updated whenever the Identity Claims Tree root gets updated (more on that in the next sections).
+- The Roots Tree gets updated whenever the Identity Claims Tree root gets updated.
 
 > The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L92)
