@@ -52,7 +52,7 @@ The body of the Auth Request includes:
 Focusing of the scope, it contains:
 
 - `id`, uniquely identitfies the request
-- `circuit_id`, describes the type of circuit that must be used to generate the proof. It can be `credentialAtomicQuerySig` or `credentialAtomicQueryMTP` depending on whether the requested claims was published via a Digital Signature or by adding it to the Claims Tree.
+- `circuit_id`, describes the type of circuit that must be used to generate the proof. It can be `credentialAtomicQuerySig` or `credentialAtomicQueryMTP` depending on [how the claim was issued](../getting-started/issue-claim-overview.md).
 - `rules` that must apply by the user when generating the proof such as: 
   - `query`, that includes `allowed_issuers`, which is an array of IDs of allowed issuers, and a set of requirement `req` for that specific claim, for example that the value `birthday` inside user's Claim is less than (`$lt`) 2000/01/01. 
   - `schema` includes the `url` of the claim JSON schema and `type` of the claim requested
