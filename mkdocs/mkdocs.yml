@@ -46,13 +46,14 @@ nav:
         - Add Claim to the Claims Tree: "getting-started/state-transition/new-identity-state.md"
         - Generate Proof for State Transition: "getting-started/state-transition/state-transition-proof.md"
         - Verify the Proof On-Chain: "getting-started/state-transition/on-chain-state-transition.md"
-  - Verifier Intergration: 
-    - Introduction: "verify-with-zkp-application-level/intro.md"
-    - ZK login workflow: "verify-with-zkp-application-level/zk-login-workflow.md"
-    - ZK login integration: "verify-with-zkp-application-level/zk-login-integration.md"
-    - Demo: "verify-with-zkp-application-level/demo.md"
-    - JWZ: "verify-with-zkp-application-level/jwz.md"
-    - Query: "verify-with-zkp-application-level/query-language.md"
+  - Verifier Library:
+      - Introduction: "verifier/verifier-library/verifier-library-intro.md"
+      - APIs: 
+        - Auth Request: "verifier/verifier-library/request-api-guide.md"
+        - Verification: "verifier/verifier-library/verification-api-guide.md"
+        - ZK Query Languange : "verifier/verifier-library/zk-query-language.md"
+      - Verifier Set Up: "verifier/verifier-library/verifier-set-up.md"
+      - JWZ: "verifier/verifier-library/jwz.md"
   - Circuits:
     - Main Circuits: "circuits/main-circuits.md"
     - Template Circuits: "circuits/template-circuits.md"
