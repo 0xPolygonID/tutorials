@@ -47,13 +47,13 @@ nav:
         - Generate Proof for State Transition: "getting-started/state-transition/state-transition-proof.md"
         - Verify the Proof On-Chain: "getting-started/state-transition/on-chain-state-transition.md"
   - Verifier Library:
-      - Introduction: "verifier/verifier-library/verifier-library-intro.md"
+      - Introduction: "verifier/verifier-library-intro.md"
       - APIs: 
-        - Auth Request: "verifier/verifier-library/request-api-guide.md"
-        - Verification: "verifier/verifier-library/verification-api-guide.md"
-        - ZK Query Languange : "verifier/verifier-library/zk-query-language.md"
-      - Verifier Set Up: "verifier/verifier-library/verifier-set-up.md"
-      - JWZ: "verifier/verifier-library/jwz.md"
+        - Auth Request: "verifier/request-api-guide.md"
+        - Verification: "verifier/verification-api-guide.md"
+        - ZK Query Languange : "verifier/zk-query-language.md"
+      - Verifier Set Up: "verifier/verifier-set-up.md"
+      - JWZ: "verifier/jwz.md"
   - Circuits:
     - Main Circuits: "circuits/main-circuits.md"
     - Template Circuits: "circuits/template-circuits.md"
