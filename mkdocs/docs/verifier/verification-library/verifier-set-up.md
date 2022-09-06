@@ -356,8 +356,8 @@ To do so add the [Static Folder](https://github.com/0xPolygonID/tutorial-example
 	When visiting the url, the user will need to scan the QR code with their ID Wallet
 
 	<div align="center">
-	<img src= "../../imgs/verifier-static-1.png" align="" width="600"/>
-	<img src= "../../imgs/verifier-static-2.png" align="" width="600"/>
+	<img src= "../../../imgs/verifier-static-1.png" align="" width="600"/>
+	<img src= "../../../imgs/verifier-static-2.png" align="" width="600"/>
 	<div align="center"><span style="font-size: 14px;">
 	<br>
 	<b> Sign Up with Polygon ID - Client Side </b></div>

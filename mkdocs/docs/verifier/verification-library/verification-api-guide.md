@@ -1,6 +1,6 @@
 # Verification
 
-After having presented an [Auth Request](./request-api-guide.md) to the user's wallet, it will process the request and pack the proof inside a JWZ token. The JWZ contains a zk Proof that must be verified in order to authenticate the user. Let's see how to implement the verification.
+After having presented an [Auth Request](./request-api-guide.md) to the user's wallet, it will process the request and pack the proof inside a [JWZ token](./jwz.md). The JWZ contains a zk Proof that must be verified in order to authenticate the user. Let's see how to implement the verification.
 
 > The proof verification follows the same flow either the Auth Request is a [Basic Auth](./request-api-guide.md#basic-auth) or a [Query-based Auth](./request-api-guide.md#query-based-auth)
 
@@ -96,12 +96,12 @@ The auth library provides a simple handler to extract all the necessary metadata
 
 Starting from the circuit specific public verification key, the proof and the public inputs provided by the user inside the JWZ it is possible to verify the proof. In this case the Proof verification involves: 
 
-- Verification of the proof contained in the JWZ signature based on the [`Auth Circuit`](../circuits/main-circuits.md#authentication)
-- Verification of the proof contained in the JWZ payload based on the [`AtomicQuerySig Circuit`](../circuits/main-circuits.md#credentialatomicquerysig) or [`AtomicQueryMTP`](../circuits/main-circuits.md#credentialatomicquerymtp) based on the query.
+- Verification of the proof contained in the JWZ signature based on the [`Auth Circuit`](../../circuits/main-circuits.md#authentication)
+- Verification of the proof contained in the JWZ payload based on the [`AtomicQuerySig Circuit`](../../circuits/main-circuits.md#credentialatomicquerysig) or [`AtomicQueryMTP`](../../circuits/main-circuits.md#credentialatomicquerymtp) based on the query.
 
 ### Verification of On-chain Identity States
 
-Starting from the Identifier of the user, the State is fetched from the blockchain and compared to the state provided as input to the proof to check whether the user is actually "owner" of the state used to generate the proof. It's important to note here is that there's no gas cost associated with the verification as the VerifyState method is just reading the identity state of the user on-chain without making any operations/smart contract call. The same verfication is performed for the Issuer Identity State.
+Starting from the Identifier of the user, the [State](../../contracts/overview.md) is fetched from the blockchain and compared to the state provided as input to the proof to check whether the user is actually "owner" of the state used to generate the proof. It's important to note here is that there's no gas cost associated with the verification as the VerifyState method is just reading the identity state of the user on-chain without making any operations/smart contract call. The same verfication is performed for the Issuer Identity State.
 
 In this part, it is also verified that the claim subject of the query hasn't been revoked by the Issuer.
 
@@ -117,8 +117,4 @@ This "off-circuit" verification is important because a user can potentially modi
 > At the end of the workflow:
 > - The web-client is able to authenticate the user using its identifier `ID` after having established that the user controls that identity and satisfies the query presented in the auth request.
 > - The user is able to log-in to the platform without disclosing any personal information to the client exept for its identifier
-
-[] Add link to JWZ
-[] Add link to the identity state Smart Contract 
-
 
