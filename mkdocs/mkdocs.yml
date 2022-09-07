@@ -53,7 +53,7 @@ nav:
       - APIs: 
         - Auth Request: "verifier/verification-library/request-api-guide.md"
         - Verification: "verifier/verification-library/verification-api-guide.md"
-        - ZK Query Languange : "verifier/verification-library/zk-query-language.md"
+        - ZK Query Language : "verifier/verification-library/zk-query-language.md"
       - Verifier Set Up: "verifier/verification-library/verifier-set-up.md"
       - JWZ: "verifier/verification-library/jwz.md"
   - Circuits:
