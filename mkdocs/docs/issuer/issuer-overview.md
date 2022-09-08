@@ -1,18 +1,18 @@
 # Issuer Overview
 
-The issuer is any subject that issues credentials. For example, a DAO that issues “membership credentials” to its members.  
+The issuer is any subject that issues claims. You can think of a claim as a statement: something an issuer says about another subject. For example, when a university (issuer) says that a student (subject) has a degree, this is a statement (claim).
 
-To operate, an issuer must set up a self-hosted server (Polygon ID Identity Server - coming) or directly interact with the Polygon ID Platform. The server stores the issuer’s private key making the identity management simpler.
+An issuer might be: 
 
-After setting up a server, an issuer can start issuing credentials by digitally signing those. These credentials are stored inside the server. 
-Additionally, the server allows an Issuer to: 
+- A DAO that issues “membership claims" to its members
+- A Government that issues ID to its citizens
+- An AI-based Application that issues "proof of personhood" claims 
+- An employer that endorses its employees
 
-- Issue Merkle Tree-Based Credentials  
-- Revoke Credentials
-- Rotate Keys 
+[Claims](../getting-started/claim/generic-claim.md) are a flexible data format able to express any type of information so that developers can unleash their creativity.
 
-These three actions require the issuer to interact with the State Smart Contract by executing a State Transition Function.
+[Iden3 Core](../getting-started/getting-started.md) guides the reader through the core primitives that underpin the role of an Issuer.
 
-The credentials must be shared with the subject users. To interact with a user, the issuer must set up a client able to authenticate the user and share the credential with the respective receiver’s wallet. (link to verifier - authentication library)
+To operate, an issuer must set up a self-hosted server or directly interact with the Polygon ID Platform. 
 
-[] Add Development Models to an Issuer
+> Identity Server and Polygon ID Platform coming soon! 

@@ -1,7 +1,5 @@
 # Introduction
 
-A Verifier is any Web2 or Web3 platform that wants to authenticate users based on their Polygon ID Credentials. Verifiers can set up queries based on **users’ existing credentials** collected from a broad set of issuers. A Query encapsulates the criteria that a user must match to authenticate, such as “must be a member of XYZ DAO” or “must be over 18 years old”. *Authenticate with Polygon ID* provides a seamless, customized and privacy-based authentication experience to users.
-
 <div align="center">
 <img src= "../../../imgs/login.png" align="center" width="600"/>
 <div align="center"><span style="font-size: 14px;">
@@ -26,5 +24,5 @@ This section provides all the elements needed to integrate "Authentication with 
 
 The authentication flow can be implemented either in GoLang or Javascript
 
-- [Go Iden3 Auth Library](https://github.com/iden3/go-iden3-auth)
-- [JS Iden3 Auth Library](https://github.com/iden3/js-iden3-auth)
+- [Go Iden3 Verification Library](https://github.com/iden3/go-iden3-auth)
+- [JS Iden3 Verification Library](https://github.com/iden3/js-iden3-auth)
