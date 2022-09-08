@@ -59,11 +59,22 @@ nav:
         - ZK Query Language : "verifier/verification-library/zk-query-language.md"
       - Verifier Set Up: "verifier/verification-library/verifier-set-up.md"
       - JWZ: "verifier/verification-library/jwz.md"
+  - Wallet: 
+    - Overview: "wallet/wallet-overview.md"
+    - Why Polygon ID Wallet?: "use-of-polygonid-wallet.md"
+    - Wallet SDK: 
+      - Wallet SDK Introduction: "wallet-sdk-intro.md"
+      - All About Flutter SDK: "flutter-plugin-sdk.md"
+      - Polygon SDK Example App: "polygonid-sdk-example-app.md"
+      - Polygon SDK Plugin: "polygonid-sdk-plugin.md"
+      
+
   - Circuits:
     - Main Circuits: "circuits/main-circuits.md"
     - Template Circuits: "circuits/template-circuits.md"
   - Contracts: 
     - Overview: "contracts/overview.md"
+  
 
 
 # If you declare plugins, you need to declare all of them, 
