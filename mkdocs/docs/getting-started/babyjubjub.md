@@ -43,4 +43,4 @@ Here is an example of a public key generated using Baby Jubjub:
 500d43e1c3daa864995a9615b6f9e3a4fd0af018548c583773b6e422b14201a3
 ```
 
-> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L20)
+> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L21)

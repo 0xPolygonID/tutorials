@@ -54,4 +54,4 @@ Every verification inside Iden3 protocol is executed against the Identity State.
 - user B needs to produce a merkle proof of the existence of that claim inside user's A `ClR`
 - user B needs to produce a merkle proof of non existence of the corresponding revocation nonce inside user's A `ReT`
 
-> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L112)
+> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L124)
