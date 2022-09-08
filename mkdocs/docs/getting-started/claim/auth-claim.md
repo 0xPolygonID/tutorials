@@ -69,4 +69,4 @@ Value:
 
 The data stored in position 1 of the Value contains the Revocation Nonce. This value will be used to revoke/invalidate an `AuthClaim`. More on that in the next section.
 
-> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L77)
+> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L89)

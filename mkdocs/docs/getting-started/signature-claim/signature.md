@@ -22,6 +22,6 @@ To issue a claim by signing it, the only thing needed is access to your [Baby Ju
 	claimSignature := babyJubjubPrivKey.SignPoseidon(claimHash.BigInt())
     ```
 
-> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L127)
+> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L139)
 
 

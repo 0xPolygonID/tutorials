@@ -26,6 +26,7 @@ markdown_extensions:
 
 nav:
   - Issuer:
+    - Overview: "issuer/issuer-overview.md"
     - Iden3 Core:  
       - Introduction: "getting-started/getting-started.md"
       - Core Components:
@@ -39,6 +40,7 @@ nav:
           - Identity Structure: "getting-started/identity/identity-structure.md"
           - Identity State: "getting-started/identity/identity-state.md"
           - Identifier: "getting-started/identity/identifier.md"
+        - JSON-LD Credential: "getting-started/json-ld-credential.md"
       - Issue Claim: 
         - Overview: "getting-started/issue-claim-overview.md"
         - via Signature: "getting-started/signature-claim/signature.md"
@@ -48,6 +50,7 @@ nav:
           - Generate Proof for State Transition: "getting-started/state-transition/state-transition-proof.md"
           - Verify the Proof On-Chain: "getting-started/state-transition/on-chain-state-transition.md"
   - Verifier:
+    - Overview: "verifier/verifier-overview.md"
     - Verification Library:
       - Introduction: "verifier/verification-library/verifier-library-intro.md"
       - APIs: 
@@ -55,7 +58,7 @@ nav:
         - Verification: "verifier/verification-library/verification-api-guide.md"
         - ZK Query Language : "verifier/verification-library/zk-query-language.md"
       - Verifier Set Up: "verifier/verification-library/verifier-set-up.md"
-      - JWZ: "verifier/verification-library/jwz.md"
+      - JWZ: "verifier/verification-library/jwz.md"    
   - Circuits:
     - Main Circuits: "circuits/main-circuits.md"
     - Template Circuits: "circuits/template-circuits.md"

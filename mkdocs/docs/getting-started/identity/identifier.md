@@ -41,4 +41,4 @@ Hereafter, this identity is represented as a mapping: `ID => IdS`. This gets pub
 
 The Identity State hasn't been published on-chain yet as claims haven't been issued yet. This is the subject of the next section.
 
-> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L121)
+> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L133)
