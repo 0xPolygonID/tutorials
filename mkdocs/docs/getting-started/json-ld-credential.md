@@ -12,20 +12,20 @@ Let's anaylise what is a JSON-LD Credential with a practical example. The first 
 
     ```go
     Index:
-        {
-        "3597740199397447713171098431090699040869", 
-        "86645363564555144061174553487309804257148595648980197130928167920533372928", 
-        "19960424",
-        "1"  
-        }
+    {
+    "3613283249068442770038516118105710406958", // Claim Schema hash
+    "86645363564555144061174553487309804257148595648980197130928167920533372928", // ID Subject of the claim
+    "19960424", // First index data slot stores the date of birth
+    "1"  //  Second index data slot stores the document type
+    }
 
     Value:
-        { 
-        "227737944108667786680629310498", 
-        "0",
-        "0", 
-        "0"  
-        }	
+    { 
+    "227737944108667786680629310498", // Revocation nonce 
+    "0",
+    "0", // first value data slot
+    "0"  // second value data slot
+    }	
     ```
 
 === "JSON-LD Credential"
@@ -91,7 +91,6 @@ Let's anaylise what is a JSON-LD Credential with a practical example. The first 
     ```
 
 
-
 The core claim (1st tab) contains a limited set of information such as the schema hash, the identity subject of the claim, the data slots stored inside the claim (in this case the date of birth) and the revocation nonce of the claim. It's worth noting that the claim by itself doesn't say anything about the meaning of this content. How can someone infer that that value refers to a birthday? Furthermore the claim doesn't reveal information about the issuer, nor whether it has been revoked or not. All these set of extended information about a claim are included in the JSON-LD format in order to allow other parties to consume and understand the content of a claim.
 
 In particular the first part of the JSON-LD Credential contains the details of the claim: 
@@ -118,14 +117,11 @@ The second part ofthe JSON-LD Credential contains a cryptographic proof that the
 
 The subject of the claim will store the JSON-LD format credential inside their wallet. Starting from the details contained inside the Credential he/she will be able to generate zk proofs and present it to Verifiers in the form of [JWZ](../verifier/verification-library/jwz.md).
 
-- [] Is it also able to parse revocation nonce etcetera
-- [] What is signature and why we both have in the signature and merkle tree type of claim
-- [] Add link to MT type of claim 
-- [] Start with a KYC type claim
-- [] Why we need that? 
-- [] Describe a JSON-LD Credential
-- [] Library to parse one from the other
-- [] Modify VC to match the claim
-- [] Specify that the actual ZKP is generated locally on mobile 
-- [] Add reference to JSON-LD
-- [] Are you actually parsing from claim to VC. How can you reverse hash values such as expiration? Which comes first actually? Do you first design the credential or the claim
+- [] Why we need that JSON-LD Credential?
+- [] How am I able to get from the credential to core-claim? Is it gonna match? Is it also able to parse revocation nonce etcetera? 
+- [] Does the parsing also work in reverse? From claim to VC?
+- [] What is signature and why we both have in the signature and merkle tree type of claim?
+- [] Add link to MT type of claim
+- [] Add reference to JSON-LD specification
+- [] Add part to explain how to parse the VC into a core claim
+

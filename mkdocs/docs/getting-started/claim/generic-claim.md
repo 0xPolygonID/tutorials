@@ -2,6 +2,8 @@
 
 A [Claim](https://docs.iden3.io/protocol/spec/#claims) is a statement made by one identity about another identity or about itself. In general, claim is a flexible and modular data primitive that can be used to represent any identity-related information.
 
+Claims can be viewed as Soul Bound Tokens (SBTs) on steroids. Similar to SBTs, the ownership is cryptographically guaranteed allowing control and reusability across platforms. Differently to SBTs, claims live off-chain ensuring users privacy over their Personal Identifiable Information.
+
 1. **Update the required dependencies.**
 
 	```bash
