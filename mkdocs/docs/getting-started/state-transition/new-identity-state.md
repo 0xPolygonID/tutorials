@@ -99,4 +99,4 @@ Let's see what happens when if we decide to add a new claim to the Claims Tree.
 
 After issuing a new claim, the claims tree gets modified and, therefore, the Identity State changes. To complete the state transition it is necessary to verify it inside a circuit. The type `StateTransitionInputs` lets us pack the inputs needed to generate a proof while the `InputsMarshal()` function turns it into a json file that can be used directly as State Transition Circuit inputs. These inputs will be used in the next section.
 
-> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L142)
+> The executable code can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/issuer-protocol/main.go#L156)

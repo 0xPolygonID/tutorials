@@ -1,10 +1,6 @@
 # Introduction
 
-The role of the issuer is to create any type of identity related information in the form of claim. 
-
-Claims can be viewed as Soul Bound Tokens (SBTs) on steroids. Similar to SBTs, the ownership is cryptographically guaranteed allowing control and reusability across platforms. Differently to SBTs, claims live off-chain ensuring users privacy over their Personal Identifiable Information. 
-
-The first part of the tutorial walks you through the core components of Iden3 protocol necessary to initiate an identity and design claims: 
+The first part of the tutorial walks you through the core components of Iden3 protocol necessary to initiate an identity and design claims:
 
 - [Baby Jubjub Keypair](babyjubjub.md)
 - [Sparse Merkle Tree](mt.md) 
