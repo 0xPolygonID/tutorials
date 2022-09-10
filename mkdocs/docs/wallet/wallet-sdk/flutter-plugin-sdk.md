@@ -1,18 +1,104 @@
-# Wallet Overview
+ # All About Flutter SDK
 
-A digital wallet is a software that can hold and manage `Verifiable Credentials` (that consist of claims about the wallet holder) and digital identity data for wallet's holder. Based on the principles of Self-Sovereign Identity (SSI) and cryptography, a wallet helps its Holder share data with others without expositing any other sensitive private information stored on it. Only the wallet holder has the right to decide which information to share with other entities and what needs to remain private. 
+Flutter plug-in package helps in implementaing code for a specific platform: Android/iOS/web. To know more about different types of packages and the plugins provided by Flutter, click [here] (https://docs.flutter.dev/development/packages-and-plugins/developing-packages).
 
-The Polygon ID Wallet is a `Privacy by Default` wallet that helps protecting a user's identity (and other meta data) by using zero-knowledge protocols. As seen in the The wallet interacts with an Issuer for claim ganeration and with Verifier for verifying these claims.
+## Steps to install Flutter 
 
-## Features of Polygon ID Wallet
+ ### Install Flutter SDK
+ Flutter SDK installation is available for different operating systems including Windows, macOS, Linux, and ChromeOS. 
+ 1. Click [here](https://docs.flutter.dev/get-started/install) to select your operating system. 
+ 2. Check for the system requirements specific for each Operating System and make sure that you have all the necessary tools already installed on your system. For instance, for macOS, `git` must be pre-insatlled while for Windows, you need to have `git for Windows` and `Windows Powershell 5.0 or above` installed. 
+ 3. Download the installation bundle (install the latest version for stable release ) relevant to your Operating System. In case of macOS, different bundles are available for Intel and Apple Silicon processors. 
+ **Note** The latest Flutter SDK version is 3.0.5.
+ 4. After extracting the file to your directory, add Flutter to your path using path variable:
+  
+  ` export PATH="$PATH:`pwd`/flutter/bin"`
+where `pwd` is path to your present working directory.
 
-The Polygon ID Wallet supports the following features:
+**Note** While running a flutter command, if you encounter "command not found : flutter" error, make sure that the path set above is correct. If you still encounter the error, install Vim emulation for Visual Studio Code as extension and follow these steps: 
+1. Run the following command:
+```
+vim $HOME/.zshrc
+```
+2. Press "I" to initiate the insert mode.
+3. Run the following command to set your path variable:
+```
+export PATH="$PATH:/Flutter-Directory-Path/flutter/bin"
 
-- Privacy by design and Self-soveriegnity: User is in full control of his/her identity data. Excahnge of Verifiable Credentials with other identities without the need of an intermediatery or centralized authroity. 
-- Open and Permissionless. 
-- Fetching, storing, and managing claims
-- Generating cost optimized zero-knowldege proofs for claim verification.
-- Authentication with Issuer and Verifier based on QR Codes/biometrics.
-- Identity recovery using seed phrase.
-- Supports generating zero-knowledge proofs, hence ensures data security. 
+```
+where "Flutter-Directory-Path" is the directory where your Flutter is installed.
+
+ 4. Press `Escape` on your keyboard and then enter the following command:
+    ```
+    :wq!
+    ```
+    Press `Enter`. This saves the file in vim and exist the editor (wq stands for write and quit).
+
+ 5. Run your flutter commands. 
+
+
+### Using Dart with Flutter
+
+Flutter apps are created using a  programming langauge called Dart. An object-oriented language with similarity to C language, Dart is used for c creating mobile and web applications. With Dart, Flutter apps  can be developed quickly and deplyed to different platforms.
+Note: For more information on Dart, click [here](https://dart.dev).
+
+### Using Editor Plugins for Flutter and Dart
+
+
+Generally, developers can create a Flutter-based app using a combination of the CLI(Command Line Interface) and a text editor. The easier way is to install plugin within the editor. The plugins for editors like Visual Studio Code, Android Studio, Emacs, and IntelliJ are available for installation. To install the plugin for both Flutter and Dart on VS Code:
+
+1. Open VS Code.
+2. Click View menu, and then click **Command Palette**.
+3. On the palette, enter **Extensions**. The system dispalys a list of options. Select **Extensions: Install Extensions**. 
+4. In the **Search Extension in Markdown** box, enter **flutter**. The system displays the Flutter plugin. 
+Click **install**.This installs Flutter along with Dart plugin. 
+
+### Build an App using Flutter: First Few Steps
+Once your Flutter and Dart plugins are installed, you can start creating your first Flutter app. 
+
+
+1. On the Terminal or Powershell, change your directory to where you want to install your app:
+```
+cd new-app-directory
+```
+2. Create your first app; let's call it "firstapp". 
+```
+flutter create firstapp
+flutter run
+```
+With these command, the Flutter SDK creates a new project from scratch.
+
+3. 
+With this, Flutter creates your app:
+<p align ="center"><img src="imgs/create-first-flutter-app.png" border ="1" width ="650" />
+</p>
+<div align= "center"> <b> Figure 2: Creating an App in Flutter </b>
+</div>
+<br>
+
+3. Change your directory to your app:
+
+```
+cd firstapp
+```
+**Note**: In your directory, inside your app, there is a `lib` folder, which contains a `main.dart` file. When you click  `main.dart`, it opens in your editor. This file contains the Dart code and for your own app, you will need to replace the content of this .dart file with your own code. 
+
+#### Pubspec.yaml File
+
+In you app folder, click the `pubspec.yaml` to open it in your editor. The `pubspec.yaml` file contains the following information about your app:
+
+- Name of your app
+- Description 
+- Version and build number of your app
+- Environment
+- Dependencies
+
+#### Add Dependencies of your app to Pubspec.yaml
+
+Dependencies are any additional packages that your app requires to run smoothly. These dependencies can be automatically updated to the latest version by running the following command:
+
+```
+flutter pub upgrade --major-versions
+```
+To update the dependencies manually, change the dependency version number to the latest one.
 
