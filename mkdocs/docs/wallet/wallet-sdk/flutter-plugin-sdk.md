@@ -1,25 +1,28 @@
 # All About Flutter SDK
 
-Flutter plug-in package helps in implementaing code for a specific platform: Android/iOS/web. To know more about different types of packages and the plugins provided by Flutter, click [here] (https://docs.flutter.dev/development/packages-and-plugins/developing-packages).
+Flutter plug-in package helps in implementaing code for a specific platform: Android/iOS/web. To know more about different types of packages and the plugins provided by Flutter, click [here](https://docs.flutter.dev/development/packages-and-plugins/developing-packages).
 
 ## Steps to install Flutter 
 
- ### Install Flutter SDK
+### Install Flutter SDK
+
  Flutter SDK installation is available for different operating systems including Windows, macOS, Linux, and ChromeOS. 
+
  1. Click [here](https://docs.flutter.dev/get-started/install) to select your operating system. 
  2. Check for the system requirements specific for each Operating System and make sure that you have all the necessary tools already installed on your system. For instance, for macOS, `git` must be pre-insatlled while for Windows, you need to have `git for Windows` and `Windows Powershell 5.0 or above` installed. 
  3. Download the installation bundle (install the latest version for stable release ) relevant to your Operating System. In case of macOS, different bundles are available for Intel and Apple Silicon processors. 
  **Note** The latest Flutter SDK version is 3.0.5.
  4. After extracting the file to your directory, add Flutter to your path using path variable:
   
-  ` export PATH="$PATH:`pwd`/flutter/bin"`
-where `pwd` is path to your present working directory.
+    ` export PATH="$PATH:`pwd`/flutter/bin"`
+    where `pwd` is path to your present working directory.
 
-**Note** While running a flutter command, if you encounter "command not found : flutter" error, make sure that the path set above is correct. If you still encounter the error, install Vim emulation for Visual Studio Code as extension and follow these steps: 
+**Note**:  While running a flutter command, if you encounter "command not found : flutter" error, make sure that the path set above is correct. If you still encounter the error, install Vim emulation for Visual Studio Code as extension and follow these steps: 
+
 1. Run the following command:
-```
-vim $HOME/.zshrc
-```
+    ```
+    vim $HOME/.zshrc
+    ```
 2. Press "I" to initiate the insert mode.
 3. Run the following command to set your path variable:
 ```
@@ -68,19 +71,18 @@ flutter run
 ```
 With these command, the Flutter SDK creates a new project from scratch.
 
-3. 
-With this, Flutter creates your app:
-<p align ="center"><img src="imgs/create-first-flutter-app.png" border ="1" width ="650" />
-</p>
-<div align= "center"> <b> Figure 2: Creating an App in Flutter </b>
-</div>
-<br>
+3. With this, Flutter creates your app:
+    <p align ="center"><img src="imgs/create-first-flutter-app.png" border ="1" width ="650"/>
+    </p>
+    <div align= "center"> <b> Figure 2: Creating an App in Flutter </b>
+    </div>
 
-3. Change your directory to your app:
+4. Change your directory to your app:
 
-```
-cd firstapp
-```
+    ```
+    cd firstapp
+    ```
+
 **Note**: In your directory, inside your app, there is a `lib` folder, which contains a `main.dart` file. When you click  `main.dart`, it opens in your editor. This file contains the Dart code and for your own app, you will need to replace the content of this .dart file with your own code. 
 
 #### Pubspec.yaml File

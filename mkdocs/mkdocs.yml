@@ -62,14 +62,14 @@ nav:
     - Overview: "wallet/wallet-overview.md"
     - Wallet SDK: 
       - All About Flutter SDK: "wallet/wallet-sdk/flutter-plugin-sdk.md"
-      - Polygon SDK Example App: "polygonid-sdk-example-app.md"
-      - Polygon SDK Plugin: "polygonid-sdk-plugin.md"
+      - Polygon SDK Example App: "wallet/wallet-sdk/polygonid-sdk-example-app.md"
+      - Polygon SDK Plugin: "wallet/wallet-sdk/polygonid-sdk-plugin.md"
     - Wallet SDK Core Functionality: 
       - Identity Wallet:
-        - Create Identity: "create-identity.md"
-        - Sign and Authenticate: "sign-and-authenticate.md"
+        - Create Identity: "wallet/wallet-sdk-core-functionality/create-identity.md"
+        - Sign and Authenticate: "wallet/wallet-sdk-core-functionality/sign-and-authenticate.md"
       - Credential Wallet: 
-        - Fetch and Save Claims: "fetch-and-save-claims.md"
+        - Fetch and Save Claims: "wallet/wallet-sdk-core-functionality/fetch-and-save-claims.md"
   - Circuits:
     - Main Circuits: "circuits/main-circuits.md"
     - Template Circuits: "circuits/template-circuits.md"
