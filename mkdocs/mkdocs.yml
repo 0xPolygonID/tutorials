@@ -66,10 +66,10 @@ nav:
       - Polygon SDK Plugin: "wallet/wallet-sdk/polygonid-sdk-plugin.md"
     - Wallet SDK Core Functionality: 
       - Identity Wallet:
-        - Create Identity: "wallet/wallet-sdk-core-functionality/create-identity.md"
-        - Sign and Authenticate: "wallet/wallet-sdk-core-functionality/sign-and-authenticate.md"
+        - Create Identity: "wallet/wallet-sdk-core-functionality/identity-wallet/create-identity.md"
+        - Sign and Authenticate: "wallet/wallet-sdk-core-functionality/identity-wallet/sign-and-authenticate.md"
       - Credential Wallet: 
-        - Fetch and Save Claims: "wallet/wallet-sdk-core-functionality/fetch-and-save-claims.md"
+        - Fetch and Save Claims: "wallet/wallet-sdk-core-functionality/credential-wallet/fetch-and-save-claims.md"
   - Circuits:
     - Main Circuits: "circuits/main-circuits.md"
     - Template Circuits: "circuits/template-circuits.md"
