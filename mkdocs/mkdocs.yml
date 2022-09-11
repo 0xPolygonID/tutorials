@@ -61,7 +61,7 @@ nav:
   - Wallet: 
     - Overview: "wallet/wallet-overview.md"
     - Wallet SDK: 
-      - All About Flutter SDK: "flutter-plugin-sdk.md"
+      - All About Flutter SDK: "wallet/wallet-sdk/flutter-plugin-sdk.md"
       - Polygon SDK Example App: "polygonid-sdk-example-app.md"
       - Polygon SDK Plugin: "polygonid-sdk-plugin.md"
     - Wallet SDK Core Functionality: 
