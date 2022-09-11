@@ -1,6 +1,7 @@
 # PolygonID SDK Plugin
 
-The PolygonID Mobile SDK uses flutter plugin that lets you interact with the PolygonID platform. 
+
+The PolygonID Mobile SDK uses flutter plugin that lets you interact with the PolygonID platform. It is a tool that lets you use everything that Polygon ID provides (identity wallet, credential wallet, proof generation, etc.)
 
 ## Install PolygonID Mobile SDK Plugin
 

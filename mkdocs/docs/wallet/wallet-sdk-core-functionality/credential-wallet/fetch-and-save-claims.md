@@ -1,18 +1,85 @@
-# Wallet Overview
 
-A digital wallet is a software that can hold and manage `Verifiable Credentials` (that consist of claims about the wallet holder) and digital identity data for wallet's holder. Based on the principles of Self-Sovereign Identity (SSI) and cryptography, a wallet helps its Holder share data with others without expositing any other sensitive private information stored on it. Only the wallet holder has the right to decide which information to share with other entities and what needs to remain private. 
+# Fetch and Save Claims
 
-The Polygon ID Wallet is a `Privacy by Default` wallet that helps protecting a user's identity (and other meta data) by using zero-knowledge protocols. As seen in the The wallet interacts with an Issuer for claim ganeration and with Verifier for verifying these claims.
+ An Integrator can fetch claims stored on an Issuer and then save it to the SDK. 
 
-## Features of Polygon ID Wallet
+ To fetch and save a list of claims from Issuer, the `fetchAndSaveClaims()` function is called. 
 
-The Polygon ID Wallet supports the following features:
+ ```
+ Future<List<ClaimEntity>> fetchAndSaveClaims(
+      {required List<CredentialRequestEntity> credentialRequests}) 
+      
+      {
+        return _fetchAndSaveClaimsUseCase.execute(param: credentialRequests);
+      } 
 
-- Privacy by design and Self-soveriegnity: User is in full control of his/her identity data. Excahnge of Verifiable Credentials with other identities without the need of an intermediatery or centralized authroity. 
-- Open and Permissionless. 
-- Fetching, storing, and managing claims
-- Generating cost optimized zero-knowldege proofs for claim verification.
-- Authentication with Issuer and Verifier based on QR Codes/biometrics.
-- Identity recovery using seed phrase.
-- Supports generating zero-knowledge proofs, hence ensures data security. 
+```
 
+The `fetchAndSaveClaims()` function uses a list of `Credential Request Entities`as the input parameter. A `Credential Request Entity` is composed of the identifier string (generated using `createIdentity()` function), the circuit data and other related data). The function returns a list of `Claim Entities`. 
+
+## Wallet-Issuer Interaction for Fetching Claims
+
+
+- Integrator scans the QR code displayed on the Issuer site.
+
+- The Integrator requests the `Credential Request Entities` (or claims) that it intends to fetch from the Issuer. The Identifier that forms part of a `Credential Request Entity` is used to authenticate the Integrator. 
+
+- Issuer validates the identity returns a list of `Claim Entities` back to the Integrator.
+
+- The claims are added to the Polygon ID app and are stored on the SDK. 
+
+# Get Claims
+
+After a claim is fetched from an Issuer and stored on the wallet sdk, an Integrator can retrieve this claim from the storage. This is done using `getClaims()` function. 
+
+```
+Future<List<ClaimEntity>> getClaims({List<FilterEntity>? filters}) 
+
+    {
+        return _getClaimsUseCase.execute(param: filters);
+
+    }
+```
+This function returns a list of `Claim Entities` based on some pre-defined criteria or filters. 
+
+## Get Claims by Ids
+
+A list of claims stored on the sdk can be retrieved using claim ids. This is done using  the `getClaimsByIds()` function: 
+
+```
+Future<List<ClaimEntity>> getClaimsByIds({required List<String> ids}) 
+
+    {
+        return _getClaimsUseCase.execute(param: [
+        FilterEntity(operator: FilterOperator.inList, name: 'id', value: ids)
+    ]);
+
+    }
+```
+
+## Remove Claims
+
+The claims stored on the sdk can be removed locally (they remain on the Issuer unless removed by it) by the Integrator. This is done using `removeClaims()` function, which removes claims from a list of ids:
+
+```
+Future<void> removeClaims({required List<String> ids}) 
+
+    {
+
+        return _removeClaimsUseCase.execute(param: ids);
+    }
+```
+A single claim can also be removed based on its id using the `removeClaim()` function:
+
+```
+Future<void> removeClaim({required String id}) 
+
+    {
+
+    return _removeClaimsUseCase.execute(param: [id]);
+
+    }
+
+```
+
+In the near future, additional functionality including updating claims would also be available on the PolygonID sdk. 
