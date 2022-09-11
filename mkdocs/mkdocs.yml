@@ -60,12 +60,16 @@ nav:
       - JWZ: "verifier/verification-library/jwz.md"
   - Wallet: 
     - Overview: "wallet/wallet-overview.md"
-    - Why Polygon ID Wallet?: "use-of-polygonid-wallet.md"
     - Wallet SDK: 
-      - Wallet SDK Introduction: "wallet-sdk-intro.md"
       - All About Flutter SDK: "flutter-plugin-sdk.md"
       - Polygon SDK Example App: "polygonid-sdk-example-app.md"
       - Polygon SDK Plugin: "polygonid-sdk-plugin.md"
+    - Wallet SDK Core Functionality: 
+      - Identity Wallet:
+        - Create Identity: "create-identity.md"
+        - Sign and Authenticate: "sign-and-authenticate.md"
+      - Credential Wallet: 
+        - Fetch and Save Claims: "fetch-and-save-claims.md"
   - Circuits:
     - Main Circuits: "circuits/main-circuits.md"
     - Template Circuits: "circuits/template-circuits.md"
