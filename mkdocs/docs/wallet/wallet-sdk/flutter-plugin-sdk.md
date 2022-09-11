@@ -1,8 +1,8 @@
- # All About Flutter SDK
- 
+# All About Flutter SDK
+
 Flutter plug-in package helps in implementaing code for a specific platform: Android/iOS/web. To know more about different types of packages and the plugins provided by Flutter, click [here] (https://docs.flutter.dev/development/packages-and-plugins/developing-packages).
 
-## Steps to Install Flutter 
+## Steps to install Flutter 
 
  ### Install Flutter SDK
  Flutter SDK installation is available for different operating systems including Windows, macOS, Linux, and ChromeOS. 
@@ -101,4 +101,3 @@ Dependencies are any additional packages that your app requires to run smoothly.
 flutter pub upgrade --major-versions
 ```
 To update the dependencies manually, change the dependency version number to the latest one.
-
