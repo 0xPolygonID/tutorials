@@ -36,6 +36,11 @@ The architecture of the framework is composed of three entities: Identity Holder
 
 <br>
 
+## Role of Wallet
+
+[Wallet](./wallet/wallet-overview.md) plays a crucial role in the seamless exchange of Verifiable Credentials and other related data with the Issuer, on one hand, and with the Verifier, on the other. As stated above, an Identity Holder carries his/her personal data (including credentials) in the wallet. At the backend, the wallet is able to create identities for an Integrator, fetch and save claims from the Issuer, and create zero-knowledge proofs to be presented to the Verifier. Being the carrier of the sensitive information, Wallet has been designed to ensure that the identity of its Holder is protected and preserved, and no sensitive data can be revealed to the third party without the consent of the Holder.  
+
+
 ## What can you achieve using Polygon ID?
 
 1. **Privacy using Zero-Knowledge Proofs**: An Identity Holder, using zero-knowldege proofs, can keep its personal data private. During the process of claim verification, it just needs to show that he is the owner of that claim without letting the Verifier know of the actual claim. For example, an Identity Holder can prove to a Verifier authority that s/he is above 18 years of age by presenting the proof that s/he is above 18 without revealing his/her actual age. This ensures minimum data exposure and hence ensures the safety of any sensitive data. 
