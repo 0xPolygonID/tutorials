@@ -18,7 +18,7 @@ A Query-based Auth requires user to prove that:
 	=== "Javascript"
 
         ```js
-        import {auth, protocol} from 'js-iden3-auth';
+        npm i @iden3/js-iden3-auth --save
         ```
 
 ## Basic Auth
