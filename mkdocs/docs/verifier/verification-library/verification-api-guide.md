@@ -89,7 +89,7 @@ Returns an instance of a Verifier. To set up a verifier different parameters nee
     authResponse = await verifier.fullVerify(tokenStr, authRequest);
     ```
 
-Execute the verification starting from the JWZ Token `tokenStr` and the `authRequest`. It verifies that the proof shared by the user inside the JWZ satisfies the criteria set by the verifier inside the initial request.
+Execute the verification. It verifies that the proof shared by the user satisfies the criteria set by the verifier inside the initial request.
 
 ## Verification - Under the Hood
 
