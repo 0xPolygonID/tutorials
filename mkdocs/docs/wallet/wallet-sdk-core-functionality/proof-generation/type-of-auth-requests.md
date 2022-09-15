@@ -89,7 +89,7 @@ where:
  - **reason**: reason of authentication (it could be age verification or simply a test flow)
  - **message**: Message to sign; can be left blank
  - **callbackUrl**: URL to which requested information is sent and response is received
- - **scope**: information realeted to the prrof request and the requiremenst to be fulfilled by the proof generated and shared from mobile
+ - **scope**: information realeted to the prrof request and the requiremenst to be fulfilled by the proof generated and shared from mobile. It is in the form of an array of proofs that the sdk generates. 
  - **0**: 
  - **id**: Scope id
  - **circuit_id**: Type of proof; in the above example, it is credentialAtomicQuerySig.
@@ -97,10 +97,10 @@ where:
  - **query**:
  - **allowedissuers**: types of Issuers allowed
  - **0: "*"** : All types of Issuers are allowed
- - **schema**:
+ - **schema**: A structure that is used for proof generation
  - **type**: Type of credentails allowed
  - **url**: url for getting the vocabulary  for the credential
- - **req**: Requirement here is that the user's birthday should fall before January 1, 2000
+ - **req**: A query request to a query circuit; for example, the user's birthday should fall before January 1, 2000
 
 
 ## Difference Between `Basic Auth` and `Query-based` Proofs
@@ -114,5 +114,6 @@ The basic difference between a Signature-based and MTP proof is based on time: A
 ## How is Proof sent to the Verifier?
 
 The wallet sdk sends the proof generated to a Verifier using a `callbackUrl`; this url is included in the auth request and includes the infirmation that the Verifier requests from the wallet sdk. So, the sdk sends the proof request  along with claim via this `callbackUrl` and receives the proof response from the Verifier on the same Url. 
+
 
 
