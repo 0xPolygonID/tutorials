@@ -97,10 +97,10 @@ The auth library provides a simple handler to extract all the necessary metadata
 
 ### Zero Knowledge Proof Verification
 
-Starting from the circuit specific public verification key, the proof and the public inputs provided by the user inside the JWZ it is possible to verify the proof. In this case the Proof verification involves: 
+Starting from the circuit specific public verification key, the proof and the public inputs provided by the user it is possible to verify the proof. In this case the Proof verification involves: 
 
-- Verification of the proof contained in the JWZ signature based on the [`Auth Circuit`](../../circuits/main-circuits.md#authentication)
-- Verification of the proof contained in the JWZ payload based on the [`AtomicQuerySig Circuit`](../../circuits/main-circuits.md#credentialatomicquerysig) or [`AtomicQueryMTP`](../../circuits/main-circuits.md#credentialatomicquerymtp) based on the query.
+- Verification of the proof contained based on the [`Auth Circuit`](../../circuits/main-circuits.md#authentication)
+- Verification of the proof contained based on the [`AtomicQuerySig Circuit`](../../circuits/main-circuits.md#credentialatomicquerysig) or [`AtomicQueryMTP`](../../circuits/main-circuits.md#credentialatomicquerymtp) based on the query.
 
 ### Verification of On-chain Identity States
 
