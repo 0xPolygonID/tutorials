@@ -1,6 +1,8 @@
 # Verification
 
-After having presented an [Auth Request](./request-api-guide.md) to the user's wallet, it will process the request and pack the proof inside a [JWZ token](./jwz.md). The JWZ contains a zk Proof that must be verified in order to authenticate the user. Let's see how to implement the verification.
+After having presented an [Auth Request](./request-api-guide.md) to the user's wallet, 
+it will process the request and generate a Proof that must be verified in order to authenticate the user. 
+Let's see how to implement the verification.
 
 > The proof verification follows the same flow either the Auth Request is a [Basic Auth](./request-api-guide.md#basic-auth) or a [Query-based Auth](./request-api-guide.md#query-based-auth)
 
