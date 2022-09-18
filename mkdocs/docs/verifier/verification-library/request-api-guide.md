@@ -18,12 +18,13 @@ A Query-based Auth requires user to prove that:
 	=== "Javascript"
 
         ```js
-        import {auth, protocol} from 'js-iden3-auth';
+        npm i @iden3/js-iden3-auth --save
         ```
 
 ## Basic Auth
 
-The Basic Auth Request allows to interact with a wallet and authenticate it by its identifier. It can be useful for an issuer that needs to share a claim with a user's wallet must authenticate him/her before. Polygon ID Basic Auth can also be implemented by any platform that is interested in providing a seamless web2-like login experience to its users without setting specific requirements.
+The Basic Auth Request allows to interact with a wallet and authenticate it by its identifier.  
+Polygon ID Basic Auth can be implemented by any platform that is interested in providing a seamless web2-like login experience to its users without setting specific requirements.
 
 #### CreateAuthorizationRequest
 
