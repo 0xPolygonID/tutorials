@@ -1,4 +1,4 @@
-# Verifier Set Up
+# Run a Verifier
 
 Any application that needs user authentication must set up a Verifier. A Verifier is made of a Server and a Client. 
 

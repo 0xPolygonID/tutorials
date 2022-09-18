@@ -9,18 +9,6 @@ A Query-based Auth requires user to prove that:
 - They are owner of an identity 
 - They own claim(s) that satisfy a certain property
 
-	=== "GoLang"
-
-        ```go
-        go get github.com/iden3/go-iden3-auth
-        ```
-
-	=== "Javascript"
-
-        ```js
-        npm i @iden3/js-iden3-auth --save
-        ```
-
 ## Basic Auth
 
 The Basic Auth Request allows to interact with a wallet and authenticate it by its identifier.  

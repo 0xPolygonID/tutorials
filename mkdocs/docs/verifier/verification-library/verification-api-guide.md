@@ -6,18 +6,6 @@ Let's see how to implement the verification.
 
 > The proof verification follows the same flow either the Auth Request is a [Basic Auth](./request-api-guide.md#basic-auth) or a [Query-based Auth](./request-api-guide.md#query-based-auth)
 
-=== "GoLang"
-
-    ```go
-    go get github.com/iden3/go-iden3-auth
-    ```
-
-=== "Javascript"
-
-    ```js
-    import {auth, resolver, protocol loaders, circuits} from 'js-iden3-auth';
-    ```
-
 **Unkpack the proof** 
 
 === "GoLang"
@@ -78,8 +66,7 @@ Returns an instance of a Verifier. To set up a verifier different parameters nee
 === "GoLang"
 
     ```go
-    authResponse, err := verifier.FullVerify(req.Context(), string(tokenBytes),
-    authRequest.(protocol.AuthorizationRequestMessage))
+    authResponse, err := verifier.FullVerify(req.Context(), string(tokenBytes), authRequest.(protocol.AuthorizationRequestMessage))
     ```
 
 === "Javascript"
@@ -90,6 +77,7 @@ Returns an instance of a Verifier. To set up a verifier different parameters nee
     ```
 
 Execute the verification. It verifies that the proof shared by the user satisfies the criteria set by the verifier inside the initial request.
+`authRequest` is the request previously presented to that specific user. 
 
 ## Verification - Under the Hood
 
