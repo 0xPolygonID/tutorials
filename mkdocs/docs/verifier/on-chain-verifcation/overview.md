@@ -9,7 +9,7 @@ This flow is especially needed when further on-chain logic wants to be implement
 - Block airdrops to users that belong to a specific country
 - Allow trading only to accounts that passed the KYC verification
 
-### Implement ERC20 zk airdrop in 20 minutes 
+## Implement ERC20 zk airdrop in 20 minutes 
 
 In this tutorial we are gonna create a ERC20 zk Airdrop Contract. The chosen verification criteria is to be born before the `01/01/2001`. Users that are able to prove that were born before that date will be able to get the airdrop. Otherwise, they will not. 
 
@@ -173,7 +173,7 @@ async function main() {
 
 > The contract ERC20Verifier must be deployed on Mumbai test network as there's a set of supporting contracts that are already deployed on Mumbai too! 
 
-### Set the zkp request
+### Set the zkp request
 
 As previously mentioned, the actual zkp request "to be born before the 01/01/2001" hasn't been added to the smart contract yet. To do so it is necessary to call [`setZKPRequest`](https://github.com/iden3/contracts/blob/master/contracts/ZKPVerifier.sol#L63). This function takes as input:
 - `requestId`, namely the id associated to the request.
