@@ -285,6 +285,7 @@ For this demo, we have used the [On-chain Verification Website](https://onchain.
 </div>
 <br>
  2. The verification site displays two QR codes:
+ 
  - For Signature Proof check
  - For Merkle Tree Proof check (This is work-in-progress!!)
 
