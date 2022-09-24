@@ -278,14 +278,20 @@ Scanning the QR with their Polygon ID Wallet, users will be able to generate pro
 
 For this demo, we have used the [On-chain Verification Website](https://onchain.polygonid.me/), which is a zero-knowledge proof plugin for the ERC-20 tokens. Using this verifier site along with the PolygonID wallet app, you can use the ERC-20 standard for transferring tokens during an Airdrop event. For instance, your users are able to receive, say, 50 tokens by submitting the proof of their age (depending upon a pre-determined age requirement). Let us see the process in a step-by-step manner:
 
-1. Open [On-chain Verification Website](https://onchain.polygonid.me/). Click **Participate in Airdrop**
+1. Open [On-chain Verification Website](https://onchain.polygonid.me/). Click **Participate in Airdrop**.
 
 <div align="center">
 <img src= "./imgs/participate-in-airdrop.png" align="center" width="500"/>
 </div>
 
- 
-hgg
+ 2. It displays the two QR codes:
+ - For Signature Proof check
+ - For Merkle Tree Proof check (This is work-in-progress!!)
+
+<div align="center">
+<img src= "./imgs/qr-code.png" align="center" width="500"/>
+</div>
+
 
 ### Extend to your own logic
 
