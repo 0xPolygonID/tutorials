@@ -307,9 +307,10 @@ For this demo, we have used the [Verification Website](https://onchain.polygonid
 5. With the app, scan the QR code displayed on the Verifier site. 
 
 <div align="center">
-<img src= "./imgs/mobile-scan-window.png" align="center" width="250" style="border: 3px solid red/>
+<img src= "./imgs/mobile-scan-window.png" align="center" width="250" style="border: 3px solid red"/>
 </div>
 <br>
+
 
 
 ### Extend to your own logic
