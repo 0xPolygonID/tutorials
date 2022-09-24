@@ -300,14 +300,14 @@ For this demo, we have used the [Verification Website](https://onchain.polygonid
 4. On the PolygonID Wallet app, click **Connect**. 
 
 <div align="center">
-<img src= "./imgs/polygonid-wallet-connect.png" align="center" width="250" border= "5"/>
+<img src= "./imgs/polygonid-wallet-connect.png" align="center" width="250" style="border: 7px solid black"/>
 </div>
 <br>
 
 5. With the app, scan the QR code displayed on the Verifier site. 
 
 <div align="center">
-<img src= "./imgs/mobile-scan-window.png" align="center" width="250" style="border: 3px solid red"/>
+<img src= "./imgs/mobile-scan-window.png" align="center" width="250" style="border: 7px solid black"/>
 </div>
 <br>
 
