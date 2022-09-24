@@ -283,15 +283,15 @@ For this demo, we have used the [On-chain Verification Website](https://onchain.
 <div align="center">
 <img src= "./imgs/participate-in-airdrop.png" align="center" width="500"/>
 </div>
-
- 2. It displays the two QR codes:
+<br>
+ 2. The verification site displays two QR codes:
  - For Signature Proof check
  - For Merkle Tree Proof check (This is work-in-progress!!)
 
 <div align="center">
 <img src= "./imgs/qr-code.png" align="center" width="500"/>
 </div>
-
+<br>
 
 ### Extend to your own logic
 
