@@ -284,7 +284,6 @@ For this demo, we have used the [On-chain Verification Website](https://onchain.
 <img src= "./imgs/participate-in-airdrop.png" align="center" width="500"/>
 </div>
 
-jj
  
 
 
