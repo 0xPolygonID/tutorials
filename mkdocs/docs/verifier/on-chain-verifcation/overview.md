@@ -274,11 +274,11 @@ Note that the request resembles in most of its part the one designed for [off-ch
 
 Scanning the QR with their Polygon ID Wallet, users will be able to generate proofs and send transactions to the smart contract in order to claim their airdrop.
 
-### Demo: On-chain Verification for ERC-20 Token Transfer 
+### Demo: Off-chain Verification for ERC-20 Token Transfer 
 
-For this demo, we have used the [On-chain Verification Website](https://onchain.polygonid.me/), which is a zero-knowledge proof plugin for the ERC-20 tokens. Using this verifier site along with the PolygonID wallet app, you can use the ERC-20 standard for transferring tokens during an Airdrop event. For instance, your users are able to receive, say, 50 tokens by submitting the proof of their age (depending upon a pre-determined age requirement). Let us see the process in a step-by-step manner:
+For this demo, we have used the [Verification Website](https://onchain.polygonid.me/), which is a zero-knowledge proof plugin for the ERC-20 tokens. Using this verifier site along with the PolygonID wallet app, you can use the ERC-20 standard for transferring tokens during an Airdrop event. For instance, your users are able to receive, say, 50 tokens by submitting the proof of their age (depending upon a pre-determined age requirement). Let us see the process in a step-by-step manner:
 
-1. Open [On-chain Verification Website](https://onchain.polygonid.me/). Click **Participate in Airdrop**.
+1. Open [Verification Website](https://onchain.polygonid.me/). Click **Participate in Airdrop**.
 
 <div align="center">
 <img src= "./imgs/participate-in-airdrop.png" align="center" width="500"/>
@@ -286,14 +286,31 @@ For this demo, we have used the [On-chain Verification Website](https://onchain.
 <br>
  2. The verification site displays two QR codes:
 
- - For Signature Proof check
- - For Merkle Tree Proof(MTP) check (This is work-in-progress!!)
+ - For Signature Proof check (Off-chain verification)
+ - For Merkle Tree Proof(MTP) check (On-chain verification is work-in-progress!!)
 
-3. 
+
 <div align="center">
 <img src= "./imgs/qr-code.png" align="center" width="500"/>
 </div>
 <br>
+
+3. Open PolygonID Wallet app and authenticate it with your pin/biometrics.
+
+4. On the PolygonID Wallet app, click **Connect**. 
+
+<div align="center">
+<img src= "./imgs/polygonid-wallet-connect.png" align="center" width="500"/>
+</div>
+<br>
+
+5. With the app, scan the QR code displayed on the Verifier site. 
+
+<div align="center">
+<img src= "./imgs/mobile-scan-window.png" align="center" width="500"/>
+</div>
+<br>
+
 
 ### Extend to your own logic
 
