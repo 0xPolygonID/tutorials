@@ -300,7 +300,7 @@ For this demo, we have used the [Verification Website](https://onchain.polygonid
 4. On the PolygonID Wallet app, click **Connect**. 
 
 <div align="center">
-<img src= "./imgs/polygonid-wallet-connect.png" align="center" width="500"/>
+<img src= "./imgs/polygonid-wallet-connect.png" align="center" width="50"/>
 </div>
 <br>
 
