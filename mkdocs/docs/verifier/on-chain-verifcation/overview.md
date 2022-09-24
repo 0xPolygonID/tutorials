@@ -274,9 +274,18 @@ Note that the request resembles in most of its part the one designed for [off-ch
 
 Scanning the QR with their Polygon ID Wallet, users will be able to generate proofs and send transactions to the smart contract in order to claim their airdrop.
 
-### Demo it
+### Demo: On-chain Verification for ERC -20 Token Transfer 
 
-** Add here a demo to showcase it! **
+For this demo, we have used the [On-chain Verification Website](https://onchain.polygonid.me/), which is a zero-knowledge proof plugin for the ERC-20 tokens. Using this verifier site along with the PolygonID wallet app, you can use the ERC-20 standard for transferring tokens during an Airdrop event. For instance, your users are able to receive, say, 50 tokens by submitting the proof of their age (depending upon a pre-determined age requirement). Let us see the process in a step-by-step manner:
+
+1. Open [On-chain Verification Website](https://onchain.polygonid.me/). Click **Participate in Airdrop**
+
+<div align="center">
+<img src= "./imgs/participate-in-airdrop.png" align="center" width="500"/>
+</div>
+
+ 
+
 
 ### Extend to your own logic
 
