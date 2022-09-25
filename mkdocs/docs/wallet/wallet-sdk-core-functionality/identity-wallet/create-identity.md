@@ -18,7 +18,6 @@ Future<String> createIdentity({String privateKey}) async
     return _createIdentityUseCase.execute(param: privateKey);
 
 }
-
 ```
 The `createIdentity()` function creates and stores an Identity; the private key is passed as a parameter to the function and an identifier String is returned. 
 
