@@ -3,7 +3,7 @@
 
  An Integrator can fetch claims stored on an Issuer and then save them on the SDK. 
 
- To fetch and save a list of claims from Issuer, the `fetchAndSaveClaims()` function is called. 
+ To fetch and save a list of claims from an Issuer, the `fetchAndSaveClaims()` function is called. 
 
  ```
  Future<List<ClaimEntity>> fetchAndSaveClaims(
