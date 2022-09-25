@@ -360,10 +360,10 @@ For this demo, we have used the [Verification Website](https://onchain.polygonid
 ```
 <br>
 
-    where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`, and `network` fields. For definition of these fields, please refer to [this](#add-the-proof-request-inside-a-qr-code) section of the document. 
+where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`, and `network` fields. For definition of these fields, please refer to [this](#add-the-proof-request-inside-a-qr-code) section of the document. 
 
 
-    **Note**: As the development on the on-chain verification takes the next steps, in future, contract address would no longer be part of the QR Code.
+**Note**: As the development on the on-chain verification takes the next steps, in future, contract address would no longer be part of the QR Code.
 
 
 6. This displays the Proof Request page. This proof can be for a claim that the age of the token participant is above 22 years (or any other claim). In the screenshot below, the proof type is based on signature-based (based on Baby Jubjub key). Click **Continue**.
