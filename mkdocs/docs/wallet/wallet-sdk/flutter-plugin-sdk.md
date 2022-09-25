@@ -60,21 +60,18 @@ Once your Flutter and Dart plugins are installed, you can start creating your fi
 
 
 1. On the Terminal or Powershell, change your directory to where you want to install your app:
-```
-cd new-app-directory
-```
+    ```
+    cd new-app-directory
+    ```
 2. Create your first app; let's call it "firstapp". 
-```
-flutter create firstapp
-flutter run
-```
+    ```
+    flutter create firstapp
+    flutter run
+    ```
 With these commands, the Flutter SDK creates a new project from scratch.
 
 3. With this, Flutter creates your app:
-    <p align ="center"><img src="imgs/create-first-flutter-app.png" border ="1" width ="650"/>
-    </p>
-    <div align= "center"> <b> Figure 2: Creating an App in Flutter </b>
-    </div>
+  
 
 4. Change your directory to your app:
 
