@@ -111,7 +111,7 @@ The fundamental structure of teh request types is the same except that the `Quer
 
 ## Auth Circuit and AtomicQuerySig Circuit
 
-A circuit is zero-knowldege based program that generates a zk proof based on a set of inputs provided. An `Auth Circuit` creates a proof for the `Basic Auth` requests and `AtomicQuerySig Circuit` generates proof for signture based requests. On the similar lines, `AtomicQueryMTP` is used for MTP based requests. 
+A circuit is zero-knowldege based program that generates a zk proof based on a set of inputs provided. An `Auth Circuit` creates a proof for the `Basic Auth` requests and `AtomicQuerySig Circuit` generates proof for signture-based requests. On the similar lines, `AtomicQueryMTP` is used for MTP-based requests. 
 
 https://github.com/iden3/circuits/blob/master/circuits/auth.circom
 

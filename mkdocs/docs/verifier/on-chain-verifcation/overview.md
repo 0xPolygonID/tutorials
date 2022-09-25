@@ -300,18 +300,125 @@ For this demo, we have used the [Verification Website](https://onchain.polygonid
 4. On the PolygonID Wallet app, click **Connect**. 
 
 <div align="center">
-<img src= "./imgs/polygonid-wallet-connect.png" align="center" width="250" style="border: 7px solid black"/>
+<img src= "./imgs/polygonid-wallet-connect.png" align="center" width="250" style="border: 2px solid black"/>
 </div>
 <br>
 
-5. With the app, scan the QR code displayed on the Verifier site. 
+5. With your mobile app, scan the QR code displayed on the Verifier site. 
 
 <div align="center">
-<img src= "./imgs/mobile-scan-window.png" align="center" width="250" style="border: 7px solid black"/>
+<img src= "./imgs/mobile-scan-window.png" align="center" width="250" style="border: 2px solid black"/>
+</div>
+<br>
+
+<div align="center">
+<img src= "./imgs/qr-code-scan.png" align="center" width="250" style="border: 2px solid black"/>
+</div>
+<br>
+
+**Data inside the QR Code**: As seen in the The scanned QR code has the following informtaion; here it is shown in the json format:
+
+
+```json
+{
+  "id": "c811849d-6bfb-4d85-936e-3d9759c7f105",
+  "typ": "application/iden3comm-plain-json",
+  "type": "https://iden3-communication.io/proofs/1.0/contract-invoke-request",
+  "body": {
+    "transcation_data": {
+      "contract_address": "0xF66Bf7c7EAe2279385671261CAbCcf4d1D736405",
+      "method_id": "b68967e2",
+      "chain_id": 80001,
+      "network": "polygon-mumbai"
+    },
+    "reason": "airdrop participation",
+    "scope": [
+      {
+        "id": 1,
+        "circuit_id": "credentialAtomicQuerySig",
+        "rules": {
+          "query": {
+            "allowed_issuers": [
+              "*"
+            ],
+            "req": {
+              "birthday": {
+                "$lt": 20020101
+              }
+            },
+            "schema": {
+              "url": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v2.json-ld",
+              "type": "KYCAgeCredential"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+```
+where:
+-  `contract address` is the ERC-20 smart contract address. As the development on the on-chain verification is going on in phases, in future, contract address would not be the part of the QR Code.
+
+- 
+
+6. This displays the Proof Request page. This proof can be for a claim that the age of the token participant is above 22 years (or any other claim). In the screenshot below, the proof type is based on signature-based (based on Baby Jubjub key). Click **Continue**.
+
+<div align="center">
+<img src= "./imgs/proof-request.png" align="center" width="250" style="border: 2px solid black"/>
 </div>
 <br>
 
 
+7. The Cryptographic Proof page is displayed. As the proof is based on the proniciples of zero-knowledge, no private data of the user is shared except the proof that wallet sdk generates. Click **Generate Proof**. 
+
+<div align="center">
+<img src= "./imgs/cryptographic-proof.png" align="center" width="250" style="border: 2px solid black"/>
+</div>
+<br>
+
+8. User is prompted to authorize using pin/biometrics. 
+
+<div align="center">
+<img src= "./imgs/auth-pin.png" align="center" width="250" style="border: 2px solid black"/>
+</div>
+<br>
+
+9. Upon succesful authorization, a wallet connect page is displayed that lets user select the wallet to be connected to the (Metamask is used in this demo) dapp.
+
+<div align="center">
+<img src= "./imgs/wallet-connect.png" align="center" width="250" style="border: 2px solid black"/>
+</div>
+<br>
+
+10. Click **Connect** to allow the dapp to connect to the MetaMask wallet account.
+
+<div align="center">
+<img src= "./imgs/connect-metamask-to-site.png" align="center" width="250" style="border: 2px solid black"/>
+</div>
+<br>
+
+
+11. The wallet sdk initiates the proof generation process. 
+
+<div align="center">
+<img src= "./imgs/generating-proof.png" align="center" width="250" style="border: 2px solid black"/>
+</div>
+<br>
+
+12. For completing the proof generayion process, a small gas fee (in form of MATIC tokens)needs to be paid from the MetaMask Account connected to the dapp earlier. Click **Confirm**.
+
+<div align="center">
+<img src= "./imgs/gas-fee.png" align="center" width="250" style="border: 2px solid black"/>
+</div>
+<br>
+
+13. The transfer is now complete and token particiapnt receives a pre-determined number of ERC-20 tokens in his/her wallet
+
+<div align="center">
+<img src= "./imgs/erc-tokens.png" align="center" width="250" style="border: 2px solid black"/>
+</div>
+<br>
 
 ### Extend to your own logic
 
