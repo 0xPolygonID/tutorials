@@ -15,7 +15,6 @@ Future<String> sign(
             param: SignMessageParam(identifier, message));
 
         }
-
 ```    
 ## Authenticate Identity with Issuer
 
@@ -33,7 +32,6 @@ Future<String> getAuthToken(
             param: GetAuthTokenParam(identifier, circuitData, message));
 
         }
-
 ```
 
 As seen above, the `Authenticate()` function uses the `Identifier` string (returned from the `createIdentity()` function), the `circuitData` string (type of circuit used and other data), and the `message` string as the input parameters and returns a big encoded String (based on the JWZ or JSON Web Zero Knowledge standard). 
@@ -42,26 +40,34 @@ As seen above, the `Authenticate()` function uses the `Identifier` string (retur
 
 An Integrator, in order to interact with an Issuer, needs to authenticate with it first. For Polygon ID, we use `Polygon.Verify` as the Issuer. 
 
-- On the Polygon ID app (which is based on SDK), an Integrator clicks **Connect**. 
+1.  On the Polygon ID app (which is based on SDK), an Integrator clicks **Connect**. 
 
-<div align="center">
-<img src= "./imgs/connect-to-issuer.png" align="center" width="500"/>
-</div>
+    <div align="center">
+    <img src= "./imgs/polygonid-wallet-connect.png" align="center" width="250"/>
+    </div>
 
-<br>
+    <br>
 
-- The Issuer (`Polygon.Verify` website) displays a QR code. The Integrator, using the app, scans this code.
+2.  The Issuer (`Polygon.Verify` website) displays a QR code. The Integrator, using the app, scans this code.
 
-- With this, the `Authenticate()` function (with the Identifier, circuitData and message as the inputs) is executed. The function authenticates the Identity and sends the authentication information (in the form of a big encoded message based on JWZ) to the Issuer.
+    <div align="center">
+    <img src= "./imgs/issuer-qr-code-scan.png" align="center" width="250"/>
+    </div>
 
-<div align="center">
-<img src= "./imgs/jwz.png" align="center" width="500"/>
-</div>
-
-<br>
+    <br>
 
 
-- The Issuer receives the data sent by the Integrator and based on its correctness, authenticates or rejects the identity. The SDK analyzes this response from the Issuer. 
+3.  With this, the `Authenticate()` function (with the Identifier, circuitData and message as the inputs) is executed. The function authenticates the Identity and sends the authentication information (in the form of a big encoded message based on JWZ) to the Issuer.
+
+    <div align="center">
+    <img src= "./imgs/jwz.png" align="center" width="500"/>
+    </div>
+
+    <br>
+
+**Note**: Read more on JWZ [here](/docs/wallet/wallet-sdk-core-functionality/proof-generation/JWZ.md)
+
+4. The Issuer receives the data sent by the Integrator and based on its correctness, authenticates or rejects the identity. The SDK analyzes this response from the Issuer. 
 
 
 
