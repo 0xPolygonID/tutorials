@@ -281,7 +281,7 @@ For this demo, we have used the [Verification Website](https://onchain.polygonid
 1. Open [Verification Website](https://onchain.polygonid.me/). Click **Participate in Airdrop**.
 
 <div align="center">
-<img src= "./imgs/participate-in-airdrop.png" align="center" width="500"/>
+<img src= "./imgs/participate-in-airdrop.png" align="center" width="500" style="border: 4px solid black"/>
 </div>
 <br>
  2. The verification site displays two QR codes:
@@ -291,7 +291,7 @@ For this demo, we have used the [Verification Website](https://onchain.polygonid
 
 
 <div align="center">
-<img src= "./imgs/qr-code.png" align="center" width="500"/>
+<img src= "./imgs/qr-code.png" align="center" width="500" style="border: 4px solid black"/>
 </div>
 <br>
 
@@ -300,23 +300,23 @@ For this demo, we have used the [Verification Website](https://onchain.polygonid
 4. On the PolygonID Wallet app, click **Connect**. 
 
 <div align="center">
-<img src= "./imgs/polygonid-wallet-connect.png" align="center" width="250" style="border: 2px solid black"/>
+<img src= "./imgs/polygonid-wallet-connect.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
 5. With your mobile app, scan the QR code displayed on the Verifier site. 
 
 <div align="center">
-<img src= "./imgs/mobile-scan-window.png" align="center" width="250" style="border: 2px solid black"/>
+<img src= "./imgs/mobile-scan-window.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
 <div align="center">
-<img src= "./imgs/qr-code-scan.png" align="center" width="250" style="border: 2px solid black"/>
+<img src= "./imgs/qr-code-scan.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
-**Data inside the QR Code**: As seen in the The scanned QR code has the following informtaion; here it is shown in the json format:
+**Data inside the QR Code**:  The scanned QR code has the following informtaion: 
 
 
 ```json
@@ -357,15 +357,18 @@ For this demo, we have used the [Verification Website](https://onchain.polygonid
   }
 }
 ```
-where:
--  `contract address` is the ERC-20 smart contract address. As the development on the on-chain verification is going on in phases, in future, contract address would not be the part of the QR Code.
+where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`, and `network` fields. For definition of these fields, please refer to [this](#add-the-proof-request-inside-a-qr-code) section of the document. 
+
+
+
+**Note**: As the development on the on-chain verification takes the next steps, in future, contract address would no longer be part of the QR Code.
 
 - 
 
 6. This displays the Proof Request page. This proof can be for a claim that the age of the token participant is above 22 years (or any other claim). In the screenshot below, the proof type is based on signature-based (based on Baby Jubjub key). Click **Continue**.
 
 <div align="center">
-<img src= "./imgs/proof-request.png" align="center" width="250" style="border: 2px solid black"/>
+<img src= "./imgs/proof-request.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
@@ -373,28 +376,28 @@ where:
 7. The Cryptographic Proof page is displayed. As the proof is based on the proniciples of zero-knowledge, no private data of the user is shared except the proof that wallet sdk generates. Click **Generate Proof**. 
 
 <div align="center">
-<img src= "./imgs/cryptographic-proof.png" align="center" width="250" style="border: 2px solid black"/>
+<img src= "./imgs/cryptographic-proof.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
 8. User is prompted to authorize using pin/biometrics. 
 
 <div align="center">
-<img src= "./imgs/auth-pin.png" align="center" width="250" style="border: 2px solid black"/>
+<img src= "./imgs/auth-pin.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
 9. Upon succesful authorization, a wallet connect page is displayed that lets user select the wallet to be connected to the (Metamask is used in this demo) dapp.
 
 <div align="center">
-<img src= "./imgs/wallet-connect.png" align="center" width="250" style="border: 2px solid black"/>
+<img src= "./imgs/wallet-connect.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
 10. Click **Connect** to allow the dapp to connect to the MetaMask wallet account.
 
 <div align="center">
-<img src= "./imgs/connect-metamask-to-site.png" align="center" width="250" style="border: 2px solid black"/>
+<img src= "./imgs/connect-metamask-to-site.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
@@ -402,23 +405,45 @@ where:
 11. The wallet sdk initiates the proof generation process. 
 
 <div align="center">
-<img src= "./imgs/generating-proof.png" align="center" width="250" style="border: 2px solid black"/>
+<img src= "./imgs/generating-proof.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
 12. For completing the proof generayion process, a small gas fee (in form of MATIC tokens)needs to be paid from the MetaMask Account connected to the dapp earlier. Click **Confirm**.
 
 <div align="center">
-<img src= "./imgs/gas-fee.png" align="center" width="250" style="border: 2px solid black"/>
+<img src= "./imgs/gas-fee.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
-13. The transfer is now complete and token particiapnt receives a pre-determined number of ERC-20 tokens in his/her wallet
+13. The transfer is now complete and token particiapnt receives a pre-determined number of ERC-20 tokens in his/her wallet.
 
 <div align="center">
-<img src= "./imgs/erc-tokens.png" align="center" width="250" style="border: 2px solid black"/>
+<img src= "./imgs/erc-tokens.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
+
+#### Proof Submission 
+
+The wallet sdk needs to call a `submitZKPResponse()`function before it can submit the proof for the requirements set in the Airdrop Participation process. This function forms part of the Zero Knowledge Proof Interface `IZKPVerifier`.
+
+```solidity
+
+import "./ICircuitValidator.sol";
+
+interface IZKPVerifier {
+    function submitZKPResponse(
+        uint64 requestId,
+        uint256[] memory inputs,
+        uint256[2] memory a,
+        uint256[2][2] memory b,
+        uint256[2] memory c
+    ) external returns (bool);
+}
+
+```
+**Note**: As mentioned earlier in the tutorial, the `method_id` field in the QR code is formed by the hash of the function `submitZKPResponse` and its memory input parameters. 
+
 
 ### Extend to your own logic
 
