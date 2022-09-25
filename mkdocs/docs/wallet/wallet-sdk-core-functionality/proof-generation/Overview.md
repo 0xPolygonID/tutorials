@@ -19,7 +19,7 @@ The proof-generation starts with the Wallet SDK scanning the QR code on the Veri
 
 8. As the verification is compelete, an Integrator can now use the services of the Verifier. For example, if the Verifier is a DAO, the Integrator, upon successful verification, becomes DAO's member and participates in the voting activities.  
 
-**Note**: The demo Verifier that we have used can be found [here]( https://verifier.polygonid.me/)
+**Note**: The demo Verifier that we have used can be found [here]( https://verifier.polygonid.me/).
 
 
 
