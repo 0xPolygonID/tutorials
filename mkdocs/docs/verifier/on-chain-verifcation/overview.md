@@ -377,7 +377,7 @@ where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`
 7. The Cryptographic Proof page is displayed. As the proof is based on the proniciples of zero-knowledge, no private data of the user is shared except the proof that wallet sdk generates. Click **Generate Proof**. 
 
 <div align="center">
-<img src= "./imgs/cryptographic-proof.png" align="center" width="250" style="border: 4px solid black"/>
+<img src= "./imgs/cryptographic-proof.png" align="center" width="250" style="border: 2px solid black"/>
 </div>
 <br>
 
