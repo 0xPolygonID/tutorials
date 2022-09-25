@@ -363,7 +363,6 @@ where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`
 
 **Note**: As the development on the on-chain verification takes the next steps, in future, contract address would no longer be part of the QR Code.
 
-- 
 
 6. This displays the Proof Request page. This proof can be for a claim that the age of the token participant is above 22 years (or any other claim). In the screenshot below, the proof type is based on signature-based (based on Baby Jubjub key). Click **Continue**.
 
