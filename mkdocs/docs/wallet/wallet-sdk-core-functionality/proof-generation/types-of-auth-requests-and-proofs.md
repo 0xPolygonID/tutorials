@@ -118,14 +118,14 @@ For more information on circuits, go through the following links:
 
 [auth circom](https://github.com/iden3/circuits/blob/master/circuits/auth.circom)
 
-[credentialAtomicQuerySig](https://github.com/iden3/circuits/blob/master/circuits/credentialAtomicQuerySig.]
+[credentialAtomicQuerySig](https://github.com/iden3/circuits/blob/master/circuits/credentialAtomicQuerySig.circom)
 
-[circomcredentialAtomicQueryMTP](https://github.com/iden3/circuits/blob/master/circuits/credentialAtomicQueryMTP.circom
+[circomcredentialAtomicQueryMTP](https://github.com/iden3/circuits/blob/master/circuits/credentialAtomicQueryMTP.circom)
 
 
 **Note**: Read more about `Basic Auth` Request [here](https://0xpolygonid.github.io/tutorials/verifier/verification-library/request-api-guide/#basic-auth).
 
-**Note**: Read more about `Query-based` Request [here](https://0xpolygonid.github.io/tutorials/verifier/verification-library/request-api-guide/#query-based-auth))
+**Note**: Read more about `Query-based` Request [here](https://0xpolygonid.github.io/tutorials/verifier/verification-library/request-api-guide/#query-based-auth)
    
 
 ## Difference between Signature-based and Merkle Tree Proofs
