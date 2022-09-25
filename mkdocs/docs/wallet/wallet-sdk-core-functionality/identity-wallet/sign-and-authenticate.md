@@ -65,7 +65,7 @@ An Integrator, in order to interact with an Issuer, needs to authenticate with i
 
     <br>
 
-**Note**: Read more on JWZ [here](/docs/wallet/wallet-sdk-core-functionality/proof-generation/JWZ.md).
+**Note**: Read more on JWZ [here](https://github.com/0xPolygonID/tutorials/blob/main/mkdocs/docs/wallet/wallet-sdk-core-functionality/proof-generation/JWZ.md).
 
 4. The Issuer receives the data sent by the Integrator and based on its correctness, authenticates or rejects the identity. The SDK analyzes this response from the Issuer. 
 
