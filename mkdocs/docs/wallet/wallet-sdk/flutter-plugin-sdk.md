@@ -28,7 +28,6 @@ Flutter plug-in package helps in implementing code for a specific platform: Andr
     ```
     export PATH="$PATH:/Flutter-Directory-Path/flutter/bin"
     ```
-    
     where "Flutter-Directory-Path" is the directory where your Flutter is installed.
 
  4. Press `Escape` on your keyboard and then enter the following command:
