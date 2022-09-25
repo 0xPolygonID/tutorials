@@ -33,7 +33,6 @@ Flutter plug-in package helps in implementing code for a specific platform: Andr
  4. Press `Escape` on your keyboard and then enter the following command:
     ```
     :wq!
-
     ```
     Press `Enter`. This saves the file in vim and exit the editor (`wq` stands for write and quit).
 
