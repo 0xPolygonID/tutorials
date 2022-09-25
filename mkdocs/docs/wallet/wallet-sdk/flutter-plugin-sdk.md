@@ -27,7 +27,6 @@ Flutter plug-in package helps in implementing code for a specific platform: Andr
 3. Run the following command to set your path variable:
     ```
     export PATH="$PATH:/Flutter-Directory-Path/flutter/bin"
-
     ```
     
     where "Flutter-Directory-Path" is the directory where your Flutter is installed.
