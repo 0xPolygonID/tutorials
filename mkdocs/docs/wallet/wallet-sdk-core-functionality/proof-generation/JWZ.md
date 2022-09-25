@@ -1,10 +1,13 @@
 ## JWZ
 
-JWZ stands for JSON Web Zero-Knowledge. Based on the existing secure messaging standards, namely, JWM (JSON Web Message) and JWT (JSON Web Token), JWZ is a standard format for representing and sending the secured messages backed by zero-knowledge technology. It is a novel way of providing interaction between two parties that intend to exchange messages while keeping the sender's public keys hidden. The proof that the sdk generates is packed in the JWZ format and sent to the Verifier using `callbackUrl`.   
+JWZ stands for JSON Web Zero-Knowledge. Based on the existing secure messaging standards, namely, JWM (JSON Web Message) and JWT (JSON Web Token), 
+
+
+JWZ is a standard format for representing and sending secure messages backed by zero-knowledge technology. It is a novel way of providing interaction between two parties that intend to exchange messages while keeping the sender's public keys hidden. The proof that the SDK generates is packed in the JWZ format and sent to the Verifier using `callbackUrl`.   
 
 ## Structure of JWZ
 
-JWZ is separated in three parts: header, body (payload message) and the zk proof (proving taht we are what we are sat=ying, i..e we are the ones taht are signing and generating the prrof). JWZ is used both on the issuer and the Verifier side authentication. An example of JWZ is given below: 
+JWZ structure can be separated into three parts: header, body (payload message) and the zk proof (proving that we are what we are claiming to be true, i.e. we are the ones that are signing and generating the proof). JWZ is used both on the issuer and the Verifier side authentication. An example of JWZ is given below: 
 
 **Example of JWZ Structure**
 
@@ -28,7 +31,7 @@ which when decoded from the Base64 format looks like:
 ```
 where:
  **alg**: algorithm based on zero-knowledge and used for generating proofs. 
- **circuitId**: Type of circuit used for proof generation: `auth` or `atomicquerySig` circuits. Use `auth` for basic authentication and `atomicquerySig` for signnature based requests 
+ **circuitId**: Type of circuit used for proof generation: `auth` or `atomicquerySig` circuits. Use `auth` for basic authentication and `atomicquerySig` for signature-based requests 
  **typ**: As mentioned in [types-of-auth-request-and-proofs](./types-of-auth-requests-and-proofs.md), typ is iden3comm Media Type or media type of the message sent. In the example above, it is JSON. 
 
 ***Second Part: Message***:
@@ -85,9 +88,9 @@ which when decoded from the Base64 format looks like:
 }
 ```
 
-where, in addition to the fields explained in [types-of-auth-request-and-proofs](./types-of-auth-requests-and-proofs.md), there are some additional fileds such as **proof**, **protocol**, and **pub_signals**
+where, in addition to the fields explained in [types-of-auth-request-and-proofs](./types-of-auth-requests-and-proofs.md), there are some additional fields such as **proof**, **protocol**, and **pub_signals**
 
-As seen above from the **type** field, this is a message of the type `authorization response`. Under the **scope** filed, you can see a sub-field called **proof** which is proof represented by three arrays `a, b, and c`. **from** is the sender's identity  and **to** is the receiver's identity (Verifier). 
+As seen above from the **type** field, this is a message of the type `authorization response`. Under the **scope** filed, you can see a sub-field called **proof** which is proof represented by three arrays `a, b, and c`. **from** is the sender's identity and **to** is the receiver's identity (Verifier). 
 
 ***Third Part: Proof***:
 
@@ -128,6 +131,6 @@ which when decoded from the Base64 format looks like:
     ]
 }
 
-Read more on the the difference between JWZ and JWT, its usgae and libaries, click [here](https://0xpolygonid.github.io/tutorials/verifier/verification-library/jwz/#difference-between-jwt-and-jwz) 
+To know more on the difference between JWZ and JWT, its usage and libraries, click [here](https://0xpolygonid.github.io/tutorials/verifier/verification-library/jwz/#difference-between-jwt-and-jwz). 
 
 Read more on JWZ code [here](https://github.com/iden3/go-jwz/blob/main/jwz.go).
