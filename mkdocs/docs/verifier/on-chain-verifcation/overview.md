@@ -276,7 +276,7 @@ Scanning the QR with their Polygon ID Wallet, users will be able to generate pro
 
 ### Demo: Off-chain Verification for ERC-20 Token Transfer 
 
-For this demo, we have used the [Verification Website](https://onchain.polygonid.me/), which is a zero-knowledge proof plugin for the ERC-20 tokens. Using this verifier site along with the PolygonID wallet app, you can use the ERC-20 standard for transferring tokens during an Airdrop event. For instance, your users are able to receive, say, 50 tokens by submitting the proof of their age (depending upon a pre-determined age requirement). Let us see the process in a step-by-step manner:
+For this demo, we have used the [Verification Website](https://onchain.polygonid.me/), which is a zero-knowledge proof plugin for the ERC-20 tokens. Using this verifier site along with the PolygonID wallet app, you can use the ERC-20 standard for transferring tokens during an Airdrop event. For instance, your users are able to receive, say, 50 tokens by submitting proof of their age (depending upon a pre-determined age requirement). Let us see the process in a step-by-step manner:
 
 1. Open [Verification Website](https://onchain.polygonid.me/). Click **Participate in Airdrop**.
 
@@ -316,7 +316,7 @@ For this demo, we have used the [Verification Website](https://onchain.polygonid
 </div>
 <br>
 
-**Data inside the QR Code**:  The scanned QR code has the following informtaion: 
+**Data inside the QR Code**:  As mentioned previously, the scanned QR code carries the following information: 
 
 
 ```json
@@ -363,7 +363,7 @@ For this demo, we have used the [Verification Website](https://onchain.polygonid
 where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`, and `network` fields. For definition of these fields, please refer to [this](#add-the-proof-request-inside-a-qr-code) section of the document. 
 
 
-**Note**: As the development on the on-chain verification takes the next steps, in future, contract address would no longer be part of the QR Code.
+**Note**: As the development of the on-chain verification takes the next steps, in future, the contract address would no longer be part of the QR Code.
 
 
 6. This displays the Proof Request page. This proof can be for a claim that the age of the token participant is above 22 years (or any other claim). In the screenshot below, the proof type is based on signature-based (based on Baby Jubjub key). Click **Continue**.
@@ -374,7 +374,7 @@ where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`
 <br>
 
 
-7. The Cryptographic Proof page is displayed. As the proof is based on the proniciples of zero-knowledge, no private data of the user is shared except the proof that wallet sdk generates. Click **Generate Proof**. 
+7. The Cryptographic Proof page is displayed. As the proof is based on the principles of zero-knowledge, no private data of the user is shared except the proof that wallet sdk generates. Click **Generate Proof**. 
 
 <div align="center">
 <img src= "./imgs/cryptographic-proof.png" align="center" width="250" style="border: 2px solid black"/>
@@ -388,7 +388,7 @@ where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`
 </div>
 <br>
 
-9. Upon succesful authorization, a wallet connect page is displayed that lets user select the wallet to be connected to the (Metamask is used in this demo) dapp.
+9. Upon successful authorization, a wallet connect page is displayed that lets the user select the wallet to be connected to the (Metamask is used in this demo) dapp.
 
 <div align="center">
 <img src= "./imgs/wallet-connect.png" align="center" width="250" style="border: 4px solid black"/>
@@ -410,14 +410,14 @@ where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`
 </div>
 <br>
 
-12. For completing the proof generayion process, a small gas fee (in form of MATIC tokens)needs to be paid from the MetaMask Account connected to the dapp earlier. Click **Confirm**.
+12. For completing the proof generation process, a small gas fee (in form of MATIC tokens)needs to be paid from the MetaMask Account connected to the dapp earlier. Click **Confirm**.
 
 <div align="center">
 <img src= "./imgs/gas-fee.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
-13. The transfer is now complete and token particiapnt receives a pre-determined number of ERC-20 tokens in his/her wallet.
+13. The transfer is now complete and the token participant receives a pre-determined number of ERC-20 tokens in his/her wallet.
 
 <div align="center">
 <img src= "./imgs/erc-tokens.png" align="center" width="250" style="border: 4px solid black"/>
@@ -426,7 +426,7 @@ where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`
 
 #### Proof Submission 
 
-The wallet sdk needs to call a `submitZKPResponse()`function before it can submit the proof for the requirements set in the Airdrop Participation process. This function forms part of the Zero Knowledge Proof Interface `IZKPVerifier`.
+The wallet sdk needs to call a `submitZKPResponse()` function before it can submit the proof for the requirements set in the Airdrop Participation process. This function forms part of the Zero Knowledge Proof Interface `IZKPVerifier`.
 
 ```solidity
 
