@@ -72,7 +72,7 @@ nav:
       - Credential Wallet: 
         - Fetch and Save Claims: "wallet/wallet-sdk-core-functionality/credential-wallet/fetch-and-save-claims.md"
       - Proof Generation:
-        - Overview: "wallet/wallet-sdk-core-functionality/proof-generation/overview.md"
+        - Overview: "wallet/wallet-sdk-core-functionality/proof-generation/proof-generation-overview.md"
         - Types of Requests and Proofs: "wallet/wallet-sdk-core-functionality/proof-generation/types-of-auth-requests-and-proofs.md"
         - JWZ: "wallet/wallet-sdk-core-functionality/proof-generation/jwz.md"
   - Circuits:
