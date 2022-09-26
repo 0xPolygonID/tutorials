@@ -74,7 +74,8 @@ nav:
       - Proof Generation:
         - Overview: "wallet/wallet-sdk-core-functionality/proof-generation/proof-generation-overview.md"
         - Types of Requests and Proofs: "wallet/wallet-sdk-core-functionality/proof-generation/types-of-auth-requests-and-proofs.md"
-        - JWZ: "wallet/wallet-sdk-core-functionality/proof-generation/jwz.md"
+        - JWZ: "wallet/wallet-sdk-core-functionality/proof-generation/json-web-zero-knowledge
+        .md"
   - Circuits:
     - Main Circuits: "circuits/main-circuits.md"
     - Template Circuits: "circuits/template-circuits.md"
