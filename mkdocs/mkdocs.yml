@@ -61,10 +61,10 @@ nav:
       - JWZ: "verifier/verification-library/jwz.md"
   - Wallet: 
     - Overview: "wallet/wallet-overview.md"
-    - Wallet SDK Overview: 
-      - Flutter SDK: "wallet/wallet-sdk-overview/flutter-sdk.md"
-      - Example App: "wallet/wallet-sdk-overview/example-app.md"
-      - PolygonId SDK Plugin: "wallet/wallet-sdk-overview/polygonid-sdk-plugin.md"
+    - Wallet SDK: 
+      - Flutter SDK: "wallet/wallet-sdk/flutter-sdk.md"
+      - Example App: "wallet/wallet-sdk/example-app.md"
+      - PolygonId SDK Plugin: "wallet/wallet-sdk/polygonid-sdk-plugin.md"
     - Types of Wallets: 
       - Identity Wallet:
         - Create Identity: "wallet/types-of-wallets/identity-wallet/create-identity.md"
