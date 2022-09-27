@@ -61,20 +61,20 @@ nav:
       - JWZ: "verifier/verification-library/jwz.md"
   - Wallet: 
     - Overview: "wallet/wallet-overview.md"
-    - Wallet SDK: 
-      - All About Flutter SDK: "wallet/wallet-sdk/flutter-plugin-sdk.md"
-      - Polygon SDK Example App: "wallet/wallet-sdk/polygonid-sdk-example-app.md"
-      - Polygon SDK Plugin: "wallet/wallet-sdk/polygonid-sdk-plugin.md"
-    - Wallet SDK Core Functionality: 
+    - Wallet SDK Introduction: 
+      - Flutter SDK: "wallet/wallet-sdk-introduction/flutter-sdk.md"
+      - Example App: "wallet/wallet-sdk-introduction/example-app.md"
+      - PolygonId SDK Plugin: "wallet/wallet-sdk-introduction/polygonid-sdk-plugin.md"
+    - Types of Wallets: 
       - Identity Wallet:
-        - Create Identity: "wallet/wallet-sdk-core-functionality/identity-wallet/create-identity.md"
-        - Sign and Authenticate: "wallet/wallet-sdk-core-functionality/identity-wallet/sign-and-authenticate.md"
+        - Create Identity: "wallet/types-of-wallets/identity-wallet/create-identity.md"
+        - Sign and Authenticate: "wallet/types-of-wallets/identity-wallet/sign-and-authenticate.md"
       - Credential Wallet: 
-        - Fetch and Save Claims: "wallet/wallet-sdk-core-functionality/credential-wallet/fetch-and-save-claims.md"
+        - Fetch and Save Claims: "wallet/types-of-wallets/credential-wallet/fetch-and-save-claims.md"
       - Proof Generation:
-        - Overview: "wallet/wallet-sdk-core-functionality/proof-generation/proof-generation-overview.md"
-        - Types of Requests and Proofs: "wallet/wallet-sdk-core-functionality/proof-generation/types-of-auth-requests-and-proofs.md"
-        - JWZ: "wallet/wallet-sdk-core-functionality/proof-generation/json-web-zero-knowledge.md"
+        - Overview: "wallet/proof-generation/proof-generation-overview.md"
+        - Types of Requests and Proofs: "wallet/proof-generation/types-of-auth-requests-and-proofs.md"
+        - JWZ: "wallet/proof-generation/json-web-zero-knowledge.md"
         
   - Circuits:
     - Main Circuits: "circuits/main-circuits.md"
