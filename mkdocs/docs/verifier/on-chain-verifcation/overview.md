@@ -283,7 +283,7 @@ For this demo, we have deploy a [Frontend](https://onchain.polygonid.me/) to int
 1. Open [Verification Website](https://onchain.polygonid.me/). Click **Participate in Airdrop**.
 
 <div align="center">
-<img src= "./imgs/participate-in-airdrop.png" align="center" width="500" style="border: 4px solid black"/>
+<img src= "../../imgs/participate-in-airdrop.png" align="center" width="500" style="border: 4px solid black"/>
 </div>
 <br>
 
@@ -293,7 +293,7 @@ For this demo, we have deploy a [Frontend](https://onchain.polygonid.me/) to int
  - For Signature Proof check
 
 <div align="center">
-<img src= "./imgs/qr-code.png" align="center" width="500" style="border: 4px solid black"/>
+<img src= "../../imgs/qr-code.png" align="center" width="500" style="border: 4px solid black"/>
 </div>
 <br>
 
@@ -302,14 +302,14 @@ For this demo, we have deploy a [Frontend](https://onchain.polygonid.me/) to int
 4. On the PolygonID Wallet app, click **Connect**. 
 
 <div align="center">
-<img src= "./imgs/polygonid-wallet-connect.png" align="center" width="250" style="border: 4px solid black"/>
+<img src= "../../imgs/polygonid-wallet-connect.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
 5. With your mobile app, scan the QR code displayed on the Verifier site (the one on the right!). 
 
 <div align="center">
-<img src= "./imgs/mobile-scan-window.png" align="center" width="250" style="border: 4px solid black"/>
+<img src= "../../imgs/mobile-scan-window.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
@@ -318,7 +318,7 @@ For this demo, we have deploy a [Frontend](https://onchain.polygonid.me/) to int
 </div>
 <br>
 
-**Data inside the QR Code**:  As mentioned previously, the scanned QR code carries the following information: 
+**Data Inside the QR Code**:  As mentioned previously, the scanned QR code carries the following information: 
 
 ```json
 {
@@ -375,28 +375,28 @@ where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`
 7. The Cryptographic Proof page is displayed. As the proof is based on the principles of zero-knowledge, no private data of the user is shared except the proof that wallet generates. Click **Generate Proof**. 
 
 <div align="center">
-<img src= "./imgs/cryptographic-proof.png" align="center" width="250" style="border: 2px solid black"/>
+<img src= "../../imgs/cryptographic-proof.png" align="center" width="250" style="border: 2px solid black"/>
 </div>
 <br>
 
 8. User is prompted to authorize using pin/biometrics. 
 
 <div align="center">
-<img src= "./imgs/auth-pin.png" align="center" width="250" style="border: 4px solid black"/>
+<img src= "../../imgs/auth-pin.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
 9. Upon successful authorization, a wallet connect page is displayed that lets the user select the wallet to be connected to the (Metamask is used in this demo) dapp.
 
 <div align="center">
-<img src= "./imgs/wallet-connect.png" align="center" width="250" style="border: 4px solid black"/>
+<img src= "../../imgs/wallet-connect.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
 10. Click **Connect** to allow the dapp to connect to the MetaMask wallet account.
 
 <div align="center">
-<img src= "./imgs/connect-metamask-to-site.png" align="center" width="250" style="border: 4px solid black"/>
+<img src= "../../imgs/connect-metamask-to-site.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
@@ -404,21 +404,21 @@ where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`
 11. The wallet initiates the proof generation process. 
 
 <div align="center">
-<img src= "./imgs/generating-proof.png" align="center" width="250" style="border: 4px solid black"/>
+<img src= "../../imgs/generating-proof.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
 12. For submitting the proof to the smart contract, a transaction must be sent from the Metamask account connected to the Polygon ID app earlier. Click **Confirm**.
 
 <div align="center">
-<img src= "./imgs/gas-fee.png" align="center" width="250" style="border: 4px solid black"/>
+<img src= "../../imgs/gas-fee.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
 13. The transfer is now complete and the token participant receives a pre-determined number of ERC-20 tokens in his/her wallet.
 
 <div align="center">
-<img src= "./imgs/erc-tokens.png" align="center" width="250" style="border: 4px solid black"/>
+<img src= "../../imgs/erc-tokens.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
