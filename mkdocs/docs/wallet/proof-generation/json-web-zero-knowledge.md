@@ -1,4 +1,4 @@
-## JWZ
+# JWZ
 
 JWZ stands for JSON Web Zero-Knowledge. Based on the existing secure messaging standards, namely, JWM (JSON Web Message) and JWT (JSON Web Token), 
 
