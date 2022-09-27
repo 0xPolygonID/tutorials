@@ -299,6 +299,11 @@ For this demo, we have deploy a [Frontend](https://onchain.polygonid.me/) to int
 
 3. Open PolygonID Wallet app and authenticate it with your pin/biometrics.
 
+<div align="center">
+<img src= "../../imgs/auth-pin.png" align="center" width="250" style="border: 4px solid black"/>
+</div>
+<br>
+
 4. On the PolygonID Wallet app, click **Connect**. 
 
 <div align="center">
@@ -314,7 +319,7 @@ For this demo, we have deploy a [Frontend](https://onchain.polygonid.me/) to int
 <br>
 
 <div align="center">
-<img src= "./imgs/qr-code-scan.png" align="center" width="250" style="border: 4px solid black"/>
+<img src= "../../imgs/qr-code-scan.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
@@ -367,7 +372,7 @@ where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`
 6. This displays the Proof Request page. This proof can be for a claim that the age of the token participant is above 22 years (or any other claim). Click **Continue**.
 
 <div align="center">
-<img src= "./imgs/proof-request.png" align="center" width="250" style="border: 4px solid black"/>
+<img src= "../../imgs/proof-request.png" align="center" width="250" style="border: 4px solid black"/>
 </div>
 <br>
 
