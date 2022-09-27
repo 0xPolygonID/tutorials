@@ -13,6 +13,8 @@ This flow is especially needed when further on-chain logic wants to be implement
 
 In this tutorial we are gonna create a ERC20 zk Airdrop Contract. The chosen verification criteria is to be born before the `01/01/2001`. Users that are able to prove that were born before that date will be able to get the airdrop. Otherwise, they will not. 
 
+> The full executable code related to this tutorial can be cloned from this [repository](https://github.com/0xPolygonID/tutorial-examples/tree/main/on-chain-verification)
+
 The prerequisite is that users have the Polygon ID Wallet app installed and received a claim of type `KYCAgeCredential` attesting their date of birth.
 
 > The proof submitted to the smart contract will not reveal any information about the specific date of birth of the user. That's the zero knowledge magic! 
@@ -448,5 +450,4 @@ Another possibility to customize your Smart Contract involves setting different 
 
 ### Resources
 
-- Repository that contains the codebase used for this tutorial
 - [Polygon ID - Contracts](https://github.com/0xPolygonID/contracts)
