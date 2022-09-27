@@ -137,7 +137,7 @@ For more information on circuits, go through the following links:
 
 ## How is Proof sent to the Verifier?
 
-The wallet SDK sends the proof generated to a Verifier using a `callbackUrl`; this url is included in the auth request and includes the information that the Verifier requests from the wallet SDK. So, the SDK sends the proof request along with the claim via this `callbackUrl` and receives the proof response from the Verifier on the same url. 
+The wallet sends the proof generated to a Verifier using a `callbackUrl`; this url is included in the auth request and includes the information that the Verifier requests from the wallet. So, the wallet sends the proof request along with the claim via this `callbackUrl` and receives the proof response from the Verifier on the same url. 
 
 
 
