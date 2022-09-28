@@ -1,1 +1,0 @@
-The on-chain verification allows Dapps to verify users' claim inside a Smart Contract. Zk enables this verification to happen in a privacy manner, namely without revealing any personal information of the user.

@@ -58,7 +58,7 @@ In this specific case it must be checked that the sender of the proof matches th
 
 The airdrop logic must be added inside `_afterProofSubmit`. The contract must execute the airdrop once the proof is correctly verified.
 
-```solidity hl_lines="4 5 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32"
+```solidity hl_lines="4 5 13 14 15 16 17 28 29 30 31 32"
 contract ERC20Verifier is ERC20, ZKPVerifier {
     uint64 public constant TRANSFER_REQUEST_ID = 1;
 
@@ -109,7 +109,7 @@ contract ERC20Verifier is ERC20, ZKPVerifier {
 
 Finally, we can add a further element of security inside the smart contract: prevent any type of token transfer (even after the airdrop) unless users passed the proof verification. This last condition is added by overriding the ERC20 `_beforeTokenTransfer` function and checking that the receiver address `to` of the transfer is included inside the [`proofs`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L12) mapping. 
 
-```solidity hl_lines="28 29 30 31 32 33 34 35 36 37"
+```solidity hl_lines="29 30 31 32 33"
 contract ERC20Verifier is ERC20, ZKPVerifier {
     uint64 public constant TRANSFER_REQUEST_ID = 1;
 
@@ -283,46 +283,46 @@ For this demo, we have deployed a [Frontend](https://onchain.polygonid.me/) to i
 
 1. Open [Verification Website](https://onchain.polygonid.me/). Click **Participate in Airdrop**.
 
-<div align="center">
-<img src= "../../imgs/participate-in-airdrop.png" align="center" width="500" style="border: 4px solid black"/>
-</div>
-<br>
+    <div align="center">
+    <img src= "../../../imgs/participate-in-airdrop.png" align="center" width="500" style="border: 4px solid black"/>
+    </div>
+    <br>
 
  2. The verification site displays two QR codes:
 
  - For Merkle Tree Proof(MTP) check on the left
  - For Signature Proof check on the right (we will just focus on this!)
 
-<div align="center">
-<img src= "../../imgs/qr-code.png" align="center" width="500" style="border: 4px solid black"/>
-</div>
-<br>
+    <div align="center">
+    <img src= "../../../imgs/qr-code.png" align="center" width="500" style="border: 4px solid black"/>
+    </div>
+    <br>
 
 3. Open PolygonID Wallet app and authenticate it with your pin/biometrics.
 
-<div align="center">
-<img src= "../../imgs/auth-pin.png" align="center" width="250" style="border: 4px solid black"/>
-</div>
-<br>
+    <div align="center">
+    <img src= "../../../imgs/auth-pin.png" align="center" width="250" style="border: 4px solid black"/>
+    </div>
+    <br>
 
 4. On the PolygonID Wallet app, click **Connect**. 
 
-<div align="center">
-<img src= "../../imgs/polygonid-wallet-connect.png" align="center" width="250" style="border: 4px solid black"/>
-</div>
-<br>
+    <div align="center">
+    <img src= "../../../imgs/polygonid-wallet-connect.png" align="center" width="250" style="border: 4px solid black"/>
+    </div>
+    <br>
 
 5. With your mobile app, scan the QR code displayed on the Verifier site (the one on the right!). 
 
-<div align="center">
-<img src= "../../imgs/mobile-scan-window.png" align="center" width="250" style="border: 4px solid black"/>
-</div>
-<br>
+    <div align="center">
+    <img src= "../../../imgs/mobile-scan-window.png" align="center" width="250" style="border: 4px solid black"/>
+    </div>
+    <br>
 
-<div align="center">
-<img src= "../../imgs/qr-code-scan.png" align="center" width="250" style="border: 4px solid black"/>
-</div>
-<br>
+    <div align="center">
+    <img src= "../../../imgs/qr-code-scan.png" align="center" width="250" style="border: 4px solid black"/>
+    </div>
+    <br>
 
 **Data Inside the QR Code**:  As mentioned previously, the scanned QR code carries the following information: 
 
@@ -372,61 +372,61 @@ where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`
 
 6. This displays the Proof Request page. This proof can be for a claim that the age of the token participant is above 22 years (or any other claim). Click **Continue**.
 
-<div align="center">
-<img src= "../../imgs/proof-request.png" align="center" width="250" style="border: 4px solid black"/>
-</div>
-<br>
+    <div align="center">
+    <img src= "../../../imgs/proof-request.png" align="center" width="250" style="border: 4px solid black"/>
+    </div>
+    <br>
 
 
 7. The Cryptographic Proof page is displayed. As the proof is based on the principles of zero-knowledge, no private data of the user is shared except the proof that wallet generates. Click **Generate Proof**. 
 
-<div align="center">
-<img src= "../../imgs/cryptographic-proof.png" align="center" width="250" style="border: 2px solid black"/>
-</div>
-<br>
+    <div align="center">
+    <img src= "../../../imgs/cryptographic-proof.png" align="center" width="250" style="border: 2px solid black"/>
+    </div>
+    <br>
 
 8. User is prompted to authorize using pin/biometrics. 
 
-<div align="center">
-<img src= "../../imgs/auth-pin.png" align="center" width="250" style="border: 4px solid black"/>
-</div>
-<br>
+    <div align="center">
+    <img src= "../../../imgs/auth-pin.png" align="center" width="250" style="border: 4px solid black"/>
+    </div>
+    <br>
 
 9. Upon successful authorization, a WalletConnect page is displayed that lets the user select the wallet to be connected to the app. 
 
-<div align="center">
-<img src= "../../imgs/wallet-connect.png" align="center" width="250" style="border: 4px solid black"/>
-</div>
-<br>
+    <div align="center">
+    <img src= "../../../imgs/wallet-connect.png" align="center" width="250" style="border: 4px solid black"/>
+    </div>
+    <br>
 
 10. Click **Connect** to allow the app to connect to the MetaMask wallet account. This will be the account that is gonna interact with the ERC20Verifier Smart Contract
 
-<div align="center">
-<img src= "../../imgs/connect-metamask-to-site.png" align="center" width="250" style="border: 4px solid black"/>
-</div>
-<br>
+    <div align="center">
+    <img src= "../../../imgs/connect-metamask-to-site.png" align="center" width="250" style="border: 4px solid black"/>
+    </div>
+    <br>
 
 
 11. The wallet initiates the proof generation process. 
 
-<div align="center">
-<img src= "../../imgs/generating-proof.png" align="center" width="250" style="border: 4px solid black"/>
-</div>
-<br>
+    <div align="center">
+    <img src= "../../../imgs/generating-proof.png" align="center" width="250" style="border: 4px solid black"/>
+    </div>
+    <br>
 
 12. For submitting the proof to the smart contract, a transaction must be sent from the Metamask account connected to the Polygon ID app earlier. Click **Confirm**.
 
-<div align="center">
-<img src= "../../imgs/gas-fee.png" align="center" width="250" style="border: 4px solid black"/>
-</div>
-<br>
+    <div align="center">
+    <img src= "../../../imgs/gas-fee.png" align="center" width="250" style="border: 4px solid black"/>
+    </div>
+    <br>
 
 13. The transfer is now complete and the token participant receives a pre-determined number of ERC-20 tokens in his/her wallet.
 
-<div align="center">
-<img src= "../../imgs/erc-tokens.png" align="center" width="250" style="border: 4px solid black"/>
-</div>
-<br>
+    <div align="center">
+    <img src= "../../../imgs/erc-tokens.png" align="center" width="250" style="border: 4px solid black"/>
+    </div>
+    <br>
 
 #### Proof Submission 
 
