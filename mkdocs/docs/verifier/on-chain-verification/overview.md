@@ -19,7 +19,6 @@ The prerequisite is that users have the Polygon ID Wallet app installed and rece
 
 > The full executable code related to this tutorial can be cloned from this [repository](https://github.com/0xPolygonID/tutorial-examples/tree/main/on-chain-verification)
 
-
 ### Design the ERC20 zk Airdrop Verifier Contract 
 
 Let's jump into the code by writing the `ERC20Verifier` contract. 
@@ -279,7 +278,7 @@ Scanning the QR with their Polygon ID Wallet, users will be able to generate pro
 
 ### User Demo: On-chain Verification for ERC-20 Token Transfer 
 
-For this demo, we have deployed a [Frontend](https://onchain.polygonid.me/) to interact with the user. Using this verifier site along with the PolygonID wallet app, users can submit a proof and, if this gets verifier, claim a ERC-20 token airdrop.Let us see the process in a step-by-step manner:
+For this demo, we have deployed a [frontend](https://onchain.polygonid.me/) in order to interact with the user. When visiting this website, users can use their PolygonID wallet app to submit a proof and, if this gets verified, claim a ERC-20 token airdrop. Let us see the process in a step-by-step manner from the user perspective:
 
 1. Open [Verification Website](https://onchain.polygonid.me/). Click **Participate in Airdrop**.
 
@@ -290,8 +289,8 @@ For this demo, we have deployed a [Frontend](https://onchain.polygonid.me/) to i
 
  2. The verification site displays two QR codes:
 
- - For Merkle Tree Proof(MTP) check on the left
- - For Signature Proof check on the right (we will just focus on this!)
+    - For Merkle Tree Proof Verification on the left
+    - For Signature Proof Verification on the right (we will just focus on this for now!)
 
     <div align="center">
     <img src= "../../../imgs/qr-code.png" align="center" width="500" style="border: 4px solid black"/>
@@ -324,53 +323,53 @@ For this demo, we have deployed a [Frontend](https://onchain.polygonid.me/) to i
     </div>
     <br>
 
-**Data Inside the QR Code**:  As mentioned previously, the scanned QR code carries the following information: 
+    **Data Inside the QR Code**:  As mentioned previously, the scanned QR code carries the following information: 
 
-```json
-{
-  "id": "c811849d-6bfb-4d85-936e-3d9759c7f105",
-  "typ": "application/iden3comm-plain-json",
-  "type": "https://iden3-communication.io/proofs/1.0/contract-invoke-request",
-  "body": {
-    "transcation_data": {
-      "contract_address": "0xF66Bf7c7EAe2279385671261CAbCcf4d1D736405",
-      "method_id": "b68967e2",
-      "chain_id": 80001,
-      "network": "polygon-mumbai"
-    },
-    "reason": "airdrop participation",
-    "scope": [
-      {
-        "id": 1,
-        "circuit_id": "credentialAtomicQuerySig",
-        "rules": {
-          "query": {
-            "allowed_issuers": [
-              "*"
-            ],
-            "req": {
-              "birthday": {
-                "$lt": 20020101
-              }
-            },
-            "schema": {
-              "url": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v2.json-ld",
-              "type": "KYCAgeCredential"
+    ```json
+    {
+    "id": "c811849d-6bfb-4d85-936e-3d9759c7f105",
+    "typ": "application/iden3comm-plain-json",
+    "type": "https://iden3-communication.io/proofs/1.0/contract-invoke-request",
+    "body": {
+        "transcation_data": {
+        "contract_address": "0xF66Bf7c7EAe2279385671261CAbCcf4d1D736405",
+        "method_id": "b68967e2",
+        "chain_id": 80001,
+        "network": "polygon-mumbai"
+        },
+        "reason": "airdrop participation",
+        "scope": [
+        {
+            "id": 1,
+            "circuit_id": "credentialAtomicQuerySig",
+            "rules": {
+            "query": {
+                "allowed_issuers": [
+                "*"
+                ],
+                "req": {
+                "birthday": {
+                    "$lt": 20020101
+                }
+                },
+                "schema": {
+                "url": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v2.json-ld",
+                "type": "KYCAgeCredential"
+                }
             }
-          }
+            }
         }
-      }
-    ]
-  }
-}
+        ]
+    }
+    }
 
-```
-<br>
+    ```
+    <br>
 
-where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`, and `network` fields. For definition of these fields, please refer to [this](#add-the-proof-request-inside-a-qr-code) section of the document. 
+    where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`, and `network` fields. For definition of these fields, please refer to [this](#add-the-proof-request-inside-a-qr-code) section of the document. 
 
 
-6. This displays the Proof Request page. This proof can be for a claim that the age of the token participant is above 22 years (or any other claim). Click **Continue**.
+6. This displays the Proof Request page. The user is asked to generate a proof that he/she is above 22 years. The user needs to already have a claim of type KYC Age Credential attesting their date of birth stored in his/her wallet. Click **Continue**.
 
     <div align="center">
     <img src= "../../../imgs/proof-request.png" align="center" width="250" style="border: 4px solid black"/>
@@ -378,7 +377,7 @@ where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`
     <br>
 
 
-7. The Cryptographic Proof page is displayed. As the proof is based on the principles of zero-knowledge, no private data of the user is shared except the proof that wallet generates. Click **Generate Proof**. 
+7. The Cryptographic Proof page is displayed. As the proof is based on zero knowledge cryptography, no private data of the user is shared except the proof that wallet generates. Click **Generate Proof**. 
 
     <div align="center">
     <img src= "../../../imgs/cryptographic-proof.png" align="center" width="250" style="border: 2px solid black"/>
@@ -392,14 +391,14 @@ where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`
     </div>
     <br>
 
-9. Upon successful authorization, a WalletConnect page is displayed that lets the user select the wallet to be connected to the app. 
+9. Upon successful authorization, a WalletConnect page is displayed that lets the user select the wallet to be connected to the app. In this case we use Metamask.
 
     <div align="center">
     <img src= "../../../imgs/wallet-connect.png" align="center" width="250" style="border: 4px solid black"/>
     </div>
     <br>
 
-10. Click **Connect** to allow the app to connect to the MetaMask wallet account. This will be the account that is gonna interact with the ERC20Verifier Smart Contract
+10. Click **Connect** to allow the app to connect to the MetaMask wallet account. This will be the account that is gonna interact with the ERC20Verifier Smart Contract.
 
     <div align="center">
     <img src= "../../../imgs/connect-metamask-to-site.png" align="center" width="250" style="border: 4px solid black"/>
@@ -407,21 +406,21 @@ where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`
     <br>
 
 
-11. The wallet initiates the proof generation process. 
+11. The Polygon ID wallet initiates the proof generation process. 
 
     <div align="center">
     <img src= "../../../imgs/generating-proof.png" align="center" width="250" style="border: 4px solid black"/>
     </div>
     <br>
 
-12. For submitting the proof to the smart contract, a transaction must be sent from the Metamask account connected to the Polygon ID app earlier. Click **Confirm**.
+12. For submitting the proof to the smart contract, a transaction must be sent from the Metamask account connected to the Polygon ID app earlier. This transaction actually contains the zkproof data inside. Click **Confirm**.
 
     <div align="center">
     <img src= "../../../imgs/gas-fee.png" align="center" width="250" style="border: 4px solid black"/>
     </div>
     <br>
 
-13. The transfer is now complete and the token participant receives a pre-determined number of ERC-20 tokens in his/her wallet.
+13. The transfer is now complete and the token participant receives the ERC-20 token airdrop in his/her wallet.
 
     <div align="center">
     <img src= "../../../imgs/erc-tokens.png" align="center" width="250" style="border: 4px solid black"/>
