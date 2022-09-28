@@ -27,27 +27,6 @@ markdown_extensions:
 nav:
   - Issuer:
     - Overview: "issuer/issuer-overview.md"
-    - Iden3 Core:  
-      - Introduction: "getting-started/getting-started.md"
-      - Core Components:
-        - Baby Jubjub Keypair: "getting-started/babyjubjub.md"
-        - Sparse Merkle Tree: "getting-started/mt.md"
-        - Claim: 
-          - Generic Claim: "getting-started/claim/generic-claim.md"
-          - Auth Claim: "getting-started/claim/auth-claim.md"
-          - Claim Schema: "getting-started/claim/claim-schema.md"
-        - Identity: 
-          - Identity Structure: "getting-started/identity/identity-structure.md"
-          - Identity State: "getting-started/identity/identity-state.md"
-          - Identifier: "getting-started/identity/identifier.md"
-      - Issue Claim: 
-        - Overview: "getting-started/issue-claim-overview.md"
-        - via Signature: "getting-started/signature-claim/signature.md"
-        - via Merkle Tree: 
-          - Intro to State Transition: "getting-started/state-transition/state-transition.md"
-          - Add Claim to the Claims Tree: "getting-started/state-transition/new-identity-state.md"
-          - Generate Proof for State Transition: "getting-started/state-transition/state-transition-proof.md"
-          - Verify the Proof On-Chain: "getting-started/state-transition/on-chain-state-transition.md"
   - Verifier:
     - Overview: "verifier/verifier-overview.md"
     - Off-chain Verification:
@@ -78,9 +57,6 @@ nav:
         - Types of Requests and Proofs: "wallet/proof-generation/types-of-auth-requests-and-proofs.md"
         - JWZ: "wallet/proof-generation/json-web-zero-knowledge.md"
         
-  - Circuits:
-    - Main Circuits: "circuits/main-circuits.md"
-    - Template Circuits: "circuits/template-circuits.md"
   - Contracts: 
     - Overview: "contracts/overview.md"
   
