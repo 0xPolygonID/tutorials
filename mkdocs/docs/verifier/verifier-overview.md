@@ -6,6 +6,6 @@ The verifier doesn’t need to interact with the claim issuer when verifying use
 
 The request of the Verifier is encapsulated into a QR code and shown to the user. The user scans the QR code with its wallet to prompt the proof generation. The verification of the proof can be implemented either off-chain or on-chain.
 
-> The on-chain proof verification is coming soon! 
+The [off-chain Verification Library](./verification-library/verifier-library-intro.md) provides all the elements to create a customized Query, set up a verifier server and generate a QR on the client side to interact with the wallet.
 
-The [Verification Library](./verification-library/verifier-library-intro.md) provides all the elements to create a customized Query, set up a verifier server and generate a QR on the client side to interact with the wallet.
+The [on-chain Verification Flow](./verification-library/on-chain-verification/overview.md) allows Dapps to verify users' claim inside a Smart Contract using zero knowledge proof cryptography. 

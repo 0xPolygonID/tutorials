@@ -50,7 +50,7 @@ nav:
           - Verify the Proof On-Chain: "getting-started/state-transition/on-chain-state-transition.md"
   - Verifier:
     - Overview: "verifier/verifier-overview.md"
-    - Off-chain Verification Library:
+    - Off-chain Verification:
       - Introduction: "verifier/verification-library/verifier-library-intro.md"
       - APIs: 
         - Config: "verifier/verification-library/config.md"

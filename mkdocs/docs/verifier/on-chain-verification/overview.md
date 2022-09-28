@@ -236,7 +236,7 @@ The last step is to design the proof request to be embedded inside a QR code tha
     "type":"https://iden3-communication.io/proofs/1.0/contract-invoke-request",
     "body":{
         "transaction_data":{
-            "contract_address":"<Address of your ERC20Verifier Contract>",
+            "contract_address":"0xF8c797A0682dcF11996D4dE2a6383bA1c0b962A8",
             "method_id":"b68967e2",
             "chain_id":80001,
             "network":"polygon-mumbai"
@@ -273,7 +273,7 @@ Note that the request resembles in most of its part the one designed for [off-ch
 - `chain_id`, the ID of the chain where the smart contract has been deployed
 - `network`, the name of the network where the smart contract has been deployed
 
-> To display the QR code inside your frontend you can use the express.static built-in middleware function together with this [Static Folder](https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static)
+> To display the QR code inside your frontend you can use the express.static built-in middleware function together with this [Static Folder](https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static) or use any other online QR code generator
 
 Scanning the QR with their Polygon ID Wallet, users will be able to generate proofs and send transactions to the smart contract in order to claim their airdrop.
 
