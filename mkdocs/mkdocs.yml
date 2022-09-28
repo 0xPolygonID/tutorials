@@ -50,7 +50,7 @@ nav:
           - Verify the Proof On-Chain: "getting-started/state-transition/on-chain-state-transition.md"
   - Verifier:
     - Overview: "verifier/verifier-overview.md"
-    - Verification Library:
+    - Off-chain Verification Library:
       - Introduction: "verifier/verification-library/verifier-library-intro.md"
       - APIs: 
         - Config: "verifier/verification-library/config.md"
@@ -59,6 +59,8 @@ nav:
         - ZK Query Language : "verifier/verification-library/zk-query-language.md"
       - Run a Verifier: "verifier/verification-library/verifier-set-up.md"
       - JWZ: "verifier/verification-library/jwz.md"
+    - On-chain Verification:
+      - Implement ERC20 zk airdrop in 20 minutes: "verifier/on-chain-verification/overview.md"
   - Wallet: 
     - Overview: "wallet/wallet-overview.md"
     - Wallet SDK: 
