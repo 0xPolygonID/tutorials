@@ -318,50 +318,6 @@ For this demo, we have deployed a [frontend](https://onchain.polygonid.me/) in o
     </div>
     <br>
 
-    **Data Inside the QR Code**:  As mentioned previously, the scanned QR code carries the following information: 
-
-    ```json
-    {
-    "id": "c811849d-6bfb-4d85-936e-3d9759c7f105",
-    "typ": "application/iden3comm-plain-json",
-    "type": "https://iden3-communication.io/proofs/1.0/contract-invoke-request",
-    "body": {
-        "transcation_data": {
-        "contract_address": "0xF66Bf7c7EAe2279385671261CAbCcf4d1D736405",
-        "method_id": "b68967e2",
-        "chain_id": 80001,
-        "network": "polygon-mumbai"
-        },
-        "reason": "airdrop participation",
-        "scope": [
-        {
-            "id": 1,
-            "circuit_id": "credentialAtomicQuerySig",
-            "rules": {
-            "query": {
-                "allowed_issuers": [
-                "*"
-                ],
-                "req": {
-                "birthday": {
-                    "$lt": 20020101
-                }
-                },
-                "schema": {
-                "url": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v2.json-ld",
-                "type": "KYCAgeCredential"
-                }
-            }
-            }
-        }
-        ]
-    }
-    }
-
-    ```
-
-    where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`, and `network` fields. For definition of these fields, please refer to [this](#add-the-proof-request-inside-a-qr-code) section of the document. 
-
 
 6. This displays the Proof Request page. The user is asked to generate a proof that he/she is above 22 years. The user needs to already have a claim of type KYC Age Credential attesting their date of birth stored in his/her wallet. Click **Continue**.
 

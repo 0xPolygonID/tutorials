@@ -9,3 +9,5 @@ The request of the Verifier is encapsulated into a QR code and shown to the user
 The [off-chain Verification Library](./verification-library/verifier-library-intro.md) provides all the elements to create a customized Query, set up a verifier server and generate a QR on the client side to interact with the wallet.
 
 The [on-chain Verification Flow](./verification-library/on-chain-verification/overview.md) allows Dapps to verify users' claim inside a Smart Contract using zero knowledge proof cryptography. 
+
+> The executable code for this section can be found [here](https://github.com/0xPolygonID/tutorial-examples)

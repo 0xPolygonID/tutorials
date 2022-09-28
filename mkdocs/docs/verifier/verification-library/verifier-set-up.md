@@ -13,6 +13,8 @@ The Verifier Client is the point of interaction with the user. In its simplest f
 
 To interact with a Verifier users should have the Polygon ID identity wallet (or any compatible wallet) installed on their devices.
 
+> The executable code for this section can be found [here](https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration)
+
 ## Verifier Server Setup
 
 1. **Add the authorization package to your project** 
@@ -311,7 +313,6 @@ To interact with a Verifier users should have the Polygon ID identity wallet (or
 		}
 		```
 
-> The executable code for this section can be found [here](https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration)
 
 ## Verifier Client Setup
 
