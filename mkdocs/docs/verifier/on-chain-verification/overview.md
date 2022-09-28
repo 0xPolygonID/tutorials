@@ -364,7 +364,6 @@ For this demo, we have deployed a [frontend](https://onchain.polygonid.me/) in o
     }
 
     ```
-    <br>
 
     where `transaction_data` consists of `contract_address`, `method_id`, `chain_id`, and `network` fields. For definition of these fields, please refer to [this](#add-the-proof-request-inside-a-qr-code) section of the document. 
 
