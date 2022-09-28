@@ -120,8 +120,6 @@ The subject of the claim will store the JSON-LD format credential inside their w
 - [] Why we need that JSON-LD Credential?
 - [] How am I able to get from the credential to core-claim? Is it gonna match? Is it also able to parse revocation nonce etcetera? 
 - [] Does the parsing also work in reverse? From claim to VC?
-- [] What is signature and why we both have in the signature and merkle tree type of claim?
-- [] Add link to MT type of claim
-- [] Add reference to JSON-LD specification
+- [] What is `signature`?
 - [] Add part to explain how to parse the VC into a core claim
 

@@ -314,11 +314,6 @@ For this demo, we have deployed a [frontend](https://onchain.polygonid.me/) in o
 5. With your mobile app, scan the QR code displayed on the Verifier site (the one on the right!). 
 
     <div align="center">
-    <img src= "../../../imgs/mobile-scan-window.png" align="center" width="250" style="border: 4px solid black"/>
-    </div>
-    <br>
-
-    <div align="center">
     <img src= "../../../imgs/qr-code-scan.png" align="center" width="250" style="border: 4px solid black"/>
     </div>
     <br>
