@@ -9,6 +9,8 @@ An issuer might be:
 - An AI-based Application that issues "proof of personhood" claims 
 - An employer that endorses its employees
 
+<a href="https://docs.iden3.io/protocol/claims-structure/" target="_blank">Claims</a>
+
 [Claims](https://docs.iden3.io/protocol/claims-structure/) are a flexible data format able to express any type of information so that developers can unleash their creativity.
 
 To operate, an issuer must set up a self-hosted server or directly interact with the Polygon ID Platform. 
