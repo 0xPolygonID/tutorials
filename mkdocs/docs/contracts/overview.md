@@ -13,13 +13,12 @@ The CredentialAtomicQuerySigValidator contract is used verify any claim-related 
 - Verifies that the input used to generate the proof matches the query associated to that specific Request
 - Verifies that user's and issuer's identity states are valid based on the State Contract
 
-> The CredentialAtomicQuerySigValidator executes the same set of verifications of the[Verification Library](../verifier/verification-library/verification-api-guide.md#verification---under-the-hood). The former is required when performing on-chain verification while the latter is required for off-chain verification.
+> The CredentialAtomicQuerySigValidator executes the same set of verifications of the [Verification Library](../verifier/verification-library/verification-api-guide.md#verification---under-the-hood). The former is required when performing on-chain verification while the latter is required for off-chain verification.
 
 CredentialAtomicQuerySigValidator address:
 
-
 - <a href="https://mumbai.polygonscan.com/address/0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB" target="_blank">Mumbai: 0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB</a>
 
-- [Mumbai: 0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB](https://mumbai.polygonscan.com/address/0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB)
+<a href="https://docs.iden3.io/contracts/state/" target="_blank">Iden3 - Smart Contracts</a>
 
 > Further protocol related contracts can found at [Iden3 - Smart Contracts](https://docs.iden3.io/contracts/state/)
