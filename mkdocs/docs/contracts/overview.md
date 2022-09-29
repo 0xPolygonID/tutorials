@@ -19,6 +19,4 @@ CredentialAtomicQuerySigValidator address:
 
 - <a href="https://mumbai.polygonscan.com/address/0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB" target="_blank">Mumbai: 0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB</a>
 
-<a href="https://docs.iden3.io/contracts/state/" target="_blank">Iden3 - Smart Contracts</a>
-
-> Further protocol related contracts can found at [Iden3 - Smart Contracts](https://docs.iden3.io/contracts/state/)
+> Further protocol related contracts can found at <a href="https://docs.iden3.io/contracts/state/" target="_blank">Iden3 - Smart Contracts</a>
