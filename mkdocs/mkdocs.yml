@@ -42,22 +42,22 @@ nav:
       - Implement ERC20 zk airdrop in 20 minutes: "verifier/on-chain-verification/overview.md"
   - Wallet: 
     - Overview: "wallet/wallet-overview.md"
-    <!-- 
-    - Wallet SDK: 
-      - Flutter SDK: "wallet/wallet-sdk/flutter-sdk.md"
-      - Example App: "wallet/wallet-sdk/example-app.md"
-      - PolygonId SDK Plugin: "wallet/wallet-sdk/polygonid-sdk-plugin.md"
-    - Types of Wallets: 
-      - Identity Wallet:
-        - Create Identity: "wallet/types-of-wallets/identity-wallet/create-identity.md"
-        - Sign and Authenticate: "wallet/types-of-wallets/identity-wallet/sign-and-authenticate.md"
-      - Credential Wallet: 
-        - Fetch and Save Claims: "wallet/types-of-wallets/credential-wallet/fetch-and-save-claims.md"
-    - Proof Generation:
-        - Overview: "wallet/proof-generation/proof-generation-overview.md"
-        - Types of Requests and Proofs: "wallet/proof-generation/types-of-auth-requests-and-proofs.md"
-        - JWZ: "wallet/proof-generation/json-web-zero-knowledge.md"  
-    -->
+    
+    # - Wallet SDK: 
+    #   - Flutter SDK: "wallet/wallet-sdk/flutter-sdk.md"
+    #   - Example App: "wallet/wallet-sdk/example-app.md"
+    #   - PolygonId SDK Plugin: "wallet/wallet-sdk/polygonid-sdk-plugin.md"
+    # - Types of Wallets: 
+    #   - Identity Wallet:
+    #     - Create Identity: "wallet/types-of-wallets/identity-wallet/create-identity.md"
+    #     - Sign and Authenticate: "wallet/types-of-wallets/identity-wallet/sign-and-authenticate.md"
+    #   - Credential Wallet: 
+    #     - Fetch and Save Claims: "wallet/types-of-wallets/credential-wallet/fetch-and-save-claims.md"
+    # - Proof Generation:
+    #     - Overview: "wallet/proof-generation/proof-generation-overview.md"
+    #     - Types of Requests and Proofs: "wallet/proof-generation/types-of-auth-requests-and-proofs.md"
+    #     - JWZ: "wallet/proof-generation/json-web-zero-knowledge.md"  
+    
   - Smart Contracts: 
     - Overview: "contracts/overview.md"
   
