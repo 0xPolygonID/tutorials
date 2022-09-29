@@ -6,6 +6,9 @@
 
 [**Polygon ID Smart Contracts - Github**](https://github.com/0xPolygonID/contracts?to=/placeholder.com)
 
+	
+<a href="https://github.com/0xPolygonID/contracts" target="_blank" rel="noopener">**Polygon ID Smart Contracts - Github**</a>
+
 ### CredentialAtomicQuerySigValidator
 
 [**CredentialAtomicQuerySigValidator.sol - Github**](https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol)
