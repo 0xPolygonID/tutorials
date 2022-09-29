@@ -1,6 +1,6 @@
 # Issuer Overview
 
-The issuer is any subject that issues claims. You can think of a claim as a statement: something an issuer says about another subject. For example, when a university (issuer) says that a student (subject) has a degree, this is a statement (claim).
+The Issuer is any subject that issues claims. You can think of a claim as a statement: something an Issuer says about another subject. For example, when a university (Issuer) says that a student (subject) has a degree, this is a statement (claim).
 
 An issuer might be: 
 
@@ -9,10 +9,8 @@ An issuer might be:
 - An AI-based Application that issues "proof of personhood" claims 
 - An employer that endorses its employees
 
-<a href="https://docs.iden3.io/protocol/claims-structure/" target="_blank">Claims</a>
+<a href="https://docs.iden3.io/protocol/claims-structure/" target="_blank">Claims</a> are a flexible data format that able to express any type of information so that developers can unleash their creativity.
 
-[Claims](https://docs.iden3.io/protocol/claims-structure/) are a flexible data format able to express any type of information so that developers can unleash their creativity.
+To operate, an Issuer must set up a self-hosted server or directly interact with the Polygon ID Platform. 
 
-To operate, an issuer must set up a self-hosted server or directly interact with the Polygon ID Platform. 
-
-> Identity Server and Polygon ID Platform coming soon! 
+> Identity Server and Polygon ID Platform are coming soon! 
