@@ -1,3 +1,4 @@
+<!--
 # PolygonID SDK Plugin: Example App
 
 This example illustrates to an Integrator how to install and use PolygonID SDK Plugin. 
@@ -37,3 +38,5 @@ To start using SDK:
 If no previously created Identifier is found, the SDK first needs to create an identity first using `identity.createIdentity(privateKey: privateKey)` function. Also, if the private key is not passed in the above function, the system randomly generates one. 
 
 4. The SDK saves the Identifier in its storage and will use the same to authenticate the identity and fetch the claims from the Issuer. 
+
+-->
