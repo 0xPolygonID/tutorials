@@ -13,4 +13,3 @@ The [on-chain Verification Flow](./on-chain-verification/overview.md) allows Dap
 > The executable code for this section can be found 
 <a href="https://github.com/0xPolygonID/tutorial-examples" target="_blank">here</a>.
 
-[here](https://github.com/0xPolygonID/tutorial-examples)
