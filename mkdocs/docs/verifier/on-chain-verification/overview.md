@@ -24,9 +24,9 @@ The prerequisite is that users have the Polygon ID Wallet app installed and rece
 Let us jump into the code by writing the `ERC20Verifier` contract. 
 
 The ERC20Verifier is an ERC20 standard contract on steroids. The extra functionality is given by the zero- knowledge proof verification. All the functions dedicated to the zk verification are contained inside the 
-<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol" target="_blank">ZKPVerifier Contract</a>
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol" target="_blank">ZKPVerifier Contract</a> and inherited within the ERC20Verifier. For example, users will submit their proof to claim the airdrop by calling <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L18" target="_blank">`submitZKPResponse`</a>
 
-[ZKPVerifier Contract](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol) and inherited within the ERC20Verifier. For example, users will submit their proof to claim the airdrop by calling [`submitZKPResponse`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L18).
+[`submitZKPResponse`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L18).
 
 The ERC20Verifier contract must define at least a single `TRANSFER_REQUEST_ID`. This is the Identifier of the request that the contract is posing to the user.
 
