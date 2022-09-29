@@ -28,9 +28,7 @@ The Polygon ID Wallet supports the following features:
 
 
 ---
-**Note** &#128221;
-
- Our tutorials on ***Wallet SDK*** would be published soon!!
+**Note** &#128221;: Our tutorials on ***Wallet SDK*** would be published soon!!
 
 ---
 
