@@ -20,7 +20,7 @@ Polygon ID, with the help of zero-knowledge proofs, lets users prove their ident
 
 ## Core Concepts of Polygon ID: Claim, Identity Holder, Issuer and Verifier (Triangle of Trust)
 
-Every identity-based information is represented via a [Claim](./getting-started/claim/generic-claim.md). In the simplest terms, a claim represents any type of information related to an individual/enterprise/object. The claim could be as simple as the age of the entity or the highest degree held by it. It could be a membership certificate issued by a DAO.
+Every identity-based information is represented via a [Claim](https://docs.iden3.io/protocol/claims-structure/). In the simplest terms, a claim represents any type of information related to an individual/enterprise/object. The claim could be as simple as the age of the entity or the highest degree held by it. It could be a membership certificate issued by a DAO.
 
 The architecture of the framework is composed of three entities: Identity Holder, Issuer, and Verifier. These three, together, form what we call the `triangle of trust`. Let us see what role each entity plays in Polygon ID. 
 
@@ -59,7 +59,9 @@ Another aspect of privacy comes from the fact that the Issuer would not be able 
 
 <br>
 
-## <div align="center"><b>[START HERE](getting-started/getting-started.md)</b></div>
+## <div align="center"><b>[ISSUER - START HERE](./issuer/issuer-overview.md)</b></div>
+## <div align="center"><b>[VERIFIER - START HERE](./verifier/verifier-overview.md)</b></div>
+## <div align="center"><b>[WALLET - START HERE](./wallet/wallet-overview.md)</b></div>
 
 ---
 

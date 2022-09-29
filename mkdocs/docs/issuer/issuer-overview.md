@@ -9,9 +9,7 @@ An issuer might be:
 - An AI-based Application that issues "proof of personhood" claims 
 - An employer that endorses its employees
 
-[Claims](../getting-started/claim/generic-claim.md) are a flexible data format able to express any type of information so that developers can unleash their creativity.
-
-[Iden3 Core](../getting-started/getting-started.md) guides the reader through the core primitives that underpin the role of an Issuer.
+[Claims](https://docs.iden3.io/protocol/claims-structure/) are a flexible data format able to express any type of information so that developers can unleash their creativity.
 
 To operate, an issuer must set up a self-hosted server or directly interact with the Polygon ID Platform. 
 
