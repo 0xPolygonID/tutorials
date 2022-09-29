@@ -1,4 +1,4 @@
-# On-chain zk verification
+# On-chain ZK Verification
 
 The on-chain verification workflow allows Dapps to verify users' claim inside a Smart Contract. Zero Knowledge Proof cryptography enables this verification to happen in a privacy manner, namely without revealing any personal information of the user (prover).
 
@@ -17,6 +17,7 @@ The proof submitted to the smart contract will not reveal any information about 
 
 The prerequisite is that users have the Polygon ID Wallet app installed and received a claim of type `KYCAgeCredential` attesting their date of birth.
 
+<a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/on-chain-verification" target="_blank">repository</a>
 > The full executable code related to this tutorial can be cloned from this [repository](https://github.com/0xPolygonID/tutorial-examples/tree/main/on-chain-verification)
 
 ### Design the ERC20 zk Airdrop Verifier Contract 
