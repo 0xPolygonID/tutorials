@@ -2,12 +2,14 @@
 
 [**Polygon ID Smart Contracts - Github**](https://github.com/0xPolygonID/contracts/?target=_blank)
 
-<a href="https://github.com/0xPolygonID/contracts" target="_blank">**Polygon ID Smart Contracts - Github**</a>
+<a href="https://github.com/0xPolygonID/contracts" target="_blank">Polygon ID Smart Contracts - Github</a>
 
 [**Polygon ID Smart Contracts - Github**](https://github.com/0xPolygonID/contracts?to=/placeholder.com)
 
 	
 <a href="https://github.com/0xPolygonID/contracts" target="_blank" rel="noopener">**Polygon ID Smart Contracts - Github**</a>
+
+[Polygon ID Smart Contracts - Github](https://github.com/0xPolygonID/contracts){target="_blank"}
 
 ### CredentialAtomicQuerySigValidator
 
