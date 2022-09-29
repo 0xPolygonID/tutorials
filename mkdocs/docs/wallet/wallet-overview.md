@@ -16,3 +16,25 @@ The Polygon ID Wallet supports the following features:
 - Identity recovery using seed phrase.
 - Supports generating zero-knowledge proofs, hence ensuring data security. 
 
+
+
+
+
+
+---
+**Note**
+
+
+
+&#8364; &#x20AC; 
+
+&#1F3AE
+ 
+ Wallet SDK is coming soon...
+
+---
+
+
+
+
+
