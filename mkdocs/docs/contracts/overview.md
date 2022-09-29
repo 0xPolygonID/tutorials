@@ -1,5 +1,7 @@
 # Smart Contracts
 
+[**Polygon ID Smart Contracts - Github**](https://github.com/0xPolygonID/contracts)
+
 ### CredentialAtomicQuerySigValidator
 
 [**CredentialAtomicQuerySigValidator.sol - Github**](https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol)
@@ -12,6 +14,8 @@ The CredentialAtomicQuerySigValidator contract is used verify any claim-related 
 
 > The CredentialAtomicQuerySigValidator executes the same set of verifications of the [Verification Library](../verifier/verification-library/verification-api-guide.md#verification---under-the-hood). The former is required when performing on-chain verification while the latter is required for off-chain verification.
 
-CredentialAtomicQuerySigValidator addresses:
+CredentialAtomicQuerySigValidator address:
 
 - [Mumbai: 0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB](https://mumbai.polygonscan.com/address/0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB)
+
+> Further protocol related contracts can found at [Iden3 - Smart Contracts](https://docs.iden3.io/contracts/state/)

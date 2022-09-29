@@ -36,8 +36,8 @@ nav:
         - Auth Request: "verifier/verification-library/request-api-guide.md"
         - Verification: "verifier/verification-library/verification-api-guide.md"
         - ZK Query Language : "verifier/verification-library/zk-query-language.md"
+        - JWZ: "verifier/verification-library/jwz.md"
       - Run a Verifier: "verifier/verification-library/verifier-set-up.md"
-      - JWZ: "verifier/verification-library/jwz.md"
     - On-chain Verification:
       - Implement ERC20 zk airdrop in 20 minutes: "verifier/on-chain-verification/overview.md"
   - Wallet: 
@@ -56,11 +56,9 @@ nav:
         - Overview: "wallet/proof-generation/proof-generation-overview.md"
         - Types of Requests and Proofs: "wallet/proof-generation/types-of-auth-requests-and-proofs.md"
         - JWZ: "wallet/proof-generation/json-web-zero-knowledge.md"  
-  - Contracts: 
+  - Smart Contracts: 
     - Overview: "contracts/overview.md"
   
-
-
 # If you declare plugins, you need to declare all of them, 
 # including search (which would otherwise have been installed by default.)
 plugins:
