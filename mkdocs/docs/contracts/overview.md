@@ -15,7 +15,7 @@ The CredentialAtomicQuerySigValidator contract is used verify any claim-related 
 
 > The CredentialAtomicQuerySigValidator executes the same set of verifications of the 
 
-<a href="../verifier/verification-library/verification-api-guide.md#verification---under-the-hood" target="_blank">Verification Library</a> 
+[Verification Library](../verifier/verification-library/verification-api-guide.md#verification---under-the-hood)  {target="_blank"}
 
 
 [Verification Library](../verifier/verification-library/verification-api-guide.md#verification---under-the-hood). The former is required when performing on-chain verification while the latter is required for off-chain verification.
