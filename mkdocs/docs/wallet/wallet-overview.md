@@ -30,7 +30,7 @@ The Polygon ID Wallet supports the following features:
 ---
 **Note** &#128221;
 
- Our tutorials on the Wallet SDK part would be published soon!!
+ Our tutorials on ***Wallet SDK*** would be published soon!!
 
 ---
 
