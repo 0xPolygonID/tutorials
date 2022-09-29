@@ -57,7 +57,7 @@ nav:
         - Overview: "wallet/proof-generation/proof-generation-overview.md"
         - Types of Requests and Proofs: "wallet/proof-generation/types-of-auth-requests-and-proofs.md"
         - JWZ: "wallet/proof-generation/json-web-zero-knowledge.md"  
-      -->
+    -->
   - Smart Contracts: 
     - Overview: "contracts/overview.md"
   
