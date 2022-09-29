@@ -16,21 +16,21 @@ The Polygon ID Wallet supports the following features:
 - Identity recovery using seed phrase.
 - Supports generating zero-knowledge proofs, hence ensuring data security. 
 
+<br>
+
+> Download links for the PolygonID Wallet App:
+> - For Android: [Polygon ID on Google Play](https://play.google.com/store/apps/details?id=com.polygonid.wallet)
+> - For iOS: [Polygon ID on the App Store](https://apps.apple.com/us/app/polygon-id/id1629870183)
 
 
-
+<br>
+<br>
 
 
 ---
-**Note**
+**Note** &#128221;
 
-
-
-&#8364; &#x20AC; 
-
-(U+1F3AE)
- 
- Wallet SDK is coming soon...
+ Our tutorials on the Wallet SDK part would be published soon!!
 
 ---
 
