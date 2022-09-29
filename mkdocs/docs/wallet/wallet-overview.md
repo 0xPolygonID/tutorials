@@ -24,7 +24,7 @@ The Polygon ID Wallet supports the following features:
 
 
 <br>
-<br>
+
 
 
 ---
