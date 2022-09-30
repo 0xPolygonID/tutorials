@@ -1,9 +1,11 @@
 # Configuration
 
-The set of APIs included in the verification library can be split into two main categories:
+The set of APIs included in the verification library can be split into two steps:
 
-- [Authentication Request APIs](./request-api-guide.md) allow to design criteria in order to authenticate a user.
-- [Verification APIs](./verification-api-guide.md) allow verifying the proof sent by the user.
+- [Authentication Request APIs](./request-api-guide.md) allow to design the criteria that the user must satisfy to authenticate.
+- [Verification APIs](./verification-api-guide.md) allow verifying the proof sent by the user. The proof is generated as response to the request. 
+
+> Check the [workflow](./verifier-library-intro.md) to disambiguate between these two processes
 
 Both the APIs are available either in Golang or Javascript:
 

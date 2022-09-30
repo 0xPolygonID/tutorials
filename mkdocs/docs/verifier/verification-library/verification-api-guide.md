@@ -1,10 +1,10 @@
 # Verification
 
-After having presented an [Auth Request](./request-api-guide.md) to the user's wallet, 
-it will process the request and generate a proof that must be verified in order to authenticate the user. 
+After having presented an [Auth Request](./request-api-guide.md) to the user's wallet, it will process the request and generate a proof that is sent back to the Verifier. 
+The proof must be verified in order to authenticate the user. 
 Let us see how to implement this verification.
 
-> The proof verification follows the same flow: either the Auth Request is a [Basic Auth](./request-api-guide.md#basic-auth) or a [Query-based Auth](./request-api-guide.md#query-based-auth):
+> The proof verification always follows the same flow independently of the Request type presented in the previous step by the Verifier
 
 **Unpack the proof** 
 
@@ -81,7 +81,7 @@ Execute the verification. It verifies that the proof shared by the user satisfie
 
 ## Verification - Under the Hood
 
-The auth library provides a simple handler to extract all the necessary metadata from the JWZ token and execute all the verifications needed. The verification procedure that is happening behind the scenes involves the following steps: 
+The auth library provides a simple handler to extract all the necessary metadata from the proof and execute all the verifications needed. The verification procedure that is happening behind the scenes involves the following steps: 
 
 ### Zero-Knowledge Proof Verification
 
@@ -92,7 +92,7 @@ Starting from the circuit-specific public verification key, the proof, and the p
 
 ### Verification of On-chain Identity States
 
-Starting from the Identifier of the user, the <a href="https://docs.iden3.io/contracts/state" target="_blank">State</a> is fetched from the blockchain and compared to the state provided as input to the proof; this is done to check whether the user is the actual "owner" of the state used to generate the proof or not. It is important to note here that there is no gas cost associated with the verification as the VerifyState method just reads the identity state of the user on-chain without making any operations/smart contract calls. The same verification is performed for the Issuer Identity State.
+Starting from the Identifier of the user, the <a href="https://docs.iden3.io/contracts/state" target="_blank">State</a> is fetched from the blockchain and compared to the state provided as input to the proof; this is done to check whether the user is the actual "owner" of the state used to generate the proof or not. It is important to note here that there is no gas cost associated with the verification as the VerifyState method just reads the identity state of the user on-chain without making any operations/smart contract calls. The same verification is performed for the Issuer's Identity State.
 
 In this part, it is also verified that the claim of the query has not been revoked by the Issuer.
 
@@ -100,12 +100,13 @@ In this part, it is also verified that the claim of the query has not been revok
 
 This involves a verification based on the public inputs of the circuits used to generate the proof. These must match the rules requested by the Verifier inside the Auth Request. For example, the query and the claim schema used by the user to generate the proof must match the Auth Request:
 
-  - The message signed by the user is the same as the one passed to the user in the auth request.
-  - The rules such as the `query` or the claim `schema` used as public input for the circuit match the ones included inside the auth request. 
+  - The message signed by the user is the same must match the one passed to the user inside the auth request.
+  - The rules such as the `query` or the claim `schema` used to generate the proof must match the ones included inside the auth request. 
   
 This "off-circuit" verification is important because a user can potentially modify the query and present a valid proof. A user born after 2000-12-31 shouldn't pass the check. But if they generate a proof using a query input `"$lt": 20010101`, the Verifier would see it as a valid proof. By doing verification of the public inputs of the circuit, the Verifier is able to detect malicious actors.
 
 > At the end of the workflow:
+
 > - The web client is able to authenticate the user using its identifier `ID` after having established that the user controls that identity and satisfies the query presented in the auth request.
-> - The user is able to log into the platform without disclosing any personal information to the client except for its Identifier.
+> - The user is able to log into the platform without disclosing any personal information to the client except for its identifier.
 
