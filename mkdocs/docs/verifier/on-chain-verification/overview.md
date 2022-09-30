@@ -1,6 +1,6 @@
 # On-chain ZK Verification
 
-The on-chain verification workflow allows Dapps to verify users' claims inside a Smart Contract. Zero Knowledge Proof cryptography enables this verification to happen in a private manner, namely without revealing any personal information of the user (prover).
+The on-chain verification workflow allows Dapps to verify users' claims inside a Smart Contract. Zero-Knowledge Proof cryptography enables this verification to happen in a private manner, namely without revealing any personal information of the user (prover).
 
 This flow is especially needed when further on-chain logic wants to be implemented on successful verification such as:
 
@@ -197,8 +197,9 @@ async function main() {
     const circuitId = "credentialAtomicQuerySig";
     // validator is already deployed on Polygon Mumbai testnet
     const validatorAddress = "0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB";
-    // To learn more about how to design query check https://0xpolygonid.github.io/tutorials/verifier/verification-library/zk-query-language/
-    // To learn more about how the claim schema work check https://0xpolygonid.github.io/tutorials/getting-started/claim/claim-schema/
+    // To learn more about how to design a query, check https://0xpolygonid.github.io/tutorials/verifier/verification-library/zk-query-language/
+    // To learn more about how the claim schema work, check https://docs.iden3.io/getting-started/claim/claim-schema/
+    
     const ageQuery = {
         schema: ethers.BigNumber.from("210459579859058135404770043788028292398"),
         slotIndex: 2,
