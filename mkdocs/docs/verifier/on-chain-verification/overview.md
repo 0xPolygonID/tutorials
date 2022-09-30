@@ -24,9 +24,7 @@ The prerequisite is that users have the Polygon ID Wallet app installed and rece
 Let us jump into the code by writing the `ERC20Verifier` contract. 
 
 The ERC20Verifier is an ERC20 standard contract on steroids. The extra functionality is given by the zero- knowledge proof verification. All the functions dedicated to the zk verification are contained inside the 
-<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol" target="_blank">ZKPVerifier Contract</a> and inherited within the ERC20Verifier. For example, users will submit their proof to claim the airdrop by calling <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L18" target="_blank">`submitZKPResponse`</a>
-
-[`submitZKPResponse`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L18).
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol" target="_blank">ZKPVerifier Contract</a> and inherited within the ERC20Verifier. For example, users will submit their proof to claim the airdrop by calling <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L18" target="_blank">`submitZKPResponse`</a>.
 
 The ERC20Verifier contract must define at least a single `TRANSFER_REQUEST_ID`. This is the Identifier of the request that the contract is posing to the user.
 
@@ -109,7 +107,10 @@ contract ERC20Verifier is ERC20, ZKPVerifier {
 }
 ```
 
-Finally, we can add a further element of security inside the Smart Contract: prevent any type of token transfer (even after the airdrop) unless users passed the proof verification. This last condition is added by overriding the ERC20 `_beforeTokenTransfer` function and checking that the receiver address `to` of the transfer is included inside the [`proofs`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L12) mapping. 
+Finally, we can add a further element of security inside the Smart Contract: prevent any type of token transfer (even after the airdrop) unless users passed the proof verification. This last condition is added by overriding the ERC20 `_beforeTokenTransfer` function and checking that the receiver address `to` of the transfer is included inside the 
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L12" target="_blank">`proofs`</a>
+
+[`proofs`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L12) mapping. 
 
 ```solidity hl_lines="29 30 31 32 33"
 contract ERC20Verifier is ERC20, ZKPVerifier {
