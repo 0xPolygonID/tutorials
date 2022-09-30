@@ -412,4 +412,4 @@ Another possibility to customize your Smart Contract involves setting different 
 
 - <a href="https://github.com/0xPolygonID/contracts" target="_blank">Polygon ID - Contracts</a>
 
-[Polygon ID - Contracts](https://github.com/0xPolygonID/contracts)
+
