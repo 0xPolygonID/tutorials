@@ -21,11 +21,7 @@ The Polygon ID Wallet supports the following features:
 > Download links for the PolygonID Wallet App:
 > - For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
 
-[Polygon ID on Google Play](https://play.google.com/store/apps/details?id=com.polygonid.wallet)
 > - For iOS: <a href="https://apps.apple.com/us/app/polygon-id/id1629870183" target="_blank">Polygon ID on the App Store</a>
-
- [Polygon ID on the App Store](https://apps.apple.com/us/app/polygon-id/id1629870183)
-
 
 <br>
 
