@@ -277,15 +277,15 @@ Note that the request resembles in most of its parts with the one designed for <
 - `chain_id`, the ID of the chain where the Smart Contract has been deployed
 - `network`, the name of the network where the Smart contract has been deployed
 
-> To display the QR code inside your frontend, you can use the `express.static` built-in middleware function together with this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> 
-
-[Static Folder](https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static) or use any other online QR code generator.
+> To display the QR code inside your frontend, you can use the `express.static` built-in middleware function together with this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> or use any other online QR code generator.
 
 Scanning the QR with their Polygon ID Wallet, users will be able to generate proofs and send transactions to the Smart Contract in order to claim their airdrops.
 
 ### User Demo: On-chain Verification for ERC-20 Token Transfer 
 
-For this demo, we have deployed a [frontend](https://onchain.polygonid.me/) in order to interact with the user. When visiting this website, users can use their PolygonID wallet app to submit a proof and, if this gets verified, claim an ERC-20 token airdrop. Let us see the process in a step-by-step manner from the user's perspective:
+For this demo, we have deployed a <a href="https://onchain.polygonid.me/" target="_blank">frontend</a>
+
+[frontend](https://onchain.polygonid.me/) in order to interact with the user. When visiting this website, users can use their PolygonID wallet app to submit a proof and, if this gets verified, claim an ERC-20 token airdrop. Let us see the process in a step-by-step manner from the user's perspective:
 
 1. Open verification website. Click **Participate in Airdrop**.
 
