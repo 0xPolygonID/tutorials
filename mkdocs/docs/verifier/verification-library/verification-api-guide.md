@@ -57,7 +57,9 @@ Unpacks the `req`
 
 Returns an instance of a Verifier. To set up a verifier different parameters need to be passed: 
 
--  `keyDIR` is the path where the public verification keys for iden3 circuits are located, such as `"./keys"`. The verification key folder can be found [here](https://github.com/iden3/tutorial-examples/tree/main/verifier-integration/keys)
+-  `keyDIR` is the path where the public verification keys for iden3 circuits are located, such as `"./keys"`. The verification key folder can be found <a href="https://github.com/iden3/tutorial-examples/tree/main/verifier-integration/keys" target="_blank">here</a>.
+
+ [here](https://github.com/iden3/tutorial-examples/tree/main/verifier-integration/keys)
 - `rpcUrl` is the url of your RPC node provider, such as `"https://eth-mainnet.g.alchemy.com/v2/...."`
 - `contractAddress` is the address of the identity state Smart Contract. On Polygon Mainnet it is 0xb8a86e138C3fe64CbCba9731216B1a638EEc55c8.
 
@@ -87,12 +89,22 @@ The auth library provides a simple handler to extract all the necessary metadata
 
 Starting from the circuit specific public verification key, the proof and the public inputs provided by the user it is possible to verify the proof. In this case the Proof verification involves: 
 
-- Verification of the proof contained based on the [`Auth Circuit`](https://docs.iden3.io/protocol/main-circuits/#authentication)
-- Verification of the proof contained based on the [`AtomicQuerySig Circuit`](https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerysig) or [`AtomicQueryMTP`](https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerymtp) based on the query.
+- Verification of the proof contained based on the <a href="https://docs.iden3.io/protocol/main-circuits/#authentication" target="_blank">`Auth Circuit`</a>
+
+[`Auth Circuit`](https://docs.iden3.io/protocol/main-circuits/#authentication)
+- Verification of the proof contained based on the <a href="https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerysig" target="_blank">`AtomicQuerySig Circuit`</a>
+
+[`AtomicQuerySig Circuit`](https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerysig) or 
+
+<a href="https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerymtp" target="_blank">`AtomicQueryMTP`</a>
+
+[`AtomicQueryMTP`](https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerymtp) based on the query.
 
 ### Verification of On-chain Identity States
 
-Starting from the Identifier of the user, the [State](https://docs.iden3.io/contracts/state/) is fetched from the blockchain and compared to the state provided as input to the proof to check whether the user is actually "owner" of the state used to generate the proof. It's important to note here is that there's no gas cost associated with the verification as the VerifyState method is just reading the identity state of the user on-chain without making any operations/smart contract call. The same verfication is performed for the Issuer Identity State.
+Starting from the Identifier of the user, the <a href="https://docs.iden3.io/contracts/state" target="_blank">State</a>
+
+[State](https://docs.iden3.io/contracts/state/) is fetched from the blockchain and compared to the state provided as input to the proof to check whether the user is actually "owner" of the state used to generate the proof. It's important to note here is that there's no gas cost associated with the verification as the VerifyState method is just reading the identity state of the user on-chain without making any operations/smart contract call. The same verfication is performed for the Issuer Identity State.
 
 In this part, it is also verified that the claim subject of the query hasn't been revoked by the Issuer.
 
