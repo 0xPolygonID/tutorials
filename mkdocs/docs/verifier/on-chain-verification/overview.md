@@ -283,11 +283,9 @@ Scanning the QR with their Polygon ID Wallet, users will be able to generate pro
 
 ### User Demo: On-chain Verification for ERC-20 Token Transfer 
 
-For this demo, we have deployed a <a href="https://onchain.polygonid.me/" target="_blank">frontend</a>
+For this demo, we have deployed a <a href="https://onchain.polygonid.me/" target="_blank">frontend</a> in order to interact with the user. When visiting this website, users can use their PolygonID wallet app to submit a proof and, if this gets verified, claim an ERC-20 token airdrop. Let us see the process in a step-by-step manner from the user's perspective:
 
-[frontend](https://onchain.polygonid.me/) in order to interact with the user. When visiting this website, users can use their PolygonID wallet app to submit a proof and, if this gets verified, claim an ERC-20 token airdrop. Let us see the process in a step-by-step manner from the user's perspective:
-
-1. Open verification website. Click **Participate in Airdrop**.
+1. Open the verification website. Click **Participate in Airdrop**.
 
     <div align="center">
     <img src= "../../../imgs/participate-in-airdrop.png" align="center" width="500" style="border: 4px solid black"/>
@@ -406,7 +404,10 @@ interface IZKPVerifier {
 
 ### Extend to Your Own Logic
 
-Now that you have been able to create your first on-chain zk-based application you can extend it to accommodate any type of imaginable logic. The target Smart Contract doesn't have to be an ERC20 but it can be an ERC721, a DeFi pool, a voting Smart Contract or whatever contract you can think of. Equally the query can be extended to any type of existing claim and based on the different operators available inside the [ZK Query Language](https://0xpolygonid.github.io/tutorials/verifier/verification-library/zk-query-language/). 
+Now that you have been able to create your first on-chain zk-based application you can extend it to accommodate any type of imaginable logic. The target Smart Contract doesn't have to be an ERC20 but it can be an ERC721, a DeFi pool, a voting Smart Contract or whatever contract you can think of. Equally the query can be extended to any type of existing claim and based on the different operators available inside the <a href="https://0xpolygonid.github.io/tutorials/verifier/verification-library/zk-query-language/" target="_blank">ZK Query Language</a>
+
+
+[ZK Query Language](https://0xpolygonid.github.io/tutorials/verifier/verification-library/zk-query-language/). 
 
 Another possibility to customize your Smart Contract involves setting different zk requests. First of all, multiple `REQUEST_ID` must be defined inside the main Smart Contract. Therefore, the contract deployer can set a different query for each request ID and create different outcomes inside `_afterProofSubmit` according to the type of proof received. For example, an airdrop contract can verify the role of a user inside a DAO and distribute a different amount of tokens based on the role.
 
