@@ -270,15 +270,14 @@ The last step is to design the proof request to be embedded inside a QR code tha
 
 > The scope section inside the JSON file must match the query previously set when calling the "setZKPRequest" function
 
-Note that the request resembles in most of its parts with the one designed for <a href="https://0xpolygonid.github.io/tutorials/verifier/verification-library/request-api-guide/" target="_blank">off-chain verification</a>.  
-
-
-
-
-[off-chain verification](https://0xpolygonid.github.io/tutorials/verifier/verification-library/request-api-guide/). The extra part that has been added here is the `transcation_data` that includes:
+Note that the request resembles in most of its parts with the one designed for <a href="https://0xpolygonid.github.io/tutorials/verifier/verification-library/request-api-guide/" target="_blank">off-chain verification</a>. The extra part that has been added here is the `transcation_data` that includes:
 
 - `contract_address`, namely the address of the Verifier contract, in this case, ERC20Verifier
-- `method_id`, namely that hash of the ABI of the [`submitZKPResponse`](https://github.com/0xPolygonID/contracts/blob/main/contracts/interfaces/IZKPVerifier.sol#L5) function
+- `method_id`, namely that hash of the ABI of the 
+
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/interfaces/IZKPVerifier.sol#L5" target="_blank">`submitZKPResponse`</a>
+
+[`submitZKPResponse`](https://github.com/0xPolygonID/contracts/blob/main/contracts/interfaces/IZKPVerifier.sol#L5) function
 - `chain_id`, the ID of the chain where the Smart Contract has been deployed
 - `network`, the name of the network where the Smart contract has been deployed
 
