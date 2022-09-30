@@ -55,6 +55,7 @@ Another aspect of privacy comes from the fact that the Issuer would not be able 
 
 ## Polygon ID and Iden3
 
+<a href="https://iden3.io/" target="_blank">Iden3</a>
 [Iden3](https://iden3.io/) is the open-source protocol at the basis of Polygon ID. The protocol defines on a low-level how the parties listed above communicate and interact with each other. Polygon ID is an abstraction layer to enable developers build applications leveraging Iden3 protocol.
 
 <br>
@@ -69,7 +70,6 @@ Another aspect of privacy comes from the fact that the Issuer would not be able 
 <a href="https://github.com/0xPolygonID" target="_blank">Polygon ID on GitHub</a></div>
 
 
-[Polygon ID on GitHub](https://github.com/0xPolygonID)
 
 
 
