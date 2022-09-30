@@ -65,7 +65,11 @@ Another aspect of privacy comes from the fact that the Issuer would not be able 
 
 ---
 
-###### <div align="center">[Polygon ID on GitHub](https://github.com/0xPolygonID)</div>
+###### <div align="center">
+<a href="https://github.com/0xPolygonID" target="_blank">Polygon ID on GitHub</a> 
+
+
+[Polygon ID on GitHub](https://github.com/0xPolygonID)</div>
 
 
 
