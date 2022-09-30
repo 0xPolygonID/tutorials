@@ -8,7 +8,7 @@ The Polygon ID Wallet is a `Privacy by Default` wallet that helps protect a user
 
 The Polygon ID Wallet supports the following features:
 
-- Privacy by design and Self-sovereignity: The user is in full control of his/her identity data. Exchange of Verifiable Credentials with other identities without the need of an intermediary or centralized authority. 
+- Privacy by design and Self-sovereignty: The user is in full control of his/her identity data. Exchange of Verifiable Credentials with other identities without the need of an intermediary or centralized authority. 
 - Open and Permissionless. 
 - Fetching, storing, and managing claims
 - Generating cost-optimized zero-knowledge proofs for claim verification.
@@ -19,13 +19,15 @@ The Polygon ID Wallet supports the following features:
 <br>
 
 > Download links for the PolygonID Wallet App:
-> - For Android: [Polygon ID on Google Play](https://play.google.com/store/apps/details?id=com.polygonid.wallet)
-> - For iOS: [Polygon ID on the App Store](https://apps.apple.com/us/app/polygon-id/id1629870183)
+> - For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
+
+[Polygon ID on Google Play](https://play.google.com/store/apps/details?id=com.polygonid.wallet)
+> - For iOS: <a href="https://apps.apple.com/us/app/polygon-id/id1629870183" target="_blank">Polygon ID on the App Store</a>
+
+ [Polygon ID on the App Store](https://apps.apple.com/us/app/polygon-id/id1629870183)
 
 
 <br>
-
-
 
 ---
 **Note** &#128221;: Our tutorials on ***Wallet SDK*** would be published soon!!
