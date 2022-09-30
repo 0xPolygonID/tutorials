@@ -13,9 +13,7 @@ An issuer might be:
 
 To operate, an Issuer must set up a self-hosted server or directly interact with the Polygon ID Platform. 
 
-> Identity Server and Polygon ID Platform are coming soon! 
-
 ---
-**Note** &#128221;: ***Identity Server***and ***Identity Platform*** are coming out soon!!
+**Note** &#128221;: ***Identity Server*** and ***Identity Platform*** are coming out soon!!
 
 ---
