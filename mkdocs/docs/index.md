@@ -3,7 +3,6 @@
 <br /><br />
 </div>
 
-[![Chat on Twitter][ico-twitter]][link-twitter]
 
 <a href="https://twitter.com/0xpolygonid" target="_blank">![Chat on Twitter][ico-twitter]</a>
 
