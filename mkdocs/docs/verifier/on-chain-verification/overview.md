@@ -273,15 +273,13 @@ The last step is to design the proof request to be embedded inside a QR code tha
 Note that the request resembles in most of its parts with the one designed for <a href="https://0xpolygonid.github.io/tutorials/verifier/verification-library/request-api-guide/" target="_blank">off-chain verification</a>. The extra part that has been added here is the `transcation_data` that includes:
 
 - `contract_address`, namely the address of the Verifier contract, in this case, ERC20Verifier
-- `method_id`, namely that hash of the ABI of the 
-
-<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/interfaces/IZKPVerifier.sol#L5" target="_blank">`submitZKPResponse`</a>
-
-[`submitZKPResponse`](https://github.com/0xPolygonID/contracts/blob/main/contracts/interfaces/IZKPVerifier.sol#L5) function
+- `method_id`, namely that hash of the ABI of the <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/interfaces/IZKPVerifier.sol#L5" target="_blank">`submitZKPResponse`</a> function
 - `chain_id`, the ID of the chain where the Smart Contract has been deployed
 - `network`, the name of the network where the Smart contract has been deployed
 
-> To display the QR code inside your frontend, you can use the `express.static` built-in middleware function together with this [Static Folder](https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static) or use any other online QR code generator.
+> To display the QR code inside your frontend, you can use the `express.static` built-in middleware function together with this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> 
+
+[Static Folder](https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static) or use any other online QR code generator.
 
 Scanning the QR with their Polygon ID Wallet, users will be able to generate proofs and send transactions to the Smart Contract in order to claim their airdrops.
 
