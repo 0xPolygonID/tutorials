@@ -52,7 +52,15 @@ contract ERC20Verifier is ERC20, ZKPVerifier {
 }
 ```
 
-The ZKPVerifier Contract provides 2 hooks: [`_beforeProofSubmit`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L93) and [`afterProofSubmit`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L102). These hooks are called before and after any proof get submitted and can be used to create personalized logic inside your Smart Contract.
+The ZKPVerifier Contract provides 2 hooks: 
+
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L93" target="_blank">`_beforeProofSubmit`</a>
+
+[`_beforeProofSubmit`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L93) and 
+
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L102" target="_blank">`afterProofSubmit`</a>
+
+[`afterProofSubmit`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L102). These hooks are called before and after any proof get submitted and can be used to create personalized logic inside your Smart Contract.
 
 In this specific case, it must be checked that the sender of the proof matches the address contained in the proof challenge. This requirement is necessary to prevent proof front-running. This condition is added inside `_beforeProofSubmit`.
 
