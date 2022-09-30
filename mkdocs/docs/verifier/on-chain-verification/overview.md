@@ -23,7 +23,7 @@ The prerequisite is that users have the Polygon ID Wallet app installed and rece
 
 Let us jump into the code by writing the `ERC20Verifier` contract. 
 
-The ERC20Verifier is an ERC20 standard contract on steroids. The extra functionality is given by the zero- knowledge proof verification. All the functions dedicated to the zk verification are contained inside the 
+The ERC20Verifier is an ERC20 standard contract on steroids. The extra functionality is given by the zero-knowledge proof verification. All the functions dedicated to the zk verification are contained inside the 
 <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol" target="_blank">ZKPVerifier Contract</a> and inherited within the ERC20Verifier. For example, users will submit their proof to claim the airdrop by calling <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L18" target="_blank">`submitZKPResponse`</a>.
 
 The ERC20Verifier contract must define at least a single `TRANSFER_REQUEST_ID`. This is the Identifier of the request that the contract is posing to the user.
@@ -54,13 +54,7 @@ contract ERC20Verifier is ERC20, ZKPVerifier {
 
 The ZKPVerifier Contract provides 2 hooks: 
 
-<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L93" target="_blank">`_beforeProofSubmit`</a>
-
-[`_beforeProofSubmit`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L93) and 
-
-<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L102" target="_blank">`afterProofSubmit`</a>
-
-[`afterProofSubmit`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L102). These hooks are called before and after any proof get submitted and can be used to create personalized logic inside your Smart Contract.
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L93" target="_blank">`_beforeProofSubmit`</a> and <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L102" target="_blank">`afterProofSubmit`</a>. These hooks are called before and after any proof get submitted and can be used to create personalized logic inside your Smart Contract.
 
 In this specific case, it must be checked that the sender of the proof matches the address contained in the proof challenge. This requirement is necessary to prevent proof front-running. This condition is added inside `_beforeProofSubmit`.
 
@@ -187,13 +181,11 @@ async function main() {
 
 ### Set the ZKP Request
 
-As previously mentioned, the actual zkp request "to be born before 01/01/2001" hasn't been added to the Smart Contract yet. To do so it is necessary to call 
-<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62" target="_blank">`setZKPRequest`</a> function inherited inside the ERC20Verifier. This function takes as input:
-- `requestId`, namely the id associated with the request.
-- `validator` the address of the 
-<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol" target="_blank">Validator Smart Contract</a>. 
+As previously mentioned, the actual zkp request "to be born before 01/01/2001" hasn't been added to the Smart Contract yet. To do so it is necessary to call <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62" target="_blank">`setZKPRequest`</a> function inherited inside the ERC20Verifier. This function takes as input:
+- `requestId`: the id associated with the request.
+- `validator`: the address of the <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol" target="_blank">Validator Smart Contract</a>. 
 This is the contract that actually executes the verification on the zk proof submitted by the user
-- `query`, namely the rules that the user must satisfy
+- `query`: the rules that the user must satisfy
 
 > Check out our [Smart Contract section](../../contracts/overview.md#credentialatomicquerysigvalidator) to learn more about the set of verifications executed on the zk proof.
 
@@ -237,7 +229,7 @@ async function main() {
 
 The contract is now correctly deployed on Mumbai Testnet and the query has been set up, congratulations! Now it is time to launch the airdrop! 
 
-### Add the Proof request inside a QR code 
+### Add the Proof Request Inside a QR Code 
 
 The last step is to design the proof request to be embedded inside a QR code that will be shown to the users that want to claim their airdrops. In this particular case this is how the request should look like (remember to modify it by adding the address of your ERC20Verifier Contract):
 
@@ -310,7 +302,7 @@ For this demo, we have deployed a <a href="https://onchain.polygonid.me/" target
     </div>
     <br>
 
-3. Open PolygonID Wallet app and authenticate it with your pin/biometrics.
+3. Open the PolygonID Wallet app and authenticate it with your pin/biometrics.
 
     <div align="center">
     <img src= "../../../imgs/auth-pin.png" align="center" width="250" style="border: 4px solid black"/>
@@ -340,7 +332,7 @@ For this demo, we have deployed a <a href="https://onchain.polygonid.me/" target
     <br>
 
 
-7. The Cryptographic Proof page is displayed. As the proof is based on zero- knowledge cryptography, no private data of the user is shared except the proof that the wallet generates. Click **Generate Proof**. 
+7. The Cryptographic Proof page is displayed. As the proof is based on zero-knowledge cryptography, no private data of the user is shared except the proof that the wallet generates. Click **Generate Proof**. 
 
     <div align="center">
     <img src= "../../../imgs/cryptographic-proof.png" align="center" width="250" style="border: 2px solid black"/>
