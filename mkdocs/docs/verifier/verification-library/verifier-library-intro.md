@@ -26,8 +26,6 @@ The authentication flow can be implemented either in GoLang or Javascript
 
 - <a href="https://github.com/iden3/go-iden3-auth" target="_blank">Go Iden3 Verification Library</a>
 
-[Go Iden3 Verification Library](https://github.com/iden3/go-iden3-auth)
 - <a href="https://github.com/iden3/js-iden3-auth" target="_blank">JS Iden3 Verification Library</a>
 
 
-[JS Iden3 Verification Library](https://github.com/iden3/js-iden3-auth)
