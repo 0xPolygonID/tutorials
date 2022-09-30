@@ -180,12 +180,12 @@ async function main() {
 ### Set the ZKP Request
 
 As previously mentioned, the actual zkp request "to be born before 01/01/2001" hasn't been added to the Smart Contract yet. To do so it is necessary to call 
-<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62" target="_blank">`setZKPRequest`</a>
-
-
-[`setZKPRequest`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62) function inherited inside the ERC20Verifier. This function takes as input:
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62" target="_blank">`setZKPRequest`</a> function inherited inside the ERC20Verifier. This function takes as input:
 - `requestId`, namely the id associated with the request.
-- `validator` the address of the [Validator Smart Contract](https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol). This is the contract that actually executes the verification on the zk proof submitted by the user
+- `validator` the address of the 
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol" target="_blank">Validator Smart Contract</a> 
+
+[Validator Smart Contract](https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol). This is the contract that actually executes the verification on the zk proof submitted by the user
 - `query`, namely the rules that the user must satisfy
 
 > Check out our [Smart Contract section](../../contracts/overview.md#credentialatomicquerysigvalidator) to learn more about the set of verifications executed on the zk proof.
