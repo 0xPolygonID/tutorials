@@ -2,10 +2,10 @@
 
 The set of APIs included in the verification library can be split into two main categories:
 
-- [Authentication Request APIs](./request-api-guide.md) allow to design criteria in order to authenticate a user
-- [Verification APIs](./verification-api-guide.md) allow to verify the proof sent by the user
+- [Authentication Request APIs](./request-api-guide.md) allow to design criteria in order to authenticate a user.
+- [Verification APIs](./verification-api-guide.md) allow verifying the proof sent by the user.
 
-Both the APIs are available either in Golang and Javascript
+Both the APIs are available either in Golang or Javascript:
 
 === "GoLang"
 
