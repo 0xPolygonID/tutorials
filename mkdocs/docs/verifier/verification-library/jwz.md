@@ -105,8 +105,6 @@ JWZ represents the main instrument to communicate securely between parties off-c
 
 > Here, we used the JWZ to manage the communication between the user and the Verifier. A JWZ can also be used in the communication between the user and the Issuer so that the user can prove his/her identity in order to fetch the claims associated with his/her identity.
 
-For web3/smart contract-based authentication, the data must be passed in a different format. This will be the subject of the next section of the tutorial.
-
 ### Libraries
 
 - <a href="https://github.com/iden3/js-jwz" target="_blank">js-jwz</a> for JavaScript implementation

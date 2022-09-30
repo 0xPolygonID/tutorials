@@ -7,11 +7,11 @@ A Basic Auth requires users to prove that they are the owners of an identity. No
 A Query-based Auth requires users to prove that:
 
 - They are the owner of an identity. 
-- They own claim(s) that satisfy a certain property.
+- They own a claim that satisfy a certain property.
 
 ## Basic Auth
 
-The Basic Auth Request allows users to interact with a wallet and authenticate it by its identifier.  
+The Basic Auth Request allows verifiers to interact with a wallet and authenticate the user it by its identifier.  
 Polygon ID Basic Auth can be implemented by any platform that is interested in providing a seamless web2-like login experience to its users without setting any specific requirements.
 
 #### CreateAuthorizationRequest
@@ -32,6 +32,8 @@ Polygon ID Basic Auth can be implemented by any platform that is interested in p
 
 Generate an Auth Request to the user that includes a *reason* for authenticating. The *audience* represents the identifier of the requester, while the *url* is the callback url where the user must send the response for verification
 
+---
+
 #### CreateAuthorizationRequestWithMessage
 
 === "GoLang"
@@ -51,9 +53,9 @@ The same functionality is applicable to CreateAuthorizationRequest but it also i
 
 ## Query-based Auth 
 
-The Query-based Auth Request allows users to interact with a wallet by setting up specific requirements for authentication. These requirements are the conditions that the user has to satisfy based on the claims held in his/her wallet.
+The Query-based Auth Request allows verifiers to interact with a wallet by setting up specific requirements for authentication. These requirements are the conditions that the user has to satisfy based on the claims held in his/her wallet.
 
-> The Query has to be attached to the Basic Auth Request output of the previous API.
+> The Query has to be attached to the Basic Auth Request output of the previous API. An example of its usage can be found <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/index.js#L50" target="_blank">here</a>
 
 === "GoLang"
 
@@ -103,7 +105,9 @@ The Query-based Auth Request allows users to interact with a wallet by setting u
     ```
 
 
-Generate a request to proof that satisfies certain requirements. `id` represents the request id: ideally, in production, it should be a unique value for each request. `circuit_id` represents the identifier of the circuit used by the user to generate the requested proof: it can be either `credentialAtomicQuerySig` or `credentialAtomicQueryMTP`. In this case, the user has to provide a proof that he/she owns a claim issued by the `allowedIssuer` of schema `type` **KYCCountryOfResidenceCredential** described in `url`. This claim contains details of the country of residence of the receiver. In this scenario, the user has to prove that the value contained in the attribute `countryCode` is not in `nin` 840, 120, 340, 509.
+Generate a request to proof that satisfies certain requirements. 
 
-Check out our [Query Language guide](./zk-query-language.md) to design any type of query request you can think of!
+`id` represents the request id: ideally, in production, it should be a unique value for each request. `circuit_id` represents the identifier of the circuit used by the user to generate the requested proof: it can be either `credentialAtomicQuerySig` or `credentialAtomicQueryMTP`. In this case, the user has to provide a proof that he/she owns a claim issued by the `allowedIssuer` of schema `type` **KYCCountryOfResidenceCredential** described in `url`. This claim contains details of the country of residence of the receiver. In this scenario, the user has to prove that the value contained in the attribute `countryCode` is not in `nin` 840, 120, 340, 509.
+
+> Check out our [Query Language guide](./zk-query-language.md) to design any type of query request you can think of!
 
