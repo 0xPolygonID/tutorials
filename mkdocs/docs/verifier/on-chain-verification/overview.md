@@ -183,9 +183,8 @@ As previously mentioned, the actual zkp request "to be born before 01/01/2001" h
 <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62" target="_blank">`setZKPRequest`</a> function inherited inside the ERC20Verifier. This function takes as input:
 - `requestId`, namely the id associated with the request.
 - `validator` the address of the 
-<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol" target="_blank">Validator Smart Contract</a> 
-
-[Validator Smart Contract](https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol). This is the contract that actually executes the verification on the zk proof submitted by the user
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol" target="_blank">Validator Smart Contract</a>. 
+This is the contract that actually executes the verification on the zk proof submitted by the user
 - `query`, namely the rules that the user must satisfy
 
 > Check out our [Smart Contract section](../../contracts/overview.md#credentialatomicquerysigvalidator) to learn more about the set of verifications executed on the zk proof.
@@ -271,7 +270,12 @@ The last step is to design the proof request to be embedded inside a QR code tha
 
 > The scope section inside the JSON file must match the query previously set when calling the "setZKPRequest" function
 
-Note that the request resembles in most of its parts with the one designed for [off-chain verification](https://0xpolygonid.github.io/tutorials/verifier/verification-library/request-api-guide/). The extra part that has been added here is the `transcation_data` that includes:
+Note that the request resembles in most of its parts with the one designed for <a href="https://0xpolygonid.github.io/tutorials/verifier/verification-library/request-api-guide/" target="_blank">off-chain verification</a>.  
+
+
+
+
+[off-chain verification](https://0xpolygonid.github.io/tutorials/verifier/verification-library/request-api-guide/). The extra part that has been added here is the `transcation_data` that includes:
 
 - `contract_address`, namely the address of the Verifier contract, in this case, ERC20Verifier
 - `method_id`, namely that hash of the ABI of the [`submitZKPResponse`](https://github.com/0xPolygonID/contracts/blob/main/contracts/interfaces/IZKPVerifier.sol#L5) function
