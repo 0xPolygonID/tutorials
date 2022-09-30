@@ -108,9 +108,7 @@ contract ERC20Verifier is ERC20, ZKPVerifier {
 ```
 
 Finally, we can add a further element of security inside the Smart Contract: prevent any type of token transfer (even after the airdrop) unless users passed the proof verification. This last condition is added by overriding the ERC20 `_beforeTokenTransfer` function and checking that the receiver address `to` of the transfer is included inside the 
-<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L12" target="_blank">`proofs`</a>
-
-[`proofs`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L12) mapping. 
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L12" target="_blank">`proofs`</a> mapping. 
 
 ```solidity hl_lines="29 30 31 32 33"
 contract ERC20Verifier is ERC20, ZKPVerifier {
@@ -181,7 +179,11 @@ async function main() {
 
 ### Set the ZKP Request
 
-As previously mentioned, the actual zkp request "to be born before 01/01/2001" hasn't been added to the Smart Contract yet. To do so it is necessary to call [`setZKPRequest`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62) function inherited inside the ERC20Verifier. This function takes as input:
+As previously mentioned, the actual zkp request "to be born before 01/01/2001" hasn't been added to the Smart Contract yet. To do so it is necessary to call 
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62" target="_blank">`setZKPRequest`</a>
+
+
+[`setZKPRequest`](https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62) function inherited inside the ERC20Verifier. This function takes as input:
 - `requestId`, namely the id associated with the request.
 - `validator` the address of the [Validator Smart Contract](https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol). This is the contract that actually executes the verification on the zk proof submitted by the user
 - `query`, namely the rules that the user must satisfy
