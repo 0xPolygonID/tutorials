@@ -5,6 +5,8 @@
 
 [![Chat on Twitter][ico-twitter]][link-twitter]
 
+<a href="https://twitter.com/0xpolygonid" target="_blank">![Chat on Twitter][ico-twitter]</a>
+
 [ico-twitter]: https://img.shields.io/twitter/url?color=black&label=0xpolygonid&logoColor=black&style=social&url=https%3A%2F%2Ftwitter.com%2F0xpolygonid
 
 [link-twitter]: https://twitter.com/0xpolygonid
@@ -55,8 +57,7 @@ Another aspect of privacy comes from the fact that the Issuer would not be able 
 
 ## Polygon ID and Iden3
 
-<a href="https://iden3.io/" target="_blank">Iden3</a>
-[Iden3](https://iden3.io/) is the open-source protocol at the basis of Polygon ID. The protocol defines on a low-level how the parties listed above communicate and interact with each other. Polygon ID is an abstraction layer to enable developers build applications leveraging Iden3 protocol.
+<a href="https://iden3.io/" target="_blank">Iden3</a> is the open-source protocol at the basis of Polygon ID. The protocol defines on a low-level how the parties listed above communicate and interact with each other. Polygon ID is an abstraction layer to enable developers build applications leveraging Iden3 protocol.
 
 <br>
 
