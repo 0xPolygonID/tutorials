@@ -17,7 +17,12 @@ The proof submitted to the Smart Contract will not reveal any information about 
 
 The prerequisite is that users have the Polygon ID Wallet app installed and received a claim of type `KYCAgeCredential` attesting their date of birth.
 
-> The full executable code related to this tutorial can be cloned from this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/on-chain-verification" target="_blank">repository</a>.
+---
+**Note:** The full executable code related to this tutorial can be cloned from this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/on-chain-verification" target="_blank">repository</a>.
+
+--- 
+
+> 
 
 ### Design the ERC20 zk Airdrop Verifier Contract 
 
@@ -182,6 +187,7 @@ async function main() {
 ### Set the ZKP Request
 
 As previously mentioned, the actual zkp request "to be born before 01/01/2001" hasn't been added to the Smart Contract yet. To do so it is necessary to call <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62" target="_blank">`setZKPRequest`</a> function inherited inside the ERC20Verifier. This function takes as input:
+
 - `requestId`: the id associated with the request.
 - `validator`: the address of the <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol" target="_blank">Validator Smart Contract</a>. 
 This is the contract that actually executes the verification on the zk proof submitted by the user
@@ -408,9 +414,5 @@ interface IZKPVerifier {
 Now that you have been able to create your first on-chain zk-based application you can extend it to accommodate any type of imaginable logic. The target Smart Contract doesn't have to be an ERC20 but it can be an ERC721, a DeFi pool, a voting Smart Contract or whatever contract you can think of. Equally the query can be extended to any type of existing claim and based on the different operators available inside the <a href="https://0xpolygonid.github.io/tutorials/verifier/verification-library/zk-query-language/" target="_blank">ZK Query Language</a>.
 
 Another possibility to customize your Smart Contract involves setting different zk requests. First of all, multiple `REQUEST_ID` must be defined inside the main Smart Contract. Therefore, the contract deployer can set a different query for each request ID and create different outcomes inside `_afterProofSubmit` according to the type of proof received. For example, an airdrop contract can verify the role of a user inside a DAO and distribute a different amount of tokens based on the role.
-
-### Resources
-
-- <a href="https://github.com/0xPolygonID/contracts" target="_blank">Polygon ID - Contracts</a>
 
 
