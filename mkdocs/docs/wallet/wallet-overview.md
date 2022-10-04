@@ -26,6 +26,7 @@ The Polygon ID Wallet supports the following features:
 
 ---
 **Note** &#128221;: Our tutorials on ***Wallet SDK*** would be published soon!! The SDK will allow you to integrate the identity wallet core functionalities into your own app
+
 ---
 
 

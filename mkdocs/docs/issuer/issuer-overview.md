@@ -11,9 +11,24 @@ An issuer might be:
 
 <a href="https://docs.iden3.io/protocol/claims-structure/" target="_blank">Claims</a> are a flexible data format able to express any type of information so that developers can unleash their creativity.
 
-To operate, an Issuer must set up a self-hosted server or directly interact with the Polygon ID Platform. 
+To operate, an Issuer must set up a self-hosted server or interact with the Polygon ID Platform. 
+
+With [Polygon ID Platform](https://platform-test.polygonid.com/) you can: 
+
+- Register a Polygon ID Issuer Account
+- Create <a href="https://docs.iden3.io/protocol/claim-schema/" target="_blank">Schemas</a> to define the structure of the claims you want to issue (or simply use existing schemas)
+- Issue Claims based on the schemas just created 
+- Offer these claims with your users (or friends!)
+
+Here's a demo of how it looks from the Issuer perspective:
+
+<div align="center">
+<video width="500"  controls>
+  <source src="../../videos/pid-platform-intro.mp4" type="video/mp4">
+</video>
+</div>
 
 ---
-**Note** &#128221;: ***Identity Server*** and ***Identity Platform*** are coming out soon!!
+**Note** &#128221;: ***Identity Server*** is coming out soon!!
 
 ---
