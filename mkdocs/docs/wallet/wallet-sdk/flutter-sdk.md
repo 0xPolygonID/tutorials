@@ -40,7 +40,7 @@ Flutter SDK installation is available for different operating systems including 
  
 ### Using Dart with Flutter
  
-Flutter apps are created using a programming language called `Dart`. An object-oriented language with similarity to C language, Dart is used for c creating mobile and web applications. With Dart, Flutter apps can be developed quickly and deployed to different platforms.
+Flutter apps are created using a programming language called `Dart`. An object-oriented language with similarity to C language, Dart is used for creating mobile and web applications. With Dart, Flutter apps can be developed quickly and deployed to different platforms.
 Note: For more information on Dart, click [here](https://dart.dev).
  
 ### Using Editor Plugins for Flutter and Dart
