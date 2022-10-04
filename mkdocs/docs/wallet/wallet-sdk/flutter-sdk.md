@@ -69,7 +69,7 @@ Once your Flutter and Dart plugins are installed, you can start creating your fi
    ```
 With these commands, the Flutter SDK creates a new project from scratch.
  
-3. With this, Flutter creates your app:
+3. Flutter creates your app.
  
 4. Change your directory to your app:
  
