@@ -1,6 +1,6 @@
 # Overview
  
-The proof generation starts with the Wallet SDK scanning the QR code on the Verifier website/app. This is worth mentioning that the proof-generation process initiates on the Verifier side first with the Verifier requesting the wallet SDK to select the type of credential for which proof verification is required.
+The proof generation starts with the Wallet scanning the QR code on the Verifier website/app. This is worth mentioning that the proof-generation process initiates on the Verifier side first with the Verifier requesting the wallet to select the type of credential for which proof verification is required.
  
 ## Steps of Proof Generation
  
