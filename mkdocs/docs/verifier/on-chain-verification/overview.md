@@ -294,7 +294,7 @@ This video shows you have a user can use their PolygonID wallet app to claim a E
 
 <div align="center">
 <video width="500"  controls>
-  <source src="../../../videos/on-chain-verification.mp4" type="video/mp4">
+  <source src="../../../videos/on-chain-verification-1.mp4" type="video/mp4">
 </video>
 </div>
 
