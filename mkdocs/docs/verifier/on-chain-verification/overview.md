@@ -290,13 +290,16 @@ Scanning the QR with their Polygon ID Wallet, users will be able to generate pro
 
 ## User Demo: Claim the Airdrop!
 
-This video shows you have a user can use their PolygonID wallet app to claim a ERC-20 token airdrop. To join the airdrop users are required to have a claim of type `KYCAgeCredential` attesting that their age is over 22yo.
+This video shows how a user can use their PolygonID wallet app to claim a ERC-20 token airdrop. To join the airdrop users are required to have a claim of type `KYCAgeCredential` attesting that their age is over 22yo.
 
 <div align="center">
-<video width="500"  controls>
-  <source src="../../../videos/on-chain-verification-1.mp4" type="video/mp4">
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NvPfh3nqeEQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
+
+<div class="video-wrapper">
+ 
+</div>
+
 
 Or you can direcly test it scanning the QR Code below using your Polygon ID App: 
 
