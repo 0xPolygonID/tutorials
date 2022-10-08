@@ -186,32 +186,48 @@ async function main() {
 
 ### Set the ZKP Request
 
-As previously mentioned, the actual zkp request "to be born before 01/01/2001" hasn't been added to the Smart Contract yet. To do so it is necessary to call <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62" target="_blank">`setZKPRequest`</a> function inherited inside the ERC20Verifier. This function takes as input:
+As previously mentioned, the actual zkp request "to be born before 01/01/2001" hasn't been added to the Smart Contract yet. To do so it is necessary to call <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62" target="_blank">`setZKPRequest`</a> function inherited inside the ERC20Verifier which takes 3 input:
 
-- `requestId`: the id associated with the request.
-- `validator`: the address of the <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol" target="_blank">Validator Smart Contract</a>. 
-This is the contract that actually executes the verification on the zk proof submitted by the user
-- `query`: the rules that the user must satisfy
+1. `requestId`: the id associated with the request.
+2. `validator`: the address of the <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol" target="_blank">Validator Smart Contract</a> already deployed on Mumbai. This is the contract that actually executes the verification on the zk proof submitted by the user
+3. `query`: the rules that the user must satisfy.
+
+In particular, the query must be designed as follow: 
+
+- `schema` is the hash of the schema that you can retrieve from the issuer dashboard at [Polygon ID Platform](https://platform-test.polygonid.com/). In order to use it inside the query it should be converted from hex to bigint
+- `slotIndex` is the index of the attribute you are querying. It can be either 2 or 3. 2 if the corresponding information is stored as `Attribute #1` or 3 if the information is stored as `Attribute #2`
+- `operator` is either 1,2,3,4,5:
+    "1" - equals
+    "2" - less-than
+    "3" - greater-than
+    "4" - in
+    "5" - notin
+> To understand more about the operator you can check the [zk query language](../verification-library/zk-query-language.md)
+- `value` represents the threshold value you are querying. If the data type during the schema creation was set to `Yes or no`, value true equals to `1` and false equals to `0`
+- `circuitId` is the ID of the circuit you are using for verification. For now it will always correspond to `credentialAtomicQuerySig`
 
 > Check out our [Smart Contract section](../../contracts/overview.md#credentialatomicquerysigvalidator) to learn more about the set of verifications executed on the zk proof.
 
 Execute this Hardhat script to set the zk request to the Smart Contract.
 
 ```js
+
 async function main() {
 
     const circuitId = "credentialAtomicQuerySig";
-    // validator is already deployed on Polygon Mumbai testnet
     const validatorAddress = "0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB";
-    // To learn more about how to design a query, check https://0xpolygonid.github.io/tutorials/verifier/verification-library/zk-query-language/
-    // To learn more about how the claim schema work, check https://docs.iden3.io/getting-started/claim/claim-schema/
-    
+
+    // Grab the schema hash from Polygon ID Platform
+    const schemaHash = "<>"
+
+    const schemaEnd = fromLittleEndian(hexToBytes(schemaHash))
+
     const ageQuery = {
-        schema: ethers.BigNumber.from("210459579859058135404770043788028292398"),
-        slotIndex: 2,
-        operator: 2,
-        value: [20020101, ...new Array(63).fill(0).map(i => 0)],
-        circuitId,
+    schema: ethers.BigNumber.from(schemaEnd),
+    slotIndex: 2,
+    operator: 1,
+    value: [1, ...new Array(63).fill(0).map(i => 0)],
+    circuitId,
     };
 
     // add the address of the contract just deployed. An instance of the contract has already been deployed on Mumbai 0x752A8f2Fd1c5FC5c9241090BD183709D4591D4cb
@@ -232,6 +248,24 @@ async function main() {
         console.log("error: ", e);
     }
 }
+
+function hexToBytes(hex) {
+    for (var bytes = [], c = 0; c < hex.length; c += 2)
+        bytes.push(parseInt(hex.substr(c, 2), 16));
+    return bytes;
+}
+
+function fromLittleEndian(bytes) {
+    const n256 = BigInt(256);
+    let result = BigInt(0);
+    let base = BigInt(1);
+    bytes.forEach((byte) => {
+      result += base * BigInt(byte);
+      base = base * n256;
+    });
+    return result;
+  }
+  
 ```
 
 The contract is now correctly deployed on Mumbai Testnet and the query has been set up, congratulations! Now it is time to launch the airdrop! 
@@ -247,7 +281,7 @@ The last step is to design the proof request to be embedded inside a QR code tha
     "type":"https://iden3-communication.io/proofs/1.0/contract-invoke-request",
     "body":{
         "transaction_data":{
-            "contract_address":"0xF8c797A0682dcF11996D4dE2a6383bA1c0b962A8",
+            "contract_address":"<ERC20Verifier contract address>",
             "method_id":"b68967e2",
             "chain_id":80001,
             "network":"polygon-mumbai"
