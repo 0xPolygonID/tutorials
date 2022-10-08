@@ -41,9 +41,9 @@ The architecture of the framework is composed of three modules: Identity Holder,
 
 <br>
 
-## Role of Wallet
+## Role of a Wallet
 
-[Wallet](./wallet/wallet-overview.md) plays a crucial role in the seamless exchange of claims and other related data with the Issuer, on one hand, and with the Verifier, on the other. As stated above, an Identity Holder carries his/her personal data ,in the form of claim, within their wallet. At its core, the wallet stores the private key of a user, fetch claims from the Issuer, and create zero-knowledge proofs to be presented to the Verifier. Being the carrier of the sensitive information, Wallet has been designed to ensure that the identity of its Holder is protected and preserved, and no sensitive data can be revealed to the third party without the consent of the Holder.  
+A [Wallet](./wallet/wallet-overview.md) plays a crucial role in the seamless exchange of claims and other related data with the Issuer, on one hand, and with the Verifier, on the other. As stated above, an Identity Holder carries his/her personal data ,in the form of claim, within their wallet. At its core, the wallet stores the private key of a user, fetch claims from the Issuer, and create zero-knowledge proofs to be presented to the Verifier. Being the carrier of the sensitive information, Wallet has been designed to ensure that the identity of its Holder is protected and preserved, and no sensitive data can be revealed to the third party without the consent of the Holder.  
 
 ## What Can you Achieve Using Polygon ID?
 
