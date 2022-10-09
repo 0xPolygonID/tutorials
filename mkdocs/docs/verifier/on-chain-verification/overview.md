@@ -221,7 +221,7 @@ async function main() {
     const schemaHash = "<>"
 
     const schemaEnd = fromLittleEndian(hexToBytes(schemaHash))
-
+    
     const ageQuery = {
     schema: ethers.BigNumber.from(schemaEnd),
     slotIndex: 2,
@@ -281,7 +281,7 @@ The last step is to design the proof request to be embedded inside a QR code tha
     "type":"https://iden3-communication.io/proofs/1.0/contract-invoke-request",
     "body":{
         "transaction_data":{
-            "contract_address":"<ERC20Verifier contract address>",
+            "contract_address":"<ERC20Verifier contract address>", // add your deployed contract here!
             "method_id":"b68967e2",
             "chain_id":80001,
             "network":"polygon-mumbai"
@@ -293,14 +293,14 @@ The last step is to design the proof request to be embedded inside a QR code tha
             "rules":{
                 "query":{
                     "allowed_issuers":["*"],
-                    "req":{
+                    "req":{ // to be modified according to your query
                         "birthday":{
                             "$lt":20020101
                             }
                         },
                     "schema":{
-                            "url":"https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v2.json-ld",
-                            "type":"KYCAgeCredential"
+                            "url":"https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v2.json-ld", // to be modified according to your url schema (you find it on Polygon ID Platform)
+                            "type":"KYCAgeCredential" // to be modified according to your credential type (you find it on Polygon ID Platform)
                             }
                         }
                     }
