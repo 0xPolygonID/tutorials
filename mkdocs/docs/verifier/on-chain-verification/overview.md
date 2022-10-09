@@ -226,7 +226,7 @@ async function main() {
     schema: ethers.BigNumber.from(schemaEnd),
     slotIndex: 2,
     operator: 2,
-    value: 200201011, ...new Array(63).fill(0).map(i => 0)],
+    value: 20020101, ...new Array(63).fill(0).map(i => 0)],
     circuitId,
     };
 
