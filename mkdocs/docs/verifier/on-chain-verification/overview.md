@@ -22,8 +22,6 @@ The prerequisite is that users have the Polygon ID Wallet app installed and rece
 
 --- 
 
-> 
-
 ### Design the ERC20 zk Airdrop Verifier Contract 
 
 Let us jump into the code by writing the `ERC20Verifier` contract. 

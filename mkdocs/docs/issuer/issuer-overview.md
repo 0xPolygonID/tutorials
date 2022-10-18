@@ -30,4 +30,4 @@ Here's a demo of how it looks from the Issuer perspective:
 ---
 **Note** &#128221;: ***Identity Server*** is coming out soon!!
 
----
+--- 
