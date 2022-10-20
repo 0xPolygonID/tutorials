@@ -13,9 +13,11 @@ This flow is especially needed when further on-chain logic wants to be implement
 
 In this tutorial, we will create an ERC20 zk Airdrop Contract. The chosen verification criteria is to be born before `01/01/2001`. Users that are able to prove that were born before that date will be able to get the airdrop. Otherwise, they will not. 
 
+This tutorial is based on the verification of a Claim of Type `AgeCredential` with a single attribute `dateOfBirth` in format age with a [Schema URL](https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld). This has been issued using the [Polygon ID Platform](https://platform-test.polygonid.com). To set up a different query check out the [ZK Query Language section](./zk-query-language.md)
+
 The proof submitted to the Smart Contract will not reveal any information about the specific date of birth of the user. That is the magic of zero-knowledge! 
 
-The prerequisite is that users have the Polygon ID Wallet app installed and received a claim of type `KYCAgeCredential` attesting their date of birth.
+The prerequisite is that users have the Polygon ID Wallet app installed and received a claim of type `AgeCredential` attesting their date of birth.
 
 ---
 **Note:** The full executable code related to this tutorial can be cloned from this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/on-chain-verification" target="_blank">repository</a>.
@@ -216,7 +218,7 @@ async function main() {
     const validatorAddress = "0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB";
 
     // Grab the schema hash from Polygon ID Platform
-    const schemaHash = "<>"
+    const schemaHash = "f03ac39aa54a5a2770a30f17d8042507"
 
     const schemaEnd = fromLittleEndian(hexToBytes(schemaHash))
     
@@ -228,7 +230,7 @@ async function main() {
     circuitId,
     };
 
-    // add the address of the contract just deployed. An instance of the contract has already been deployed on Mumbai 0x752A8f2Fd1c5FC5c9241090BD183709D4591D4cb
+    // add the address of the contract just deployed
     ERC20VerifierAddress = "<>"
 
     let erc20Verifier = await hre.ethers.getContractAt("ERC20Verifier", ERC20VerifierAddress)
@@ -279,7 +281,7 @@ The last step is to design the proof request to be embedded inside a QR code tha
     "type":"https://iden3-communication.io/proofs/1.0/contract-invoke-request",
     "body":{
         "transaction_data":{
-            "contract_address":"<ERC20Verifier contract address>", // add your deployed contract here!
+            "contract_address":"<ERC20Verifier contract address>",
             "method_id":"b68967e2",
             "chain_id":80001,
             "network":"polygon-mumbai"
@@ -291,14 +293,14 @@ The last step is to design the proof request to be embedded inside a QR code tha
             "rules":{
                 "query":{
                     "allowed_issuers":["*"],
-                    "req":{ // to be modified according to your query
-                        "birthday":{
+                    "req":{ 
+                        "dateOfBirth":{
                             "$lt":20020101
                             }
                         },
                     "schema":{
-                            "url":"https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v2.json-ld", // to be modified according to your url schema (you find it on Polygon ID Platform)
-                            "type":"KYCAgeCredential" // to be modified according to your credential type (you find it on Polygon ID Platform)
+                            "url":"https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld",
+                            "type":"AgeCredential"
                             }
                         }
                     }
