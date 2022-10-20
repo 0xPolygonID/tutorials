@@ -1,18 +1,19 @@
 # Polygon ID Platform API
 
-The Polygon ID Platform API allows to integrate all the functionalites to run a issuer inside your platform. 
+The Polygon ID Platform API exposes all the functionalites necessary to run a issuer.
 
-Explain what is OpenAPI
+> To become familiar with the role of the issuer, it is advised to start with the [Polygon Platform UI](https://platform-test.polygonid.com/). All the functionalities included in the UI are exposed here as independent APIs.
 
-- **Make examples of some of the functionality that you can find inside the Platform API based on the categories exposed** 
+The core functionality of the Platform API are:
 
-- **Mention Tradeoffs: claim storage is centralized, and Polygon takes care of the security of your issuer keys**: 
+- [Onboarding Orgs](./onborading-orgs/introduction.md) to register an Organization account on Polygon ID Platform
+- [Issuer](./issuer/introduction.md) to create an Issuer on Polygon ID Platform
+- [Schemas](./schemas/introduction.md) to manage the Schemas related to the Claims you are issuing
+- [Offers](./offers/introduction.md) to issue claims based on existing schemas and offer it to your users via a QR code
 
-- **Give some context regarding the structure of the library and how each category fit inside the flow!!**
+The APIs categories have to be considered as sequential steps: you cannot start creating schema and issuing claims without having a Issuer. Similarly you need an Organization account in order to create an Issuer on Polygon ID Platform. 
 
-### What to build:
+In order to start playing around with the Platform APIs:
 
-- **Add here a set of cool products you can build using the Platform API (or integrate it to existing products)**
-
-=> Call to action: Getting started
-
+- [Make your first API request](./make-your-first-request.md) to become familiar with the tooling of the library
+- Complete the [Full Flow Tutorial](./full-flow-tutorial.md) to experience an entire flow, from organization onboarding until fetching a claim inside your wallet
