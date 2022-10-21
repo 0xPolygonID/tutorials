@@ -10,3 +10,6 @@
 
 **[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**
 
+# Activate Account 
+
+=> You need the JWT token to call this endpoint

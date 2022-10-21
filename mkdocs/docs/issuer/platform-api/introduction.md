@@ -15,5 +15,5 @@ The APIs categories have to be considered as sequential steps: you cannot start 
 
 In order to start playing around with the Platform APIs:
 
-- [Make your first API request](./make-your-first-request.md) to become familiar with the tooling of the library
-- Complete the [Full Flow Tutorial](./full-flow-tutorial.md) to experience an entire flow, from organization onboarding until fetching a claim inside your wallet
+- [Make your first API request](./make-your-first-request.md) to become familiar with the tooling provided inside the library
+- Check out our tutorials based on specific flows for example [Onboard your Organization](./onboarding-org-flow-tutorial.md), [Create Claim Schemas](./create-schema-flow-tutorial.md) and [Issue a Claim](./issue-claim-flow-tutorial.md)

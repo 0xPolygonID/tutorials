@@ -1,4 +1,4 @@
-# Schemas 
+# Claim Schemas 
 
 => Describe the sense of this category and list all the endpoints
 
