@@ -11,11 +11,11 @@ This flow is especially needed when further on-chain logic wants to be implement
 
 ## Implement ERC20 ZK Airdrop in 20 Minutes 
 
-In this tutorial, we will create an ERC20 zk Airdrop Contract. The chosen verification criteria is to be born before `01/01/2001`. Users that are able to prove that were born before that date will be able to get the airdrop. Otherwise, they will not. 
+In this tutorial, we will create an ERC20 zk Airdrop Contract. The chosen query criteria is to be born before `01/01/2001`. Users that are able to prove that were born before that date will be able to get the airdrop. Otherwise, they will not. The proof submitted to the Smart Contract will not reveal any information about the specific date of birth of the user. That is the magic of zero-knowledge! 
 
-This tutorial is based on the verification of a Claim of Type `AgeCredential` with a single attribute `dateOfBirth` in format age with a [Schema URL](https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld). This has been issued using the [Polygon ID Platform](https://platform-test.polygonid.com). To set up a different query check out the [ZK Query Language section](./zk-query-language.md)
+> To set up a different query check out the [ZK Query Language section](../verification-library/zk-query-language.md)
 
-The proof submitted to the Smart Contract will not reveal any information about the specific date of birth of the user. That is the magic of zero-knowledge! 
+This tutorial is based on the verification of a Claim of Type `AgeCredential` with a single attribute `dateOfBirth` in format age with a [Schema URL](https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld) and schema hash equal to `f03ac39aa54a5a2770a30f17d8042507`. This has been issued using the [Polygon ID Platform](https://platform-test.polygonid.com). 
 
 The prerequisite is that users have the Polygon ID Wallet app installed and received a claim of type `AgeCredential` attesting their date of birth.
 
@@ -59,7 +59,7 @@ contract ERC20Verifier is ERC20, ZKPVerifier {
 
 The ZKPVerifier Contract provides 2 hooks: 
 
-<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L93" target="_blank">`_beforeProofSubmit`</a> and <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L102" target="_blank">`afterProofSubmit`</a>. These hooks are called before and after any proof get submitted and can be used to create personalized logic inside your Smart Contract.
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L93" target="_blank">`_beforeProofSubmit`</a> and <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L102" target="_blank">`afterProofSubmit`</a>. These hooks are called before and after any proof gets submitted and can be used to create personalized logic inside your Smart Contract.
 
 In this specific case, it must be checked that the sender of the proof matches the address contained in the proof challenge. This requirement is necessary to prevent proof front-running. This condition is added inside `_beforeProofSubmit`.
 
@@ -196,13 +196,7 @@ In particular, the query must be designed as follow:
 
 - `schema` is the hash of the schema that you can retrieve from the issuer dashboard at [Polygon ID Platform](https://platform-test.polygonid.com/). In order to use it inside the query it should be converted from hex to bigint
 - `slotIndex` is the index of the attribute you are querying. It can be either 2 or 3. 2 if the corresponding information is stored as `Attribute #1` or 3 if the information is stored as `Attribute #2`
-- `operator` is either 1,2,3,4,5:
-    "1" - equals
-    "2" - less-than
-    "3" - greater-than
-    "4" - in
-    "5" - notin
-> To understand more about the operator you can check the [zk query language](../verification-library/zk-query-language.md)
+- `operator` is either 1,2,3,4,5. To understand more about the operator you can check the [zk query language](../verification-library/zk-query-language.md)
 - `value` represents the threshold value you are querying. If the data type during the schema creation was set to `Yes or no`, value true equals to `1` and false equals to `0`
 - `circuitId` is the ID of the circuit you are using for verification. For now it will always correspond to `credentialAtomicQuerySig`
 
@@ -324,7 +318,7 @@ Scanning the QR with their Polygon ID Wallet, users will be able to generate pro
 
 ## User Demo: Claim the Airdrop!
 
-This video shows how a user can use their PolygonID wallet app to claim a ERC-20 token airdrop. To join the airdrop users are required to have a claim of type `KYCAgeCredential` attesting that their age is over 22yo.
+This video shows how a user can use their PolygonID wallet app to claim a ERC-20 token airdrop. To join the airdrop users are required to have a claim of type `KYCAgeCredential` attesting that they have been born before 01/01/2002.
 
 <div align="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NvPfh3nqeEQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

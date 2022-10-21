@@ -18,7 +18,7 @@ At its core, every off-chain interaction between a Verifier and a user's Wallet 
 
 Assume that the request is: "Are you over 18 years old?". The Verifier *never gets access to any of the user's credentials*. Instead, the Verifier receives a cryptographic proof which, on verification, provides an answer "yes" or "no" to the previous question. 
 
-This section provides all the elements needed to integrate "Authentication with Polygon ID".
+This section provides all the elements needed to integrate off-chain verification with Polygon ID.
 
 ## Libraries
 

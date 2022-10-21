@@ -33,10 +33,9 @@ nav:
       - Introduction: "verifier/verification-library/verifier-library-intro.md"
       - APIs: 
         - Config: "verifier/verification-library/config.md"
-        - Auth Request: "verifier/verification-library/request-api-guide.md"
-        - Verification: "verifier/verification-library/verification-api-guide.md"
-        - JWZ: "verifier/verification-library/jwz.md"
-      - Run a Verifier: "verifier/verification-library/verifier-set-up.md"
+        - ZK Request APIs: "verifier/verification-library/request-api-guide.md"
+        - Verification APIs: "verifier/verification-library/verification-api-guide.md"
+      - Tutorial - Run a Verifier: "verifier/verification-library/verifier-set-up.md"
     - On-chain Verification:
       - Implement ERC20 zk airdrop in 20 minutes: "verifier/on-chain-verification/overview.md"
     - ZK Query Language : "verifier/verification-library/zk-query-language.md"

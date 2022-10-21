@@ -1,18 +1,15 @@
-# Authentication Request
+# ZK Request API
 
-The first step of interacting with a wallet involves presenting an authentication request. In this tutorial, we will explain the difference between two types of authentication requests: **Basic Auth** and **Query-based Auth**.
+The first step of interacting with a wallet involves presenting a zk request. In this tutorial, we will explain the difference between two types of zk requests: **Basic Auth Request** and **Query-based Request**.
 
-A Basic Auth requires users to prove that they are the owners of an identity. No further requirements are set. 
+A Basic Auth Request allow to design a minimal identifier request to the user. As a response to that, the user will share a proof that he/she is the owner of that identifier.
 
-A Query-based Auth requires users to prove that:
+A Query-based Request allow to design a more complex query request to the user. As a response to that, the user will share a proof that he/she owns a claim that satisfies the properties defined inside the query.
 
-- They are the owner of an identity. 
-- They own a claim that satisfy a certain property.
-
-## Basic Auth
+## Basic Auth Request
 
 The Basic Auth Request allows verifiers to interact with a wallet and authenticate the user it by its identifier.  
-Polygon ID Basic Auth can be implemented by any platform that is interested in providing a seamless web2-like login experience to its users without setting any specific requirements.
+Basic Auth Request can be implemented by any platform that is interested in providing a seamless web2-like login experience to its users without setting any specific requirements.
 
 #### CreateAuthorizationRequest
 
@@ -49,9 +46,9 @@ Generate an Auth Request to the user that includes a *reason* for authenticating
     const request : protocol.AuthorizationRequestMessage = auth.createAuthorizationRequestWithMessage(reason, messageToSign, audience, url)
     ```
 
-The same functionality is applicable to CreateAuthorizationRequest but it also includes a *messageToSign*. This message will be shown to the users inside their wallets and will be signed as part of the response.
+The same functionality of CreateAuthorizationRequest but it also includes a *messageToSign*. This message will be shown to the users inside their wallets and will be signed as part of the response.
 
-## Query-based Auth 
+## Query-based Request 
 
 The Query-based Auth Request allows verifiers to interact with a wallet by setting up specific requirements for authentication. These requirements are the conditions that the user has to satisfy based on the claims held in his/her wallet.
 
@@ -103,11 +100,8 @@ The Query-based Auth Request allows verifiers to interact with a wallet by setti
     };
     request.body.scope = [...scope, proofRequest];
     ```
-
-
 Generate a request to proof that satisfies certain requirements. 
 
 `id` represents the request id: ideally, in production, it should be a unique value for each request. `circuit_id` represents the identifier of the circuit used by the user to generate the requested proof: it can be either `credentialAtomicQuerySig` or `credentialAtomicQueryMTP`. In this case, the user has to provide a proof that he/she owns a claim issued by the `allowedIssuer` of schema `type` **KYCCountryOfResidenceCredential** described in `url`. This claim contains details of the country of residence of the receiver. In this scenario, the user has to prove that the value contained in the attribute `countryCode` is not in `nin` 840, 120, 340, 509.
 
 > Check out our [Query Language guide](./zk-query-language.md) to design any type of query request you can think of!
-
