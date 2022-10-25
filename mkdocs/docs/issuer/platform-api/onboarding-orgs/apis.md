@@ -1,6 +1,6 @@
 # Onboarding Orgs
 
-The Onboarding Orgs endpoints represent all the actions needed to manage an Organization Account, such as Creating an Account, Activating an Account, Sign-in to an Account or Resetting its password. As an Issuer it is mandatory to create an Organization Account in order to perform any further action such as Creating Schemas or Issuing Claims.
+The Onboarding Orgs endpoints represent all the actions needed to manage an Organization Account, such as Creating an Account, Activating an Account, Sign-in to an Account or Resetting its password. It is mandatory to create an Organization Account in order to perform any further action such as Creating Schemas or Issuing Claims. The owner of an Organization Account can set up an [Issuer](../issuer/apis.md) and will soon be able to set up a Verifier.
 
 ## CreateAccountManagement
 
@@ -64,7 +64,7 @@ The Onboarding Orgs endpoints represent all the actions needed to manage an Orga
 
 **Function**: Endpoint to set a new password for your Organziation Account. 
 
-**How it works**: This Endpoint requires to pass the Bearer Token and the new `password` as required Request Body parameters.
+**How it works**: This Endpoint requires to pass the `Bearer Token` and the new `password` as required Request Body parameters.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
 
@@ -79,6 +79,8 @@ The Onboarding Orgs endpoints represent all the actions needed to manage an Orga
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
 
 **[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**
+
+> The ResetPassword Endpoint requires to be already sign-in to an Organization Account while the RequestResetPassword doesn't. You will likely use the latter only when you forget your password!
 
 ## ResendEmail
 

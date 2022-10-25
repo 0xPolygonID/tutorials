@@ -2,7 +2,7 @@
 
 ## Understand the endpoint
 
-The first endpoint that we are gonna use is [CreateAccountManagement](./onborading-orgs/apis.md#createaccountmanagement), located inside the Onboarding Orgs Category.
+The first endpoint that we are gonna use is [CreateAccountManagement](./onboarding-orgs/apis.md#createaccountmanagement), located inside the Onboarding Orgs Category.
 
 By accessing the page of the specific endpoint you'll find a brief introduction that includes:
 
@@ -45,6 +45,8 @@ If everything goes well you should receive a similar response:
 ```
 
 The values contained in the response are attesting the details of the organization just created. The `verified` key is equal to `false`. It means that the account requires to be activated using the x endpoint (**Add link to that endopoint**)
+
+** Add here the schema about organization and Issuer. Organization is a company account. Issuer is an action of the organization!
 
 
 

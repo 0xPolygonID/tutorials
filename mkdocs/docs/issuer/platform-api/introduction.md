@@ -6,7 +6,7 @@ The Polygon ID Platform API exposes all the functionalites necessary to run a is
 
 The core functionality of the Platform API are:
 
-- [Onboarding Orgs](./onborading-orgs/apis.md) to register an Organization account on Polygon ID Platform
+- [Onboarding Orgs](./onboarding-orgs/apis.md) to register an Organization account on Polygon ID Platform
 - [Issuer](./issuer/apis.md) to create an Issuer on Polygon ID Platform
 - [Schemas](./schemas/apis.md) to manage the Schemas related to the Claims you are issuing
 - [Offers](./offers/apis.md) to issue claims based on existing schemas and offer it to your users via a QR code
@@ -16,4 +16,4 @@ The APIs categories have to be considered as sequential steps: you cannot start 
 In order to start playing around with the Platform APIs:
 
 - [Make your first API request](./make-your-first-request.md) to become familiar with the tooling provided inside the library
-- Check out our tutorials based on specific flows for example [Onboard your Organization](./onboarding-org-flow-tutorial.md), [Create Claim Schemas](./create-schema-flow-tutorial.md) and [Issue a Claim](./issue-claim-flow-tutorial.md)
+- Check out our tutorials based on specific flows for example [Onboard your Organization](./flow-tutorial/onboarding-org-flow-tutorial.md), [Create Claim Schemas](./flow-tutorial/create-schema-flow-tutorial.md) and [Issue a Claim](./flow-tutorial/issue-claim-flow-tutorial.md)

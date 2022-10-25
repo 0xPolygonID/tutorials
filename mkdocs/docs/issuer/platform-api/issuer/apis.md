@@ -1,12 +1,14 @@
 # Issuer
 
-The Issuer endpoints represent all the actions needed to manage an Issuer, such as Creating, Updating or Deleting an Issuer. 
+The Issuer endpoints represent all the actions needed to manage an Issuer, such as Creating, Updating or Deleting an Issuer. Each Organization Account can only manage a single Issuer. 
 
 ## CreateIssuer
 
 **Function**: Endpoint to create a new Issuer for an Organization Account. 
 
-**How it works**: This Endpoint requires to pass the name of the Issuer `displayName` as required parameter inside the Request Body. Other non-required Request Body parametrs are the `logo`, the `legalName` and the `region` of your Issuer. This Endpoint requires to pass an active `Bearer Token` that can be retrieved after [sign-in](../onboarding-orgs/apis.md#sign-in) to your Organization Account
+**How it works**: This Endpoint requires to pass the name of the Issuer `displayName` as required parameter inside the Request Body. Other non-required Request Body parametrs are the `logo`, the `legalName` and the `region` of your Issuer. This information will represent your Polygon ID Issuer profile.
+
+This Endpoint requires to pass an active `Bearer Token` that can be retrieved after [sign-in](../onboarding-orgs/apis.md#sign-in) to your Organization Account
 
 On successful Issuer creation, the Response Body will contain a set of details related to the newly created Issuer such as its `id`. 
 
