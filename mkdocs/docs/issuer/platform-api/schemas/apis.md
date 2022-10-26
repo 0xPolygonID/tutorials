@@ -35,8 +35,6 @@ On successful Schema creation, the Response Body contains a set of information r
 
 => check out the Sandbox or the example in our flow!
 
-**Role Inside the flow**: In order to start offering Claims to your users is necessary to have an existing Claim Schema to fill. Once a new Claim Schema is created it can be referred to use by its `id`. 
-
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
 
 **[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**

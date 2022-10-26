@@ -8,8 +8,6 @@ The Onboarding Orgs endpoints represent all the actions needed to manage an Orga
 
 **How it works**: This Endpoint requires to pass `email` and `password` as required Request Body parameters. These represent the login credentials for your Organization. The Response Body contains a set of information related to your Organization Account such the `id`. 
 
-**Role Inside the flow**: To use the Platform API it is mandatory to create an Organization Account. This action has to be performed only once. If you already registered your Organization via the [Polygon ID Platform UI](https://platform-test.polygonid.com/), this action is not necessary. As a result of this you will also receive an email with a link to activate your Account. The credential used to create your Organization Account will be then used to [Sign-in](#sign-in). 
-
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
 
 **[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**
@@ -20,19 +18,15 @@ The Onboarding Orgs endpoints represent all the actions needed to manage an Orga
 
 **How it works**: To sign-in, you need to pass your Organization Account credentials `email` and `password` inside the Request Body. The Response Body contains a JWT token that will be used as `Bearer Token` to get the authorization to use other APIs. The token, if not deactivated or refreshed, will be active for 24 hours.
 
-**Role Inside the flow**: To use this Endpoint you need to already have performed [CreateAccountManagement](#createAccountmanagement). This action has to be performed to obtain a Bearer Token.
-
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
 
 **[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**
 
 ## Sign-out
 
-**Function**: Endpoint to sign-out to your Organization Account.
+**Function**: Endpoint to sign-out to your Organization Account. This action has to be performed every time you intend to deactive the Bearer Token.
 
 **How it works**: To sign-out, you need to pass an active `Bearer Token` inside the Authorization Request Header.
-
-**Role Inside the flow**: To use this Endpoint you need to be signed-in to an Organization Account. This action has to be performed every time you intend to deactive the Bearer Token.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
 
@@ -43,8 +37,6 @@ The Onboarding Orgs endpoints represent all the actions needed to manage an Orga
 **Function**: Endpoint to activate your Organization Account. 
 
 **How it works**: To activate an Account, you need to pass an active `Bearer Token` token inside the Authorization Request Header. The Response Body contains an updated `Bearer Token`.
-
-**Role Inside the flow**: To use this Endpoint you need to already have [Signed-in to your Organization Account](#sign-in). It is mandatory to activate an Organization Account. This action has to be performed only once and can also be executed using the link sent to your Organization Account email after the first sign-in. 
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
 

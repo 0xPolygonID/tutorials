@@ -21,8 +21,6 @@ In order to create a new Claim Offer, you need to pass an active `Bearer Token` 
 
 On successful Claim Offer creation, the Response Body contains a set of information related to your newly created Claim Offer such as its `id`.
 
-**Role Inside the flow**: To create a new Claim Offer it is required to have an existing Claim Schema. 
-
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
 
 **[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**
@@ -79,8 +77,6 @@ On successful Claim Offer creation, the Response Body contains Object containing
 
 On successful Request, the Response Body contains an set of details about the Claim Offer including the `qrCode`. The JSON file included in the `qrCode` can be parsed into a QR Code and presented to the user in order to authenticate. This endpoint will also create a specific `sessionID` for the user that is going to scan that QR Code.
 
-**Role Inside the flow**: The generated QR Code is mandatory for an Issuer to initiate a communication with the users. When scanning the QR Code with their Wallet, a user will be asked to authenticate. In order to fetch the actual claim associated with the Claim Offer, the user needs to scan a second QR Code generated as response to the [Get QRCode of Offer](#get-qrcode-of-offer) Endpoint. As each QR Code contains a specific session ID, it is necessary to create a QRCode for each user that you are offering a Claim to.
-
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
 
 **[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**
@@ -97,21 +93,17 @@ On successful Request, the Response Body contains an set of details about the Cl
 
 On successful Request, the Response Body contains an object with a `qrCode` field. The JSON file included in the `qrCode` can be parsed into a QR Code and presented to the user in order to fetch a claim.
 
-**Role Inside the flow**: The generated QR Code is mandatory for an Issuer in order to let users fetch claims inside their Wallet. When scanning the QR Code with their Wallet, a user will be asked if he/she wants to accept the Claim Offer. On acceptance, they will see a new claim added inside their Wallet. Since the generated QR Code is associated with the sessionID of the user that got previously authenticated, it is necessary that the user scanning the second QR is the same that performed the authentication in the first place, otherwise he/she won't be able to fetch the claim inside their wallet.
-
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
 
 **[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**
 
 ## Delete Offer
 
-**Function**: Endpoint to delete a specific Claim Offer.
+**Function**: Endpoint to delete a specific Claim Offer. Deleting a Claim Offer also deactivates the QR Code associated with that. It means that Users are no longer able to use it to fetch Claims inside their wallet.
 
 **How it works**: The Endpoint requires to pass the Issuer `id`, namely the identifier of the Issuer previously created, and the schema `id`, namely the identifier of the Schema used to create the Claim Offer, and the claim offer `id`, namely the identifier of the specific Claim Offer you want to delete, as Path Parameters.
 
 In order to create a new Claim Offer, you need to pass an active `Bearer Token` token inside the Authorization Request Header.
-
-**Role Inside the flow**: Deleting a Claim Offer also deactivates the QR Code associated with that. It means that Users are no longer able to use it to fetch Claims inside their wallet.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
 
