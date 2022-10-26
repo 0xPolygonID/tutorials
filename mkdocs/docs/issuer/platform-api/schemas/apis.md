@@ -16,7 +16,7 @@ As a rule of thumb, existing claim schemas should always be preferred in order t
 
 **Function**: Endpoint to create a new Claim Schema for your Issuer
 
-**How it works**: The Endpoint requires to pass the Issuer `id` as Path Parameter. Furthermore, it requires:
+**How it works**: The Endpoint requires to pass the Issuer `id` as Path Parameter. Furthermore, it requires as part of the Body Request:
 
 - `schema`, the name of the schema
 - `mandatoryExpiration` a boolean that indicates whether to make the claim expire or not

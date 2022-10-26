@@ -9,7 +9,7 @@ The core functionality of the Platform API are:
 - [Onboarding Orgs](./onboarding-orgs/apis.md) to register an Organization account on Polygon ID Platform
 - [Issuer](./issuer/apis.md) to create an Issuer on Polygon ID Platform
 - [Schemas](./schemas/apis.md) to manage the Schemas related to the Claims you are issuing
-- [Offers](./offers/apis.md) to issue claims based on existing schemas and offer it to your users via a QR code
+- [Claim Offers](./offers/apis.md) to issue claims based on existing schemas and offer it to your users via a QR code
 
 The APIs categories have to be considered as sequential steps: you cannot start creating schema and issuing claims without having a Issuer. Similarly you need an Organization account in order to create an Issuer on Polygon ID Platform. 
 
