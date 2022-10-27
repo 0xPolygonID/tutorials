@@ -1,4 +1,4 @@
-# Tutorial - Full Flow
+# Tutorial - Issuer Integration Full Flow
 
 This tutorial will walk you through a Full Flow Issuer Integration using Polygon ID APIs. By the end of Tutorial you will have set up an Issuer and offered a Claim to your users. 
 
@@ -8,11 +8,6 @@ The tutorial is made of 4 steps:
 2. Set up an Issuer 
 3. Create a Schema 
 4. Generate a Claim Offer (and a QR Code) so that user can fetch it inside their Wallet 
-
-<div align="center">
-<img src="../../../imgs/platform-api-1.png" alt="Polygon ID app as a reference implementation" width="500" align="center" />
-</div>
-<br>
 
 ## 1. Onboard your Organization
 
@@ -29,15 +24,17 @@ You only need to perform this action once.
 
 => Org/Login 
 
-The credential used to create your Organization Account will be then used to [Sign-in](#sign-in).This action has to be performed to obtain a Bearer Token.
+The credential used to create your Organization Account will be then used to [Sign-in](#sign-in).This action has to be performed to obtain a Bearer Token. The Response Body contains a JWT token that will be used as `Bearer Token` in order to use other Endpoints
 
 => Org/Activate
 
-To use this Endpoint you need to already have [Signed-in to your Organization Account](#sign-in). It is mandatory to activate an Organization Account. This action has to be performed only once and can also be executed using the link sent to your Organization Account email after the first sign-in. 
+To use this Endpoint you need to already have [Signed-in to your Organization Account](#sign-in). It is mandatory to activate an Organization Account. This action has to be performed only once and can also be executed using the link sent to your Organization Account email after the first sign-in.
+
+An owner of an Organization Account has percan set up an [Issuer](../issuer/apis.md) and will soon be able to set up a Verifier.  It is mandatory to create an Organization Account in order to perform any further action such as Creating Schemas or Issuing Claims. It updates the `Bearer Token`
 
 ## 2. Setup an Issuer
 
-Before start Issuing Claims, it is necessary to setup an Issuer. To setup an issuer it is required to have an Organization Account signed-in.
+Before start Issuing Claims, it is necessary to setup an Issuer. To setup an issuer it is required to have an Organization Account signed-in. Each Organization Account can only manage a single Issuer. This Endpoint requires to pass an active `Bearer Token` that can be retrieved after [sign-in](../onboarding-orgs/apis.md#sign-in) to your Organization Account
 
 > Today an Organization can only set up 1 Issuer. Soon more actions will be enabled for an Organization such as setting up multiple Issuers or a Verifier.
 
@@ -51,6 +48,11 @@ Before start Issuing Claims, it is necessary to setup an Issuer. To setup an iss
 ## 3. Create a Schema
 
 Before issuing the actual Claim, it is necessary to define an Schema, that is, the structure of a particular claim that defines the usage and the vocabulary of its Attributes. In order to create a Schema, it is necessary to have an Issuer setup. An issuer can create as many Schemas he/she wants!
+
+Let's consider the example of a company that wants to issue Claims to its employees attesting the starting data and their monthly salary. In this case, the company will create a schema defined `EmployeeData` with two attributes:
+- `EmployedSince` that accepts a `date` format 
+- `MonthlySalary` that accepts a `number` format
+
 
 - Ideally this action should be performed only as many times as many claim schemas you want to provide to your users
 

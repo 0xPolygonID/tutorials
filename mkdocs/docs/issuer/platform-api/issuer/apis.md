@@ -2,48 +2,44 @@
 
 The Issuer endpoints represent all the actions needed to manage an Issuer, such as Creating, Updating or Deleting an Issuer. Each Organization Account can only manage a single Issuer. 
 
-## CreateIssuer
+## Create Issuer
 
 **Function**: Endpoint to create a new Issuer for an Organization Account. 
 
-**How it works**: This Endpoint requires to pass the name of the Issuer `displayName` as required parameter inside the Request Body. Other non-required Request Body parametrs are the `logo`, the `legalName` and the `region` of your Issuer. This information will represent your Polygon ID Issuer profile.
+**How it works**: It requires to pass the name of the Issuer `displayName` as required Request Body parameters. Other non-required Request Body parameters are the `logo`, the `legalName` and the `region` of your Issuer. This information will represent your Polygon ID Issuer profile. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header.
 
-This Endpoint requires to pass an active `Bearer Token` that can be retrieved after [sign-in](../onboarding-orgs/apis.md#sign-in) to your Organization Account
+The Response Body contains a set of details related to the newly created Issuer such as its `id`. 
 
-On successful Issuer creation, the Response Body will contain a set of details related to the newly created Issuer such as its `id`. 
+**[API Reference](https://api-staging.polygonid.com/#tag/Issuer/operation/CreateIssuer)**
 
-**[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
-**[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**
-
-## GetIssuer
+## Get Issuer
 
 **Function**: Endpoint to fetch key information about an Issuer.
 
-**How it works**: The Endpoint requires to pass the Issuer `id` as Path Parameter (you obtain it as Response from the [CreateIssuer Endpoint](#createissuer)). It also requires to pass the `Bearer Token` inside the Authorization Request Header. The Response Body contains the entire set of details related to the request Issuer. 
+**How it works**: It requires to pass the Issuer `id` as Path Parameter. This endpoint can be used to fetch information about any issuer existing on Polygon ID. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains the entire set of details related to the requested Issuer.
 
-**[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
+**[API Reference](https://api-staging.polygonid.com/#tag/Issuer/operation/GetIssuer)**
 
-**[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
-## UpdateIssuer
+## Update Issuer
 
 **Function**: Endpoint to update the details of an existing Issuer. 
 
-**How it works**: This Endpoint allows to pass as optional parameter inside the Request Body one or more information about the Issuer that you want to update such as `displayName`, `logo`, `legalName` and `region`. This Endpoint requires to pass an active `Bearer Token` that can be retrieved after [sign-in](../onboarding-orgs/apis.md#sign-in) to your Organization Account.
+**How it works**: It allows to pass the `displayName`, `logo`, `legalName` and `region` as optional Request Body parameters. You can choose to pass only one of these value or all of them according to the type of information about the Issuer to update. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains the entire set of details related to the updated Issuer.
 
-On successful Issuer creation, the Response Body will contain the set of update details about the Issuer.
+**[API Reference](https://api-staging.polygonid.com/#tag/Issuer/operation/UpdateIssuer)**
 
-**[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
-**[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**
-
-## DeleteIssuer
+## Delete Issuer
 
 **Function**: Endpoint to delete an existing Issuer. 
 
-**How it works**: The Endpoint requires to pass the Issuer `id` as Path Parameter (you obtain it as Response from the [CreateIssuer Endpoint](#createissuer)). It also requires to pass the `Bearer Token` inside the Authorization Request Header.
+**How it works**: It requires to pass the Issuer `id` as Path Parameter. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. As a result of this Request the Issuer will be deleted and no longer able to perform actions on Polygon ID Platform.
+ 
+**[API Reference](https://api-staging.polygonid.com/#tag/Issuer/operation/DeleteIssuer)**
 
-**[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
-
-**[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
