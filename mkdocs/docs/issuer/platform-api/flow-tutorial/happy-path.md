@@ -32,6 +32,10 @@ To use this Endpoint you need to already have [Signed-in to your Organization Ac
 
 An owner of an Organization Account has percan set up an [Issuer](../issuer/apis.md) and will soon be able to set up a Verifier.  It is mandatory to create an Organization Account in order to perform any further action such as Creating Schemas or Issuing Claims. It updates the `Bearer Token`
 
+=> Org/Refresh 
+
+R: Because when you create an Issuer, your account management should refresh the token in order to get the organization id.
+
 ## 2. Setup an Issuer
 
 Before start Issuing Claims, it is necessary to setup an Issuer. To setup an issuer it is required to have an Organization Account signed-in. Each Organization Account can only manage a single Issuer. This Endpoint requires to pass an active `Bearer Token` that can be retrieved after [sign-in](../onboarding-orgs/apis.md#sign-in) to your Organization Account

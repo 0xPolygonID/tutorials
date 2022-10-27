@@ -43,9 +43,11 @@ It also requires to pass a valid `Bearer Token` inside the Authorization Request
 
 **Function**: Endpoint to fetch the details of all the Claim Schemas created by an Issuer.
 
-**How it works**: It requires to pass the Issuer `id` as Path Parameter. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains the entire set of information related to the required Claim Schema.
+**How it works**: It requires to pass the Issuer `id` as Path Parameter. Optionally, it accepts a `query` as Query Parameter which is search keyword. 
 
-The Endpoint requires to pass the Issuer `id` as Path Parameter. In order to use this endpoint, you need to pass an active `Bearer Token` token inside the Authorization Request Header. The Response Body contains the entire set of information related to the Claim Schemas created by that specific Issuer. 
+It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains the entire set of information related to the required Claim Schema.
+
+The Endpoint requires to pass the Issuer `id` as Path Parameter. In order to use this endpoint, you need to pass an active `Bearer Token` token inside the Authorization Request Header. The Response Body contains the entire set of information related to the Claim Schemas created by that specific Issuer. If the query was set to a specific value, for example `query=role` the Reponse Body will contain only the Schemas that contain the given keyword either in the schema Name or across its Attributes.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Schemas/operation/GetSchemaTemplates)**
 
@@ -55,7 +57,7 @@ The Endpoint requires to pass the Issuer `id` as Path Parameter. In order to use
 
 **Function**: Endpoint to delete a Claim Schema previously created.
 
-**How it works**: It requires to pass the Issuer `id` and the Schema `id` of the Schema to be deleted as Path Parameters. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. As a result of this Request the Schema will be deleted. 
+**How it works**: It requires to pass the Issuer `id` and the Schema `id` of the Schema to be deleted as Path Parameters. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. As a result of this Request the Schema will be deleted. Once a Schema get deleted, it won't be possible to use it again to Issue Claims.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Schemas/operation/RemoveSchemaTemplate)**
 
