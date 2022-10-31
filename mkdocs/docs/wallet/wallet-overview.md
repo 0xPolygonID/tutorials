@@ -24,6 +24,15 @@ The Polygon ID Wallet supports the following features:
 
 <br>
 
+## How is Polygon ID Wallet Different from Other Wallets?
+
+You, at some point in time, must have used cryptographic wallets such as Metamask, Trust Wallet, Coinbase Wallet, Ledger, and so many more. How is Polygon ID Wallet different from all these hot and cold storage wallets? Let us see:
+
+- The wallets like Metamask are used for sending and receiving crypto transactions on-chain. Polygon ID Wallet, on the other hand, is used for creating amd storing unique identities for the wallet so that these identities can be used to authenticate with the Issuer and the Verifier. This Identity wallet helps an Integrator fetch and save claims from Issuers and also present proof of these claims to the Verifiers. 
+
+- While the commonly used crypto wallets let you to interact with Ethereum and other blockchain  networks using RPCs (Remote Procedure Calls), this is not the case with Polygon ID Wallet - it functions solely to store claims linked to an identity and let these claims verified by creating zero-knowledge proofs. 
+
+- General wallets store cryptographic keys, the Polygon ID Wallet stores user's identities. 
 ---
 **Note** &#128221;: Our tutorials on ***Wallet SDK*** would be published soon!! The SDK will allow you to integrate the identity wallet core functionalities into your own app
 ---

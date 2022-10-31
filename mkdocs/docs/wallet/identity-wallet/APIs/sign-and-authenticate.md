@@ -1,4 +1,4 @@
-# Sign and Authenticate
+# To Sign and Authenticate: `sign` and `getAuthToken`
  
 An Identity needs to authenticate itself and also authenticate with the Issuer. To achieve this, `sign()` and `authenticate()`(currently called `getAuthToken()`) functions are used. Let us understand these in detail in the following paragraphs.
  
@@ -67,4 +67,4 @@ An Integrator, in order to interact with an Issuer, needs to authenticate with i
  
 **Note**: Read more on JWZ [here](https://github.com/0xPolygonID/tutorials/blob/main/mkdocs/docs/wallet/wallet-sdk-core-functionality/proof-generation/JWZ.md).
  
-4. The Issuer receives the data sent by the Integrator and based on its correctness, authenticates or rejects the identity. The SDK analyzes this response from the Issuer.
+4. The Issuer receives the data sent by the Integrator and based on its correctness, authenticates or rejects the identity. The wallet analyzes this response from the Issuer.

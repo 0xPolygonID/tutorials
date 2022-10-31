@@ -1,4 +1,4 @@
-# Create Identity
+# To Create Identity: `createIdentity`
  
 Creating an Identity is the first step that an Integrator needs to do if it intends to use the Polygon ID SDK. An identity is created with a unique identifier that is used to:
  

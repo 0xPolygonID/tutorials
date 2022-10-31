@@ -132,6 +132,6 @@ which when decoded from the Base64 format looks like:
 }
  
  
-To know more on the difference between JWZ and JWT, its usage and libraries, click [here](https://0xpolygonid.github.io/tutorials/verifier/verification-library/jwz/)
+To know more about the difference between JWZ and JWT, its usage and libraries, click [here](https://0xpolygonid.github.io/tutorials/verifier/verification-library/jwz/)
  
 Read more on JWZ code [here](https://github.com/iden3/go-jwz/blob/main/jwz.go).

@@ -1,8 +1,10 @@
 # PolygonID SDK Plugin: Example App
  
-This example illustrates to an Integrator how to install and use PolygonID SDK Plugin.
+This example illustrates how to fetch Dart packages to create your Dart project and how to initiate PolygonID SDK, which we learnt to install in our last tutorial. This example is the implementation of the PolygonID Flutter SDK
  
-## Install PolygonID Flutter SDK
+## Fetch Dart Packages
+
+Before you can start building your project, it is necesaary to fetch all the Dart packages and the dependencies mentioned in your `pubspec.yaml` file. Let us see how that is done:
  
 1. Clone the [polygonid-sdk-repository](https://github.com/iden3/polygonid-flutter-sdk.git).
  
@@ -18,10 +20,14 @@ flutter pub get
 ```
 The system runs the command:
 ***Running "flutter pub get" in example...***
+
+where `pub` command (in Dart) invokes a set of tools for managing Dart packages and `pub get` downloads these pacakges for your Dart project. The `flutter pub get` indicates that the command is run via flutter SDK.
+
+4. Build your first project and run it. 
+
+To know more about how to write your first Flutter app, click [here](https://docs.flutter.dev/get-started/codelab).
  
-4. Build your first project and run it. To know more about how to write your first Flutter app, click [here](https://docs.flutter.dev/get-started/codelab).
- 
-## Use PolygonID SDK
+## Initiate PolygonID SDK
  
 To start using SDK:
  
