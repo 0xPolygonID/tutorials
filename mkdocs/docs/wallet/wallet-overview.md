@@ -4,7 +4,13 @@ A digital wallet is a software that can hold and manage user's `Claims`. Based o
 
 The Polygon ID Wallet is a `Privacy by Default` wallet that helps protect a user's identity (and other metadata) by using zero-knowledge protocols. The wallet interacts with an Issuer to fetch claims and with Verifier for sharing zkProofs based on these claims.
 
-## Features of Polygon ID Wallet
+The Polygon ID app will be a reference implementation that other web3 wallets will be able to use as a starting point for integrating the Wallet SDK into their apps so that they can become compatible with the Polygon ID ecosystem.
+
+<div align="center">
+<img src="../../imgs/polygon-id-reference-app.png" alt="Polygon ID app as a reference implementation" width="500" align="center" />
+</div>
+
+## Features of the Polygon ID Wallet
 
 The Polygon ID Wallet supports the following features:
 
@@ -18,8 +24,8 @@ The Polygon ID Wallet supports the following features:
 <br>
 
 > Download links for the PolygonID Wallet App:
-> - For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
 
+> - For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
 > - For iOS: <a href="https://apps.apple.com/us/app/polygon-id/id1629870183" target="_blank">Polygon ID on the App Store</a>
 
 <br>
@@ -35,6 +41,7 @@ You, at some point in time, must have used cryptographic wallets such as Metamas
 - General wallets store cryptographic keys, the Polygon ID Wallet stores user's identities. 
 ---
 **Note** &#128221;: Our tutorials on ***Wallet SDK*** would be published soon!! The SDK will allow you to integrate the identity wallet core functionalities into your own app
+
 ---
 
 

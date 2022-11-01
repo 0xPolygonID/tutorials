@@ -1,10 +1,10 @@
 # Verification
 
-After having presented an [Auth Request](./request-api-guide.md) to the user's wallet, it will process the request and generate a proof that is sent back to the Verifier. 
+After having presented a [zk Request](./request-api-guide.md) to the user's wallet, the wallet will process the request and generate a proof that is sent back to the Verifier. 
 The proof must be verified in order to authenticate the user. 
-Let us see how to implement this verification.
+Let us see how to execute this verification.
 
-> The proof verification always follows the same flow independently of the Request type presented in the previous step by the Verifier
+> The proof verification always follows the same flow independently of the Request type presented in the previous step by the Verifier, whether it is a basic auth or a query-based request.
 
 **Unpack the proof** 
 

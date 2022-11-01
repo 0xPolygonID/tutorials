@@ -11,18 +11,18 @@ This flow is especially needed when further on-chain logic wants to be implement
 
 ## Implement ERC20 ZK Airdrop in 20 Minutes 
 
-In this tutorial, we will create an ERC20 zk Airdrop Contract. The chosen verification criteria is to be born before `01/01/2001`. Users that are able to prove that were born before that date will be able to get the airdrop. Otherwise, they will not. 
+In this tutorial, we will create an ERC20 zk Airdrop Contract. The chosen query criteria is to be born before `01/01/2001`. Users that are able to prove that were born before that date will be able to get the airdrop. Otherwise, they will not. The proof submitted to the Smart Contract will not reveal any information about the specific date of birth of the user. That is the magic of zero-knowledge! 
 
-The proof submitted to the Smart Contract will not reveal any information about the specific date of birth of the user. That is the magic of zero-knowledge! 
+> To set up a different query check out the [ZK Query Language section](../verification-library/zk-query-language.md)
 
-The prerequisite is that users have the Polygon ID Wallet app installed and received a claim of type `KYCAgeCredential` attesting their date of birth.
+This tutorial is based on the verification of a Claim of Type `AgeCredential` with a single attribute `dateOfBirth` in format age with a [Schema URL](https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld) and schema hash equal to `f03ac39aa54a5a2770a30f17d8042507`. This has been issued using the [Polygon ID Platform](https://platform-test.polygonid.com). 
+
+The prerequisite is that users have the Polygon ID Wallet app installed and received a claim of type `AgeCredential` attesting their date of birth.
 
 ---
 **Note:** The full executable code related to this tutorial can be cloned from this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/on-chain-verification" target="_blank">repository</a>.
 
 --- 
-
-> 
 
 ### Design the ERC20 zk Airdrop Verifier Contract 
 
@@ -59,7 +59,7 @@ contract ERC20Verifier is ERC20, ZKPVerifier {
 
 The ZKPVerifier Contract provides 2 hooks: 
 
-<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L93" target="_blank">`_beforeProofSubmit`</a> and <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L102" target="_blank">`afterProofSubmit`</a>. These hooks are called before and after any proof get submitted and can be used to create personalized logic inside your Smart Contract.
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L93" target="_blank">`_beforeProofSubmit`</a> and <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L102" target="_blank">`afterProofSubmit`</a>. These hooks are called before and after any proof gets submitted and can be used to create personalized logic inside your Smart Contract.
 
 In this specific case, it must be checked that the sender of the proof matches the address contained in the proof challenge. This requirement is necessary to prevent proof front-running. This condition is added inside `_beforeProofSubmit`.
 
@@ -186,35 +186,45 @@ async function main() {
 
 ### Set the ZKP Request
 
-As previously mentioned, the actual zkp request "to be born before 01/01/2001" hasn't been added to the Smart Contract yet. To do so it is necessary to call <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62" target="_blank">`setZKPRequest`</a> function inherited inside the ERC20Verifier. This function takes as input:
+As previously mentioned, the actual zkp request "to be born before 01/01/2001" hasn't been added to the Smart Contract yet. To do so it is necessary to call <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62" target="_blank">`setZKPRequest`</a> function inherited inside the ERC20Verifier which takes 3 input:
 
-- `requestId`: the id associated with the request.
-- `validator`: the address of the <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol" target="_blank">Validator Smart Contract</a>. 
-This is the contract that actually executes the verification on the zk proof submitted by the user
-- `query`: the rules that the user must satisfy
+1. `requestId`: the id associated with the request.
+2. `validator`: the address of the <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol" target="_blank">Validator Smart Contract</a> already deployed on Mumbai. This is the contract that actually executes the verification on the zk proof submitted by the user
+3. `query`: the rules that the user must satisfy.
+
+In particular, the query must be designed as follow: 
+
+- `schema` is the hash of the schema that you can retrieve from the issuer dashboard at [Polygon ID Platform](https://platform-test.polygonid.com/). In order to use it inside the query it should be converted from hex to bigint
+- `slotIndex` is the index of the attribute you are querying. It can be either 2 or 3. 2 if the corresponding information is stored as `Attribute #1` or 3 if the information is stored as `Attribute #2`
+- `operator` is either 1,2,3,4,5. To understand more about the operator you can check the [zk query language](../verification-library/zk-query-language.md)
+- `value` represents the threshold value you are querying. If the data type during the schema creation was set to `Yes or no`, value true equals to `1` and false equals to `0`
+- `circuitId` is the ID of the circuit you are using for verification. For now it will always correspond to `credentialAtomicQuerySig`
 
 > Check out our [Smart Contract section](../../contracts/overview.md#credentialatomicquerysigvalidator) to learn more about the set of verifications executed on the zk proof.
 
 Execute this Hardhat script to set the zk request to the Smart Contract.
 
 ```js
+
 async function main() {
 
     const circuitId = "credentialAtomicQuerySig";
-    // validator is already deployed on Polygon Mumbai testnet
     const validatorAddress = "0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB";
-    // To learn more about how to design a query, check https://0xpolygonid.github.io/tutorials/verifier/verification-library/zk-query-language/
-    // To learn more about how the claim schema work, check https://docs.iden3.io/getting-started/claim/claim-schema/
+
+    // Grab the schema hash from Polygon ID Platform
+    const schemaHash = "f03ac39aa54a5a2770a30f17d8042507"
+
+    const schemaEnd = fromLittleEndian(hexToBytes(schemaHash))
     
     const ageQuery = {
-        schema: ethers.BigNumber.from("210459579859058135404770043788028292398"),
-        slotIndex: 2,
-        operator: 2,
-        value: [20020101, ...new Array(63).fill(0).map(i => 0)],
-        circuitId,
+    schema: ethers.BigNumber.from(schemaEnd),
+    slotIndex: 2,
+    operator: 2,
+    value: 20020101, ...new Array(63).fill(0).map(i => 0)],
+    circuitId,
     };
 
-    // add the address of the contract just deployed. An instance of the contract has already been deployed on Mumbai 0x752A8f2Fd1c5FC5c9241090BD183709D4591D4cb
+    // add the address of the contract just deployed
     ERC20VerifierAddress = "<>"
 
     let erc20Verifier = await hre.ethers.getContractAt("ERC20Verifier", ERC20VerifierAddress)
@@ -232,6 +242,24 @@ async function main() {
         console.log("error: ", e);
     }
 }
+
+function hexToBytes(hex) {
+    for (var bytes = [], c = 0; c < hex.length; c += 2)
+        bytes.push(parseInt(hex.substr(c, 2), 16));
+    return bytes;
+}
+
+function fromLittleEndian(bytes) {
+    const n256 = BigInt(256);
+    let result = BigInt(0);
+    let base = BigInt(1);
+    bytes.forEach((byte) => {
+      result += base * BigInt(byte);
+      base = base * n256;
+    });
+    return result;
+  }
+  
 ```
 
 The contract is now correctly deployed on Mumbai Testnet and the query has been set up, congratulations! Now it is time to launch the airdrop! 
@@ -247,7 +275,7 @@ The last step is to design the proof request to be embedded inside a QR code tha
     "type":"https://iden3-communication.io/proofs/1.0/contract-invoke-request",
     "body":{
         "transaction_data":{
-            "contract_address":"0xF8c797A0682dcF11996D4dE2a6383bA1c0b962A8",
+            "contract_address":"<ERC20Verifier contract address>",
             "method_id":"b68967e2",
             "chain_id":80001,
             "network":"polygon-mumbai"
@@ -259,14 +287,14 @@ The last step is to design the proof request to be embedded inside a QR code tha
             "rules":{
                 "query":{
                     "allowed_issuers":["*"],
-                    "req":{
-                        "birthday":{
+                    "req":{ 
+                        "dateOfBirth":{
                             "$lt":20020101
                             }
                         },
                     "schema":{
-                            "url":"https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v2.json-ld",
-                            "type":"KYCAgeCredential"
+                            "url":"https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld",
+                            "type":"AgeCredential"
                             }
                         }
                     }
@@ -288,110 +316,29 @@ Note that the request resembles in most of its parts with the one designed for <
 
 Scanning the QR with their Polygon ID Wallet, users will be able to generate proofs and send transactions to the Smart Contract in order to claim their airdrops.
 
-### User Demo: On-chain Verification for ERC-20 Token Transfer 
+## User Demo: Claim the Airdrop!
 
-For this demo, we have deployed a <a href="https://onchain.polygonid.me/" target="_blank">frontend</a> in order to interact with the user. When visiting this website, users can use their PolygonID wallet app to submit a proof and, if this gets verified, claim an ERC-20 token airdrop. Let us see the process in a step-by-step manner from the user's perspective:
+This video shows how a user can use their PolygonID wallet app to claim a ERC-20 token airdrop. To join the airdrop users are required to have a claim of type `KYCAgeCredential` attesting that they have been born before 01/01/2002.
 
-1. Open the verification website. Click **Participate in Airdrop**.
+<div align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NvPfh3nqeEQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
-    <div align="center">
-    <img src= "../../../imgs/participate-in-airdrop.png" align="center" width="500" style="border: 4px solid black"/>
-    </div>
-    <br>
-
- 2. The verification site displays two QR codes:
-
-    - For Merkle Tree Proof Verification on the left
-    - For Signature Proof Verification on the right (we will just focus on this for now!)
-
-    <div align="center">
-    <img src= "../../../imgs/qr-code.png" align="center" width="500" style="border: 4px solid black"/>
-    </div>
-    <br>
-
-3. Open the PolygonID Wallet app and authenticate it with your pin/biometrics.
-
-    <div align="center">
-    <img src= "../../../imgs/auth-pin.png" align="center" width="250" style="border: 4px solid black"/>
-    </div>
-    <br>
-
-4. On the PolygonID Wallet app, click **Connect**. 
-
-    <div align="center">
-    <img src= "../../../imgs/polygonid-wallet-connect.png" align="center" width="250" style="border: 4px solid black"/>
-    </div>
-    <br>
-
-5. With your mobile app, scan the QR code displayed on the Verifier site (the one on the right!). 
-
-    <div align="center">
-    <img src= "../../../imgs/qr-code-scan.png" align="center" width="250" style="border: 4px solid black"/>
-    </div>
-    <br>
+<div class="video-wrapper">
+ 
+</div>
 
 
-6. This displays the Proof Request page. The user is asked to generate a proof that he/she is above 22 years. The user needs to already have a claim of type KYC Age Credential attesting their date of birth stored in his/her wallet. Click **Continue**.
+Or you can direcly test it scanning the QR Code below using your Polygon ID App: 
 
-    <div align="center">
-    <img src= "../../../imgs/proof-request.png" align="center" width="250" style="border: 4px solid black"/>
-    </div>
-    <br>
+<div align="center">
+<img src= "../../../imgs/qr-code-on-chain-verification.png" align="center" width="400" style="border: 4px solid black"/>
+</div>
+<br>
 
+### How the proof submission is executed?
 
-7. The Cryptographic Proof page is displayed. As the proof is based on zero-knowledge cryptography, no private data of the user is shared except the proof that the wallet generates. Click **Generate Proof**. 
-
-    <div align="center">
-    <img src= "../../../imgs/cryptographic-proof.png" align="center" width="250" style="border: 2px solid black"/>
-    </div>
-    <br>
-
-8. User is prompted to authorize using pin/biometrics. 
-
-    <div align="center">
-    <img src= "../../../imgs/auth-pin.png" align="center" width="250" style="border: 4px solid black"/>
-    </div>
-    <br>
-
-9. Upon successful authorization, a WalletConnect page is displayed that lets the user select the wallet to be connected to the app. In this case, we use Metamask.
-
-    <div align="center">
-    <img src= "../../../imgs/wallet-connect.png" align="center" width="250" style="border: 4px solid black"/>
-    </div>
-    <br>
-
-10. Click **Connect** to allow the app to connect to the MetaMask wallet account. This will be the account that is gonna interact with the ERC20Verifier Smart Contract.
-
-    <div align="center">
-    <img src= "../../../imgs/connect-metamask-to-site.png" align="center" width="250" style="border: 4px solid black"/>
-    </div>
-    <br>
-
-
-11. The Polygon ID wallet initiates the proof generation process. 
-
-    <div align="center">
-    <img src= "../../../imgs/generating-proof.png" align="center" width="250" style="border: 4px solid black"/>
-    </div>
-    <br>
-
-12. For submitting the proof to the Smart Contract, a transaction must be sent from the Metamask account connected to the Polygon ID app earlier. This transaction actually contains the zk proof data inside. Click **Confirm**.
-
-    <div align="center">
-    <img src= "../../../imgs/gas-fee.png" align="center" width="250" style="border: 4px solid black"/>
-    </div>
-    <br>
-
-13. The transfer is now complete and the token participant receives the ERC-20 token airdrop in his/her wallet.
-
-    <div align="center">
-    <img src= "../../../imgs/erc-tokens.png" align="center" width="250" style="border: 4px solid black"/>
-    </div>
-    <br>
-
-#### Proof Submission 
-
-The wallet needs to call the `submitZKPResponse()` function before it can submit the proof for the requirements set in the Airdrop Participation process. This function forms part of the ZKPVerifier Interface `IZKPVerifier`.
+The wallet needs to call the `submitZKPResponse()` function before it can submit the proof for the requirements set in the Airdrop Participation process. This function forms part of the ZKPVerifier Interface [`IZKPVerifier`](https://github.com/iden3/contracts/blob/master/contracts/interfaces/IZKPVerifier.sol#L6) and is actually implemented inside the [`ZKPVerifier Contract`](https://github.com/iden3/contracts/blob/master/contracts/ZKPVerifier.sol#L19)
 
 ```solidity
 
@@ -406,10 +353,9 @@ interface IZKPVerifier {
         uint256[2] memory c
     ) external returns (bool);
 }
-
 ```
 
-### Extend to Your Own Logic
+## Extend it to Your Own Logic
 
 Now that you have been able to create your first on-chain zk-based application you can extend it to accommodate any type of imaginable logic. The target Smart Contract doesn't have to be an ERC20 but it can be an ERC721, a DeFi pool, a voting Smart Contract or whatever contract you can think of. Equally the query can be extended to any type of existing claim and based on the different operators available inside the <a href="https://0xpolygonid.github.io/tutorials/verifier/verification-library/zk-query-language/" target="_blank">ZK Query Language</a>.
 
