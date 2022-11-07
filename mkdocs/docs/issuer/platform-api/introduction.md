@@ -2,8 +2,6 @@
 
 The Polygon ID Platform API exposes all the functionalites necessary to run a issuer.
 
-> To become familiar with the role of the issuer, it is advised to start with the [Polygon Platform UI](https://platform-test.polygonid.com/). All the functionalities included in the UI are exposed here as independent APIs.
-
 The core functionality of the Platform API are:
 
 - [Onboarding Orgs](./onboarding-orgs/apis.md) to register and manage an Organization Account
@@ -12,11 +10,9 @@ The core functionality of the Platform API are:
 - [Claim Offers](./offers/apis.md) to issue Claims based on existing schemas and offer it to your users via a QR code
 
 <div align="center">
-<img src="../../imgs/platform-api-1.png" width="500" align="center" />
+<img src="../../../imgs/platform-api-1.png" width="500" align="center" />
 </div>
 <br>
-
-*Explain here the difference between schemas and claims* 
 
 The APIs categories have to be considered as sequential steps: you cannot start creating schema and issuing claims without having a Issuer. Similarly you need an Organization account in order to create an Issuer on Polygon ID Platform. 
 

@@ -38,7 +38,7 @@ It also requires to pass a valid `Bearer Token` inside the Authorization Request
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Schemas/operation/GetSchemaTemplate)**
 
-**[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
 ## Get All Schemas
 
@@ -52,7 +52,7 @@ The Endpoint requires to pass the Issuer `id` as Path Parameter. In order to use
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Schemas/operation/GetSchemaTemplates)**
 
-**[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
 ## Delete Schema
 
@@ -62,4 +62,4 @@ The Endpoint requires to pass the Issuer `id` as Path Parameter. In order to use
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Schemas/operation/RemoveSchemaTemplate)**
 
-**[Postman Reference](https://web.postman.co/workspace/My-Workspace~ef6b645d-1b41-44d0-80fa-29f8f99bea63/request/19130748-e3215056-5796-42b9-b9cb-bf8a543837a8)**
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)

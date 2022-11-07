@@ -29,16 +29,12 @@ nav:
     - Overview: "issuer/issuer-overview.md"
     - Platform API:
       - Introduction: "issuer/platform-api/introduction.md"
-      - Make Your First Request: "issuer/platform-api/make-your-first-request.md"
+      - Getting Started: "issuer/platform-api/flow-tutorial/happy-path.md"
       - API Reference: 
         - Onboarding Organization: "issuer/platform-api/onboarding-orgs/apis.md"
         - Issuer: "issuer/platform-api/issuer/apis.md"
         - Claim Schemas: "issuer/platform-api/schemas/apis.md"
         - Claim Offers: "issuer/platform-api/offers/apis.md" 
-      - API Flow Tutorial:  
-          - Onboarding Organization Tutorial: "issuer/platform-api/flow-tutorial/onboarding-org-flow-tutorial.md"   
-          - Create Schema Tutorial: "issuer/platform-api/flow-tutorial/create-schema-flow-tutorial.md"     
-          - Issue Claim Tutorial: "issuer/platform-api/flow-tutorial/issue-claim-flow-tutorial.md"     
   - Verifier:
     - Overview: "verifier/verifier-overview.md"
     - Off-chain Verification:
