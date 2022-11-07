@@ -25,6 +25,8 @@ The Response Body contains a set of information related to your newly created Cl
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
+> The usage of this endpoint is included in our [full-flow Tutorial](../flow-tutorial/happy-path.md#7-create-claim-offer)
+
 ## Get Offers By Schema 
 
 **Function**: Endpoint to fetch all the Claim Offers created for an existing Schema.
@@ -93,6 +95,8 @@ The Response Body contains an set of details about the Claim Offer including the
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
+> The usage of this endpoint is included in our [full-flow Tutorial](../flow-tutorial/happy-path.md#8-create-qr-code-of-claim-offer)
+
 ## Get QRCode of Offer
 
 **Function**: Endpoint to generate a QR Code based on a specific Claim Offer to let User fetch the Claim inside their Wallet.
@@ -104,5 +108,7 @@ On successful Request, the Response Body contains an object with a `qrCode` fiel
 **[API Reference](https://api-staging.polygonid.com/#tag/Offers/operation/GetOfferQrCode)**
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
+
+> The usage of this endpoint is included in our [full-flow Tutorial](../flow-tutorial/happy-path.md#9-get-a-qr-code-of-offer)
 
 

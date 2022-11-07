@@ -14,6 +14,8 @@ The Response Body contains a set of details related to the newly created Issuer 
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
+> The usage of this endpoint is included in our [full-flow Tutorial](../flow-tutorial/happy-path.md#4-create-an-issuer)
+
 ## Get Issuer
 
 **Function**: Endpoint to fetch key information about an Issuer.

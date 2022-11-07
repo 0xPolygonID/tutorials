@@ -27,6 +27,7 @@ It also requires to pass a valid `Bearer Token` inside the Authorization Request
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
+> The usage of this endpoint is included in our [full-flow Tutorial](../flow-tutorial/happy-path.md#6-create-a-schema)
 ## Get Schema
 
 **Function**: Endpoint to fetch the details of a specific Claim Schema starting from its `id`.
