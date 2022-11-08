@@ -79,7 +79,7 @@ curl --location --request POST 'https://api-staging.polygonid.com/v1/orgs/sign-i
 }'
 ```
 
-The Response Body contains a JWT `Bearer Token`. This token will be used in order to authenticate yourself as a Signed-in Organization Account.
+The Response Body contains a JWT `Bearer Token`. This token will be used in order to authenticate yourself as a Signed-in Organization Account and get the authorization to use the API Endpoints.
 
 ```json
 {   
