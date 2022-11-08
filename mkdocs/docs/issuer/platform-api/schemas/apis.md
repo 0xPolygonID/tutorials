@@ -28,6 +28,7 @@ It also requires to pass a valid `Bearer Token` inside the Authorization Request
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
 > The usage of this endpoint is included in our [full-flow Tutorial](../flow-tutorial/happy-path.md#6-create-a-schema)
+
 ## Get Schema
 
 **Function**: Endpoint to fetch the details of a specific Claim Schema starting from its `id`.
@@ -54,11 +55,11 @@ The Endpoint requires to pass the Issuer `id` as Path Parameter. In order to use
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
-## Delete Schema
+## Update Schema
 
-**Function**: Endpoint to delete a Claim Schema previously created.
+**Function**: Endpoint to activate/deactivate a Claim Schema previously created.
 
-**How it works**: It requires to pass the Issuer `id` and the Schema `id` of the Schema to be deleted as Path Parameters. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. As a result of this Request the Schema will be deleted. Once a Schema get deleted, it won't be possible to use it again to Issue Claims.
+**How it works**: It requires to pass the Issuer `id` and the Schema `id` of the Schema to be updated as Path Parameters. It requires to pass a boolean value to `active` as Request Body parameter. True in order to activate the Schema, false to deactivate the Schema. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. If a Schema gets deactivated, it won't be possible to use it again to Issue Claims unless you activate this again,.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Schemas/operation/RemoveSchemaTemplate)**
 

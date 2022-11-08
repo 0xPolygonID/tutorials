@@ -2,7 +2,7 @@
 
 This tutorial will walk you through a Full Flow Issuer Integration using Polygon ID APIs. 
 
-The main role of the issuer is to Issue Claims. In this tutorial, the Issuer is a DAO that wants to create claims for its contributors. In particular, the Claim itself will contain two type of information: the "Season" in which the contributor joined the DAO and its role inside the DAO. By the end of the tutorial, every contributor will be able to use their Polygon ID App to scan a QR code and receive a claim inside their wallet attesting their information as DAO contributor.
+The main role of the issuer is to Issue Claims. In this tutorial, you'll impersonate a DAO that wants to issue claims for its contributors. In particular, the Claim itself will contain two type of information: the "Season" in which the contributor joined the DAO and its role inside the DAO. By the end of the tutorial, every contributor will be able to use their Polygon ID App to scan a QR code and receive a claim inside their wallet attesting their information as DAO contributor.
 
 The tutorial is made of 9 steps: 
 

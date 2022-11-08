@@ -10,7 +10,7 @@ The core functionality of the Platform API are:
 - [Claim Offers](./offers/apis.md) to issue Claims based on existing schemas and offer it to your users via a QR code
 
 <div align="center">
-<img src="../../../imgs/platform-api-1.png" width="500" align="center" />
+<img src="../../../imgs/platform-api-1.png" width="650" align="center" />
 </div>
 <br>
 
