@@ -361,4 +361,6 @@ Now that you have been able to create your first on-chain zk-based application y
 
 Another possibility to customize your Smart Contract involves setting different zk requests. First of all, multiple `REQUEST_ID` must be defined inside the main Smart Contract. Therefore, the contract deployer can set a different query for each request ID and create different outcomes inside `_afterProofSubmit` according to the type of proof received. For example, an airdrop contract can verify the role of a user inside a DAO and distribute a different amount of tokens based on the role.
 
+## Further Tutorial for On-chain Verification
 
+- [Polygon ID On-chain Verifications - Codingwithmanny](https://github.com/codingwithmanny/polygonid-on-chain-verification), contains a more detailed explanation of the ERC20 Airdrop using Polygon ID. Furthermore it contains a section for debugging common errors and for minting an NFT starting from on-chain Polygon ID Claim Verification.
