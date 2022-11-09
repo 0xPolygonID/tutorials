@@ -64,7 +64,8 @@ Another aspect of privacy comes from the fact that the Issuer would not be able 
 ## Further Resources On Polygon ID
 
 - [Identity Layer for Web3 - Paris - July 2022](https://youtu.be/bmRvQNmxFkM)
-- [The Future of Identity is Self-Sovereign: Build a dapp with Polygon ID  - Bogotà - October 2022](https://youtu.be/utpazrLrSbY)
+- [A Deep Dive Into Polygon ID - November 2022](https://youtu.be/utpazrLrSbY)
+
 
 ---
 
