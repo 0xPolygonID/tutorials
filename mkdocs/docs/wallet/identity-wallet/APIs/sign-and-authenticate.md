@@ -4,7 +4,7 @@ An Identity needs to authenticate itself and also authenticate with the Issuer. 
  
 ## Sign the Message
  
-You read in the [create-identity.md](./wallet/wallet-sdk-core-functionality/identity-wallet/create-identity.md) tutorial that the `createIdentity()` function returns an `identifier` string. Along with this `identifier` string, an identity needs to sign a `message` string. The `sign()` function takes both these strings as input parameters and generates another string representing signature of the identity:
+You read in the [create-identity.md](./wallet/wallet-sdk-core-functionality/identity-wallet/create-identity.md) tutorial that the `createIdentity()` function returns an `identifier` string. Along with this `identifier` string, an identity needs to sign a `message` string. The `sign()` function takes both these strings as input parameters and generates another string representing the signature of the identity:
  
 ```
 Future<String> sign(
@@ -18,7 +18,7 @@ Future<String> sign(
 ```   
 ## Authenticate Identity with Issuer
  
-An Integrator, in order to use the services of an Issuer, needs to authenticate itself with that Issuer. For this to happen, the Integrator needs to call the `Authenticate()` function.
+An Integrator, to use the services of an Issuer, needs to authenticate itself with that Issuer. For this to happen, the Integrator needs to call the `Authenticate()` function.
  
 ```
 Future<String> getAuthToken(
@@ -38,7 +38,7 @@ As seen above, the `Authenticate()` function uses the `Identifier` string (retur
  
 ### Wallet-Issuer Interaction using Authentication
  
-An Integrator, in order to interact with an Issuer, needs to authenticate with it first. For Polygon ID, we use `Polygon.Verify` as the Issuer.
+An Integrator, to interact with an Issuer, needs to authenticate with it first. 
  
 1.  On the Polygon ID app (which is based on SDK), an Integrator clicks **Connect**.
  
@@ -48,7 +48,7 @@ An Integrator, in order to interact with an Issuer, needs to authenticate with i
  
    <br>
  
-2.  The Issuer (`Polygon.Verify` website) displays a QR code. The Integrator, using the app, scans this code.
+2.  The Issuer displays a QR code. The Integrator, using the app, scans this code.
  
    <div align="center">
    <img src= "../../../imgs/qr-code-scan.png" align="center" width="250"/>
@@ -57,7 +57,7 @@ An Integrator, in order to interact with an Issuer, needs to authenticate with i
    <br>
  
  
-3.  With this, the `Authenticate()` function (with the Identifier, circuitData and message as the inputs) is executed. The function authenticates the Identity and sends the authentication information (in the form of a big encoded message based on JWZ) to the Issuer.
+3.  With this, the `Authenticate()` function (with the Identifier, circuit data and message as the inputs) is executed. The function authenticates the Identity and sends the authentication information (in the form of a big encoded message based on JWZ) to the Issuer.
  
    <div align="center">
    <img src= "../../../imgs/jwz.png" align="center" width="500"/>

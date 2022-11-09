@@ -5,7 +5,7 @@
 Flutter SDK installation is available for different operating systems including Windows, macOS, Linux, and ChromeOS.
  
 1. Click [here](https://docs.flutter.dev/get-started/install) to select your operating system.
-2. Check for the system requirements specific for each operating system and make sure that you have all the necessary tools already installed on your system. For instance, for macOS, `git` must be pre-installed while for Windows, you need to have `git for Windows` and `Windows Powershell 5.0 or above` installed.
+2. Check for the system requirements specific to each operating system and make sure that you have all the necessary tools already installed on your system. For instance, for macOS, `git` must be pre-installed while for Windows, you need to have `git for Windows` and `Windows Powershell 5.0 or above` installed.
 3. Download the installation bundle (install the latest version for stable release ) relevant to your Operating System. In the case of macOS, different bundles are available for Intel and Apple Silicon processors.
 **Note** The latest Flutter SDK version is 3.0.5.
 4. After extracting the file to your directory, add Flutter to your path using the path variable:
@@ -41,7 +41,6 @@ Note: For more information on Dart, click [here](https://dart.dev).
  
 ## Install Flutter Plugin for Text Editors
  
- 
 Generally, developers can create a Flutter-based app using a combination of the CLI(Command Line Interface) and a text editor. The easier way is to install a plugin within the editor. The plugins for editors like Visual Studio Code, Android Studio, Emacs, and IntelliJ are available for installation. To install the plugin for both Flutter and Dart on VS Code:
  
 1. Open VS Code.
@@ -50,4 +49,13 @@ Generally, developers can create a Flutter-based app using a combination of the 
 4. In the **Search Extension in Markdown** box, enter **flutter**. The system displays the Flutter plugin.
 Click **install**.This installs Flutter along with the Dart plugin.
  
+
+
+
+ 
+ 
+ 
+
+ 
+
 

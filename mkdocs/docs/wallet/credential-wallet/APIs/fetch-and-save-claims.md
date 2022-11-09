@@ -1,6 +1,6 @@
 # To Fetch and Save Claims: `fetchAndSaveClaims`
  
-An Integrator can fetch claims stored on an Issuer and then save them on the wallet.
+An Integrator can fetch claims stored on an Issuer and then save them in the Wallet.
  
 To fetch and save a list of claims from an Issuer, the `fetchAndSaveClaims()` function is called.
  
@@ -14,7 +14,7 @@ Future<List<ClaimEntity>> fetchAndSaveClaims(
  
 ```
  
-The `fetchAndSaveClaims()` function uses a list of `Credential Request Entities`as the input parameter. A `Credential Request Entity` is composed of the identifier string (generated using `createIdentity()` function), the circuit data and other related data). The function returns a list of `Claim Entities`.
+The `fetchAndSaveClaims()` function uses a list of `Credential Request Entities`as the input parameter. A `Credential Request Entity` is composed of the identifier string (generated using `createIdentity()` function), the circuit data, and other related data). The function returns a list of `Claim Entities`.
  
 ## Wallet-Issuer Interaction for Fetching Claims
  

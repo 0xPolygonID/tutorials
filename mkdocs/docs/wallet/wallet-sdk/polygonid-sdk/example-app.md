@@ -1,6 +1,6 @@
-# PolygonID SDK Plugin: Example App
+# Polygon ID SDK Plugin: Example App
  
-This example illustrates how to fetch Dart packages to create your Dart project and how to initiate PolygonID SDK, which we learnt to install in our last tutorial. This example is the implementation of the PolygonID Flutter SDK
+This example illustrates how to fetch Dart packages to create your Dart project and how to initiate Polygon ID SDK, which we learnt to install in our last tutorial. This example is the implementation of the Polygon ID Flutter SDK.
  
 ## Fetch Dart Packages
 
@@ -8,7 +8,7 @@ Before you can start building your project, it is necesaary to fetch all the Dar
  
 1. Clone the [polygonid-sdk-repository](https://github.com/iden3/polygonid-flutter-sdk.git).
  
-2. On your Terminal, change the directory to `example`, which is a folder in the polygonid-sdk-repository.
+2. On your Terminal, change the directory to `example`, which is a folder in the `polygonid-sdk-repository`.
 ```
 cd example
 ```
@@ -27,11 +27,11 @@ where `pub` command (in Dart) invokes a set of tools for managing Dart packages 
 
 To know more about how to write your first Flutter app, click [here](https://docs.flutter.dev/get-started/codelab).
  
-## Initiate PolygonID SDK
+## Initiate Polygon ID SDK
  
 To start using SDK:
  
-1. An integrator needs to initialize the PolygonID SDK. This is done inside the dependency injection initializer using `await PolygonIdSDK.init()`. If the SDK has not been initialized, the system throws an exception: `PolygonIsSdkNotInitializedException` indicating that the PolygonID SDK has not been initialized and must be initialzed first with `await PolygonIdSDK.init()`.
+1. An integrator needs to initialize the  ID SDK. This is done inside the dependency injection initializer using `await PolygonIdSDK.init()`. If the SDK has not been initialized, the system throws an exception: `PolygonIsSdkNotInitializedException` indicating that the Polygon ID SDK has not been initialized and must be initialzed first with `await PolygonIdSDK.init()`.
  
 2. After the SDK initialization, the Integrator  will need to use the instance of PolygonIdSDK:
  

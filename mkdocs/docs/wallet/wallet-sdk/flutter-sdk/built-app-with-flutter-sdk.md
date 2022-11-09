@@ -2,7 +2,6 @@
 
 Once your Flutter and Dart plugins are installed, you can start creating your first Flutter app.
  
- 
 1. On the Terminal or Powershell, change your directory to where you want to install your app:
    ```
    cd new-app-directory
