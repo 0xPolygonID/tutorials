@@ -2,6 +2,8 @@
 
 The Polygon ID Platform API exposes all the functionalites necessary to run a issuer.
 
+> To become familiar with the role of the issuer, it is advised to use  [Polygon Platform UI](https://platform-test.polygonid.com) as a testing sandbox. All the functionalities included in the UI are exposed here as independent APIs.
+
 The core functionality of the Platform API are:
 
 - [Onboarding Orgs](./onboarding-orgs/apis.md) to register and manage an Organization Account
