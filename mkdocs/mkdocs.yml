@@ -25,6 +25,7 @@ markdown_extensions:
 
 
 nav:
+  - Home: "index.md"
   - Issuer:
     - Overview: "issuer/issuer-overview.md"
   - Verifier:

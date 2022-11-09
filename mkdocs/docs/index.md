@@ -3,12 +3,13 @@
 <br /><br />
 </div>
 
-
 <a href="https://twitter.com/0xpolygonid" target="_blank">![Chat on Twitter][ico-twitter]</a>
 
 [ico-twitter]: https://img.shields.io/twitter/url?color=black&label=0xpolygonid&logoColor=black&style=social&url=https%3A%2F%2Ftwitter.com%2F0xpolygonid
 
+
 [link-twitter]: https://twitter.com/0xpolygonid
+
 
 ---
 # Polygon ID: An Introduction
@@ -60,10 +61,16 @@ Another aspect of privacy comes from the fact that the Issuer would not be able 
 
 <a href="https://iden3.io/" target="_blank">Iden3</a> is the open-source protocol at the basis of Polygon ID. The protocol defines on a low-level how the parties listed above communicate and interact with each other. Polygon ID is an abstraction layer to enable developers to build applications leveraging the Iden3 protocol.
 
+## Further Resources On Polygon ID
+
+- [Identity Layer for Web3 - Paris - July 2022](https://youtu.be/bmRvQNmxFkM)
+- [The Future of Identity is Self-Sovereign: Build a dapp with Polygon ID  - Bogotà - October 2022](https://youtu.be/utpazrLrSbY)
+
 ---
 
 ###### <div align="center">
 <a href="https://github.com/0xPolygonID" target="_blank">Polygon ID on GitHub</a></div>
+
 
 
 
