@@ -1,4 +1,4 @@
-## Authenticate Identity with Issuer
+# Authenticate Identity with Issuer
  
 An Integrator, to use the services of an Issuer, needs to authenticate itself with that Issuer. For this to happen, the Integrator needs to call the `authenticate()` function.
  
@@ -41,7 +41,7 @@ An Integrator, to interact with an Issuer, needs to authenticate with it first.
    <br>
  
  
-3.  With this, the `Authenticate()` function (with the Identifier, private key and message as the inputs) is executed. The function authenticates the Identity and sends the authentication information (in the form of a big encoded message based on JWZ) to the Issuer.
+3.  With this, the `Authenticate()` function (with the identifier, private key and message as the inputs) is executed. The function authenticates the Identity and sends the authentication information (in the form of a big encoded message based on JWZ) to the Issuer.
  
    <div align="center">
    <img src= "../../../imgs/jwz.png" align="center" width="500"/>
