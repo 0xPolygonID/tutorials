@@ -1,6 +1,6 @@
 # To Sign Message: `sign`
  
-In the SDK, a message can be signed using ing `createIdentity()` function. This is the entry point for any Integrator.
+In the SDK, a message can be signed using `createIdentity()` function. This is the entry point for any Integrator.
  
 ```
  Future<String> sign(
