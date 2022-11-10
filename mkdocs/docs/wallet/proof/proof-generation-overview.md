@@ -8,10 +8,10 @@ The proof generation starts with the Wallet scanning the QR code on the Verifier
  
 2. Verifier website/app displays the QR code depending on the credential type selected by the Integrator.
  
-3. Integrator scans the QR code. By scanning, the Wallet parses the authentication request shown by the Verifier. Read more about auth requests in the [next tutorial](./types-of-auth-requests-and-proofs.md)
+3. Integrator scans the QR code. By scanning, the Wallet parses the authentication request shown by the Verifier. Read more about auth requests in the [next tutorial](../iden3comm/types-of-auth-requests-and-proofs.md)
  
  
-4. Before the Wallet can generate a proof, it needs to authenticate itself first. Upon successful authentication (a pin or biometrics), the Wallet starts the process of generating either a signature-based or a Merkle Tree proof to be presented to the Verifier. Read more on the type of proofs in the [next tutorial](./types-of-auth-requests-and-proofs.md). The proofs are generated using authentication circuits; read more about [authentication circuit](https://github.com/iden3/circuits/blob/master/circuits/auth.circom. The circuit sends back its response to the Verifier via `callbackUrl`. (Read more about the `callbackUrl` in the [next tutorial](./types-of-auth-requests-and-proofs.md))
+4. Before the Wallet can generate a proof, it needs to authenticate itself first. Upon successful authentication (a pin or biometrics), the Wallet starts the process of generating either a signature-based or a Merkle Tree proof to be presented to the Verifier. Read more on the type of proofs in the [next tutorial](../iden3comm/types-of-auth-requests-and-proofs.md). The proofs are generated using authentication circuits; read more about [authentication circuit](https://github.com/iden3/circuits/blob/master/circuits/auth.circom. The circuit sends back its response to the Verifier via `callbackUrl`. (Read more about the `callbackUrl` in the [next tutorial](../iden3comm/types-of-auth-requests-and-proofs.md))
  
 6. After the proof is sent to the Verifier that analyzes it for its authenticity and based on its analysis, verifies the proof.
  
