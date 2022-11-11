@@ -64,7 +64,7 @@ nav:
       - APIs: 
         - Overview: "wallet/credential/api/api-overview.md"
         - Get Claims: "wallet/credential/api/get-claims.md"
-        - Fetch and Save CLaims: "wallet/credential/api/fetch-and-save-claims.md"
+        - Fetch and Save Claims: "wallet/credential/api/fetch-and-save-claims.md"
         - Update Claims: "wallet/credential/api/update-claims.md"
         - Remove Claims: "wallet/credential/api/remove-claims.md"
     - Proof:
