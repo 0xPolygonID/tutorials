@@ -27,14 +27,14 @@ nav:
   - Home: "index.md"
   - Issuer:
     - Overview: "issuer/issuer-overview.md"
-    # - Platform API:
-    #   - Introduction: "issuer/platform-api/introduction.md"
-    #   - Getting Started: "issuer/platform-api/flow-tutorial/happy-path.md"
-    #   - API Reference: 
-    #     - Onboarding Organization: "issuer/platform-api/onboarding-orgs/apis.md"
-    #     - Issuer: "issuer/platform-api/issuer/apis.md"
-    #     - Claim Schemas: "issuer/platform-api/schemas/apis.md"
-    #     - Claim Offers: "issuer/platform-api/offers/apis.md" 
+    - Platform API:
+      - Introduction: "issuer/platform-api/introduction.md"
+      - Getting Started: "issuer/platform-api/flow-tutorial/happy-path.md"
+      - API Reference: 
+        - Onboarding Organization: "issuer/platform-api/onboarding-orgs/apis.md"
+        - Issuer: "issuer/platform-api/issuer/apis.md"
+        - Claim Schemas: "issuer/platform-api/schemas/apis.md"
+        - Claim Offers: "issuer/platform-api/offers/apis.md" 
   - Verifier:
     - Overview: "verifier/verifier-overview.md"
     - Off-chain Verification:
