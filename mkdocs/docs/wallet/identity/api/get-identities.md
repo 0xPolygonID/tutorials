@@ -16,4 +16,4 @@ The `getIdentities()` function returns a list of `IdentityEntity` stored in the 
  
 The role of `getIdentities()` is to obtain a list of `IdentityEntity` stored on the SDK for an Integrator. The `identifier` String is the unique id of the identity.
  
-So, in the nutshell, `getIdentities()` obtains a list of identities stored on the SDK for an Integrator.
+This way, `getIdentities()` obtains a list of identities stored on the SDK for an Integrator.

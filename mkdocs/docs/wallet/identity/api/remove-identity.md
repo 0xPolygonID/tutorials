@@ -19,4 +19,4 @@ The `removeIdentity()` function removes a previously-created and stored Identity
  
 The role of `removeIdentity()` is to remove an identity previously stored on the SDk for an Integrator.
  
-So, in the nutshell, `removeIdentity()` removes an identity for an Integrator. 
+Hence `removeIdentity()` removes an identity for an Integrator. 
