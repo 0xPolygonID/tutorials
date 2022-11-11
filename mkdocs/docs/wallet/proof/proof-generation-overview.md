@@ -19,5 +19,8 @@ The proof generation starts with the Wallet scanning the QR code on the Verifier
  
 8. As the verification is complete, an Integrator can now use the services of the Verifier. For example, if the Verifier is a DAO, the Integrator, upon successful verification, becomes a DAO member and can participate in the voting activities. 
  
- 
- ![proof generation](../../imgs/proof-generation.png)
+
+ <div align="center">
+<img src= "../../imgs/proof-generation.png" align="center" width="500"/>
+</div>
+<br>

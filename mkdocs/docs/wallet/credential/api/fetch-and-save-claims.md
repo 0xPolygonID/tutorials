@@ -33,6 +33,9 @@ The `fetchAndSaveClaims()` function uses a list of `Credential Request Entities`
  
 4. The claims are stored on the SDK associated to the identity.
 
- 
- ![credential wallet](../../../imgs/credential-wallet.png)
+
+ <div align="center">
+<img src= "../../../imgs/credential-wallet.png" align="center" width="500"/>
+</div>
+<br>
  
