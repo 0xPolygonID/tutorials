@@ -13,8 +13,6 @@ The Iden3comm protocol defines the structure of the messages, requests, and resp
 - Revocation Status Request Messages
 - Device Registration Requests
 
-![iden3comm](../../imgs/iden3comm.png)
-
 <div align="center">
 <img src= "../../imgs/iden3comm.png" align="center" width="500"/>
 </div>
