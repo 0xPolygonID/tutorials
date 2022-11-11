@@ -38,11 +38,7 @@ You, at some point in time, must have used cryptographic wallets such as Metamas
 
 - While the commonly-used crypto wallets let you interact with Ethereum and other blockchain networks using RPCs (Remote Procedure Calls), this is not the case with Polygon ID Wallet - it functions solely to store claims linked to an identity and lets these claims get verified by creating zero-knowledge proofs. 
 
-- General wallets store cryptographic keys; while the Polygon ID Wallet stores users' identities.
----
-**Note** &#128221;: Our tutorials on ***Wallet SDK*** would be published soon!! The SDK will allow you to integrate the identity wallet core functionalities into your app.
-
----
+- General wallets store cryptographic keys while the Polygon ID Wallet stores users' identities.
 
 
 

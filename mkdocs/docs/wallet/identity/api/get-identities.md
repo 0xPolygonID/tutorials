@@ -1,6 +1,6 @@
 # To Get Identities: `getIdentities`
  
-We can get a list of public info of all the identities stored in the SDK using `getIdentities()` function. This is the entry point for any Integrator.
+We can get a list of public information about all the identities stored on the SDK using `getIdentities()` function. This is the entry point for any Integrator.
  
 ```
 Future<List<IdentityEntity>> getIdentities() async

@@ -13,7 +13,7 @@ Future<void> removeIdentity(
  
 }
 ```
-The `removeIdentity()` function removes a previously created and stored Identity from the Sdk, The identifier String and the private key are passed as parameters to the function.
+The `removeIdentity()` function removes a previously-created and stored Identity from the SDK, The identifier String and the private key are passed as parameters to the function.
  
 **Note**: `async` keyword in the code above indicates that the function is asynchronous, i.e.it might need to wait for an external computation to finish before it can show the result. For this reason, the `async` is used with `future` to make sure that the result will be executed eventually. 
  

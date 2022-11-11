@@ -1,6 +1,6 @@
 # To Get Identity: `getIdentity`
  
-We can get an identity stored in the SDK using `getIdentity()` function. This is the entry point for any Integrator.
+We can get an identity stored on the SDK using `getIdentity()` function. This is the entry point for any Integrator.
  
 ```
 Future<IdentityEntity> getIdentity(
@@ -13,7 +13,7 @@ Future<IdentityEntity> getIdentity(
  
 }
 ```
-The `getIdentity()` function Gets an `IdentityEntity` from an identifier. It returns an identity as a `PrivateIdentityEntity` or `IdentityEntity` if `privateKey` is ommited or invalid for that identifier.
+The `getIdentity()` function gets an `IdentityEntity` from an identifier. It returns an identity as a `PrivateIdentityEntity` or `IdentityEntity` if `privateKey` is ommited or invalid for that identifier.
  
 **Note**: `async` keyword in the code above indicates that the function is asynchronous, i.e.it might need to wait for an external computation to finish before it can show the result. For this reason, the `async` is used with `future` to make sure that the result will be executed eventually. 
  

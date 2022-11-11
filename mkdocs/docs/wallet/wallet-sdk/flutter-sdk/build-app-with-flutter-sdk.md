@@ -11,7 +11,7 @@ Once your Flutter and Dart plugins are installed, you can start creating your fi
    flutter create firstapp
    flutter run
    ```
-With these commands, the Flutter SDK creates a new project from scratch.
+   With these commands, the Flutter SDK creates a new project from scratch.
  
 3. Flutter creates your app.
  

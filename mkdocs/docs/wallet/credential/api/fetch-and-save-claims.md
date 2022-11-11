@@ -32,4 +32,11 @@ The `fetchAndSaveClaims()` function uses a list of `Credential Request Entities`
 3. The Issuer validates the identity and returns a list of `Claim Entities` back to the Integrator.
  
 4. The claims are stored on the SDK associated to the identity.
+
+<div align="center">
+<img src= "../../../imgs/credential-wallet
+.png" align="center" width="500"/>
+</div>
+<br>
+ 
  

@@ -114,7 +114,6 @@ A circuit is zero-knowledge based program that generates a zk proof based on a s
  
 For more information on circuits, go through the following links:
  
-[main circuits](https://0xpolygonid.github.io/tutorials/circuits/main-circuits/)
  
 [auth circom](https://github.com/iden3/circuits/blob/master/circuits/auth.circom)
  

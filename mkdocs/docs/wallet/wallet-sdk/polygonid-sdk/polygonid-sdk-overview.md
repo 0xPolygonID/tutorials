@@ -9,7 +9,7 @@ In the wallet tutorials, you would be reading terms like **Polygon ID SDK** and 
 
 While, as you read above, Polygon ID SDK is the software development kit that acts as a core functionality, Wallet App is an application that has been built over this SDK. This Identity Wallet helps Integrators create identities for their wallets and authenticate these identities while interacting with Issuers and Verifiers. 
 
-So, in the nutshell, an Integrator can use Polygon ID SDK to build an Identity Wallet of his/her own and can also customize any pre-existing identity wallets using the features provided by the SDK.  
+Here, we can conclude that an Integrator can use Polygon ID SDK to build an Identity Wallet of his/her own and can also customize any pre-existing identity wallets using the features provided by the SDK.  
  
 
 
