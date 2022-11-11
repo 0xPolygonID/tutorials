@@ -20,10 +20,6 @@ The role of `sign()` is to sign a message string for an Integrator using identit
  
 The `sign()` signs a message with the identity for an Integrator and returns a signature string. 
 
-<div align="center">
-<img src= "../../../imgs/identity-wallet
-.png" align="center" width="500"/>
-</div>
-<br>
- 
+
+![identity wallet](../../../imgs/identity-wallet.png)
  
