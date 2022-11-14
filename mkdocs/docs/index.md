@@ -32,7 +32,7 @@ The architecture of the framework is composed of three modules: Identity Holder,
 
 3. [**Verifier**](./verifier/verifier-overview.md): A Verifier verifies the proof presented by a Holder. It requests the Holder to send proof based on the claims they hold in their wallet. While verifying a proof, the Verifier performs a set of checks, for example that the claim was signed by the expected Issuer and that the Claim matches the criteria requested by the Verifier. The simplest examples of a Verifier is a Bar that wants to verify if you are over 18. In the real world, the Identity Holder would need to provide an ID and show all their personal information. With Polygon ID they only need to pass a proof.
 
-A core concept here is the *trust* that must exist between a Verifier and an Issuer: the fact that the information contained inside a Claim are cryptographically verifiable doesn't guarantee its truth. The Issuer must a trusted and reptuable party so that Verifier can consume the Claims originated by that Issuer.
+A core concept here is the *trust* that must exist between a Verifier and an Issuer: the fact that the information contained inside a Claim are cryptographically verifiable doesn't guarantee its truth. The Issuer must be a trusted and reptuable party so that Verifier can consume the Claims originated by that Issuer.
 
 ---
 **The verification of a claim can happen either off-chain or on-chain!**
