@@ -21,6 +21,6 @@ The proof generation starts with the Wallet scanning the QR code on the Verifier
  
 
  <div align="center">
-<img src= "../../imgs/proof-generation.png" align="center" width="500"/>
+<img src= "../../../../imgs/proof-generation.png" align="center" width="500"/>
 </div>
 <br>
