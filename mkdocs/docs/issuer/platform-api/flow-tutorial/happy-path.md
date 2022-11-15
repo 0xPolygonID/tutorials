@@ -145,7 +145,7 @@ The Response Body contains the details of the newly created Issuer. Later on, yo
 
 ## 5. Refresh the Token
 
-The next step is to Refresh the Bearer Token in order to add to it the updated information regarding the newly created Issuer such as the Issuer `id`. This action is performed via the [Refresh Token](../onboarding-orgs/apis.md#refresh-token) Endpoint. The last valid `Bearer Token` (the one generated in step 3) needs to be passed inside the Authorization Request Header. 
+The next step is to Refresh the Bearer Token in order to add to it the updated information regarding the newly created Issuer such as its `id`. This action is performed via the [Refresh Token](../onboarding-orgs/apis.md#refresh-token) Endpoint. The last valid `Bearer Token` (the one generated in step 3) needs to be passed inside the Authorization Request Header. 
 
 ```
 curl --location --request POST 'https://api-staging.polygonid.com/v1/orgs/account-management/refresh-token' \
@@ -182,7 +182,9 @@ This action is performed via the [Create Schema](../schemas/apis.md#create-schem
 
 > A Schema can contain a maximum of four attributes. Attributes of type "multichoice" can accept a range of maximum four possible values. 
 
-The refreshed `Bearer Token` from the last step needs to be passed inside the Authorization Request Header. Furthermore, it requires to pass the issuer `id` as Path Parameter: you can retreive it from the response obtained in Step 4. An Issuer can create as many schemas he/she wants!
+The refreshed `Bearer Token` from the last step needs to be passed inside the Authorization Request Header. Furthermore, it requires to pass the issuer `id` as Path Parameter. An Issuer can create as many schemas he/she wants!
+
+> you can retreive it from the response obtained in Step 4 or by parsing the latest JWT token [here](https://jwt.io/) and checking the `organization` field.
 
 ```
 curl --location --request POST 'https://api-staging.polygonid.com/v1/issuers/21b5758e-457f-4dd9-9b16-47679028502f/schemas' \
@@ -340,6 +342,8 @@ curl --location --request GET 'https://api-staging.polygonid.com/v1/offers-qrcod
 ```
 
 The response contains the `status` of the Claim Offer and the `qrcode` that needs to be shown to the user in order to fetch their claim. Since the generated QR Code is associated with the sessionID of the user that got previously authenticated, it is necessary that the user scanning the second QR is the same that performed the authentication in the first place, otherwise he/she won't be able to fetch the claim inside their wallet.
+
+> To display the QR code inside your frontend, you can use the `express.static` built-in middleware function together with this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> or this [Code Sandbox](https://codesandbox.io/s/yp1pmpjo4z?file=/index.js).
 
 
 ```json
