@@ -39,7 +39,7 @@ A core concept here is the *trust* that must exist between a Verifier and an Iss
 
 ---
 <div align="center">
-<img src= "./imgs/triangle-of-trust-simplified.png" align="center" width="500"/>
+<img src= "./imgs/triangle-of-truust-simplified.png" align="center" width="500"/>
 </div>
 <br>
 
