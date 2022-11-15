@@ -15,15 +15,15 @@ It requires to pass the following as Request Body parameters:
 - `attributes` (required) an array of *maximum four objects* that describe the type of data stored inside the Claim Schema. Each object contains: 
     
     - `name` (required), name of the attribute.
-    - `type` (required), type of the attribute which can be `boolean`, `date`, `datetime`, `multichoice` and `number`. 
+    - `type` (required), type of the attribute which can be `boolean`, `date`, `datetime`, `multichoice` and `number`.
     - `description`, a string that may add further details about the Schema or describes the vocabulary used to define the attributes.
-    - `values`, an array of strings that represent the range of possible values that the attribute can cover in the case the chosen type is `multichoice`.
+    - `values`, an array of strings that represent the range of possible values that the attribute can cover in the case the chosen type is `multichoice`. There should be at least 2 values, while there's no upper limit.
 
 It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains a set of information related to your newly created Schemas such as its `id`.
 
 > Remember that the Schema is only a Template which will be filled with actual user data inside the [Claim Offer](../offers/apis.md).
 
-**[API Reference](https://api-staging.polygonid.com/#tag/Issuer/operation/CreateIssuer)**
+**[API Reference](https://api-staging.polygonid.com/#tag/Schemas/operation/CreateSchemaTemplate)**
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
@@ -61,6 +61,6 @@ The Endpoint requires to pass the Issuer `id` as Path Parameter. In order to use
 
 **How it works**: It requires to pass the Issuer `id` and the Schema `id` of the Schema to be updated as Path Parameters. It requires to pass a boolean value to `active` as Request Body parameter. True in order to activate the Schema, false to deactivate the Schema. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. If a Schema gets deactivated, it won't be possible to use it again to Issue Claims unless you activate this again,.
 
-**[API Reference](https://api-staging.polygonid.com/#tag/Schemas/operation/RemoveSchemaTemplate)**
+**[API Reference](https://api-staging.polygonid.com/#tag/Schemas/operation/UpdateSchemaTemplate)**
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
