@@ -12,7 +12,7 @@ It requires to pass the following as Request Body parameters:
 
 - `schema` (required), the name of the schema
 - `mandatoryExpiration` (required), a boolean that indicates whether to make the claim with mandatory expiration or not
-- `attributes` (required) an array of *maximum four objects* that describe the type of data stored inside the Claim Schema. Each object contains: 
+- `attributes` (required) an array of *maximum two objects* that describe the type of data stored inside the Claim Schema. Each object contains: 
     
     - `name` (required), name of the attribute.
     - `type` (required), type of the attribute which can be `boolean`, `date`, `datetime`, `multichoice` and `number`.
@@ -45,7 +45,7 @@ It also requires to pass a valid `Bearer Token` inside the Authorization Request
 
 **Function**: Endpoint to fetch the details of all the Claim Schemas created by an Issuer.
 
-**How it works**: It requires to pass the Issuer `id` as Path Parameter. Optionally, it accepts a `query` as Query Parameter which is search keyword. 
+**How it works**: It requires to pass the Issuer `id` as Path Parameter. Optionally, it accepts a `query` as Query Parameter which is a search keyword. 
 
 It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains the entire set of information related to the required Claim Schema.
 

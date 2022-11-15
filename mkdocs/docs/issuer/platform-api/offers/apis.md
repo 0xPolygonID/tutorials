@@ -16,6 +16,7 @@ Each object contains:
     - `attributeValue` (required), value to be assigned to that attribute; its type must match the type defined inside the Schema Creation;
 
 - `expirationDate`, a string that defines the expirationDate of the claim. It is a required value if you specified mandatoryExpiration as true in the Schema Creation.
+- `limitedClaims`, a number that can be optionally set to define a limit to the amount of claim, based on this offer, that can be redeemed.
 
 It also requires to pass a valid `Bearer Token` inside the Authorization Request Header.
 
@@ -45,7 +46,7 @@ The Response Body contains an array of Objects where each object contains the de
 
 **Function**: Endpoint to fetch all the Claim Offers created by an Issuer.
 
-**How it works**: Ut requires to pass the Issuer `id`, namely the identifier of the Issuer previously created, as Path Parameter. 
+**How it works**: It requires to pass the Issuer `id`, namely the identifier of the Issuer previously created, as Path Parameter. Optionally, it accepts a `query` as Query Parameter which is a search keyword. 
 
 It also requires to pass a valid `Bearer Token` inside the Authorization Request Header.
 
