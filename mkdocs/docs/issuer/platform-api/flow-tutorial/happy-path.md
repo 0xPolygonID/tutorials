@@ -321,7 +321,7 @@ The response contains the details of the claim Offer. In particular it generates
                 "expiresAt":null
             },
         "qrcode":{"id":"15386f87-85d7-457d-a940-0e873727ec2c","typ":"application/iden3comm-plain-json","type":"https://iden3-communication.io/authorization/1.0/request","thid":"15386f87-85d7-457d-a940-0e873727ec2c","body":{"callbackUrl":"https://api-staging.polygonid.com/v1/offers-qrcode/dc781766-d814-4acd-aa9d-bf0474e06a3b/callback?sessionID=391fe2d9-4f0f-4810-9c9f-db3137d8b068","reason":"auth login","scope":[]},"from":"118AYbL3b8QNa9GETrYBTm3Xsk4FNF3RgkNBtCZHuf"},
-        "sessionID":"391fe2d9-4f0f-4810-9c9f-db3137d8b068"}
+        "sessionID":"391fe2d9-4f0f-4810-9c9f-db3137d8b068"
     }
 ```
 
@@ -330,6 +330,8 @@ The response contains the details of the claim Offer. In particular it generates
 The user has to scan this QR code with their Polygon ID App. On scanning, the user will be asked to authenticate themselves as owner of an identity. Once the authentication has been performed with success the user will receive a notification requesting to add the claim inside their wallet. By clicking on the notification the claim will be added inside user's wallet.
 
 As each QR Code contains a specific session ID, it is necessary to create a QRCode for each user that you are offering a Claim to. 
+
+The same Claim Offer can also be delivered to users via Deep Linking. In order to do so is necessary to encode the `qrcode` file to Base64 Format. The related deep link would be `iden3comm://?i_m={{base64EncodedRequestHere}}`. For example, in this specific case the deep link would be `iden3comm://?i_m=eyJpZCI6IjE1Mzg2Zjg3LTg1ZDctNDU3ZC1hOTQwLTBlODczNzI3ZWMyYyIsInR5cCI6ImFwcGxpY2F0aW9uL2lkZW4zY29tbS1wbGFpbi1qc29uIiwidHlwZSI6Imh0dHBzOi8vaWRlbjMtY29tbXVuaWNhdGlvbi5pby9hdXRob3JpemF0aW9uLzEuMC9yZXF1ZXN0IiwidGhpZCI6IjE1Mzg2Zjg3LTg1ZDctNDU3ZC1hOTQwLTBlODczNzI3ZWMyYyIsImJvZHkiOnsiY2FsbGJhY2tVcmwiOiJodHRwczovL2FwaS1zdGFnaW5nLnBvbHlnb25pZC5jb20vdjEvb2ZmZXJzLXFyY29kZS9kYzc4MTc2Ni1kODE0LTRhY2QtYWE5ZC1iZjA0NzRlMDZhM2IvY2FsbGJhY2s/c2Vzc2lvbklEPTM5MWZlMmQ5LTRmMGYtNDgxMC05YzlmLWRiMzEzN2Q4YjA2OCIsInJlYXNvbiI6ImF1dGggbG9naW4iLCJzY29wZSI6W119LCJmcm9tIjoiMTE4QVliTDNiOFFOYTlHRVRyWUJUbTNYc2s0Rk5GM1Jna05CdENaSHVmIn0=`
 
 ## 9. Get a QR Code of Offer
 
