@@ -4,7 +4,7 @@ Restoring an Identity can be done using an identity backup and the secret used t
  
 ## Restore an Identity
  
-In the SDK, an identity is restored using `restoredentity()` function. This is the entry point for any Integrator.
+In the SDK, an identity is restored using `restoreIdentity()` function. This is the entry point for any Integrator.
  
 ```
 Future<PrivateIdentityEntity> restoreIdentity(

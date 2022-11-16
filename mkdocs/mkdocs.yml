@@ -72,8 +72,8 @@ nav:
           - Overview: "wallet/wallet-sdk/polygonid-sdk/credential/overview.md"
           - APIs: 
             - Overview: "wallet/wallet-sdk/polygonid-sdk/credential/api/api-overview.md"
-            - Get Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/get-claims.md"
             - Fetch and Save Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/fetch-and-save-claims.md"
+            - Get Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/get-claims.md"
             - Update Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/update-claims.md"
             - Remove Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/remove-claims.md"
         - Iden3comm:

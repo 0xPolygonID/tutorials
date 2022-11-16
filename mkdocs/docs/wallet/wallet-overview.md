@@ -2,12 +2,12 @@
 
 A digital wallet is a software that can hold and manage users' `Claims`. Based on the principles of Self-Sovereign Identity (SSI) and cryptography, a wallet helps its Holder share data with others without expositing any other sensitive private information stored on it. Only the wallet holder has the right to decide which information to share with other entities and what needs to remain private. 
 
-The Polygon ID Wallet is a `Privacy by Default` wallet that helps protect a user's identity (and other metadata) by using zero-knowledge protocols. The wallet interacts with an Issuer to fetch claims and with Verifier for sharing zkProofs based on these claims.
+The Polygon ID Wallet is a `Privacy by Default` wallet that helps protect a user's identity (and other metadata) by using zero-knowledge proofs. The wallet interacts with an Issuer to fetch claims and with Verifier for sharing zkProofs based on these claims.
 
-The Polygon ID app will be a reference implementation that other web3 wallets will be able to use as a starting point for integrating the Wallet SDK into their apps so that they can become compatible with the Polygon ID ecosystem.
+The Polygon ID Wallet app is a reference implementation built using our Wallet SDK. Any other web3 wallets would be able to leverage the Wallet SDK to add the same functionalities. 
 
 <div align="center">
-<img src="../imgs/polygon-id-reference-app.png" alt="Polygon ID app as a reference implementation" width="500" align="center" />
+<img src="../../imgs/polygon-id-reference-app.png" alt="Polygon ID app as a reference implementation" width="500" align="center" />
 </div>
 
 ## Features of the Polygon ID Wallet

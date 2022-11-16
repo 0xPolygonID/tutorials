@@ -35,7 +35,7 @@ The `fetchAndSaveClaims()` function uses a list of `Credential Request Entities`
 
 
  <div align="center">
-<img src= "../../../../../imgs/credential-wallet.png" align="center" width="500"/>
+<img src= "../../../../../../imgs/credential-wallet.png" align="center" width="500"/>
 </div>
 <br>
  

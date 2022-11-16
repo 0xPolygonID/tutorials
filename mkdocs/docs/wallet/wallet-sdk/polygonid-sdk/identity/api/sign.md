@@ -22,6 +22,6 @@ The `sign()` signs a message with the identity for an Integrator and returns a s
 
  
 <div align="center">
-<img src= "../../../../../imgs/identity-wallet.png" align="center" width="500"/>
+<img src= "../../../../../../imgs/identity-wallet.png" align="center" width="500"/>
 </div>
 <br>
