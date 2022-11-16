@@ -15,9 +15,9 @@ In this tutorial, we will create an ERC20 zk Airdrop Contract. The chosen query 
 
 > To set up a different query check out the [ZK Query Language section](../verification-library/zk-query-language.md)
 
-This tutorial is based on the verification of a Claim of Type `AgeCredential` with a single attribute `dateOfBirth` in format age with a [Schema URL](https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld) and schema hash equal to `f03ac39aa54a5a2770a30f17d8042507`. This has been issued using the [Polygon ID Platform](https://platform-test.polygonid.com). 
+This tutorial is based on the verification of a Claim of Type `AgeCredential` with a single attribute `dateOfBirth` in format age with a [Schema URL](https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld).
 
-The prerequisite is that users have the Polygon ID Wallet app installed and received a claim of type `AgeCredential` attesting their date of birth.
+The prerequisite is that users have the Polygon ID Wallet app installed and fetched a claim of type `AgeCredential` attesting their date of birth. A claim with the same features can be issued using [Polygon ID Platform UI](https://platform-test.polygonid.com) or [Polygon APIs](../../issuer/platform-api/introduction.md).
 
 ---
 **Note:** The full executable code related to this tutorial can be cloned from this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/on-chain-verification" target="_blank">repository</a>.
@@ -194,7 +194,7 @@ As previously mentioned, the actual zkp request "to be born before 01/01/2001" h
 
 In particular, the query must be designed as follow: 
 
-- `schema` is the hash of the schema that you can retrieve from the issuer dashboard at [Polygon ID Platform](https://platform-test.polygonid.com/). In order to use it inside the query it should be converted from hex to bigint
+- `schema` is the hash of the schema that you can retrieve from the issuer dashboard at [Polygon ID Platform](https://platform-test.polygonid.com/). In order to use it inside the query it should be converted from hex to bigint. 
 - `slotIndex` is the index of the attribute you are querying. It can be either 2 or 3. 2 if the corresponding information is stored as `Attribute #1` or 3 if the information is stored as `Attribute #2`
 - `operator` is either 1,2,3,4,5. To understand more about the operator you can check the [zk query language](../verification-library/zk-query-language.md)
 - `value` represents the threshold value you are querying. If the data type during the schema creation was set to `Yes or no`, value true equals to `1` and false equals to `0`
@@ -204,6 +204,8 @@ In particular, the query must be designed as follow:
 
 Execute this Hardhat script to set the zk request to the Smart Contract.
 
+> Remember to replace the `schemaHash` with the one you grabbed from Polygon ID Platform
+
 ```js
 
 async function main() {
@@ -212,7 +214,7 @@ async function main() {
     const validatorAddress = "0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB";
 
     // Grab the schema hash from Polygon ID Platform
-    const schemaHash = "f03ac39aa54a5a2770a30f17d8042507"
+    const schemaHash = "{add your schema hash here}"
 
     const schemaEnd = fromLittleEndian(hexToBytes(schemaHash))
     
@@ -293,7 +295,7 @@ The last step is to design the proof request to be embedded inside a QR code tha
                             }
                         },
                     "schema":{
-                            "url":"https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld",
+                            "url":"{add your schema hash here}",
                             "type":"AgeCredential"
                             }
                         }
