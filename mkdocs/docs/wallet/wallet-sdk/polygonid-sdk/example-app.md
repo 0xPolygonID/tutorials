@@ -36,9 +36,9 @@ To start using SDK:
  
 2. After the SDK initialization, the Integrator  will need to use the instance of PolygonIdSDK:
  
-   ```
-   getIt.registerLazySingleton<PolygonIdSdk>(() => PolygonIdSdk.I)
-   ```
+      ```
+      getIt.registerLazySingleton<PolygonIdSdk>(() => PolygonIdSdk.I)
+      ```
  
 3. The SDK then checks the existence of an Identifier that was previously created with the `createIdentity()` function. This check is done via: `identity.getCurrentIdentifier()`.
 If no previously created Identifier is found, the SDK first needs to create an identity first using `identity.createIdentity(privateKey: privateKey)` function. Also, if the private key is not passed in the above function, the system randomly generates one.
