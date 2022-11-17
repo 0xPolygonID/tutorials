@@ -6,7 +6,7 @@ theme:
   palette:
     primary: deep purple
   logo: logo-white.svg
-  favicon: favicon.ico
+  # favicon: favicon.ico
   features:
     - navigation.tabs
     - navigation.tabs.sticky
