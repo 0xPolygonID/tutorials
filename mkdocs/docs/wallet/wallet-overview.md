@@ -10,6 +10,10 @@ The Polygon ID Wallet app is a reference implementation built using our Wallet S
 <img src="../../imgs/polygon-id-reference-app.png" alt="Polygon ID app as a reference implementation" width="500" align="center" />
 </div>
 
+>**Note**: Currently, we support only mobile-based apps as wallets. The web-based applications and cold-storage wallets are not yet supported. 
+
+>**Note**: Polygon ID Wallet is built using Flutter SDK. No other SDK is supported yet. 
+
 ## Features of the Polygon ID Wallet
 
 The Polygon ID Wallet supports the following features:
@@ -30,6 +34,7 @@ The Polygon ID Wallet supports the following features:
 <br>
 
 It is worth noticing that, in order to comply with the principles of the Self-Soveriegn Identity (SSI), all the claims are stored only locally on your wallet and are not stored on-chain; this ensures strong privacy for the sensitive data related to your claim(s). 
+ 
 
 ## How is Polygon ID Wallet Different from Other Wallets?
 
@@ -39,7 +44,7 @@ You, at some point in time, must have used cryptographic wallets such as Metamas
 
 - While the commonly-used crypto wallets let you interact with Ethereum and other blockchain networks using RPCs (Remote Procedure Calls), this is not the case with Polygon ID Wallet - it functions solely to store claims linked to an identity and lets these claims get verified by creating zero-knowledge proofs. 
 
-- General wallets store cryptographic keys while the Polygon ID Wallet stores users' identities.
+- General wallets store cryptographic keys while the Polygon ID Wallet stores users' identities. While both type of wallets are based on privaye-public key cryptography, the two are different in the sense that in a wallet like MetaMask, the elliptic curve used is `secp256k1`, which is used to convert private key to a public key and eventaully to an Ethereum Address, which identifies your wallet. On the other hand, Polygon ID Wallet is based on the `Baby Jubjub Key` which generates Polygon Id Identifier, which becomes identifier of your wallet instead of the Etehreum Wallet Address. 
 
 ## Polygon ID Wallet SDK
 

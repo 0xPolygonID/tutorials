@@ -1,4 +1,4 @@
-<!-- # JWZ - JSON Web Zero Knowledge
+ # JWZ - JSON Web Zero Knowledge
 
 JSON Web Zero-knowledge (JWZ) is an open standard for representing messages proven with zero-knowledge technology.
 
@@ -111,5 +111,3 @@ JWZ represents the main instrument to communicate securely between parties off-c
 
 - <a href="https://github.com/iden3/js-jwz" target="_blank">js-jwz</a> for JavaScript implementation
 - <a href="https://github.com/iden3/go-jwz" target="_blank">go-jwz</a> for Go implementation
-
--->
