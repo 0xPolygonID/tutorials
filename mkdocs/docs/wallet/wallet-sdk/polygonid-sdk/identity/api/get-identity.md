@@ -1,4 +1,4 @@
-# To Get Identity: `getIdentity`
+<!-- # To Get Identity: `getIdentity`
  
 We can get an identity stored on the SDK using `getIdentity()` function. This is the entry point for any Integrator.
  
@@ -20,3 +20,5 @@ The `getIdentity()` function gets an `IdentityEntity` from an identifier. It ret
 The role of `getIdentity()` is to obtain an `IdentityEntity` stored on the SDK for an Integrator. The `identifier` String is the unique id of the identity. Identity `privateKey` is the key used to access all the sensitive info from the identity and also to realize operations like generating proofs using the claims associated to the identity.
  
 This way, `getIdentity()` obtains an identity stored on the SDK for an Integrator.
+
+-->

@@ -1,4 +1,4 @@
-# To Fetch and Save Claims: `fetchAndSaveClaims`
+<!-- # To Fetch and Save Claims: `fetchAndSaveClaims`
  
 An Integrator can fetch claims stored on an Issuer and then save them in the Wallet.
  
@@ -39,3 +39,4 @@ The `fetchAndSaveClaims()` function uses a list of `Credential Request Entities`
 </div>
 <br>
  
+-->

@@ -1,4 +1,4 @@
-# Iden3comm Overview
+<!-- # Iden3comm Overview
 
 Iden3comm is the protocol that defines the set of rules and syntax of the data that needs to be communicated while interacting with an Issuer and a Verifier. The protocol lays down the foundation for the semantics and the synchronization that is involved during the communication between two parties.   
 
@@ -19,3 +19,5 @@ The Iden3comm protocol defines the structure of the messages, requests, and resp
 <br>
 
 For more details on the structure of each type of message, click <a href="https://github.com/iden3/iden3comm/tree/main/protocol" target="_blank">Iden3comm Protocol</a>.
+
+-->

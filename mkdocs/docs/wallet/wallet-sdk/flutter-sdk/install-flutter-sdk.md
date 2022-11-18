@@ -1,4 +1,4 @@
-# Steps to Install Flutter SDK
+<!-- # Steps to Install Flutter SDK
  
 ## Install Flutter SDK
  
@@ -50,7 +50,7 @@ Generally, developers can create a Flutter-based app using a combination of the 
 3. On the palette, enter **Extensions**. The system displays a list of options. Select **Extensions: Install Extensions**.
 4. In the **Search Extension in Markdown** box, enter **flutter**. The system displays the Flutter plugin.
 Click **install**.This installs Flutter along with the Dart plugin.
- 
+ -->
 
 
 

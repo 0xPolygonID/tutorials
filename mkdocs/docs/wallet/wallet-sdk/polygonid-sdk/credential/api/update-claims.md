@@ -1,4 +1,4 @@
-# To Update Claim: `updateClaim`
+<!-- # To Update Claim: `updateClaim`
  
 The claims stored on the SDK can be updated using its claim Id. This is done using the `updateClaim()` function:
  
@@ -15,3 +15,5 @@ Future<ClaimEntity> updateClaim({
   });
 ```
 This function returns the updated `Claim Entity`.
+
+-->

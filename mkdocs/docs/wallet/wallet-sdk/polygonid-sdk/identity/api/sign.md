@@ -1,6 +1,6 @@
-# To Sign Message: `sign`
+<!-- # To Sign Message: `sign`
  
-In the SDK, a message can be signed using `createIdentity()` function. This is the entry point for any Integrator.
+In the SDK, a message can be signed using `createIdentity()` function. 
  
 ```
  Future<String> sign(
@@ -25,3 +25,5 @@ The `sign()` signs a message with the identity for an Integrator and returns a s
 <img src= "../../../../../../imgs/identity-wallet.png" align="center" width="500"/>
 </div>
 <br>
+
+-->

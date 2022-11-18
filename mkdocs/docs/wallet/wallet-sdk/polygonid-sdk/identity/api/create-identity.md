@@ -1,4 +1,4 @@
-# To Create Identity: `createIdentity`
+<!-- # To Create Identity: `createIdentity`
  
 Creating an Identity is the first step that an Integrator needs to follow for using Polygon ID SDK. An identity is created with an unique identifier that is used to:
  
@@ -32,5 +32,5 @@ The `createIdentity()` function creates and stores an `IdentityEntity` from a se
 The role of `createIdentity()` is to create an `IdentityEntity` for an Integrator and then storing it on the SDK. The identifier and private key that this function generates are used by the Integrator every time it needs to interact with the Identity using the SDK. The `PrivateIdentityEntity` is created from the secret and represents an identity.
  
 So, in the nutshell, `createIdentity()` creates and stores an identity on the SDK and returns the `PrivateIdentityEntity` object to the integrator to be able to operate with the identity. 
-
+-->
 

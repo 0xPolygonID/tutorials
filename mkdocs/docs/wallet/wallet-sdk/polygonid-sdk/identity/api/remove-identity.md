@@ -1,4 +1,4 @@
-# To Remove Identity: `removeIdentity`
+<!-- # To Remove Identity: `removeIdentity`
  
 In the SDK, an identity is removed using `removeIdentity()` function. This is the entry point for any Integrator.
  
@@ -20,3 +20,4 @@ The `removeIdentity()` function removes a previously-created and stored Identity
 The role of `removeIdentity()` is to remove an identity previously stored on the SDk for an Integrator.
  
 Hence `removeIdentity()` removes an identity for an Integrator. 
+-->

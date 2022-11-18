@@ -1,4 +1,4 @@
-# To Get Claims: `getClaims` 
+<!--  # To Get Claims: `getClaims` 
  
 After a claim is fetched from an Issuer and stored on the wallet sdk, an Integrator can retrieve this claim from the storage. This is done using `getClaims()` function.
  
@@ -40,3 +40,4 @@ Future<List<ClaimEntity>> getClaimsByIds(
     ));
    }
 ```
+-->

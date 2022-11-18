@@ -1,5 +1,5 @@
  
-# Polygon ID SDK Overview
+<!-- # Polygon ID SDK Overview
 
 Like any other SDK, the Polygon ID SDK is a set of tools that consists of core components including libraries, code samples, APIs, and documentation that have been used to create the Polygon ID Wallet App. An Integrator can use this PolygonID SDK to either create their own apps (that provide similar functionality as that of the Polygon ID Wallet App) or integrate the functionalities seamlessly with their existing apps. 
 
@@ -12,6 +12,6 @@ In the wallet tutorials, you would be reading terms like **Polygon ID SDK** and 
 While, as you read above, Polygon ID SDK is the software development kit that acts as a core functionality, Wallet App is an application that has been built over this SDK. This Identity Wallet helps Integrators create identities for their wallets and authenticate these identities while interacting with Issuers and Verifiers. 
 
 Here, we can conclude that an Integrator can use Polygon ID SDK to build an Identity Wallet of his/her own or can also customize any pre-existing identity wallets using the features provided by the SDK.  
- 
+ -->
 
 

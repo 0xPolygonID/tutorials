@@ -1,4 +1,4 @@
-# Polygon ID SDK Plugin
+<!-- # Polygon ID SDK Plugin
  
 The Polygon ID Mobile SDK uses a flutter plugin that lets you interact with the Polygon ID platform. It is a tool that lets you use everything that Polygon  ID provides (identity wallet, credential wallet, proof generation, etc.)
  
@@ -23,3 +23,5 @@ dependencies:
      url: ssh://git@github.com/iden3/polygonid-flutter-sdk.git
      ref: branchPathName
 ```
+
+-->

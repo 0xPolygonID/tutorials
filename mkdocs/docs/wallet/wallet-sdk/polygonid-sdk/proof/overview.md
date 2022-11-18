@@ -1,4 +1,4 @@
-# Proof Generation Overview
+<!--  # Proof Generation Overview
  
 The proof generation starts with the Wallet scanning the QR code on the Verifier website/app. This is worth mentioning that the proof-generation process initiates on the Verifier side first with the Verifier by generating a [Query Request](../../../../verifier/verification-library/request-api-guide.md#query-based-request).
  
@@ -24,3 +24,5 @@ The proof generation starts with the Wallet scanning the QR code on the Verifier
 </div>
 
 Read more about the circuits used for proof generation [here](https://docs.iden3.io/protocol/main-circuits/)
+
+-->
