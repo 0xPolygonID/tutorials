@@ -24,11 +24,12 @@ The Polygon ID Wallet supports the following features:
 <br>
 
 > Download links for the PolygonID Wallet App:
-
 > - For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
 > - For iOS: <a href="https://apps.apple.com/us/app/polygon-id/id1629870183" target="_blank">Polygon ID on the App Store</a>
 
 <br>
+
+It is worth noticing that, in order to comply with the principles of the Self-Soveriegn Identity (SSI), all the claims are stored only locally on your wallet and are not stored on-chain; this ensures strong privacy for the sensitive data related to your claim(s). 
 
 ## How is Polygon ID Wallet Different from Other Wallets?
 
@@ -40,7 +41,15 @@ You, at some point in time, must have used cryptographic wallets such as Metamas
 
 - General wallets store cryptographic keys while the Polygon ID Wallet stores users' identities.
 
+## Polygon ID Wallet SDK
 
+The Polygon ID Wallet is built (this is, currently, under development) using Flutter SDK. We refer to this SDK as `Polygon ID Wallet SDK`. An Integrator can use this Polygon ID Wallet SDK to either create their own apps (that provide similar functionality as that of the Polygon ID Wallet App) or integrate the functionalities seamlessly with their existing apps. This wallet SDK would provide the following features including (but not limited to):
 
+- Creating an Identity 
+- Removing and restoring identities.
+- Authenticate wallet with Issuer/Verifier.
+- Receiving claims from an Issuer and storing them on the wallet.
+- Updating claims and removing them from the wallet.
+- Generating zero-knowledge proof that can be sent to a Verifier for verification. 
 
 

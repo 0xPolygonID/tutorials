@@ -10,7 +10,7 @@ The proof generation starts with the Wallet scanning the QR code on the Verifier
  
 3. Integrator scans the QR code. By scanning, the Wallet parses the query-based authentication request shown by the Verifier. Read more about auth requests [here](../iden3comm/auth-requests.md#type-of-authorization-requests).
  
-4. Before the Wallet can generate a proof, it needs to authenticate itself first. Upon successful authentication (a pin or biometrics), the Wallet starts the process of generating either a signature-based proof or a merkle-tree-based proofto be presented to the Verifier. The circuit sends back its response to the Verifier via `callbackUrl`. 
+4. Before the Wallet can generate a proof, it needs to authenticate itself first. Upon successful authentication (a pin or biometrics), the Wallet starts the process of generating either a signature-based proof or a merkle-tree-based proof to be presented to the Verifier. The circuit sends back its response to the Verifier via `callbackUrl`. 
  
 6. After the proof is sent to the Verifier that analyzes it for its authenticity and based on its analysis, verifies the proof.
  
@@ -23,4 +23,4 @@ The proof generation starts with the Wallet scanning the QR code on the Verifier
 <img src= "../../../../../imgs/proof-generation.png" alt="Proof Generation" align="center" width="500"/>
 </div>
 
-
+Read more about the circuits used for proof generation [here](https://docs.iden3.io/protocol/main-circuits/)
