@@ -16,6 +16,8 @@ The core functionality of the Platform API are:
 </div>
 <br>
 
+> Disclaimer: Polygon ID APIs will be subject to improvments and changes in the upcoming months.
+
 The APIs categories have to be considered as sequential steps: you cannot start creating schema and issuing claims without having a Issuer. Similarly you need an Organization account in order to create an Issuer on Polygon ID Platform. 
 
 In order to start playing around with the Platform APIs complete the [Issuer Integration Full Flow Tutorial](./flow-tutorial/happy-path.md)
