@@ -1,4 +1,4 @@
-<!-- # Polygon ID SDK Plugin: Example App
+# Polygon ID SDK Plugin: Example App
  
 This example illustrates how to fetch Dart packages to create your Dart project and how to initiate Polygon ID SDK, which we learnt to install in our last tutorial. This example is the implementation of the Polygon ID Flutter SDK.
  
@@ -44,4 +44,3 @@ To start using SDK:
 If no previously created Identifier is found, the SDK first needs to create an identity first using `identity.createIdentity(privateKey: privateKey)` function. Also, if the private key is not passed in the above function, the system randomly generates one.
  
 4. The SDK saves the Identifier in its storage and will use the same to authenticate the identity and fetch the claims from the Issuer.
--->

@@ -1,4 +1,4 @@
-<!-- # To Prove: `prove`
+# To Prove: `prove`
  
 Generating a proof using the requested valid claims from the identity can be done using the `prove()` function. This is the entry point for any Integrator.
  
@@ -23,4 +23,3 @@ The role of `prove()` is to generate an `JWZProof` for an Integrator to be share
  
 Hence `prove()` generates a zk proof and returns the `JWZProof` object to the integrator to be able to verify requester info from the identity with the verifier using zero-knowledge. 
 
--->

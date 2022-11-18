@@ -1,4 +1,4 @@
-<!-- # To Remove Claims: 'removeClaims'
+# To Remove Claims: 'removeClaims'
  
 The claims stored on the SDK can be removed locally (they remain on the Issuer unless removed by it) by the Integrator. This is done using `removeClaims()` function, which removes claims from a list of ids:
  
@@ -34,4 +34,3 @@ Future<void> removeClaim(
    }
  
 ```
--->

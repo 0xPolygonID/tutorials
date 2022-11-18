@@ -1,4 +1,4 @@
-# To Authenticate Identity with Issuer
+ # To Authenticate Identity with Issuer
  
 An Integrator, in order to use the services of an Issuer, needs to authenticate itself with that Issuer. For this to happen, the Integrator needs to call the `authenticate()` function.
  
@@ -50,3 +50,4 @@ An Integrator, to interact with an Issuer, needs to authenticate with it first.
 
  
 4. The Issuer receives the data sent by the Integrator and based on its correctness, authenticates or rejects the identity. The wallet analyzes this response from the Issuer.
+

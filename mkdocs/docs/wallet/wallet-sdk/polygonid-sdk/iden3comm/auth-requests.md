@@ -1,4 +1,4 @@
-<!--  # Type of Authorization Requests 
+# Type of Authorization Requests 
  
 The proof generation by the wallet SDK is based on two types of authorization requests that it sends to the Verifier:
  
@@ -129,4 +129,3 @@ For more information on circuits, go through the following links:
 ## How is Proof sent to the Verifier?
  
 The wallet sends the proof generated to a Verifier using a `callbackUrl`; this URL is included in the auth request and includes the information that the Verifier requests from the Wallet. So, the Wallet sends the proof request along with the claim via this `callbackUrl` and receives the proof response from the Verifier on the same URL.
--->

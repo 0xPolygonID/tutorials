@@ -1,4 +1,4 @@
-<!-- # To Sign Message: `sign`
+ # To Sign Message: `sign`
  
 In the SDK, a message can be signed using `createIdentity()` function. 
  
@@ -26,4 +26,5 @@ The `sign()` signs a message with the identity for an Integrator and returns a s
 </div>
 <br>
 
--->
+
+

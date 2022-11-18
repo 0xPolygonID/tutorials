@@ -1,4 +1,4 @@
-<!-- # To Get Identities: `getIdentities`
+ # To Get Identities: `getIdentities`
  
 We can get a list of public information about all the identities stored on the SDK using `getIdentities()` function. This is the entry point for any Integrator.
  
@@ -18,4 +18,4 @@ The role of `getIdentities()` is to obtain a list of `IdentityEntity` stored on 
  
 This way, `getIdentities()` obtains a list of identities stored on the SDK for an Integrator.
 
--->
+

@@ -1,4 +1,4 @@
-<!-- # To Restore Identity: `restoreIdentity`
+# To Restore Identity: `restoreIdentity`
  
 Restoring an Identity can be done using an identity backup and the secret used to create the identity.
  
@@ -34,4 +34,3 @@ The role of `restoreIdentity()` is to restore an `IdentityEntity` for an Integra
  
 Hence `restoreIdentity()` restores and stores an identity on the SDK and returns the `PrivateIdentityEntity` object to the integrator to be able to operate with the identity. 
 
--->
