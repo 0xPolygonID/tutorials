@@ -7,7 +7,7 @@
 
 Download the latest version of Python [here](https://www.python.org/downloads/). By default, the Python binary file is stored in `usr/local/bin` directory on Mac. 
 
-To view the Python's version installed on your system, copy the path where Pyhthon Installer is located and paste it on the Terminal:
+To view the version of the Python installed on your system, copy the path where your Python Installer is located and paste it to the Terminal:
 
 ```
 /usr/local/bin/python3.10

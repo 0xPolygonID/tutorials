@@ -1,7 +1,8 @@
 # To Prove: `prove`
  
-Generating a proof using the requested valid claims from the identity can be done using the `prove()` function. This is the entry point for any Integrator.
- 
+The `prove()` function generates zero-knowledge proof using the valid claims requested from the Identity.
+
+
 ```
 Future<JWZProof> prove(
       {required String challenge,
@@ -15,11 +16,4 @@ Future<JWZProof> prove(
             circuitData, publicKey, queryParam));
   }
 ```
-The `prove()` function generates an `JWZProof` that fulfills the proof query parameters with a valid identity and claims. It returns an zk proof as a `JWZProof`.
- 
-**Note**: `async` keyword in the code above indicates that the function is asynchronous, i.e.it might need to wait for an external computation to finish before it can show the result. For this reason, the `async` is used with `future` to make sure that the result will be executed eventually. 
- 
-The role of `prove()` is to generate an `JWZProof` for an Integrator to be shared with the Verifier.
- 
-Hence `prove()` generates a zk proof and returns the `JWZProof` object to the integrator to be able to verify requester info from the identity with the verifier using zero-knowledge. 
-
+The `prove()` function generates a `JWZProof` that fulfills the proof query parameters with a valid identity and claims. This proof is shared by an Integrator with a Verifier. The `prove()` returns a `JWZProof` object so that the Integrator is able to verify the requested information (requested from Identity) with the Verifier. 

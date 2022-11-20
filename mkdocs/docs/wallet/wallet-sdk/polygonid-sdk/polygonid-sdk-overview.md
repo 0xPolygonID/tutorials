@@ -13,5 +13,7 @@ While, as you read above, Polygon ID SDK is the software development kit that ac
 
 Here, we can conclude that an Integrator can use Polygon ID SDK to build an Identity Wallet of his/her own or can also customize any pre-existing identity wallets using the features provided by the SDK.  
 
+In the sections to come, you will read more about the Polygon ID SDK plugin and also an example app that will guide you to the initial setup required for using this plugin. In the later part of this example app, you will get to know the overall flow of the functionality that this plugin provides.  
+
 
 

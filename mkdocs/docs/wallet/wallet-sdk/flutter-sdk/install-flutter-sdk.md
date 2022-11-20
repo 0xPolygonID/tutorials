@@ -20,7 +20,7 @@ Flutter SDK installation is available for different operating systems including 
     ```
     export PATH="$PATH:/[path where Flutter is installed]/flutter/bin"
     ```
-    For example, if our extracted installation is on Desktop, we can run the following command:
+    For example, if our extracted installation is on your Desktop, we can run the following command:
     ```
     export PATH="$PATH:/Users/username/Desktop/flutter/bin"
     ```

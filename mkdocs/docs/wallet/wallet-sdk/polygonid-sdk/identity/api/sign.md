@@ -14,7 +14,6 @@ In the SDK, a message can be signed using `sign()` function.
 ```
 The `sign()` function signs a message using identity's private key; the private key and the message are passed as parameters to the function and a signature String is returned.
  
-
  
 The role of `sign()` is to sign a message string for an Integrator using identity's private key.
  
@@ -26,5 +25,5 @@ The `sign()` signs a message with the identity for an Integrator and returns a s
 </div>
 <br>
 
-
+**Note**: The Baby Jubjub key is used to sign the message mentioned above. Read more about Baby Jubjub Elliptic Curve [here](https://eips.ethereum.org/EIPS/eip-2494).
 

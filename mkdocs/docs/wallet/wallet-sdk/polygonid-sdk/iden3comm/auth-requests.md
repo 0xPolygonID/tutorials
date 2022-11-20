@@ -7,7 +7,7 @@ The proof generation by the wallet SDK is based on two types of authorization re
  
 ## Basic Auth Request
  
-The wallet SDK sends the `Basic Auth` request when it needs to prove its identity (based on the Identifier generated earlier) to the Verifier. This request is sent when an Identity needs to prove that it is, indeed, the Identity that it says about itself.
+The Issuer/Verifier sends the `Basic Auth` request to the wallet when wallet needs to prove its identity (based on the Identifier generated earlier) to the Issuer/Verifier. This request is sent when an Identity needs to prove that it is, indeed, what it claims to be. 
  
 ### Structure of Basic Auth Request
  

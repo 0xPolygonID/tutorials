@@ -18,7 +18,7 @@ Future<void> authenticate(
   }
 ```
  
-As seen above, the `authenticate()` function uses the `identifier`, `private key` strings (returned from the `createIdentity()` function), and the `Iden3 Message Entity` as the input parameters and the push token as optional for the integrator to be able to receive the iden3 messages through push notification.
+As seen above, the `authenticate()` function uses the `identifier` string, the `private key` string (returned from the `createIdentity()` function), and the `Iden3 Message Entity` as the input parameters. The push token is an optional parameter; it lets an integrator receive the iden3 messages through push notification.
  
 ### Wallet-Issuer Interaction using Authentication
  

@@ -1,7 +1,6 @@
 # To Get Vocabs: `getVocabs` 
  
-It gets the vocabulary json-ld files to translate the values of the schemas
-to be used by Integrators in a human-readable form in their apps.
+It gets the vocabulary json-ld files to translate the values of the schemas to be used by Integrators in a human-readable form in their apps.
  
 ```
 Future<List<Map<String, dynamic>>> getVocabsFromIden3Message(

@@ -28,7 +28,6 @@ in order to be compatible with the SDK. The following rules will be applied:
  - If the byte array is not 32 length, it will be padded with 0s.
  - If the byte array is longer than 32, an exception will be thrown.
  
-**Note**: `async` keyword in the code above indicates that the function is asynchronous, i.e.it might need to wait for an external computation to finish before it can show the result. For this reason, the `async` is used with `future` to make sure that the result will be executed eventually. 
  
 The role of `restoreIdentity()` is to restore an `IdentityEntity` for an Integrator and then storing it on the SDK. The identifier and private key that this function generates are used by the Integrator every time it needs to interact with the Identity using the SDK. The `PrivateIdentityEntity` is restored from the secret and represents an identity.
  
