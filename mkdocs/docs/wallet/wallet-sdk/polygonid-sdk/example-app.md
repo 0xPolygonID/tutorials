@@ -222,7 +222,7 @@ This part of the flow consists of retrieving claims from an Issuer and saving th
 This functionality consists of retreiving claims from an Issuer (by fetching them) and then saving them on the wallet.
 
 This involves:
-- Generate `CredentialRequestEntity` using `identifier`, `callbackUrl`, and `thid` and `from` fields of `iden3Message`.
+- Generate `CredentialRequestEntity` using `identifier`, `callbackUrl`, and `thid` and `from` fields of `iden3Message`. `thid`is the id of the message and `from` stands for the identifier from which Verifier requests proof.
 - Fetch and Save claim using `CredentialRequestEntity`, `identifier`, and `privateKey`.
 
 ```
