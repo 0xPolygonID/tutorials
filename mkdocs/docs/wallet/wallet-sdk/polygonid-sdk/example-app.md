@@ -7,7 +7,7 @@ The following steps illustrate how to do initial setup to get things started and
 
 ## Initial Setup
 
-1. **Install Flutter**: Install Flutter SDK. To know the steps for that, read the tutorial [here](../../wallet-sdk/flutter-sdk/install-flutter-sdk.md).
+1. **Install Flutter**: Install Flutter SDK. To know the steps for that, read tutorial [here](../../wallet-sdk/flutter-sdk/install-flutter-sdk.md).
 
 2. **Clone Repository**: Clone the [polygonid-sdk-repository](https://github.com/iden3/polygonid-flutter-sdk.git).
  
@@ -49,21 +49,21 @@ The following steps illustrate how to do initial setup to get things started and
 6. Build your first project and run it. 
 
 
-**Note**:  While running a flutter command, if you encounter a "command not found: flutter" error, make sure that the path set above is correct. If you still encounter the error, install Vim emulation for Visual Studio Code as an extension and follow these steps:
+**Note**:  While running a flutter command, if you encounter a ***command not found: flutter*** error, make sure that the path set above is correct. If you still encounter the error, install Vim emulation for Visual Studio Code as an extension and follow these steps:
 
 1. Run the following command:
    ```
    vim $HOME/.zshrc
    ```
-where we assume that you are working in the  Z shell. If you are using Bash shell, you can run this command:
+      where we assume that you are working in the  Z shell. If you are using Bash shell, you can run this command:
    ```
    vim $HOME/.bashrc
    ```
-**Note**: To know your shell, type:
-```
-echo $SHELL
-```
-which, in our case shows:
+      **Note**: To know your shell, type:
+      ```
+      echo $SHELL
+      ```
+      which, in our case shows:
 `/bin/zsh`
 
 2. This opens the `.zshrc` configurtion window (for the Z Shell). Press "I" to initiate the insert mode.
@@ -84,13 +84,15 @@ which, in our case shows:
  
 ## General Flow
 
-In the upcoming sections, we shall see the general flow of how to use Polygon ID SDK. The steps are summarised as:
+### Overview
 
-A. **Identity**:
+In the upcoming sections, we shall see the general flow of how to use Polygon ID SDK Plugin. The steps are summarised as:
+
+A. **Identity**
 
 1. Initialise Polygon ID SDK.
 2. Create Identity for wallet.
-3. Get Identifier from the Identity created in step above.
+3. Get (Retreive) Identifier from the Identity created in step above.
 4. Remove Identity (only if required).
 5. Get iden3Message from Issuer.
 6. Authenticate Identity using Identifier, iden3Message, and Private Key.
@@ -107,9 +109,13 @@ C. **Proof**
 
 1. Generate zero-knowledge proof using iden3Message, Identifier, and Private Key. 
 
+### Steps in Detail
 
+**A. Identity**
 
-### Initiate Polygon ID SDK
+This part of the flow consists of initialising Polygon ID SDK, creating an identifier for and identity and retreiving it, and using the identifier to authenticate the Identity.
+
+#### ***1. Initiate Polygon ID SDK***
  
 To start using Polygon ID SDK, an integrator needs to initialize it first. This is done inside the dependency injection initializer using `await PolygonIdSDK.init()`. 
 ```
@@ -124,27 +130,239 @@ Future<void> main() async {
 
 If the SDK has not been initialized, the system throws an exception: `PolygonIsSdkNotInitializedException` indicating that the Polygon ID SDK has not been initialized and must be initialzed first with `await PolygonIdSDK.init()`.
  
-2. After the SDK initialization, the Integrator  will need to use the instance of PolygonIdSDK:
+After the SDK initialization, the Integrator  will need to use the instance of PolygonIdSDK:
  
 ```
 getIt.registerLazySingleton<PolygonIdSdk>(() => PolygonIdSdk.I)
  ```
 
-### Create Identity
+#### ***2. Create Identity***
 
-1. After SDK initialization, the SDK checks the existence of an Identifier that was previously created with the `createIdentity()` function. This check is done via: `identity.getCurrentIdentifier()`.
-If no previously created Identifier is found, the SDK first needs to create an identity first using `identity.createIdentity()` function. Also, if the private key is not passed in the above function, the system randomly generates one.
+After SDK initialization, the SDK checks the existence of an Identifier that was previously created with the `createIdentity()` function. 
+If no previously created Identifier is found, the SDK first needs to create an identity first using `identity.createIdentity()` function. 
 
 ```
 Future<void> createIdentity() async {
-  //we get the sdk instance previously initialized
+  // we get the sdk instance previously initialized
   final sdk = PolygonIdSdk.I;
   PrivateIdentityEntity identity = await sdk.identity.createIdentity(secret: secretKey);
 }
 ```
-You can retrieve your private key from the `PrivateIdentityEntity` mnetioned above. Keep this private key safe; it will be used in a few other SDK methods as you will see in the following steps.
+You can retrieve your `private key` from the `PrivateIdentityEntity` specified in the code above. Keep this private key safe; it will be used in a few other SDK methods as you will see in the following steps.
 
-### Get Identifier
+**Note**: It is not manadatory to pass the `secret` as the input parameter in the function. If you do not pass it, a random `secret`is generated by the system. 
 
 
-4. The SDK saves the Identifier in its storage and will use the same to authenticate the identity and fetch the claims from the Issuer.
+
+#### ***3. Get Identifier***
+
+This retreives the `identifier` by passing the `private key` as the input parameter to the `getIdentifier()` function; please note that the `private key` is generated from `PrivateIdentityEntity` that we generated via `createIdentity()` function in the previous section. 
+
+```
+Future<void> getIdentifier() async {
+  String privateKey = privateIdentityEntity.privateKey;
+  String identifier = await sdk.identity.getIdentifier(privateKey: privateKey);
+}
+```
+
+#### ***4. Remove Identity***
+
+To remove an existing Identity (use this only when required), you need to call the `identity.removeIdentity()` with `identifier` and the `privateKey` as the input parameters. 
+```
+Future<void> removeIdentity({
+  required String privateKey,
+  required String identifier,
+}) async {
+  await sdk.identity.removeIdentity(
+    privateKey: privateKey,
+    identifier: identifier,
+  );
+```
+
+#### ***5. Authenticate Identity***
+
+The authentication includes two steps:
+- Generate an iden3messgae from teh QR code
+- Authenticate Identity using iden3message
+
+**a. Generate Iden3Message**
+
+An Integrator uses `iden3Message` to communicate with an Issuer/Verifier. This 'iden3message' is created from the QR code scanned by the Integrator on his/her wallet. The `getIden3Message()` uses message (of type String) as the input parameter and generates `iden3Message`.
+
+```
+Iden3MessageEntity getIden3MessageFromString(String message){
+  return sdk.iden3comm.getIden3Message(message: message);
+}
+```
+
+**b. Authenticate Identity using Iden3Message**
+
+We use `authenticate()` to authenticate an identity by using `privateKey`, `identifier`, and `iden3Message` as the input parameters. 
+
+```
+Future<void> authenticate({
+  required Iden3MessageEntity iden3message,
+  required String identifier,
+  required String privateKey,
+}) async {
+  await sdk.iden3comm.authenticate(
+    iden3message: iden3message,
+    identifier: identifier,
+    privateKey: privateKey,
+  );
+}
+```
+
+**B. Credential**
+
+This part of the flow consists of retreiving claims from an Issuer and saving them in the wallet. One or more claims can be retreived and one or more claims can be removed from the wallet. 
+
+#### ***1. Fetch and Save Claims***
+
+This functionality consists of retreiving claims from an Issuer (by fetching them) and then saving them on the wallet.
+
+This involves:
+- Generate `CredentialRequestEntity` using `identifier`, `callbackUrl`, and `thid` and `from` fields of `iden3Message`.
+- Fetch and Save claim using `CredentialRequestEntity`, `identifier`, and `privateKey`.
+
+```
+Future<void> fetchAndSaveClaims({
+  required Iden3MessageEntity iden3message,
+  required String identifier,
+  required String privateKey,
+}) async {
+  Map<String, dynamic>? messageBody = iden3message.body;
+
+  // url for the callback
+  final String callbackUrl = messageBody['url'];
+  // credentials
+  List<dynamic> credentials = messageBody['credentials'];
+  List<CredentialRequestEntity> credentialRequestEntityList =
+      credentials.map((credential) {
+    String credentialId = credential['id'];
+    return CredentialRequestEntity(
+      identifier,
+      callbackUrl,
+      credentialId,
+      iden3message.thid,
+      iden3message.from,
+    );
+  }).toList();
+  
+  await sdk.iden3comm.fetchAndSaveClaims(
+    credentialRequests: credentialRequestEntityList,
+    identifier: identifier,
+    privateKey: privateKey,
+  );
+}
+```
+
+
+#### ***2. Get Claims***
+
+Once claims have been saved on the wallet sdk, these can be retrieved by the Integrator using `credential.getClaims()` with `identifier`, and `privateKey` used as manadatory input parameters and `filters` as an optional one. `Filters` let an Integrate retreive claims based on some pre-determined criteria. 
+
+```
+Future<void> getAllClaims({
+  List<FilterEntity>? filters,
+  required String identifier,
+  required String privateKey,
+}) async {
+  List<ClaimEntity> claimList = await sdk.claim.getAllClaims(
+    filters: filters,
+    identifier: identifier,
+    privateKey: privateKey,
+  );
+}
+```
+
+
+#### ***3. Get Claims by Ids***
+
+This functionality lets an Integrator retieve claims based on their ids. The `claimId`, `identifier`, and `privateKey`are passed as an input parameter to the `credential. getClaimsByIds()`function and a lsit of claims in form of `ClaimEntity` are retrieved. The id of each claim is stored on the SDK from where they can be rettrieved. 
+
+```
+Future<void> getClaimsByIds({
+  required List<String> claimIds,
+  required String identifier,
+  required String privateKey,
+}) async {
+  List<ClaimEntity> claimList = await sdk.credential.getClaimsByIds(
+    claimIds: claimIds,
+    identifier: identifier,
+    privateKey: privateKey,
+  );
+}
+```
+
+
+#### ***4. Remove a Claim***
+
+A claim can be removed from the wallet using `credential.removeClaim()` with id of the claim to be removed, `identifier`, and `privateKey` as the input parameters. 
+
+```
+Future<void> removeClaim({
+  required String claimId,
+  required String identifier,
+  required String privateKey,
+}) async {
+  await sdk.credential.removeClaim(
+    claimId: claimId,
+    identifier: identifier,
+    privateKey: privateKey,
+  );
+}
+```
+
+#### ***5. Remove  Multiple Claims***
+
+This is similar to removing a single claim described above. In this case, you need to pass a list of `claimids` to be removed, `identifier`, and `privateKey` as the input parameters to `credential.removeClaims()`.
+
+```
+Future<void> removeClaims({
+  required List<String> claimIds,
+  required String identifier,
+  required String privateKey,
+}) async {
+  await sdk.credential.removeClaims(
+    claimIds: claimIds,
+    identifier: identifier,
+    privateKey: privateKey,
+  );
+}
+```
+
+#### ***6. Update Claim***
+
+To update a claim, `credential.updateClaim()` function is used with the following fields passed as input parameters:
+- `claimId`
+- `identifier`
+- `privateKey`
+-  other information such as identity `state`, `issuer`, claim's `expiration` date, `type` of claim, etc. 
+
+**Note**: Updating a claim means only the `info` field related to it can be changed. 
+```
+Future<void> updateClaim({
+  required String claimId,
+  required String identifier,
+  required String privateKey,
+  String? issuer,
+  ClaimState? state,
+  String? expiration,
+  String? type,
+  Map<String, dynamic>? data,
+}) async {
+  PolygonIdSdk sdk = PolygonIdSdk.I;
+  await sdk.credential.updateClaim(
+    id: claimId,
+    identifier: identifier,
+    privateKey: privateKey,
+    issuer: issuer,
+    state: state,
+    expiration: expiration,
+    type: type,
+    data: data,
+  );
+}
+```
+

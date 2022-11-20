@@ -12,28 +12,28 @@ Flutter SDK installation is available for different operating systems including 
 
 5. On your Terminal, change the directory to the **flutter** folder extracted in the previous step.
 
-```
-cd flutter
-```
+    ```
+    cd flutter
+    ```
 6. To run the flutter commands, the shell you are working in must be set to the directory where your flutter binary file (.exe) is located. For this, you must first set the path:
  
-```
-export PATH="$PATH:/[path where Flutter is installed]/flutter/bin"
-```
-For example, if our extracted installation is on Desktop, we can run the following command:
-```
-export PATH="$PATH:/Users/username/Desktop/flutter/bin"
-```
-where `export` sets the `PATH` on the left to the value of the `PATH` specified on the right. 
+    ```
+    export PATH="$PATH:/[path where Flutter is installed]/flutter/bin"
+    ```
+    For example, if our extracted installation is on Desktop, we can run the following command:
+    ```
+    export PATH="$PATH:/Users/username/Desktop/flutter/bin"
+    ```
+    where `export` sets the `PATH` on the left to the value of the `PATH` specified on the right. 
 
-To verify if the Path has been correctly set, we run an `echo $PATH` command:
+    To verify if the Path has been correctly set, we run an `echo $PATH` command:
 
-```
-echo $PATH
-```
-/opt/homebrew/bin:/opt/homebrew/sbin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/usr/local/bin:/**Users/username/Desktop/flutter/bin**
+    ```
+    echo $PATH
+    ```
+    /opt/homebrew/bin:/opt/homebrew/sbin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/usr/local/bin:/**Users/username/Desktop/flutter/bin**
 
-where the path in the bold is the intended path where we had set our path to.
+    where the path in the bold is the intended path where we had set our path to.
 
  
 ## Using Dart with Flutter

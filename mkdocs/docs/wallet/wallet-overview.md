@@ -9,6 +9,7 @@ The Polygon ID Wallet app is a reference implementation built using our Wallet S
 <div align="center">
 <img src="../../imgs/polygon-id-reference-app.png" alt="Polygon ID app as a reference implementation" width="500" align="center" />
 </div>
+<br>
 
 >**Note**: Currently, we support only mobile-based apps as wallets. The web-based applications and cold-storage wallets are not yet supported. 
 
@@ -44,17 +45,21 @@ You, at some point in time, must have used cryptographic wallets such as Metamas
 
 - While the commonly-used crypto wallets let you interact with Ethereum and other blockchain networks using RPCs (Remote Procedure Calls), this is not the case with Polygon ID Wallet - it functions solely to store claims linked to an identity and lets these claims get verified by creating zero-knowledge proofs. 
 
-- General wallets store cryptographic keys while the Polygon ID Wallet stores users' identities. While both type of wallets are based on privaye-public key cryptography, the two are different in the sense that in a wallet like MetaMask, the elliptic curve used is `secp256k1`, which is used to convert private key to a public key and eventaully to an Ethereum Address, which identifies your wallet. On the other hand, Polygon ID Wallet is based on the `Baby Jubjub Key` which generates Polygon Id Identifier, which becomes identifier of your wallet instead of the Etehreum Wallet Address. 
+- General wallets store cryptographic keys while the Polygon ID Wallet stores users' identities. While both type of wallets are based on privaye-public key cryptography, the two are different in the sense that in a wallet like MetaMask, the elliptic curve used is `secp256k1`, which is used to convert private key to a public key and eventaully to an Ethereum Address, which identifies your wallet. On the other hand, Polygon ID Wallet is based on the `Baby Jubjub Key` which generates Polygon Id Identifier, which becomes identifier of your wallet instead of the Ethereum Wallet Address. 
 
 ## Polygon ID Wallet SDK
 
-The Polygon ID Wallet is built (this is, currently, under development) using Flutter SDK. We refer to this SDK as `Polygon ID Wallet SDK`. An Integrator can use this Polygon ID Wallet SDK to either create their own apps (that provide similar functionality as that of the Polygon ID Wallet App) or integrate the functionalities seamlessly with their existing apps. This wallet SDK would provide the following features including (but not limited to):
+The Polygon ID Wallet is built (this is, currently, under development) using Flutter SDK. We refer to this SDK as `Polygon ID Wallet SDK`. An Integrator can use this Polygon ID Wallet SDK to either create their own apps (that provide similar functionality as that of the Polygon ID Wallet App) or integrate the functionalities seamlessly with their existing apps. 
 
-- Creating an Identity 
-- Removing and restoring identities.
-- Authenticate wallet with Issuer/Verifier.
-- Receiving claims from an Issuer and storing them on the wallet.
-- Updating claims and removing them from the wallet.
-- Generating zero-knowledge proof that can be sent to a Verifier for verification. 
+### Why Polygon ID Wallet SDK?
+
+Integrating your app with Polygon ID Wallet SDK can provide you all the features of an SSI system. As it is built on zero-knowledge protocol, it can let you create an identity application that is not only robust but also maintains high standrad of privacy for your users, thus letting them protect their sensitive data from third-parties while revealing only the required required information. The Polygon ID Wallet lets you:
+
+- Create an Identity for wallet
+- Remove and restore identities from wallet.
+- Authenticate wallet with an Issuer/Verifier.
+- Receive claims from an Issuer and storing them on the wallet.
+- Update claims and remove them from the wallet when required.
+- Generate zero-knowledge proof that can be sent to a Verifier for verification. 
 
 

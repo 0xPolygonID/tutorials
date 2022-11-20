@@ -1,7 +1,23 @@
 # Polygon ID tutorials
 
 
-## How to run this documentation 
+## How to run this documentation
+
+### Install Python
+
+Download the latest version of Python [here](https://www.python.org/downloads/). By default, the Python binary file is stored in `usr/local/bin` directory on Mac. 
+
+To view the Python's version installed on your system, copy the path where Pyhthon Installer is located and paste it on the Terminal:
+
+```
+/usr/local/bin/python3.10
+```
+It shows the version of Python and the date on which it was installed:
+
+```
+Python 3.10.7 (v3.10.7:6cc6b13308, Sep  5 2022, 14:02:52) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+```
+
 ### Install mkdocs
 ```
 pip3 install mkdocs
@@ -29,8 +45,24 @@ pip3 install mkdocs-markdown-graphviz==1.3
 ```
 
 ### Run the webserver
-At the mkdocs directory execute:
+Change the directory to 'mkdocs'
+
+```
+cd mkdocs
+```
+
+At the mkdocs directory, execute:
 
 ```
 mkdocs serve
+```
+This starts the webserver locally on your machine:
+```
+INFO     -  Building documentation...
+INFO     -  MERMAID2  - Initialization arguments: {}
+INFO     -  MERMAID2  - Using javascript library (8.8.0):
+               https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js
+INFO     -  Cleaning site directory
+
+Serving on http://127.0.0.1:8000/polygon-id/
 ```
