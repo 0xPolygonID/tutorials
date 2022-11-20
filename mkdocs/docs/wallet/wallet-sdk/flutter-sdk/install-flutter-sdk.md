@@ -1,6 +1,6 @@
-# Steps to Install Flutter SDK
+# Install Flutter SDK
  
-## Install Flutter SDK
+## Steps to Install Flutter SDK
  
 Flutter SDK installation is available for different operating systems including Windows, macOS, Linux, and ChromeOS.
  
@@ -8,36 +8,39 @@ Flutter SDK installation is available for different operating systems including 
 2. Check for the system requirements specific to each operating system and make sure that you have all the necessary tools already installed on your system. For instance, for macOS, `git` must be pre-installed while for Windows, you need to have `git for Windows` and `Windows Powershell 5.0 or above` installed.
 3. Download the installation bundle (install the latest version for stable release ) relevant to your Operating System. In the case of macOS, different bundles are available for Intel and Apple Silicon processors.
 
-**Note** The latest Flutter SDK version is 3.0.5.
-4. After extracting the file to your directory, add Flutter to your path using the path variable:
-    ` export PATH="$PATH:`pwd`/flutter/bin"`
-   where `pwd` is the path to your present working directory.
+4. Extract the downloaded installation file to the desired directory on your machine. This creates a **flutter** folder in the directory. 
+
+5. On your Terminal, change the directory to the **flutter** folder extracted in the previous step.
+
+```
+cd flutter
+```
+6. To run the flutter commands, the shell you are working in must be set to the directory where your flutter binary file (.exe) is located. For this, you must first set the path:
  
-**Note**:  While running a flutter command, if you encounter a "command not found: flutter" error, make sure that the path set above is correct. If you still encounter the error, install Vim emulation for Visual Studio Code as an extension and follow these steps:
- 
-1. Run the following command:
-   ```
-   vim $HOME/.zshrc
-   ```
-2. Press "I" to initiate the insert mode.
-3. Run the following command to set your path variable:
-   ```
-   export PATH="$PATH:/Flutter-Directory-Path/flutter/bin"
-   ```
-   where "Flutter-Directory-Path" is the directory where your Flutter is installed.
- 
-4. Press `Escape` on your keyboard and then enter the following command:
-   ```
-   :wq!
-   ```
-   Press `Enter`. This saves the file in vim and exit the editor (`wq` stands for write and quit).
- 
-5. Run your flutter commands.
- 
+```
+export PATH="$PATH:/[path where Flutter is installed]/flutter/bin"
+```
+For example, if our extracted installation is on Desktop, we can run the following command:
+```
+export PATH="$PATH:/Users/username/Desktop/flutter/bin"
+```
+where `export` sets the `PATH` on the left to the value of the `PATH` specified on the right. 
+
+To verify if the Path has been correctly set, we run an `echo $PATH` command:
+
+```
+echo $PATH
+```
+/opt/homebrew/bin:/opt/homebrew/sbin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/usr/local/bin:/**Users/username/Desktop/flutter/bin**
+
+where the path in the bold is the intended path where we had set our path to.
+
  
 ## Using Dart with Flutter
  
 Flutter apps are created using a programming language called `Dart`. An object-oriented language with similarity to C language, Dart is used for creating mobile and web applications. With Dart, Flutter apps can be developed quickly and deployed to different platforms.
+
+**Note**: The Dart SDK comes bundled with Flutter, so if you installed Flutter, it is not required to install Dart separately.
 
 **Note**: For more information on Dart, click [here](https://dart.dev).
  

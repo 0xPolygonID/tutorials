@@ -1,10 +1,10 @@
 # Polygon ID SDK Plugin
  
-The Polygon ID Mobile SDK uses a flutter plugin that lets you interact with the Polygon ID platform. It is a tool that lets you use everything that Polygon  ID provides (identity wallet, credential wallet, proof generation, etc.)
+The Polygon ID Mobile SDK uses a flutter plugin that lets you interact with the Polygon ID platform. It is a tool that lets you use everything that Polygon ID provides (identity wallet, credential wallet, proof generation, etc.)
  
 ## Install Polygon ID Mobile SDK Plugin
  
-To install the Polygon ID Flutter SDK plugin, you need to add this plugin as a dependency in your `pubspec.yaml` file:
+To use the Polygon ID Flutter SDK plugin, you need to add this plugin as a dependency in your `pubspec.yaml` file:
  
 1. Open the `pubspec.yaml` file in your editor.
 2. Scroll down to the dependency section and add the following dependency:
