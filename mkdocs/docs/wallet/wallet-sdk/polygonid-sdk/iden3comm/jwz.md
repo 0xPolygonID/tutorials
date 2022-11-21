@@ -1,6 +1,6 @@
 # JWZ - JSON Web Zero Knowledge
- 
- JSON Web Zero-knowledge (JWZ) is an open standard for representing messages proven with zero-knowledge technology.
+
+JSON Web Zero-knowledge (JWZ) is an open standard for representing messages proven with zero-knowledge technology.
 
 Based on the existing secure messaging standards, namely, JWM (JSON Web Message) and JWT (JSON Web Token), JWZ is a standard format for representing and sending secure messages backed by zero-knowledge technology. It is a novel way of providing interaction between two parties that intend to exchange messages while keeping the sender's public keys hidden. The proof that the wallet generates is packed in the JWZ format and sent to the Verifier using `callbackUrl`.
 
