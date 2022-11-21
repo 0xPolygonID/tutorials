@@ -80,10 +80,10 @@ nav:
 #          - Auth Requests: "wallet/wallet-sdk/polygonid-sdk/iden3comm/auth-requests.md"
 #          - JWZ: "wallet/wallet-sdk/polygonid-sdk/iden3comm/jwz.md"
 #          - APIs: 
-#            - Authenticate: "wallet/wallet-sdk/polygonid-sdk/iden3comm/apis/authenticate.md"
-#            - Get Proof: "wallet/wallet-sdk/polygonid-sdk/iden3comm/apis/get-proofs.md"
-#            - Get Vocabulary: "wallet/wallet-sdk/polygonid-sdk/iden3comm/apis/get-vocabs.md"
-#            - Get Iden3 Message: "wallet/wallet-sdk/polygonid-sdk/iden3comm/apis/iden3-message.md"
+#            - Authenticate: "wallet/wallet-sdk/polygonid-sdk/iden3comm/api/authenticate.md"
+#            - Get Proof: "wallet/wallet-sdk/polygonid-sdk/iden3comm/api/get-proofs.md"
+#            - Get Vocabulary: "wallet/wallet-sdk/polygonid-sdk/iden3comm/api/get-vocabs.md"
+#            - Get Iden3 Message: "wallet/wallet-sdk/polygonid-sdk/iden3comm/api/iden3-message.md"
 #        - Proof:
 #          - Overview: "wallet/wallet-sdk/polygonid-sdk/proof/overview.md"
 #          - APIs: 
