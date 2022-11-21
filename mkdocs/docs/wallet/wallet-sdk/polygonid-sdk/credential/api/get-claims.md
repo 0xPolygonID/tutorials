@@ -17,7 +17,7 @@ Future<List<ClaimEntity>> getClaims(
       ));
    }
 ```
-This function returns a list of `Claim Entities` based on some pre-defined criteria or filters.
+This function returns a list of `Claim Entities` (claim objects)based on some pre-defined criteria or filters.
  
 ## To Get Claims by Ids: `getClaimsByIds`
  
@@ -40,3 +40,4 @@ Future<List<ClaimEntity>> getClaimsByIds(
     ));
    }
 ```
+An Issuer assigns claim ids to the claims and the wallet, after fetching these claims, stores them on the SDK. 

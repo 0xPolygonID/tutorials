@@ -21,6 +21,8 @@ Future<PrivateIdentityEntity> createIdentity({String? secret}) async
 ```
 The `createIdentity()` function creates and stores an `IdentityEntity` from a secret if it doesn't exist already on the Polygon ID SDK. If the secret is omitted or null, a random one will be used to create a new identity. It returns an identity as a `PrivateIdentityEntity`. It throws `IdentityException` if an error occurs.
 
+**Note**: A `secret` is a random 32-bytes length array. An Integrator can create this secret in the way he finds it better suited for his application. It could be an encrypted mnemonic seed phrase generated with BIP39 (a way of creating mnemonic codes) or an Ethereum private key. If, however, no secret is passed as the input parameter, a random one can be generated. Identity's private key is derived using this secret; this secret is then hashed using keccak 256 to create identity's private key. This private key is then used to sign the signature of a message.  
+
 **Note**: If the secret is null, the SDK creates a random one for the creation of the identity. Depending on the length requirement of the secret string, either an Identity is successfully created or an error is displayed in form of an exception when the function is executed.
 
 **Note**: Please note that the secret is internally converted to a 32- length bytes array in order to be compatible with the SDK. The following rules will be applied:

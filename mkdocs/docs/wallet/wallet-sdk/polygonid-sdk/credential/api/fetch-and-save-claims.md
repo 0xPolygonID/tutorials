@@ -20,7 +20,7 @@ Future<List<ClaimEntity>> fetchAndSaveClaims(
  
 ```
  
-The `fetchAndSaveClaims()` function uses a list of `Credential Request Entities`as the input parameter. A `Credential Request Entity` is a type of iden3comm message. The function returns a list of `Claim Entities`.
+The `fetchAndSaveClaims()` function uses a list of `Credential Request Entities`as the input parameter. A `Credential Request Entity` is generated when an Integrator scans the QR code to get claims from an Issuer. The function returns a list of `Claim Entities`.
  
 ## Wallet-Issuer Interaction for Fetching Claims
  

@@ -20,6 +20,7 @@ Future<PrivateIdentityEntity> restoreIdentity(
 ```
 The `restoreIdentity()` function restores and stores an `IdentityEntity` from a secret if replacing already existing one in the Polygon ID SDK. It returns an identity as a `PrivateIdentityEntity`.
 Throws `IdentityException` if an error occurs.
+The `encryptedIdentityDb` stores all the sensitive information related to the identity (claims, state, etc.). This information is stored in the SDK database and is accessible only to an Identity. 
 
 **Note**: Depending on the length requirement of the secret string, either an Identity is successfully restored or an error is displayed in form of an exception when the function is executed.
 
