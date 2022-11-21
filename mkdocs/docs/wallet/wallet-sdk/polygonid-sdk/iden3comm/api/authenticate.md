@@ -1,5 +1,5 @@
- # To Authenticate Identity with Issuer
- 
+# To Authenticate Identity with Issuer
+
 An Integrator, in order to use the services of an Issuer, needs to authenticate itself with that Issuer. For this to happen, the Integrator needs to call the `authenticate()` function.
  
 ```
