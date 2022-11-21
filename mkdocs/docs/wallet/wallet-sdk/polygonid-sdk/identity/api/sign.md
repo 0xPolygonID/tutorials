@@ -1,5 +1,6 @@
- # To Sign Message: `sign`
- 
+# To Sign Message: `sign`
+
+
 In the SDK, a message can be signed using `sign()` function. 
  
 ```
