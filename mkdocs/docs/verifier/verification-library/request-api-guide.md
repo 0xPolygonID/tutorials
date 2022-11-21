@@ -105,3 +105,6 @@ Generate a request to proof that satisfies certain requirements.
 `id` represents the request id: ideally, in production, it should be a unique value for each request. `circuit_id` represents the identifier of the circuit used by the user to generate the requested proof: it can be either `credentialAtomicQuerySig` or `credentialAtomicQueryMTP`. In this case, the user has to provide a proof that he/she owns a claim issued by the `allowedIssuer` of schema `type` **KYCCountryOfResidenceCredential** described in `url`. This claim contains details of the country of residence of the receiver. In this scenario, the user has to prove that the value contained in the attribute `countryCode` is not in `nin` 840, 120, 340, 509.
 
 > Check out our [Query Language guide](./zk-query-language.md) to design any type of query request you can think of!
+
+> Check out the [Iden3Comm](../../wallet/wallet-sdk/polygonid-sdk/iden3comm/overview.md) section inside the Wallet SDK to learn more about how these requests are interpreted by the wallet in order to generate a zk proof
+
