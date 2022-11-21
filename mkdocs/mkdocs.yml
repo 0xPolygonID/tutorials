@@ -59,22 +59,20 @@ nav:
 #       - Example App: "wallet/wallet-sdk/polygonid-sdk/example-app.md"
 #       - Identity:
 #         - Overview: "wallet/wallet-sdk/polygonid-sdk/identity/overview.md"
-#         - APIs:
-#            - Overview: "wallet/wallet-sdk/polygonid-sdk/identity/api/api-overview.md"
+#         - APIs:            
 #           - Create Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/create-identity.md"
-#            - Get Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/get-identity.md"
+#           - Get Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/get-identity.md"
 #           - Get Identities: "wallet/wallet-sdk/polygonid-sdk/identity/api/get-identities.md"
 #           - Remove Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/remove-identity.md"
-#            - Restore Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/restore-identity.md"
+#           - Restore Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/restore-identity.md"
 #           - Sign Message: "wallet/wallet-sdk/polygonid-sdk/identity/api/sign.md"
 #        - Credential: 
 #          - Overview: "wallet/wallet-sdk/polygonid-sdk/credential/overview.md"
-#         - APIs: 
-#           - Overview: "wallet/wallet-sdk/polygonid-sdk/credential/api/api-overview.md"
+#         - APIs:           
 #            - Fetch and Save Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/fetch-and-save-claims.md"
 #            - Get Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/get-claims.md"
 #            - Update Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/update-claims.md"
-#           - Remove Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/remove-claims.md"
+#            - Remove Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/remove-claims.md"
 #       - Iden3comm:
 #          - Overview: "wallet/wallet-sdk/polygonid-sdk/iden3comm/overview.md"
 #          - Auth Requests: "wallet/wallet-sdk/polygonid-sdk/iden3comm/auth-requests.md"
@@ -87,7 +85,6 @@ nav:
 #        - Proof:
 #          - Overview: "wallet/wallet-sdk/polygonid-sdk/proof/overview.md"
 #          - APIs: 
-#            - Overview: "wallet/wallet-sdk/polygonid-sdk/proof/api/api-overview.md"
 #            - Generate Proof: "wallet/wallet-sdk/polygonid-sdk/proof/api/prove.md"
   - Smart Contracts: 
     - Overview: "contracts/overview.md"
