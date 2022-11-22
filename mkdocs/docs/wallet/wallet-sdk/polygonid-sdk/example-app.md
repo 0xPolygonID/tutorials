@@ -182,7 +182,7 @@ Future<void> removeIdentity({
 #### ***5. Authenticate Identity***
 
 The authentication includes two steps:
-- Generate an iden3messgae from teh QR code
+- Generate an iden3messgae from the QR code
 - Authenticate Identity using iden3message
 
 **a. Generate Iden3Message**
