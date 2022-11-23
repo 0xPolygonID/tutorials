@@ -1,7 +1,7 @@
-# Polygon ID tutorials
+# Polygon ID Tutorials
 
 
-## How to run this documentation
+## How to run this documentation?
 
 ### Install Python
 
@@ -66,3 +66,16 @@ INFO     -  Cleaning site directory
 
 Serving on http://127.0.0.1:8000/polygon-id/
 ```
+
+## How to view the complete wallet SDK tutorials?
+
+All the wallet SDK tutorials, except for the `Wallet Overview` part, have been kept hidden (for security purposes). To view them all, in the `docs` directory, open the `mkdocs.yml` file and uncomment all the wallet SDK tutorials. To uncomment:
+
+- Remove the `#` symbol for each commented line.
+
+OR
+
+- Select all the commented lines and press `CMD+/` on Mac and `Cntl+/` on Windows or Linux. This removes all the comments. 
+
+Once uncommented, you may need to press the `tab` on your keyboard once so that the indentation of the directory structure remains intact. 
+
