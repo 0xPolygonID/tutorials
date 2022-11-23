@@ -319,6 +319,7 @@ Specifically, the verifier will set up the query: "Prove that you were born befo
 		}
 		```
 
+> If you need to deploy an App or to build a Docker container you'll need to bundle the [libwasmer.so](https://github.com/iden3/go-rapidsnark/tree/main/witness) library together with the app. 
 
 ## Verifier Client Setup
 
