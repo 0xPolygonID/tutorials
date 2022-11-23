@@ -69,7 +69,7 @@ Serving on http://127.0.0.1:8000/polygon-id/
 
 ## How to view the complete wallet SDK tutorials?
 
-All the wallet SDK tutorials, except for the `Wallet Overview` part, have been kept hidden (for security purposes). To view them all, in the `docs` directory, open the `mkdocs.yml` file and uncomment all the wallet SDK tutorials. To uncomment:
+All the wallet SDK tutorials, except for the `Wallet Overview` part, have been kept hidden (for security purposes). To view them all, in the `mkdocs/docs` directory, open the `mkdocs.yml` file and uncomment all the wallet SDK tutorials. To uncomment:
 
 - Remove the `#` symbol for each commented line.
 
