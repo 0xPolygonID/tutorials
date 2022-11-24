@@ -1,7 +1,10 @@
 # Polygon ID Tutorials
 
+## Check the documentation
 
-## How to run this documentation?
+The documentation is available at [0xPolygon.github.io[(https://0xpolygonid.github.io/tutorials/)
+
+## Run the documentation locally
 
 ### Install Python
 
