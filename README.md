@@ -2,7 +2,7 @@
 
 ## Check the documentation
 
-The documentation is available at [0xPolygon.github.io[(https://0xpolygonid.github.io/tutorials/)
+The documentation is available at [0xPolygon.github.io](https://0xpolygonid.github.io/tutorials/)
 
 ## Run the documentation locally
 
