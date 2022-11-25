@@ -66,6 +66,7 @@ Another aspect of privacy comes from the fact that the Issuer would not be able 
 
 - [Identity Layer for Web3 - Paris - July 2022](https://youtu.be/bmRvQNmxFkM)
 - [A Deep Dive Into Polygon ID - November 2022](https://youtu.be/utpazrLrSbY)
+- [A Deeper Dive Into Polygon ID - November 2022](https://youtu.be/fQ9DiGUnvwA)
 
 
 ---
