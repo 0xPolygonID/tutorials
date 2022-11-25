@@ -333,26 +333,18 @@ As each QR Code contains a specific session ID, it is necessary to create a QRCo
 
 The same Claim Offer can also be delivered to users via Deep Linking. In order to do so is necessary to encode the `qrcode` file to Base64 Format. The related deep link would be `iden3comm://?i_m={{base64EncodedRequestHere}}`. For example, in this specific case the deep link would be `iden3comm://?i_m=eyJpZCI6IjE1Mzg2Zjg3LTg1ZDctNDU3ZC1hOTQwLTBlODczNzI3ZWMyYyIsInR5cCI6ImFwcGxpY2F0aW9uL2lkZW4zY29tbS1wbGFpbi1qc29uIiwidHlwZSI6Imh0dHBzOi8vaWRlbjMtY29tbXVuaWNhdGlvbi5pby9hdXRob3JpemF0aW9uLzEuMC9yZXF1ZXN0IiwidGhpZCI6IjE1Mzg2Zjg3LTg1ZDctNDU3ZC1hOTQwLTBlODczNzI3ZWMyYyIsImJvZHkiOnsiY2FsbGJhY2tVcmwiOiJodHRwczovL2FwaS1zdGFnaW5nLnBvbHlnb25pZC5jb20vdjEvb2ZmZXJzLXFyY29kZS9kYzc4MTc2Ni1kODE0LTRhY2QtYWE5ZC1iZjA0NzRlMDZhM2IvY2FsbGJhY2s/c2Vzc2lvbklEPTM5MWZlMmQ5LTRmMGYtNDgxMC05YzlmLWRiMzEzN2Q4YjA2OCIsInJlYXNvbiI6ImF1dGggbG9naW4iLCJzY29wZSI6W119LCJmcm9tIjoiMTE4QVliTDNiOFFOYTlHRVRyWUJUbTNYc2s0Rk5GM1Jna05CdENaSHVmIn0=`
 
-## 9. Get a QR Code of Offer
+## 9. Download QRCode of Offer
 
-The notification will only show up if the user has turned on the notification for Polygon ID App. If that's not the case, the user will need to scan a second QR Code to fetch the claim inside their wallet. This action is performed via the [Get a QRCode of Offer](../offers/apis.md#get-qrcode-of-offerz) Endpoint.
+The notification will only show up if the user has turned on the notification for Polygon ID App. If that's not the case, the user will need to scan a second QR Code to fetch the claim inside their wallet. This action is performed via the [Download a QRCode of Offer](../offers/apis.md#download-qrcode-of-offer) Endpoint.
 
-This Endpoint requires to pass the Claim `id` as Path Parameter and the `sessionID` as Query Parameter. The sessionID of that specific user can be retrieved from the Responde obtained in the previous step. Since a sessionID is associated with this second QRCode, it is necessary that the user scanning this QRcode is the same that performed the authentication from the previous step, otherwise he/she won't be able to fetch the claim inside their walle
+This Endpoint requires to pass the Claim `id` as Path Parameter and the `sessionID` as Query Parameter. The sessionID of that specific user can be retrieved from the Response obtained in the previous step. Since a sessionID is associated with this second QRCode, it is necessary that the user scanning this QRcode is the same that performed the authentication from the previous step, otherwise he/she won't be able to fetch the claim inside their wallet.
 
 ```
-curl --location --request GET 'https://api-staging.polygonid.com/v1/offers-qrcode/dc781766-d814-4acd-aa9d-bf0474e06a3b?sessionID=391fe2d9-4f0f-4810-9c9f-db3137d8b068'
+curl --location --request GET 'https://api-staging.polygonid.com/v1/offers-qrcode/dc781766-d814-4acd-aa9d-bf0474e06a3b/download?sessionID=391fe2d9-4f0f-4810-9c9f-db3137d8b068' --output Desktop/qrCodeFile
 ```
 
-The response contains the `status` of the Claim Offer and the `qrcode` that needs to be shown to the user in order to fetch their claim. Since the generated QR Code is associated with the sessionID of the user that got previously authenticated, it is necessary that the user scanning the second QR is the same that performed the authentication in the first place, otherwise he/she won't be able to fetch the claim inside their wallet.
+> the --output flag is necessary to tell where to save the output file
 
-> To display the QR code inside your frontend, you can use the `express.static` built-in middleware function together with this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> or this [Code Sandbox](https://codesandbox.io/s/yp1pmpjo4z?file=/index.js).
-
-
-```json
-    {
-        "status":"done",
-        "qrcode":{"id":"8590941a-6303-4c08-828e-1a03c2489a1c","typ":"application/iden3comm-plain-json","type":"https://iden3-communication.io/credentials/1.0/offer","thid":"a7925362-05fd-4b8d-a78e-1196277ca75b","body":{"url":"https://bogota.polygonid.me/api/v1/agent","credentials":[{"id":"294f614c-75f2-4f61-a3b3-74c3b6e41b0f","description":"daoContributorSchema"}]},"from":"118AYbL3b8QNa9GETrYBTm3Xsk4FNF3RgkNBtCZHuf","to":"11BA1Th6CJfJgUwdd2APzHFCHEmynQrwxcQFNfHy4a"}
-    }
-```
+The response contains the actual QRCode to be displayed to the user.
 
 > Congratulations! You have been able to issue a claim to your user. Now he/she can authenticate themselves as Member of your DAO across any [Verifier](../../../verifier/verifier-overview.md)
