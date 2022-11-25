@@ -77,7 +77,7 @@ The Response Body contains an Object with the details of that specific Claim Off
 
 **How it works**: It requires passing the Issuer `id`, namely the identifier of the Issuer previously created, and the schema `id`, namely the identifier of the Schema used to create the Claim Offer, and the claim offer `id`, namely the identifier of the specific Claim Offer you want to delete, as Path Parameters.
 
-It also requires passing a valid `Bearer Token` inside the Authorization Request Header. As a result of this Request, the QR Code associated with that specific Claim Offer gets deactivated. It means that Users are no longer able to use it to fetch Claims inside their wallet.
+It also requires passing a valid `Bearer Token` inside the Authorization Request Header. As a result of this Request, the Claim Offer, identifier by its `id`, gets deactivated. It means that you will no longer be able to `Create QRCode of Offer` based on that offer.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Offers/operation/DeleteOffer)**
 
@@ -90,6 +90,12 @@ It also requires passing a valid `Bearer Token` inside the Authorization Request
 **How it works**: It requires passing the claim offer `id`, namely the identifier of the specific Claim Offer you want to generate the QR Code for, as Path Parameter.
 
 The Response Body contains a set of details about the Claim Offer including the `qrCode`. The JSON file included in the `qrCode` can be parsed into a QR Code and presented to the user in order to authenticate. This endpoint will also create a specific `sessionID` for the user that is going to scan that QR Code.
+
+In order to execute this endpoint correctly it is necessary that: 
+
+- The Claim Offer is active 
+- The Claim Offer hasn't expired (the expiration was established during the Offer Creation)
+- The Claim Offer hasn't exceed the limit established during the Offer Creation
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Offers/operation/CreateOfferQrCode)**
 

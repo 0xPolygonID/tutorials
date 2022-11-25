@@ -6,7 +6,7 @@ The Issuer endpoints represent all the actions needed to manage an Issuer, such 
 
 **Function**: Endpoint to create a new Issuer for an Organization Account. 
 
-**How it works**: It requires to pass the name of the Issuer `displayName` as required Request Body parameters. Other non-required Request Body parameters are the `logo`, the `legalName` and the `region` of your Issuer. This information will represent your Polygon ID Issuer profile. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header.
+**How it works**: It requires passing the name of the Issuer `displayName` as required Request Body parameters. Other non-required Request Body parameters are the `logo`, the `legalName` and the `region` of your Issuer. This information will represent your Polygon ID Issuer profile. It also requires passing a valid `Bearer Token` inside the Authorization Request Header.
 
 The Response Body contains a set of details related to the newly created Issuer such as its `id`. 
 
@@ -20,7 +20,7 @@ The Response Body contains a set of details related to the newly created Issuer 
 
 **Function**: Endpoint to fetch key information about an Issuer.
 
-**How it works**: It requires to pass the Issuer `id` as Path Parameter. This endpoint can be used to fetch information about any issuer existing on Polygon ID. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains the entire set of details related to the requested Issuer.
+**How it works**: It requires passing the Issuer `id` as Path Parameter. This endpoint can be used to fetch information about any issuer existing on Polygon ID. It also requires passing a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains the entire set of details related to the requested Issuer.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Issuer/operation/GetIssuer)**
 
@@ -30,7 +30,7 @@ The Response Body contains a set of details related to the newly created Issuer 
 
 **Function**: Endpoint to update the details of an existing Issuer. 
 
-**How it works**: It allows to pass the `displayName`, `logo`, `legalName` and `region` as optional Request Body parameters. You can choose to pass only one of these value or all of them according to the type of information about the Issuer to update. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains the entire set of details related to the updated Issuer.
+**How it works**: It allows passing the `displayName`, `logo`, `legalName` and `region` as optional Request Body parameters. You can choose passing only one of these value or all of them according to the type of information about the Issuer to update. It also requires passing a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains the entire set of details related to the updated Issuer.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Issuer/operation/UpdateIssuer)**
 
@@ -40,7 +40,7 @@ The Response Body contains a set of details related to the newly created Issuer 
 
 **Function**: Endpoint to delete an existing Issuer. 
 
-**How it works**: It requires to pass the Issuer `id` as Path Parameter. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. As a result of this Request the Issuer will be deleted and no longer able to perform actions on Polygon ID Platform.
+**How it works**: It requires passing the Issuer `id` as Path Parameter. It also requires passing a valid `Bearer Token` inside the Authorization Request Header. As a result of this Request the Issuer will be deleted and no longer able to perform actions on Polygon ID Platform.
  
 **[API Reference](https://api-staging.polygonid.com/#tag/Issuer/operation/DeleteIssuer)**
 

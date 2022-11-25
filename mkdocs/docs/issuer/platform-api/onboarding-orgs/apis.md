@@ -6,7 +6,7 @@ The Onboarding Orgs endpoints contain all the actions needed to manage an Organi
 
 **Function**: Endpoint to create a new Account for an Organization. 
 
-**How it works**: It requires to pass `email` and `password` as required Request Body parameters. These represent the login credentials for your Organization. The Response Body contains a set of information related to your Organization Account such as its identifier `id`. 
+**How it works**: It requires passing `email` and `password` as required Request Body parameters. These represent the login credentials for your Organization. The Response Body contains a set of information related to your Organization Account such as its identifier `id`. 
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/CreateAccountManagement)**
 
@@ -18,7 +18,7 @@ The Onboarding Orgs endpoints contain all the actions needed to manage an Organi
 
 **Function**: Endpoint to sign-in to your Organization Account.
 
-**How it works**: It requires to pass your Organization Account credentials `email` and `password` as required Request Body parameters. The Response Body contains a JWT token that will be used as `Bearer Token` in order to use other Endpoints. The token, if not deactivated or refreshed, will be active for 24 hours.
+**How it works**: It requires passing your Organization Account credentials `email` and `password` as required Request Body parameters. The Response Body contains a JWT token that will be used as `Bearer Token` in order to use other Endpoints. The token, if not deactivated or refreshed, will be active for 24 hours.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/MemberOrgSignIn)**
 
@@ -31,7 +31,7 @@ The Onboarding Orgs endpoints contain all the actions needed to manage an Organi
 
 **Function**: Endpoint to activate your Organization Account. 
 
-**How it works**: It requires to pass a valid `Bearer Token` token inside the Authorization Request Header. The Response Body contains an updated `Bearer Token`.
+**How it works**: It requires passing a valid `Bearer Token` token inside the Authorization Request Header. The Response Body contains an updated `Bearer Token`.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/ActivateAccount)**
 
@@ -43,7 +43,7 @@ The Onboarding Orgs endpoints contain all the actions needed to manage an Organi
 
 **Function**: Endpoint to request an email that contains a link to activate your Organization Account.
 
-**How it works**: It requires to pass your organization `email` as required Request Body parameters. As a result of this Request you will receive an email containing a link to activate your Organization Account.
+**How it works**: It requires passing your organization `email` as required Request Body parameters. As a result of this Request you will receive an email containing a link to activate your Organization Account.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/ResendEmailForAccounts)**
 
@@ -53,7 +53,7 @@ The Onboarding Orgs endpoints contain all the actions needed to manage an Organi
 
 **Function**: Endpoint to update the password of your Organization Account.
 
-**How it works**: The Endpoint requires to pass the Organization Account `id` as Path Parameter (you retrieve it as Response from the [Create Org Endpoint](#create-org)) and the current password (`password`) and the new password `newPassword` as required Request Body parameters. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains the updated set of information related to your Organization Account. 
+**How it works**: The Endpoint requires passing the Organization Account `id` as Path Parameter (you retrieve it as Response from the [Create Org Endpoint](#create-org)) and the current password (`password`) and the new password `newPassword` as required Request Body parameters. It also requires passing a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains the updated set of information related to your Organization Account. 
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/UpdateAccountManagement)**
 
@@ -63,7 +63,7 @@ The Onboarding Orgs endpoints contain all the actions needed to manage an Organi
 
 **Function**: Endpoint to request for a link to reset a new password for your Organziation Account. 
 
-**How it works**: It requires to pass your Organization Account `email` as required Request Body parameters. As a result of this Request you will receive an email containing a link to Reset your Organization Account password.
+**How it works**: It requires passing your Organization Account `email` as required Request Body parameters. As a result of this Request you will receive an email containing a link to Reset your Organization Account password.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/RequestResetPasswordAccountManagement)**
 
@@ -73,7 +73,7 @@ The Onboarding Orgs endpoints contain all the actions needed to manage an Organi
 
 **Function**: Endpoint to set a new password for your Organziation Account. 
 
-**How it works**: It requires to pass the new `password` as required Request Body parameters. It also requires to pass a valid `Bearer Token` inside the Authorization Request Header. As a result of this Request you will change the password used to sign-in to your Organization Account.
+**How it works**: It requires passing the new `password` as required Request Body parameters. It also requires passing a valid `Bearer Token` inside the Authorization Request Header. As a result of this Request you will change the password used to sign-in to your Organization Account.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/ResetPasswordAccountManagement)**
 
@@ -85,7 +85,7 @@ The Onboarding Orgs endpoints contain all the actions needed to manage an Organi
 
 **Function**: Endpoint to update the account email associated to your Organziation Account. 
 
-**How it works**: It requires to pass the `password` associated to your Organization Account and the new `email` that you want to associate to your Organization Account. The Endpoint requires to pass a valid `Bearer Token`inside the Authorization Request Header. As a result of this Request a confirmation notification will be sent to the old account email with a deeplink to accept the change.
+**How it works**: It requires passing the `password` associated to your Organization Account and the new `email` that you want to associate to your Organization Account. The Endpoint requires passing a valid `Bearer Token`inside the Authorization Request Header. As a result of this Request a confirmation notification will be sent to the old account email with a deeplink to accept the change.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/UpdateAccountEmailRequest)**
 
@@ -95,7 +95,7 @@ The Onboarding Orgs endpoints contain all the actions needed to manage an Organi
 
 **Function**: Endpoint to refresh the Bearer Token for an Organization Account. 
 
-**How it works**: It requires to pass a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains a refreshed `Bearer Token`.
+**How it works**: It requires passing a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains a refreshed `Bearer Token`.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Onboarding-Orgs/operation/RefreshTokenAccountManagement)**
 
@@ -107,7 +107,7 @@ The Onboarding Orgs endpoints contain all the actions needed to manage an Organi
 
 **Function**: Endpoint to sign-out to your Organization Account.
 
-**How it works**: It requires to pass an active `Bearer Token` inside the Authorization Request Header. As a result of this Request your Bearer Token will be deactivated.
+**How it works**: It requires passing an active `Bearer Token` inside the Authorization Request Header. As a result of this Request your Bearer Token will be deactivated.
 
 This action has to be performed every time you intend to deactive the Bearer Token.
 
