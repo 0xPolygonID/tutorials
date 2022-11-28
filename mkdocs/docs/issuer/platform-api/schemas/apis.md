@@ -19,6 +19,8 @@ It requires passing the following as Request Body parameters:
     - `description`, a string that may add further details about the Schema or describes the vocabulary used to define the attributes.
     - `values`, an array of strings that represent the range of possible values that the attribute can cover in the case the chosen type is `multichoice`. There should be at least 2 values, while there's no upper limit.
 
+> ⚠️ The `multichoice` type is not supported yet from the Polygon ID Wallet
+
 It also requires passing a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains a set of information related to your newly created Schemas such as its `id`.
 
 > Remember that the Schema is only a Template which will be filled with actual user data inside the [Claim Offer](../offers/apis.md).

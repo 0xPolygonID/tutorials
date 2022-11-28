@@ -310,7 +310,7 @@ The last step is to design the proof request to be embedded inside a QR code tha
 Note that the request resembles in most of its parts with the one designed for <a href="https://0xpolygonid.github.io/tutorials/verifier/verification-library/request-api-guide/" target="_blank">off-chain verification</a>. The extra part that has been added here is the `transcation_data` that includes:
 
 - `contract_address`, namely the address of the Verifier contract, in this case, ERC20Verifier
-- `method_id`, namely that hash of the ABI of the <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/interfaces/IZKPVerifier.sol#L5" target="_blank">`submitZKPResponse`</a> function
+- `method_id`, namely the [Function Selector](https://solidity-by-example.org/function-selector/) of the <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/interfaces/IZKPVerifier.sol#L5" target="_blank">`submitZKPResponse`</a> function
 - `chain_id`, the ID of the chain where the Smart Contract has been deployed
 - `network`, the name of the network where the Smart contract has been deployed
 
