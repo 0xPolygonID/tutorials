@@ -93,9 +93,9 @@ The Response Body contains a set of details about the Claim Offer including the 
 
 In order to execute this endpoint correctly it is necessary that: 
 
-- The Claim Offer is active 
-- The Claim Offer hasn't expired (the expiration was established during the Offer Creation)
-- The Claim Offer hasn't exceed the limit established during the Offer Creation
+- The Claim Offer is active (namely, it hasn't been deactivated using [Delete Offer](#delete-offer))
+- The Claim Offer hasn't expired (namely, the `expirationDate` set in [Offer Creation](#create-offer) hasn't passed)
+- The Claim Offer hasn't exceeded the limit (namely, the `limitedClaims` set in [Offer Creation](#create-offer) hasn't been exceeded)
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Offers/operation/CreateOfferQrCode)**
 
@@ -103,30 +103,37 @@ In order to execute this endpoint correctly it is necessary that:
 
 > The usage of this endpoint is included in our [full-flow Tutorial](../flow-tutorial/happy-path.md#8-create-qr-code-of-claim-offer)
 
-## Get QRCode of Offer
-
-**Function**: Endpoint to generate a QR Code based on a specific Claim Offer to let User fetch the Claim inside their Wallet.
-
-**How it works**: The Endpoint requires passing the claim offer `id`, namely the identifier of the specific Claim Offer you want to generate the QR Code for, as Path Parameter and the `sessionID` of the specific user that has been previously authenticated, as Query Parameter.
-
-On successful Request, the Response Body contains an object with a `qrCode` field. The JSON file included in the `qrCode` can be parsed into a QR Code and presented to the user in order to fetch a claim inside their Wallet.
-
-**[API Reference](https://api-staging.polygonid.com/#tag/Offers/operation/GetOfferQrCode)**
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
-
 ## Download QRCode of Offer
 
-**Function**: Endpoint to download the QR Code based on a Claim Offer
+**Function**: Endpoint to download the QR Code based on a Claim Offer.
 
 **How it works**: The Endpoint requires passing the claim offer `id`, namely the identifier of the specific Claim Offer you want to generate the QR Code for, as Path Parameter and the `sessionID` of the specific user that has been previously authenticated, as Query Parameter.
 
 On successful Request, the Response contains the actual QR Code to be displayed to the user in order to fetch a claim inside their Wallet.
 
-> The `Download QRCode of Offer` and `Get QRCode of Offer` Endpoints provide almost the same functionalities: the former returns the acutal QR code, while the latter returns a json file that has to be parsed in order to display a QR Code.
+> This endpoint downloads the same `qrCode` returned from the previous Endpoint as PNG Format.
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Offers/operation/DownloadOfferQrCode)**
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
 > The usage of this endpoint is included in our [full-flow Tutorial](../flow-tutorial/happy-path.md#9-download-qrcode-of-offer)
+
+## Get QRCode of Offer
+
+**Function**: Returns the status of the scan of the QR Code. 
+
+**How it works**: The Endpoint requires passing the claim offer `id`, namely the identifier of the specific Claim Offer you used to generate the QR Code, as Path Parameter and the `sessionID` generated on QR Code Creation, as Query Parameter.
+
+The Response Body contains the status of the scan of the first QR Code:
+- `pending` if it hasn't been scanned the status is pending
+- `error` if there's been an error in the process
+- `success` if the authorization was successful. In this case, it will also return a JSON file inside the `qrCode` field. 
+
+The JSON File can be parsed into a QR Code and presented to the user in order to fetch a claim inside their Wallet.
+
+**[API Reference](https://api-staging.polygonid.com/#tag/Offers/operation/GetOfferQrCode)**
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
+
+

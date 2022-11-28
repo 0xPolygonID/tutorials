@@ -67,10 +67,10 @@ The Endpoint requires passing the Issuer `id` as Path Parameter. In order to use
 
 ## Get Schema Claims
 
-**Function**: Endpoint to return all the Claims that have been issued based on a particular Schema.
+**Function**: Endpoint to return all the Claims issued based on a particular Schema.
 
-**How it works**: It requires passing the Issuer `id` and the Schema `id` of the Schema being queried as Path Parameters. It also requires passing a valid `Bearer Token` inside the Authorization Request Header.
+**How it works**: It requires passing the Issuer `id` and the Schema `id` of the queried Schema as Path Parameters. It also requires passing a valid `Bearer Token` inside the Authorization Request Header.
 
-**[API Reference](https://api-staging.polygonid.com/#tag/Schemas/operation/UpdateSchemaTemplate)**
+**[API Reference](https://api-staging.polygonid.com/#tag/Schemas/operation/GetSchemaClaims)**
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
