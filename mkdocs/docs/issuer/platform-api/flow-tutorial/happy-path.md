@@ -45,36 +45,36 @@ The first mandatory thing is to create an account for your Organization passing 
 curl --location --request POST 'https://api-staging.polygonid.com/v1/orgs/account-management' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "email": "myPersonalEmail20@gmail.com",
+    "email": "mypersonalemail2@test.com",
     "password": "Some123456789123123Pwd!"
 }'
 ```
 
 > Remember to modify the `email` otherwise you'll get an error message as this email is already associated to an Organization Account
 
-The response contains the details of the newly created Organization Account. The `verified` key is equal to `false`. It means that the account still require to be activated. This action will be performed at [step 3](#3-activate-your-organization-account) of this tutorial.
+The response contains the details of the newly created Organization Account. The `verified` key is equal to `false`. It means that the account still requires to be activated. This action will be performed in [step 3](#3-activate-your-organization-account)](#3-activate-your-organization-account) of this tutorial.
 
 ```
-{   
-    "id":"6ef0a956-45a7-472a-9f94-918fa495b043",
-    "email":"myPersonalEmail20@gmail.com",
-    "type":"OWNER",
-    "verified":false,
-    "createdAt":"2022-11-07T07:54:12.506473Z",
-    "modifiedAt":"2022-11-07T07:54:12.506473Z"
+{
+    "createdAt": "2022-11-28T10:34:01.825579Z",
+    "email": "mypersonalemail2@test.com",
+    "id": "d926a8c4-6545-4e00-aa26-53b7055d10cd",
+    "modifiedAt": "2022-11-28T10:34:01.825579Z",
+    "type": "OWNER",
+    "verified": false
 }
 ```
 
 ## 2. Sign-in to an Organization Account
 
-The credential used to create your Organization Account are then used to Sign-in into your Organization Account. This action is performed via the [Sign-in](../onboarding-orgs/apis.md#sign-in) Endpoint. The `email` and `password` used previosly to create the Organization Account need to be passed inside the Body Request.  This action needs to be executed in order to perform every further action within Polygon ID APIs.
+The credential used to create your Organization Account are then used to Sign-in into your Organization Account. This action is performed via the [Sign-in](../onboarding-orgs/apis.md#sign-in) Endpoint. The `email` and `password` used previously to create the Organization Account need to be passed inside the Body Request.  This action needs to be executed in order to perform every further action within Polygon ID APIs.
 
 
 ```
 curl --location --request POST 'https://api-staging.polygonid.com/v1/orgs/sign-in' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "email": "myPersonalEmail20@gmail.com",
+    "email": "mypersonalemail2@test.com",
     "password": "Some123456789123123Pwd!"
 }'
 ```
@@ -82,32 +82,32 @@ curl --location --request POST 'https://api-staging.polygonid.com/v1/orgs/sign-i
 The Response Body contains a JWT `Bearer Token`. This token will be used in order to authenticate yourself as a Signed-in Organization Account and get the authorization to use the API Endpoints.
 
 ```json
-{   
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njc4OTQwOTYsImp0aSI6ImNlOTUxYTQxLTg4YjctNDVlOC05M2I2LTZlZWJlNDNiN2ZkNSIsImlhdCI6MTY2NzgwNzY5NiwibmJmIjoxNjY3ODA3Njk2LCJzdWIiOiI2ZWYwYTk1Ni00NWE3LTQ3MmEtOWY5NC05MThmYTQ5NWIwNDMiLCJhY2NvdW50Ijp7InZlcmlmaWVkIjpmYWxzZSwib3JnYW5pemF0aW9uIjpudWxsLCJyb2xlIjoiT1dORVIiLCJlbWFpbCI6Im15UGVyc29uYWxFbWFpbDIwQGdtYWlsLmNvbSJ9fQ.HOrfyUvRB2CixN4epmarrzsjLmrdYkFFgcoxbo73aQY"
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njk3MTgxMTYsImp0aSI6IjFmYTQ2NDAwLWU5YTgtNGExYS05OTEwLWQ3MjA3MDM2OTA1NCIsImlhdCI6MTY2OTYzMTcxNiwibmJmIjoxNjY5NjMxNzE2LCJzdWIiOiJkOTI2YThjNC02NTQ1LTRlMDAtYWEyNi01M2I3MDU1ZDEwY2QiLCJzY29wZSI6ImFwaSIsImFjY291bnQiOnsidmVyaWZpZWQiOmZhbHNlLCJvcmdhbml6YXRpb24iOm51bGwsInJvbGUiOiJPV05FUiIsImVtYWlsIjoibXlwZXJzb25hbGVtYWlsMkB0ZXN0LmNvbSJ9fQ.3h5_EZjCT2vzX3xHodJ6XhZRdKoZRxPH0bobEUHUDIQ"
 }
 ```
 
-## 3. Activate your Organization Account
+## 3. Activate your Organization's Account
 
 Now it is mandatory to Activate your Organization Account. This action is performed via the [Activate](../onboarding-orgs/apis.md#activate-account) Endpoint. The `Bearer Token` generated from the last request needs to be passed inside the Authorization Request Header. This action has to be executed **only once**.
 
 ```
 curl --location --request POST 'https://api-staging.polygonid.com/v1/orgs/account-management/activate' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njc4OTQwOTYsImp0aSI6ImNlOTUxYTQxLTg4YjctNDVlOC05M2I2LTZlZWJlNDNiN2ZkNSIsImlhdCI6MTY2NzgwNzY5NiwibmJmIjoxNjY3ODA3Njk2LCJzdWIiOiI2ZWYwYTk1Ni00NWE3LTQ3MmEtOWY5NC05MThmYTQ5NWIwNDMiLCJhY2NvdW50Ijp7InZlcmlmaWVkIjpmYWxzZSwib3JnYW5pemF0aW9uIjpudWxsLCJyb2xlIjoiT1dORVIiLCJlbWFpbCI6Im15UGVyc29uYWxFbWFpbDIwQGdtYWlsLmNvbSJ9fQ.HOrfyUvRB2CixN4epmarrzsjLmrdYkFFgcoxbo73aQY' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njk3MTgxMTYsImp0aSI6IjFmYTQ2NDAwLWU5YTgtNGExYS05OTEwLWQ3MjA3MDM2OTA1NCIsImlhdCI6MTY2OTYzMTcxNiwibmJmIjoxNjY5NjMxNzE2LCJzdWIiOiJkOTI2YThjNC02NTQ1LTRlMDAtYWEyNi01M2I3MDU1ZDEwY2QiLCJzY29wZSI6ImFwaSIsImFjY291bnQiOnsidmVyaWZpZWQiOmZhbHNlLCJvcmdhbml6YXRpb24iOm51bGwsInJvbGUiOiJPV05FUiIsImVtYWlsIjoibXlwZXJzb25hbGVtYWlsMkB0ZXN0LmNvbSJ9fQ.3h5_EZjCT2vzX3xHodJ6XhZRdKoZRxPH0bobEUHUDIQ' \
 --data-raw ''
 ```
 
 The Response Body contains an updated JWT `Bearer Token` that attests that the Organization Account has been activated.
 
 ```json
-{   
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njc4OTQxMjAsImp0aSI6IjJkMmQ5NTExLTI5YjYtNDM3MC1iZmJkLTFmODUzYTcyODZhNCIsImlhdCI6MTY2NzgwNzcyMCwibmJmIjoxNjY3ODA3NzIwLCJzdWIiOiI2ZWYwYTk1Ni00NWE3LTQ3MmEtOWY5NC05MThmYTQ5NWIwNDMiLCJhY2NvdW50Ijp7InZlcmlmaWVkIjp0cnVlLCJvcmdhbml6YXRpb24iOm51bGwsInJvbGUiOiJPV05FUiIsImVtYWlsIjoibXlQZXJzb25hbEVtYWlsMjBAZ21haWwuY29tIn19.1uKvY4kx6Ikz9hEG3E4zYVi91GSK0T-jQUB1BZwohNk"
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njk3MTgxNzUsImp0aSI6IjJmZTE1NmYzLWM0ZTUtNGZjNi05NDYzLWNlZmIzN2EzMWE2MCIsImlhdCI6MTY2OTYzMTc3NSwibmJmIjoxNjY5NjMxNzc1LCJzdWIiOiJkOTI2YThjNC02NTQ1LTRlMDAtYWEyNi01M2I3MDU1ZDEwY2QiLCJzY29wZSI6ImFwaSIsImFjY291bnQiOnsidmVyaWZpZWQiOnRydWUsIm9yZ2FuaXphdGlvbiI6bnVsbCwicm9sZSI6Ik9XTkVSIiwiZW1haWwiOiJteXBlcnNvbmFsZW1haWwyQHRlc3QuY29tIn19.daxoACgJFW9E5rWc2E2bUCNl6boIsHe-bE6UmUrgC04"
 }
 ```
 
 ## 4. Create an Issuer
 
-Before start Issuing Claims, it is necessary to setup an Issuer. To setup an issuer it is required to have an Organization Account activated and signed-in. Each Organization Account can only manage a single Issuer. This action is performed via the [Create Issuer](../issuer/apis.md#create-issuer) Endpoint. 
+Before starting Issuing Claims, it is necessary to set up an Issuer. To set up an issuer it is required to have an Organization Account activated and signed-in. Each Organization Account can only manage a single Issuer. This action is performed via the [Create Issuer](../issuer/apis.md#create-issuer) Endpoint. 
 
 This Endpoint requires to pass various details about the Issuer such as its `displayName` (required) and other optional parameters such as `legalName`, `logo` and `region`. The displayName and the logo are public values that will be visible to the user, while legalName and region will not be shown to the outside. The logo data file needs to be filled with an image encoded in base64 format. Lastly, the `Bearer Token` generated from the last request needs to be passed inside the Authorization Request Header. This action has to be executed **only once**.
 
@@ -115,13 +115,13 @@ This Endpoint requires to pass various details about the Issuer such as its `dis
 
 ```
 curl --location --request POST 'https://api-staging.polygonid.com/v1/issuers' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njc4OTQxMjAsImp0aSI6IjJkMmQ5NTExLTI5YjYtNDM3MC1iZmJkLTFmODUzYTcyODZhNCIsImlhdCI6MTY2NzgwNzcyMCwibmJmIjoxNjY3ODA3NzIwLCJzdWIiOiI2ZWYwYTk1Ni00NWE3LTQ3MmEtOWY5NC05MThmYTQ5NWIwNDMiLCJhY2NvdW50Ijp7InZlcmlmaWVkIjp0cnVlLCJvcmdhbml6YXRpb24iOm51bGwsInJvbGUiOiJPV05FUiIsImVtYWlsIjoibXlQZXJzb25hbEVtYWlsMjBAZ21haWwuY29tIn19.1uKvY4kx6Ikz9hEG3E4zYVi91GSK0T-jQUB1BZwohNk' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njk3MTgxNzUsImp0aSI6IjJmZTE1NmYzLWM0ZTUtNGZjNi05NDYzLWNlZmIzN2EzMWE2MCIsImlhdCI6MTY2OTYzMTc3NSwibmJmIjoxNjY5NjMxNzc1LCJzdWIiOiJkOTI2YThjNC02NTQ1LTRlMDAtYWEyNi01M2I3MDU1ZDEwY2QiLCJzY29wZSI6ImFwaSIsImFjY291bnQiOnsidmVyaWZpZWQiOnRydWUsIm9yZ2FuaXphdGlvbiI6bnVsbCwicm9sZSI6Ik9XTkVSIiwiZW1haWwiOiJteXBlcnNvbmFsZW1haWwyQHRlc3QuY29tIn19.daxoACgJFW9E5rWc2E2bUCNl6boIsHe-bE6UmUrgC04' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "displayName" : "IssuerTest123",
-    "legalName" : "IssuerLegalOrg",
+    "displayName" : "IssuerTest1234",
+    "legalName" : "IssuerLegalOrg1",
     "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=",
-    "region": "USA"
+    "region" : "USA"
 }'
 ```
 
@@ -130,16 +130,16 @@ The Response Body contains the details of the newly created Issuer. Later on, yo
 
 ```json
 {
-    "createdAt": "2022-11-07T07:59:00.54742Z",
-    "did": "118AYbL3b8QNa9GETrYBTm3Xsk4FNF3RgkNBtCZHuf",
-    "displayName": "IssuerTest123",
-    "id": "21b5758e-457f-4dd9-9b16-47679028502f",
-    "legalName": "IssuerLegalOrg",
-    "logo": "https://s3.eu-west-1.amazonaws.com/polygonid-assets/logo/30653f45-735b-4fcd-9683-d3f490a515af",
-    "modifiedAt": "2022-11-07T07:59:00.54742Z",
-    "ownerEmail": "myPersonalEmail20@gmail.com",
+    "createdAt": "2022-11-28T10:38:10.639675Z",
+    "did": "114uHUxT37dnr4JJiAcsE9mNK2PKWm9umrHNuM8S35",
+    "displayName": "IssuerTest1234",
+    "id": "40b4018f-83f1-4db5-a878-c2d002ef6532",
+    "legalName": "IssuerLegalOrg1",
+    "logo": "https://s3.eu-west-1.amazonaws.com/polygonid-assets/logo/12fa8d61-0b32-4827-a6ea-9f31acdb3f1b",
+    "modifiedAt": "2022-11-28T10:38:10.639675Z",
+    "ownerEmail": "mypersonalemail2@test.com",
     "region": "USA",
-    "slug": "issuertest123"
+    "slug": "issuertest1234"
 }
 ```
 
@@ -149,14 +149,14 @@ The next step is to Refresh the Bearer Token in order to add to it the updated i
 
 ```
 curl --location --request POST 'https://api-staging.polygonid.com/v1/orgs/account-management/refresh-token' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njc4OTQxMjAsImp0aSI6IjJkMmQ5NTExLTI5YjYtNDM3MC1iZmJkLTFmODUzYTcyODZhNCIsImlhdCI6MTY2NzgwNzcyMCwibmJmIjoxNjY3ODA3NzIwLCJzdWIiOiI2ZWYwYTk1Ni00NWE3LTQ3MmEtOWY5NC05MThmYTQ5NWIwNDMiLCJhY2NvdW50Ijp7InZlcmlmaWVkIjp0cnVlLCJvcmdhbml6YXRpb24iOm51bGwsInJvbGUiOiJPV05FUiIsImVtYWlsIjoibXlQZXJzb25hbEVtYWlsMjBAZ21haWwuY29tIn19.1uKvY4kx6Ikz9hEG3E4zYVi91GSK0T-jQUB1BZwohNk'
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njk3MTgxNzUsImp0aSI6IjJmZTE1NmYzLWM0ZTUtNGZjNi05NDYzLWNlZmIzN2EzMWE2MCIsImlhdCI6MTY2OTYzMTc3NSwibmJmIjoxNjY5NjMxNzc1LCJzdWIiOiJkOTI2YThjNC02NTQ1LTRlMDAtYWEyNi01M2I3MDU1ZDEwY2QiLCJzY29wZSI6ImFwaSIsImFjY291bnQiOnsidmVyaWZpZWQiOnRydWUsIm9yZ2FuaXphdGlvbiI6bnVsbCwicm9sZSI6Ik9XTkVSIiwiZW1haWwiOiJteXBlcnNvbmFsZW1haWwyQHRlc3QuY29tIn19.daxoACgJFW9E5rWc2E2bUCNl6boIsHe-bE6UmUrgC04'
 ```
 
-The Response Body contains a refreshed JWT `Bearer Token` with the udpated details regarding the Issuer added to the Organization Account.
+The Response Body contains a refreshed JWT `Bearer Token` with the updated details regarding the Issuer added to the Organization Account.
 
 ```json
-{   
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njc4OTQ3MTEsImp0aSI6IjNhMTY2ODBmLTIzOGQtNGIxZi1iMzBkLTkwZWEzZjg2ZjM1YiIsImlhdCI6MTY2NzgwODMxMSwibmJmIjoxNjY3ODA4MzExLCJzdWIiOiI2ZWYwYTk1Ni00NWE3LTQ3MmEtOWY5NC05MThmYTQ5NWIwNDMiLCJhY2NvdW50Ijp7InZlcmlmaWVkIjp0cnVlLCJvcmdhbml6YXRpb24iOiIyMWI1NzU4ZS00NTdmLTRkZDktOWIxNi00NzY3OTAyODUwMmYiLCJyb2xlIjoiT1dORVIiLCJlbWFpbCI6Im15UGVyc29uYWxFbWFpbDIwQGdtYWlsLmNvbSJ9fQ.I-6hlpJLwZvw7As53K7xA7J3zhayrUIYFIFYd_qCeBc"
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njk3MTgzMzUsImp0aSI6IjcyZDM4NzVhLTI4MTQtNDY0YS04NzIxLWExYmY3NDY2M2ZiYiIsImlhdCI6MTY2OTYzMTkzNSwibmJmIjoxNjY5NjMxOTM1LCJzdWIiOiJkOTI2YThjNC02NTQ1LTRlMDAtYWEyNi01M2I3MDU1ZDEwY2QiLCJzY29wZSI6ImFwaSIsImFjY291bnQiOnsidmVyaWZpZWQiOnRydWUsIm9yZ2FuaXphdGlvbiI6IjQwYjQwMThmLTgzZjEtNGRiNS1hODc4LWMyZDAwMmVmNjUzMiIsInJvbGUiOiJPV05FUiIsImVtYWlsIjoibXlwZXJzb25hbGVtYWlsMkB0ZXN0LmNvbSJ9fQ.BjwZuIiI1ekSbrlAz_eCFLmWoEiH-PgUDgf-3g5TV8E"
 }
 ```
 
@@ -169,92 +169,100 @@ Before issuing the actual Claims, it is necessary to define a Schema. In simple 
 </div>
 <br>
 
-In this case the Schema will define that the Claim must contain two different attributes:
+In this case, the Schema, named `daoContributor` will define that the Claim must contain two different attributes:
 
-- an attribute defined `Role` that contains the role of a contributor inside a DAO. The Role can be Developer (1), Designer (2), Writer (3) or Education (4). 
-- an attributed defined `SinceSeason` that contains the number of the DAO Season in which the contributor Joined. 
+- An attribute defined `Role` that contains the role of a contributor inside a DAO. The Role can be Developer (1), Designer (2), Writer (3) or Education (4). 
+- An attributed define `SinceSeason` that contains the number of the DAO Season in which the contributor Joined. 
 
-This action is performed via the [Create Schema](../schemas/apis.md#create-schema) Endpoint. It requires to pass a set of values inside the Body Request: 
+This action is performed via the [Create Schema](../schemas/apis.md#create-schema) Endpoint. It requires passing a set of values inside the Body Request: 
 
-- the name of the `schema`, which in this case is daoContributorSchema
-- the `mandatoryExpiration` of the schema, which in this case we set to false
-- an array of `attributes`, which contains the details of the attributes defined previously, such as their `name`, `description` and `type`. The attribute Role is of type multichoice so we'll also need to specify the range of possible `values` of this attribute inside an array. The attribule SinceSeason is of type number.
+- The name of the `schema`, which in this case is daoContributor
+- The `mandatoryExpiration` of the schema, which in this case we set to false
+- An array of `attributes`, which contains the details of the attributes defined previously, such as their `name`, `description` and `type`. The attribute Role is of type multichoice so we'll also need to specify the range of possible `values` of this attribute inside an array. The attribule SinceSeason is of type number.
 
-> A Schema can contain a maximum of four attributes. Attributes of type "multichoice" can accept a range of maximum four possible values. 
+> A Schema can contain a maximum of two attributes. Attributes of type "multichoice" can accept a range of maximum four possible values. 
 
 The refreshed `Bearer Token` from the last step needs to be passed inside the Authorization Request Header. Furthermore, it requires to pass the issuer `id` as Path Parameter. An Issuer can create as many schemas he/she wants!
 
-> you can retreive it from the response obtained in Step 4 or by parsing the latest JWT token [here](https://jwt.io/) and checking the `organization` field.
+> you can retreive the Issuer ID from the response obtained in Step 4 or by parsing the latest JWT token [here](https://jwt.io/) and checking the `organization` field.
 
 ```
-curl --location --request POST 'https://api-staging.polygonid.com/v1/issuers/21b5758e-457f-4dd9-9b16-47679028502f/schemas' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njc4OTQ3MTEsImp0aSI6IjNhMTY2ODBmLTIzOGQtNGIxZi1iMzBkLTkwZWEzZjg2ZjM1YiIsImlhdCI6MTY2NzgwODMxMSwibmJmIjoxNjY3ODA4MzExLCJzdWIiOiI2ZWYwYTk1Ni00NWE3LTQ3MmEtOWY5NC05MThmYTQ5NWIwNDMiLCJhY2NvdW50Ijp7InZlcmlmaWVkIjp0cnVlLCJvcmdhbml6YXRpb24iOiIyMWI1NzU4ZS00NTdmLTRkZDktOWIxNi00NzY3OTAyODUwMmYiLCJyb2xlIjoiT1dORVIiLCJlbWFpbCI6Im15UGVyc29uYWxFbWFpbDIwQGdtYWlsLmNvbSJ9fQ.I-6hlpJLwZvw7As53K7xA7J3zhayrUIYFIFYd_qCeBc' \
+curl --location --request POST 'https://api-staging.polygonid.com/v1/issuers/40b4018f-83f1-4db5-a878-c2d002ef6532/schemas' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njk3MTgzMzUsImp0aSI6IjcyZDM4NzVhLTI4MTQtNDY0YS04NzIxLWExYmY3NDY2M2ZiYiIsImlhdCI6MTY2OTYzMTkzNSwibmJmIjoxNjY5NjMxOTM1LCJzdWIiOiJkOTI2YThjNC02NTQ1LTRlMDAtYWEyNi01M2I3MDU1ZDEwY2QiLCJzY29wZSI6ImFwaSIsImFjY291bnQiOnsidmVyaWZpZWQiOnRydWUsIm9yZ2FuaXphdGlvbiI6IjQwYjQwMThmLTgzZjEtNGRiNS1hODc4LWMyZDAwMmVmNjUzMiIsInJvbGUiOiJPV05FUiIsImVtYWlsIjoibXlwZXJzb25hbGVtYWlsMkB0ZXN0LmNvbSJ9fQ.BjwZuIiI1ekSbrlAz_eCFLmWoEiH-PgUDgf-3g5TV8E' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "schema": "daoContributorSchema",
-    "mandatoryExpiration": false,
-    "attributes": [
-        {
-            "name": "Role",
-            "type": "multichoice",
-            "description": "Role as contributor in the DAO",
-            "values": [
+  "schema": "daoContributor",
+  "mandatoryExpiration": false,
+  "attributes": [
+    {
+      "name": "Role",
+      "type": "multichoice",
+      "description": "Role as contributor in the DAO",
+                  "values": [
             "Developer",
             "Designer",
             "Writer",
             "Education"
             ]
-        },
-        {
-            "name": "SinceSeason",
-            "type": "number",
-            "description": "Number of season in which the contributor joined the DAO"
-        }
-    ]
+    },
+    {
+        "name": "SinceSeason",
+      "type": "number",
+      "description": "Number of season in which the contributor joined the DAO"
+    }
+  ]
 }'
 ```
 
 The response contains the details of the newly created schema. Later on, you'll be referring to this Schema by its `id`
 
 ```json
-    {
-        "id":"a371c302-68e2-426d-a0bd-d265e55f4c7a",
-        "schema":"daoContributorSchema",
-        "version":"1.1",
-        "mandatoryExpiration":false,
-        "schemaURL":"https://s3.eu-west-1.amazonaws.com/polygonid-schemas/38776e96-6a65-4ff0-a9e1-6776fe260a52.json-ld",
-        "schemaHash":"67520be7b4e7d67bafff6c8d82bcde9e",
-        "issuerID":"21b5758e-457f-4dd9-9b16-47679028502f",
-        "attributes":[
-            {
-                "description":"Role as contributor in the DAO",
-                "name":"Role",
-                "type":"multichoice",
-                "values":["Developer","Designer","Writer","Education"]
-            },
-            {
-                "description":"Number of season in which the contributor joined the DAO",
-                "name":"SinceSeason",
-                "type":"number"
-            }
-        ],
-        "createdAt":"2022-11-07T08:53:19.799362Z"
-    }
+{
+    "active": true,
+    "attributes": [
+        {
+            "description": "Role as contributor in the DAO",
+            "name": "Role",
+            "type": "multichoice",
+            "values": [
+                "Developer",
+                "Designer",
+                "Writer",
+                "Education"
+            ]
+        },
+        {
+            "description": "Number of season in which the contributor joined the DAO",
+            "name": "SinceSeason",
+            "type": "number"
+        }
+    ],
+    "createdAt": "2022-11-28T10:44:07.09352Z",
+    "id": "2445135e-384e-4942-be42-467640cb3934",
+    "issuerID": "40b4018f-83f1-4db5-a878-c2d002ef6532",
+    "mandatoryExpiration": false,
+    "modifiedAt": "2022-11-28T10:44:07.09352Z",
+    "schema": "daoContributor",
+    "schemaHash": "85c7d189e5f015e0a0a6ff0b35e5783a",
+    "schemaURL": "https://s3.eu-west-1.amazonaws.com/polygonid-schemas/5c369d17-f914-4f96-a4b7-0334944c1072.json-ld",
+    "technicalName": "",
+    "version": "1.1"
+}
 ```
 
 ## 7. Create Claim Offer
 
-Now it's time to actually create a Claim. We already have a schema, now we just need to fill it up with data of a user. We do that by assigning values to the attributed defined in the Schema Creation.
+Now it's time to actually create a Claim. We already have a schema, now we just need to fill it up with data of a user. We do that by assigning values to the attributes defined in the Schema Creation.
 
-Let's consider the case of Issuing a Claim to a user that has been part of a DAO since season 4 with a role of Developer. This action is performed via the [Create Offer](../offers/apis.md#create-offer) Endpoint. It requires to pass an array of `attributes` inside the Body Request. Each attribute object contains the `attributeKey` namely the name of the Schema Attribute it refers to, and the `attributeValue`, namely the value to be assigned to that specific attributeKey. 
+Let's consider the case of Issuing a Claim to a user that has been part of a DAO since season 4 with the role of Developer. This action is performed via the [Create Offer](../offers/apis.md#create-offer) Endpoint. It requires passing an array of `attributes` inside the Body Request. Each attribute object contains the `attributeKey`, namely the name of the Schema Attribute it refers to, and the `attributeValue`, namely the value to be assigned to that specific attributeKey. 
 
 > Setting up the logic to verify the role of a Contributor inside the DAO and the Season he/she joined it are responsability of the implementer.
 
 A valid `Bearer Token` needs to be passed inside the Authorization Request Header. Furthermore, it requires to pass the Issuer `id` and the Schema `id` as Path Parameters. You can find the Schema id inside the Response Body in step 6.
 
 ```
-curl --location --request POST 'https://api-staging.polygonid.com/v1/issuers/21b5758e-457f-4dd9-9b16-47679028502f/schemas/a371c302-68e2-426d-a0bd-d265e55f4c7a/offers' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njc4OTQ3MTEsImp0aSI6IjNhMTY2ODBmLTIzOGQtNGIxZi1iMzBkLTkwZWEzZjg2ZjM1YiIsImlhdCI6MTY2NzgwODMxMSwibmJmIjoxNjY3ODA4MzExLCJzdWIiOiI2ZWYwYTk1Ni00NWE3LTQ3MmEtOWY5NC05MThmYTQ5NWIwNDMiLCJhY2NvdW50Ijp7InZlcmlmaWVkIjp0cnVlLCJvcmdhbml6YXRpb24iOiIyMWI1NzU4ZS00NTdmLTRkZDktOWIxNi00NzY3OTAyODUwMmYiLCJyb2xlIjoiT1dORVIiLCJlbWFpbCI6Im15UGVyc29uYWxFbWFpbDIwQGdtYWlsLmNvbSJ9fQ.I-6hlpJLwZvw7As53K7xA7J3zhayrUIYFIFYd_qCeBc' \
+curl --location --request POST 'https://api-staging.polygonid.com/v1/issuers/40b4018f-83f1-4db5-a878-c2d002ef6532/schemas/2445135e-384e-4942-be42-467640cb3934/offers' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Njk3MTgzMzUsImp0aSI6IjcyZDM4NzVhLTI4MTQtNDY0YS04NzIxLWExYmY3NDY2M2ZiYiIsImlhdCI6MTY2OTYzMTkzNSwibmJmIjoxNjY5NjMxOTM1LCJzdWIiOiJkOTI2YThjNC02NTQ1LTRlMDAtYWEyNi01M2I3MDU1ZDEwY2QiLCJzY29wZSI6ImFwaSIsImFjY291bnQiOnsidmVyaWZpZWQiOnRydWUsIm9yZ2FuaXphdGlvbiI6IjQwYjQwMThmLTgzZjEtNGRiNS1hODc4LWMyZDAwMmVmNjUzMiIsInJvbGUiOiJPV05FUiIsImVtYWlsIjoibXlwZXJzb25hbGVtYWlsMkB0ZXN0LmNvbSJ9fQ.BjwZuIiI1ekSbrlAz_eCFLmWoEiH-PgUDgf-3g5TV8E' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "attributes": [
@@ -275,26 +283,41 @@ curl --location --request POST 'https://api-staging.polygonid.com/v1/issuers/21b
 The response contains the details of the newly created Claim. In particular, you can see that the DAO contributor data are defined inside the `attributeValues` field. Later on, you'll be referring to this Claim by its `id`
 
 ```json
-    {
-        "id":"dc781766-d814-4acd-aa9d-bf0474e06a3b",
-        "schemaTemplateID":"a371c302-68e2-426d-a0bd-d265e55f4c7a",
-        "attributes":[
-            {   
-                "description":"Role as contributor in the DAO",
-                "name":"Role",
-                "type":"multichoice",
-                "values":["Developer","Designer","Writer","Education"]
-            },
-            {
-                "description":"Number of season in which the contributor joined the DAO",
-                "name":"SinceSeason",
-                "type":"number"
-            }
-        ],
-        "attributeValues":[{"attributeKey":"Role","attributeValue":1},{"attributeKey":"SinceSeason","attributeValue":4}],
-        "createdAt":"2022-11-07T10:25:07.475746Z",
-        "expiresAt":null
-    }
+{
+    "attributeValues": [
+        {
+            "attributeKey": "Role",
+            "attributeValue": 1
+        },
+        {
+            "attributeKey": "SinceSeason",
+            "attributeValue": 4
+        }
+    ],
+    "attributes": [
+        {
+            "description": "Role as contributor in the DAO",
+            "name": "Role",
+            "type": "multichoice",
+            "values": [
+                "Developer",
+                "Designer",
+                "Writer",
+                "Education"
+            ]
+        },
+        {
+            "description": "Number of season in which the contributor joined the DAO",
+            "name": "SinceSeason",
+            "type": "number"
+        }
+    ],
+    "createdAt": "2022-11-28T10:58:07.36058Z",
+    "expiresAt": null,
+    "id": "9492d3ac-1fec-4955-98c4-10e0a2563d2d",
+    "limitedClaims": null,
+    "schemaTemplateID": "2445135e-384e-4942-be42-467640cb3934"
+}
 ```
 
 ## 8. Create QR Code of Claim Offer
@@ -302,49 +325,94 @@ The response contains the details of the newly created Claim. In particular, you
 The claim has now been created. Now we need to share it with the designated DAO Contributor. This action is performed via the [Create QRCode of Offer](../offers/apis.md#create-qrcode-of-offer) Endpoint. This Endpoint only requires to pass the Claim `id` as Path Parameter.
 
 ```
-curl --location --request POST 'https://api-staging.polygonid.com/v1/offers-qrcode/dc781766-d814-4acd-aa9d-bf0474e06a3b'
+curl --location --request POST 'https://api-staging.polygonid.com/v1/offers-qrcode/45eca3ad-6218-439b-8980-9931177f7e25'
 ```
 
-The response contains the details of the claim Offer. In particular it generates a `sessionID` and associates it to a `qrcode`. This QR Code has to be displayed to the specific DAO Contributor that is entitled to receive the claim. The sessionID expires in 2 minutes after which the qrcode will no longer be scannable.
+The response contains the details of the claim Offer, identified via its `id`. In particular, it generates a `sessionID` for the user to authenticate and fetch the claim inside their wallet. With this endpoint, a `qrcode` gets created and associated with that user. This QR Code has to be displayed to the specific DAO Contributor that is entitled to receive the claim. The sessionID expires in 2 minutes after which the qrcode will no longer be scannable.
 
 ```json 
-    {
-        "issuer":{"logo":"https://s3.eu-west-1.amazonaws.com/polygonid-assets/logo/30653f45-735b-4fcd-9683-d3f490a515af","displayName":"IssuerTest123"},
-        "offerDetails":
+{
+    "issuer": {
+        "displayName": "IssuerTest1234",
+        "logo": "https://s3.eu-west-1.amazonaws.com/polygonid-assets/logo/12fa8d61-0b32-4827-a6ea-9f31acdb3f1b"
+    },
+    "offerDetails": {
+        "attributeValues": [
             {
-                "id":"dc781766-d814-4acd-aa9d-bf0474e06a3b",
-                "schemaTemplateID":"a371c302-68e2-426d-a0bd-d265e55f4c7a",
-                "schemaTemplateName":"daoContributorSchema",
-                "attributes":[{"description":"Role as contributor in the DAO","name":"Role","type":"multichoice","values":["Developer","Designer","Writer","Education"]},{"description":"Number of season in which the contributor joined the DAO","name":"SinceSeason","type":"number"}],
-                "attributeValues":[{"attributeKey":"Role","attributeValue":1},{"attributeKey":"SinceSeason","attributeValue":4}],
-                "createdAt":"2022-11-07T10:25:07.475746Z",
-                "expiresAt":null
+                "attributeKey": "Role",
+                "attributeValue": 1
             },
-        "qrcode":{"id":"15386f87-85d7-457d-a940-0e873727ec2c","typ":"application/iden3comm-plain-json","type":"https://iden3-communication.io/authorization/1.0/request","thid":"15386f87-85d7-457d-a940-0e873727ec2c","body":{"callbackUrl":"https://api-staging.polygonid.com/v1/offers-qrcode/dc781766-d814-4acd-aa9d-bf0474e06a3b/callback?sessionID=391fe2d9-4f0f-4810-9c9f-db3137d8b068","reason":"auth login","scope":[]},"from":"118AYbL3b8QNa9GETrYBTm3Xsk4FNF3RgkNBtCZHuf"},
-        "sessionID":"391fe2d9-4f0f-4810-9c9f-db3137d8b068"
-    }
+            {
+                "attributeKey": "SinceSeason",
+                "attributeValue": 4
+            }
+        ],
+        "attributes": [
+            {
+                "description": "Role as contributor in the DAO",
+                "name": "Role",
+                "type": "multichoice",
+                "values": [
+                    "Developer",
+                    "Designer",
+                    "Writer",
+                    "Education"
+                ]
+            },
+            {
+                "description": "Number of season in which the contributor joined the DAO",
+                "name": "SinceSeason",
+                "type": "number"
+            }
+        ],
+        "createdAt": "2022-11-28T10:58:07.36058Z",
+        "expiresAt": null,
+        "id": "9492d3ac-1fec-4955-98c4-10e0a2563d2d",
+        "limitedClaims": null,
+        "schemaTemplateID": "2445135e-384e-4942-be42-467640cb3934",
+        "schemaTemplateName": "daoContributor"
+    },
+    "qrcode": {
+        "body": {
+            "callbackUrl": "https://api-staging.polygonid.com/v1/offers-qrcode/9492d3ac-1fec-4955-98c4-10e0a2563d2d/callback?sessionID=addc81a6-fbe2-4ee3-ab67-210a549c17d6",
+            "reason": "auth login",
+            "scope": []
+        },
+        "from": "114uHUxT37dnr4JJiAcsE9mNK2PKWm9umrHNuM8S35",
+        "id": "0035c917-57cf-4c19-9295-4a4924e3d54b",
+        "thid": "0035c917-57cf-4c19-9295-4a4924e3d54b",
+        "typ": "application/iden3comm-plain-json",
+        "type": "https://iden3-communication.io/authorization/1.0/request"
+    },
+    "sessionID": "addc81a6-fbe2-4ee3-ab67-210a549c17d6"
+}
 ```
 
-> The JSON file included in the `qrcode` field can be transformed in an actual scannable QR code using any [JSON to QRCode converter](https://codesandbox.io/s/yp1pmpjo4z?file=/index.js).
+## 9. Fetch the claim inside User's wallet 
 
-The user has to scan this QR code with their Polygon ID App. On scanning, the user will be asked to authenticate themselves as owner of an identity. Once the authentication has been performed with success the user will receive a notification requesting to add the claim inside their wallet. By clicking on the notification the claim will be added inside user's wallet.
+To fetch a claim inside their wallet, the user either needs to scan a QR code or use deeplinking. After scanning the QR Code or clicking the deeplink, the user will be required to authenticate. On successful authentication, they will receive a notification to add the claim inside their wallet.
 
-As each QR Code contains a specific session ID, it is necessary to create a QRCode for each user that you are offering a Claim to. 
+### 9.a. Via QR Code 
 
-The same Claim Offer can also be delivered to users via Deep Linking. In order to do so is necessary to encode the `qrcode` file to Base64 Format. The related deep link would be `iden3comm://?i_m={{base64EncodedRequestHere}}`. For example, in this specific case the deep link would be `iden3comm://?i_m=eyJpZCI6IjE1Mzg2Zjg3LTg1ZDctNDU3ZC1hOTQwLTBlODczNzI3ZWMyYyIsInR5cCI6ImFwcGxpY2F0aW9uL2lkZW4zY29tbS1wbGFpbi1qc29uIiwidHlwZSI6Imh0dHBzOi8vaWRlbjMtY29tbXVuaWNhdGlvbi5pby9hdXRob3JpemF0aW9uLzEuMC9yZXF1ZXN0IiwidGhpZCI6IjE1Mzg2Zjg3LTg1ZDctNDU3ZC1hOTQwLTBlODczNzI3ZWMyYyIsImJvZHkiOnsiY2FsbGJhY2tVcmwiOiJodHRwczovL2FwaS1zdGFnaW5nLnBvbHlnb25pZC5jb20vdjEvb2ZmZXJzLXFyY29kZS9kYzc4MTc2Ni1kODE0LTRhY2QtYWE5ZC1iZjA0NzRlMDZhM2IvY2FsbGJhY2s/c2Vzc2lvbklEPTM5MWZlMmQ5LTRmMGYtNDgxMC05YzlmLWRiMzEzN2Q4YjA2OCIsInJlYXNvbiI6ImF1dGggbG9naW4iLCJzY29wZSI6W119LCJmcm9tIjoiMTE4QVliTDNiOFFOYTlHRVRyWUJUbTNYc2s0Rk5GM1Jna05CdENaSHVmIn0=`
-
-## 9. Download QRCode of Offer
-
-The notification will only show up if the user has turned on the notification for Polygon ID App. If that's not the case, the user will need to scan a second QR Code to fetch the claim inside their wallet. This action is performed via the [Download a QRCode of Offer](../offers/apis.md#download-qrcode-of-offer) Endpoint.
-
-This Endpoint requires to pass the Claim `id` as Path Parameter and the `sessionID` as Query Parameter. The sessionID of that specific user can be retrieved from the Response obtained in the previous step. Since a sessionID is associated with this second QRCode, it is necessary that the user scanning this QRcode is the same that performed the authentication from the previous step, otherwise he/she won't be able to fetch the claim inside their wallet.
+To Download the QRCode previously created as PNG file we use the [Download a QRCode of Offer](../offers/apis.md#download-qrcode-of-offer) Endpoint. For it, we need to pass the claim offer `id`, generated in step 7, as Path Parameter and the `sessionID`, generated from the previous step, as Query Parameter.
 
 ```
-curl --location --request GET 'https://api-staging.polygonid.com/v1/offers-qrcode/dc781766-d814-4acd-aa9d-bf0474e06a3b/download?sessionID=391fe2d9-4f0f-4810-9c9f-db3137d8b068' --output Desktop/qrCodeFile
+curl --location --request GET 'https://api-staging.polygonid.com/v1/offers-qrcode/9492d3ac-1fec-4955-98c4-10e0a2563d2d/download?sessionID=addc81a6-fbe2-4ee3-ab67-210a549c17d6  --output Desktop/qrCodeFile'
 ```
 
 > the --output flag is necessary to tell where to save the output file
 
-The response contains the actual QRCode to be displayed to the user.
+<div align="center">
+<img src="../../../../imgs/qr-code-api-response.png" width="700" align="center" />
+</div>
+<br>
 
-> Congratulations! You have been able to issue a claim to your user. Now he/she can authenticate themselves as Member of your DAO across any [Verifier](../../../verifier/verifier-overview.md)
+### 9.b. Via Deep Linking 
+
+The same Claim Offer can also be delivered to users via Deep Linking. In order to do so is necessary to encode the `qrcode` file obtained from step 8 to Base64 Format. The related deep link would be `iden3comm://?i_m={{base64EncodedRequestHere}}`. For example, in this specific case the deep link would be `iden3comm://?i_m=ewogICAgICAgICJib2R5IjogewogICAgICAgICAgICAiY2FsbGJhY2tVcmwiOiAiaHR0cHM6Ly9hcGktc3RhZ2luZy5wb2x5Z29uaWQuY29tL3YxL29mZmVycy1xcmNvZGUvOTQ5MmQzYWMtMWZlYy00OTU1LTk4YzQtMTBlMGEyNTYzZDJkL2NhbGxiYWNrP3Nlc3Npb25JRD1hZGRjODFhNi1mYmUyLTRlZTMtYWI2Ny0yMTBhNTQ5YzE3ZDYiLAogICAgICAgICAgICAicmVhc29uIjogImF1dGggbG9naW4iLAogICAgICAgICAgICAic2NvcGUiOiBbXQogICAgICAgIH0sCiAgICAgICAgImZyb20iOiAiMTE0dUhVeFQzN2RucjRKSmlBY3NFOW1OSzJQS1dtOXVtckhOdU04UzM1IiwKICAgICAgICAiaWQiOiAiMDAzNWM5MTctNTdjZi00YzE5LTkyOTUtNGE0OTI0ZTNkNTRiIiwKICAgICAgICAidGhpZCI6ICIwMDM1YzkxNy01N2NmLTRjMTktOTI5NS00YTQ5MjRlM2Q1NGIiLAogICAgICAgICJ0eXAiOiAiYXBwbGljYXRpb24vaWRlbjNjb21tLXBsYWluLWpzb24iLAogICAgICAgICJ0eXBlIjogImh0dHBzOi8vaWRlbjMtY29tbXVuaWNhdGlvbi5pby9hdXRob3JpemF0aW9uLzEuMC9yZXF1ZXN0IgogICAgfQ==`
+
+### (OPTIONAL) 10. Get QRCode of Offer
+
+The notification will only show up if the user has turned on the notifications for Polygon ID App. If that's not the case, the user will need to scan a second QR Code to fetch the claim inside their wallet. This action is performed via the [Get QRCode of Offer](../offers/apis.md#get-qrcode-of-offer).
+
+
