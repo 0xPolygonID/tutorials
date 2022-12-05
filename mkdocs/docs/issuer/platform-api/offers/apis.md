@@ -16,6 +16,7 @@ Each object contains: attribute key` (required), name of the attribute as define
 
 - `expirationDate`, a string that defines the expirationDate of the claim. It is a required value if you specified mandatoryExpiration as true in the Schema Creation.
 - `limitedClaims`, a number that can be optionally set to define a limit to the amount of claim, based on this offer, that can be redeemed.
+- `claimLinkExpiration`, expiration date in ISO 8601 format for the Claim Offer Link. After that Date a Claim Offer will not be redeemable anymore using that Link.
 
 It also requires passing a valid `Bearer Token` inside the Authorization Request Header.
 
@@ -71,15 +72,17 @@ The Response Body contains an Object with the details of that specific Claim Off
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
-## Delete Offer
+## Update Offer
 
-**Function**: Endpoint to delete a specific Claim Offer. 
+**Function**: Endpoint to update a specific Claim Offer. 
 
 **How it works**: It requires passing the Issuer `id`, namely the identifier of the Issuer previously created, and the schema `id`, namely the identifier of the Schema used to create the Claim Offer, and the claim offer `id`, namely the identifier of the specific Claim Offer you want to delete, as Path Parameters.
 
+Furthermore, It requires passing a boolean for `active` as Request Body parameter: setting active to true will activate an Offer, setting active to false will deactivate an Offer.
+
 It also requires passing a valid `Bearer Token` inside the Authorization Request Header. As a result of this Request, the Claim Offer, identifier by its `id`, gets deactivated. It means that you will no longer be able to `Create QRCode of Offer` based on that offer.
 
-**[API Reference](https://api-staging.polygonid.com/#tag/Offers/operation/DeleteOffer)**
+**[API Reference](https://api-staging.polygonid.com/#tag/Offers/operation/UpdateOffer)**
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 

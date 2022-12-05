@@ -47,7 +47,7 @@ It also requires passing a valid `Bearer Token` inside the Authorization Request
 
 **Function**: Endpoint to fetch the details of all the Claim Schemas created by an Issuer.
 
-**How it works**: It requires passing the Issuer `id` as Path Parameter. Optionally, it accepts a `query` as Query Parameter which is a search keyword. 
+**How it works**: It requires passing the Issuer `id` as Path Parameter. Optionally, it accepts a `query` and a boolean `active` as Query Parameters which are search keywords. 
 
 It also requires passing a valid `Bearer Token` inside the Authorization Request Header. The Response Body contains the entire set of information related to the required Claim Schema.
 
@@ -57,7 +57,7 @@ The Endpoint requires passing the Issuer `id` as Path Parameter. In order to use
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
 
-## Update Schema
+<!-- ## Update Schema
 
 **Function**: Endpoint to activate/deactivate a Claim Schema previously created.
 
@@ -65,7 +65,7 @@ The Endpoint requires passing the Issuer `id` as Path Parameter. In order to use
 
 **[API Reference](https://api-staging.polygonid.com/#tag/Schemas/operation/UpdateSchemaTemplate)**
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2dfc4ac1-4089-4062-8e0c-e862261da70f) -->
 
 ## Get Schema Claims
 
