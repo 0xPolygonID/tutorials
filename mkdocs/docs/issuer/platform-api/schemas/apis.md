@@ -10,14 +10,16 @@ The Schemas APIs allow the creation of customized Schema for your Claims. A Clai
 
 It requires passing the following as Request Body parameters:
 
-- `schema` (required), the name of the schema
+- `schema` (required), name of the schema in a human-readable
 - `mandatoryExpiration` (required), a boolean that indicates whether to make the claim with mandatory expiration or not
+- `technicalName` (required), name of the schema with formatting constraints, such as no special characters and spaces
 - `attributes` (required) an array of *maximum two objects* that describe the type of data stored inside the Claim Schema. Each object contains: 
     
-    - `name` (required), name of the attribute.
+    - `name` (required), name of the attribute in a human-readable
+    - `technicalName` (required), name of the attribute with formatting constraints, such as no special characters and spaces
     - `type` (required), type of the attribute which can be `boolean`, `date`, `datetime`, `multichoice` and `number`.
-    - `description`, a string that may add further details about the Schema or describes the vocabulary used to define the attributes.
-    - `values`, an array of strings that represent the range of possible values that the attribute can cover in the case the chosen type is `multichoice`. There should be at least 2 values, while there's no upper limit.
+    - `description`, a string that may add further details about the Schema or describes the vocabulary used to define the attributes
+    - `values`, an array of strings that represent the range of possible values that the attribute can cover in the case the chosen type is `multichoice`. There should be at least 2 values, while there's no upper limit
 
 > ⚠️ The `multichoice` type is not supported yet from the Polygon ID Wallet
 
