@@ -108,6 +108,8 @@ Specifically, the verifier will set up the query: "Prove that you were born befo
 
 	This endpoint generates the auth request for the user. Using this endpoint, the developers set up the requirements that users must meet in order to sign in. 
 
+	> If created using Polygon ID Platform, the schema URL can be fetched from there and pasted inside your Query
+
 	=== "GoLang"
 
 		```go hl_lines="20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39"
