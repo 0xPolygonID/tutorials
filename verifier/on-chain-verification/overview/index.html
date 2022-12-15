@@ -1,0 +1,1474 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://polygon.technology/polygon-id/verifier/on-chain-verification/overview/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Implement ERC20 zk airdrop in 20 minutes - Polygon ID Documentation tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#7e56c2">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#on-chain-zk-verification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Polygon ID Documentation tutorials" class="md-header__button md-logo" aria-label="Polygon ID Documentation tutorials" data-md-component="logo">
+      
+  <img src="../../../logo-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Polygon ID Documentation tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Implement ERC20 zk airdrop in 20 minutes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../issuer/issuer-overview/" class="md-tabs__link">
+        Issuer
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../verifier-overview/" class="md-tabs__link md-tabs__link--active">
+        Verifier
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../wallet/wallet-overview/" class="md-tabs__link">
+        Wallet
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../contracts/overview/" class="md-tabs__link">
+        Smart Contracts
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Polygon ID Documentation tutorials" class="md-nav__button md-logo" aria-label="Polygon ID Documentation tutorials" data-md-component="logo">
+      
+  <img src="../../../logo-white.svg" alt="logo">
+
+    </a>
+    Polygon ID Documentation tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Issuer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Issuer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Issuer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/issuer-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Platform API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Platform API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Platform API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/flow-tutorial/happy-path/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_3">
+          API Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API Reference" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          API Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/onboarding-orgs/apis/" class="md-nav__link">
+        Onboarding Organization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/issuer/apis/" class="md-nav__link">
+        Issuer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/schemas/apis/" class="md-nav__link">
+        Claim Schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/offers/apis/" class="md-nav__link">
+        Claim Offers
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Verifier
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Verifier" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Verifier
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Off-chain Verification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Off-chain Verification" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Off-chain Verification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verification-library/verifier-library-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_2" type="checkbox" id="__nav_3_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_2">
+          APIs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="APIs" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          APIs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verification-library/config/" class="md-nav__link">
+        Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verification-library/request-api-guide/" class="md-nav__link">
+        ZK Request APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verification-library/verification-api-guide/" class="md-nav__link">
+        Verification APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verification-library/jwz/" class="md-nav__link">
+        JWZ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verification-library/verifier-set-up/" class="md-nav__link">
+        Tutorial - Run a Verifier
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          On-chain Verification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="On-chain Verification" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          On-chain Verification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Implement ERC20 zk airdrop in 20 minutes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Implement ERC20 zk airdrop in 20 minutes
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#implement-erc20-zk-airdrop-in-20-minutes" class="md-nav__link">
+    Implement ERC20 ZK Airdrop in 20 Minutes
+  </a>
+  
+    <nav class="md-nav" aria-label="Implement ERC20 ZK Airdrop in 20 Minutes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-the-erc20-zk-airdrop-verifier-contract" class="md-nav__link">
+    Design the ERC20 zk Airdrop Verifier Contract
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-the-contract" class="md-nav__link">
+    Deploy the Contract
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-the-zkp-request" class="md-nav__link">
+    Set the ZKP Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-proof-request-inside-a-qr-code" class="md-nav__link">
+    Add the Proof Request Inside a QR Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-demo-claim-the-airdrop" class="md-nav__link">
+    User Demo: Claim the Airdrop!
+  </a>
+  
+    <nav class="md-nav" aria-label="User Demo: Claim the Airdrop!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-proof-submission-is-executed" class="md-nav__link">
+    How the proof submission is executed?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extend-it-to-your-own-logic" class="md-nav__link">
+    Extend it to Your Own Logic
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-tutorial-for-on-chain-verification" class="md-nav__link">
+    Further Tutorial for On-chain Verification
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verification-library/zk-query-language/" class="md-nav__link">
+        ZK Query Language
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Wallet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wallet" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Wallet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wallet/wallet-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Smart Contracts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Smart Contracts" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Smart Contracts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contracts/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#implement-erc20-zk-airdrop-in-20-minutes" class="md-nav__link">
+    Implement ERC20 ZK Airdrop in 20 Minutes
+  </a>
+  
+    <nav class="md-nav" aria-label="Implement ERC20 ZK Airdrop in 20 Minutes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-the-erc20-zk-airdrop-verifier-contract" class="md-nav__link">
+    Design the ERC20 zk Airdrop Verifier Contract
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-the-contract" class="md-nav__link">
+    Deploy the Contract
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-the-zkp-request" class="md-nav__link">
+    Set the ZKP Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-proof-request-inside-a-qr-code" class="md-nav__link">
+    Add the Proof Request Inside a QR Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-demo-claim-the-airdrop" class="md-nav__link">
+    User Demo: Claim the Airdrop!
+  </a>
+  
+    <nav class="md-nav" aria-label="User Demo: Claim the Airdrop!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-proof-submission-is-executed" class="md-nav__link">
+    How the proof submission is executed?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extend-it-to-your-own-logic" class="md-nav__link">
+    Extend it to Your Own Logic
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-tutorial-for-on-chain-verification" class="md-nav__link">
+    Further Tutorial for On-chain Verification
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="on-chain-zk-verification">On-chain ZK Verification</h1>
+<p>The on-chain verification workflow allows Dapps to verify users' claims inside a Smart Contract. Zero-Knowledge Proof cryptography enables this verification to happen in a private manner, namely without revealing any personal information of the user (prover).</p>
+<p>This flow is especially needed when further on-chain logic wants to be implemented on successful verification such as:</p>
+<ul>
+<li>Distribute a token-airdrop only to human-verified accounts</li>
+<li>Allow voting only to account members of your DAO </li>
+<li>Block airdrops to users that belong to a specific country</li>
+<li>Allow trading only to accounts that passed the KYC verification</li>
+</ul>
+<h2 id="implement-erc20-zk-airdrop-in-20-minutes">Implement ERC20 ZK Airdrop in 20 Minutes</h2>
+<p>In this tutorial, we will create an ERC20 zk Airdrop Contract. The chosen query criteria is to be born before <code>01/01/2001</code>. Users that are able to prove that were born before that date will be able to get the airdrop. Otherwise, they will not. The proof submitted to the Smart Contract will not reveal any information about the specific date of birth of the user. That is the magic of zero-knowledge! </p>
+<blockquote>
+<p>To set up a different query check out the <a href="../../verification-library/zk-query-language/">ZK Query Language section</a></p>
+</blockquote>
+<p>This tutorial is based on the verification of a Claim of Type <code>AgeCredential</code> with a single attribute <code>dateOfBirth</code> in format age with a <a href="https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld">Schema URL</a>.</p>
+<p>The prerequisite is that users have the Polygon ID Wallet app installed and fetched a claim of type <code>AgeCredential</code> attesting their date of birth. A claim with the same features can be issued using <a href="https://platform-test.polygonid.com">Polygon ID Platform UI</a> or <a href="../../../issuer/platform-api/introduction/">Polygon APIs</a>.</p>
+<hr />
+<p><strong>Note:</strong> The full executable code related to this tutorial can be cloned from this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/on-chain-verification" target="_blank">repository</a>.</p>
+<hr />
+<h3 id="design-the-erc20-zk-airdrop-verifier-contract">Design the ERC20 zk Airdrop Verifier Contract</h3>
+<p>Let us jump into the code by writing the <code>ERC20Verifier</code> contract. </p>
+<p>The ERC20Verifier is an ERC20 standard contract on steroids. The extra functionality is given by the zero-knowledge proof verification. All the functions dedicated to the zk verification are contained inside the 
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol" target="_blank">ZKPVerifier Contract</a> and inherited within the ERC20Verifier. For example, users will submit their proof to claim the airdrop by calling <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L18" target="_blank"><code>submitZKPResponse</code></a>.</p>
+<p>The ERC20Verifier contract must define at least a single <code>TRANSFER_REQUEST_ID</code>. This is the Identifier of the request that the contract is posing to the user.</p>
+<blockquote>
+<p>In this specific case the request is: "to be born before 01/01/2001". Note that this hasn't been added yet to the Smart Contract. It will be added in a few minutes!</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="k">pragma solidity</span><span class="w"> </span><span class="o">^</span><span class="k">0.8.0</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">import</span><span class="w"> </span><span class="s2">&quot;@openzeppelin/contracts/token/ERC20/ERC20.sol&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kt">import</span><span class="w"> </span><span class="s2">&quot;./lib/GenesisUtils.sol&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kt">import</span><span class="w"> </span><span class="s2">&quot;./interfaces/ICircuitValidator.sol&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kt">import</span><span class="w"> </span><span class="s2">&quot;./verifiers/ZKPVerifier.sol&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">contract</span><span class="w"> </span><span class="ni">ERC20Verifier</span><span class="w"> </span><span class="kt">is</span><span class="w"> </span>ERC20<span class="p">,</span><span class="w"> </span>ZKPVerifier<span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">uint64</span><span class="w"> </span><span class="k">public </span><span class="nv">constant</span><span class="w"> </span>TRANSFER_REQUEST_ID<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m m-Decimal">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// define the amount of token to be airdropped per user</span>
+<span class="w">    </span><span class="kt">uint256</span><span class="w"> </span><span class="k">public </span><span class="nv">TOKEN_AMOUNT_FOR_AIRDROP_PER_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m m-Decimal">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m m-Decimal">10</span><span class="o">**</span><span class="kt">uint</span><span class="p">(</span>decimals<span class="p">());</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="kt">constructor</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="nv">memory</span><span class="w"> </span>name_<span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nv">memory</span><span class="w"> </span>symbol_<span class="p">)</span><span class="w"></span>
+<span class="w">        </span>ERC20<span class="p">(</span>name_<span class="p">,</span><span class="w"> </span>symbol_<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{}</span><span class="w">    </span>
+
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>The ZKPVerifier Contract provides 2 hooks: </p>
+<p><a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L93" target="_blank"><code>_beforeProofSubmit</code></a> and <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L102" target="_blank"><code>afterProofSubmit</code></a>. These hooks are called before and after any proof gets submitted and can be used to create personalized logic inside your Smart Contract.</p>
+<p>In this specific case, it must be checked that the sender of the proof matches the address contained in the proof challenge. This requirement is necessary to prevent proof front-running. This condition is added inside <code>_beforeProofSubmit</code>.</p>
+<p>The airdrop logic must be added inside <code>_afterProofSubmit</code>. The contract must execute the airdrop once the proof is correctly verified.</p>
+<div class="highlight"><pre><span></span><code><span class="k">contract</span><span class="w"> </span><span class="ni">ERC20Verifier</span><span class="w"> </span><span class="kt">is</span><span class="w"> </span>ERC20<span class="p">,</span><span class="w"> </span>ZKPVerifier<span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">uint64</span><span class="w"> </span><span class="k">public </span><span class="nv">constant</span><span class="w"> </span>TRANSFER_REQUEST_ID<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m m-Decimal">1</span><span class="p">;</span><span class="w"></span>
+
+<span class="hll"><span class="w">    </span><span class="kt">mapping</span><span class="p">(</span><span class="kt">uint256</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>idToAddress<span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="kt">mapping</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>addressToId<span class="p">;</span><span class="w"></span>
+</span>
+<span class="w">    </span><span class="kt">uint256</span><span class="w"> </span><span class="k">public </span><span class="nv">TOKEN_AMOUNT_FOR_AIRDROP_PER_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m m-Decimal">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m m-Decimal">10</span><span class="o">**</span><span class="kt">uint</span><span class="p">(</span>decimals<span class="p">());</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">constructor</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="nv">memory</span><span class="w"> </span>name_<span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nv">memory</span><span class="w"> </span>symbol_<span class="p">)</span><span class="w"></span>
+<span class="w">        </span>ERC20<span class="p">(</span>name_<span class="p">,</span><span class="w"> </span>symbol_<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{}</span><span class="w"></span>
+
+<span class="hll"><span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">_beforeProofSubmit</span><span class="p">(</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="kt">uint64</span><span class="p">,</span><span class="w"> </span><span class="cm">/* requestId */</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="kt">uint256</span><span class="p">[]</span><span class="w"> </span><span class="kt">memory</span><span class="w"> </span>inputs<span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span>ICircuitValidator<span class="w"> </span>validator<span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="kt">internal</span><span class="w"> </span>view<span class="w"> </span>override<span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="w">        </span><span class="c1">// check that the challenge input of the proof is equal to the msg.sender </span>
+<span class="w">        </span><span class="kt">address</span><span class="w"> </span><span class="nv">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>GenesisUtils<span class="p">.</span>int256ToAddress<span class="p">(</span><span class="w"></span>
+<span class="w">            </span>inputs<span class="p">[</span>validator<span class="p">.</span>getChallengeInputIndex<span class="p">()]</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kt">require</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span>_msgSender<span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>addr<span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;address in the proof is not a sender address&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="hll"><span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">_afterProofSubmit</span><span class="p">(</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="kt">uint64</span><span class="w"> </span><span class="nv">requestId</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="kt">uint256</span><span class="p">[]</span><span class="w"> </span><span class="kt">memory</span><span class="w"> </span>inputs<span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span>ICircuitValidator<span class="w"> </span>validator<span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="kt">internal</span><span class="w"> </span>override<span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="w">        </span><span class="kt">require</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span>requestId<span class="w"> </span><span class="o">==</span><span class="w"> </span>TRANSFER_REQUEST_ID<span class="w"> </span><span class="err">&amp;&amp;</span><span class="w"> </span>addressToId<span class="p">[</span>_msgSender<span class="p">()]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m m-Decimal">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;proof can not be submitted more than once&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>inputs<span class="p">[</span>validator<span class="p">.</span>getChallengeInputIndex<span class="p">()];</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// execute the airdrop</span>
+<span class="w">        </span><span class="kt">if</span><span class="w"> </span><span class="p">(</span>idToAddress<span class="p">[</span>id<span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">address</span><span class="p">(</span><span class="m m-Decimal">0</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span>super<span class="p">.</span>_mint<span class="p">(</span>_msgSender<span class="p">(),</span><span class="w"> </span>TOKEN_AMOUNT_FOR_AIRDROP_PER_ID<span class="p">);</span><span class="w"></span>
+<span class="w">            </span>addressToId<span class="p">[</span>_msgSender<span class="p">()]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>id<span class="p">;</span><span class="w"></span>
+<span class="w">            </span>idToAddress<span class="p">[</span>id<span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>_msgSender<span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Finally, we can add a further element of security inside the Smart Contract: prevent any type of token transfer (even after the airdrop) unless users passed the proof verification. This last condition is added by overriding the ERC20 <code>_beforeTokenTransfer</code> function and checking that the receiver address <code>to</code> of the transfer is included inside the 
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L12" target="_blank"><code>proofs</code></a> mapping. </p>
+<div class="highlight"><pre><span></span><code><span class="k">contract</span><span class="w"> </span><span class="ni">ERC20Verifier</span><span class="w"> </span><span class="kt">is</span><span class="w"> </span>ERC20<span class="p">,</span><span class="w"> </span>ZKPVerifier<span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">uint64</span><span class="w"> </span><span class="k">public </span><span class="nv">constant</span><span class="w"> </span>TRANSFER_REQUEST_ID<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m m-Decimal">1</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">mapping</span><span class="p">(</span><span class="kt">uint256</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>idToAddress<span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">mapping</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>addressToId<span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">uint256</span><span class="w"> </span><span class="k">public </span><span class="nv">TOKEN_AMOUNT_FOR_AIRDROP_PER_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m m-Decimal">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m m-Decimal">10</span><span class="o">**</span><span class="kt">uint</span><span class="p">(</span>decimals<span class="p">());</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">constructor</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="nv">memory</span><span class="w"> </span>name_<span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nv">memory</span><span class="w"> </span>symbol_<span class="p">)</span><span class="w"></span>
+<span class="w">        </span>ERC20<span class="p">(</span>name_<span class="p">,</span><span class="w"> </span>symbol_<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">_beforeProofSubmit</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">uint64</span><span class="p">,</span><span class="w"> </span><span class="cm">/* requestId */</span><span class="w"></span>
+<span class="w">        </span><span class="kt">uint256</span><span class="p">[]</span><span class="w"> </span><span class="kt">memory</span><span class="w"> </span>inputs<span class="p">,</span><span class="w"></span>
+<span class="w">        </span>ICircuitValidator<span class="w"> </span>validator<span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="kt">internal</span><span class="w"> </span>view<span class="w"> </span>override<span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="p">...</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">_afterProofSubmit</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">uint64</span><span class="w"> </span><span class="nv">requestId</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="kt">uint256</span><span class="p">[]</span><span class="w"> </span><span class="kt">memory</span><span class="w"> </span>inputs<span class="p">,</span><span class="w"></span>
+<span class="w">        </span>ICircuitValidator<span class="w"> </span>validator<span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="kt">internal</span><span class="w"> </span>override<span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="p">...</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="hll"><span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">_beforeTokenTransfer</span><span class="p">(</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="cm">/* from */</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="kt">address</span><span class="w"> </span><span class="nv">to</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="kt">uint256</span><span class="w"> </span><span class="cm">/* amount */</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="kt">internal</span><span class="w"> </span>view<span class="w"> </span>override<span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="w">        </span><span class="kt">require</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span>proofs<span class="p">[</span>to<span class="p">][</span>TRANSFER_REQUEST_ID<span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;only identities who provided proof are allowed to receive tokens&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>The contract is now fully written!</p>
+<h3 id="deploy-the-contract">Deploy the Contract</h3>
+<p>Execute this Hardhat script to deploy the contract</p>
+<div class="highlight"><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">verifierContract</span><span class="w"> </span><span class="o">=</span><span class="s2">&quot;ERC20Verifier&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">verifierName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ERC20zkAirdrop&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">verifierSymbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;zkERC20&quot;</span><span class="p">;</span><span class="w"> </span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ERC20Verifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">getContractFactory</span><span class="p">(</span><span class="nx">verifierContract</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">erc20Verifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ERC20Verifier</span><span class="p">.</span><span class="nx">deploy</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="nx">verifierName</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">verifierSymbol</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">erc20Verifier</span><span class="p">.</span><span class="nx">deployed</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">verifierName</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot; deployed to:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">erc20Verifier</span><span class="p">.</span><span class="nx">address</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<blockquote>
+<p>The contract ERC20Verifier must be deployed on the Mumbai test network as there is a set of supporting contracts that are already deployed on Mumbai! </p>
+</blockquote>
+<h3 id="set-the-zkp-request">Set the ZKP Request</h3>
+<p>As previously mentioned, the actual zkp request "to be born before 01/01/2001" hasn't been added to the Smart Contract yet. To do so it is necessary to call <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62" target="_blank"><code>setZKPRequest</code></a> function inherited inside the ERC20Verifier which takes 3 input:</p>
+<ol>
+<li><code>requestId</code>: the id associated with the request.</li>
+<li><code>validator</code>: the address of the <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol" target="_blank">Validator Smart Contract</a> already deployed on Mumbai. This is the contract that actually executes the verification on the zk proof submitted by the user</li>
+<li><code>query</code>: the rules that the user must satisfy.</li>
+</ol>
+<p>In particular, the query must be designed as follow: </p>
+<ul>
+<li><code>schema</code> is the hash of the schema that you can retrieve from the issuer dashboard at <a href="https://platform-test.polygonid.com/">Polygon ID Platform</a>. In order to use it inside the query it should be converted from hex to bigint. </li>
+<li><code>slotIndex</code> is the index of the attribute you are querying. It can be either 2 or 3. 2 if the corresponding information is stored as <code>Attribute #1</code> or 3 if the information is stored as <code>Attribute #2</code></li>
+<li><code>operator</code> is either 1,2,3,4,5. To understand more about the operator you can check the <a href="../../verification-library/zk-query-language/">zk query language</a></li>
+<li><code>value</code> represents the threshold value you are querying. If the data type during the schema creation was set to <code>Yes or no</code>, value true equals to <code>1</code> and false equals to <code>0</code></li>
+<li><code>circuitId</code> is the ID of the circuit you are using for verification. For now it will always correspond to <code>credentialAtomicQuerySig</code></li>
+</ul>
+<blockquote>
+<p>Check out our <a href="../../../contracts/overview/#credentialatomicquerysigvalidator">Smart Contract section</a> to learn more about the set of verifications executed on the zk proof.</p>
+</blockquote>
+<p>Execute this Hardhat script to set the zk request to the Smart Contract.</p>
+<blockquote>
+<p>Remember to replace the <code>schemaHash</code> with the one you grabbed from Polygon ID Platform</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">circuitId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;credentialAtomicQuerySig&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">validatorAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Grab the schema hash from Polygon ID Platform</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">schemaHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{add your schema hash here}&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">schemaEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fromLittleEndian</span><span class="p">(</span><span class="nx">hexToBytes</span><span class="p">(</span><span class="nx">schemaHash</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">ageQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">schema</span><span class="o">:</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">BigNumber</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">schemaEnd</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="nx">slotIndex</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">operator</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">20020101</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">63</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">circuitId</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// add the address of the contract just deployed</span><span class="w"></span>
+<span class="w">    </span><span class="nx">ERC20VerifierAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;&gt;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">erc20Verifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">hre</span><span class="p">.</span><span class="nx">ethers</span><span class="p">.</span><span class="nx">getContractAt</span><span class="p">(</span><span class="s2">&quot;ERC20Verifier&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">ERC20VerifierAddress</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">requestId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">erc20Verifier</span><span class="p">.</span><span class="nx">TRANSFER_REQUEST_ID</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">erc20Verifier</span><span class="p">.</span><span class="nx">setZKPRequest</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="nx">requestId</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">validatorAddress</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">ageQuery</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Request set&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;error: &quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">hexToBytes</span><span class="p">(</span><span class="nx">hex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">hex</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nx">bytes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">hex</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">),</span><span class="w"> </span><span class="mf">16</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">bytes</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">fromLittleEndian</span><span class="p">(</span><span class="nx">bytes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">BigInt</span><span class="p">(</span><span class="mf">256</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">BigInt</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">BigInt</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">bytes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="kr">byte</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">base</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">BigInt</span><span class="p">(</span><span class="kr">byte</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="nx">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">base</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">n256</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>The contract is now correctly deployed on Mumbai Testnet and the query has been set up, congratulations! Now it is time to launch the airdrop! </p>
+<h3 id="add-the-proof-request-inside-a-qr-code">Add the Proof Request Inside a QR Code</h3>
+<p>The last step is to design the proof request to be embedded inside a QR code that will be shown to the users that want to claim their airdrops. In this particular case this is how the request should look like (remember to modify it by adding the address of your ERC20Verifier Contract):</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;c811849d-6bfb-4d85-936e-3d9759c7f105&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;typ&quot;</span><span class="p">:</span><span class="s2">&quot;application/iden3comm-plain-json&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;https://iden3-communication.io/proofs/1.0/contract-invoke-request&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;transaction_data&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;contract_address&quot;</span><span class="p">:</span><span class="s2">&quot;&lt;ERC20Verifier contract address&gt;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;method_id&quot;</span><span class="p">:</span><span class="s2">&quot;b68967e2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;chain_id&quot;</span><span class="p">:</span><span class="mi">80001</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;network&quot;</span><span class="p">:</span><span class="s2">&quot;polygon-mumbai&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="s2">&quot;airdrop participation&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;scope&quot;</span><span class="p">:[{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;circuit_id&quot;</span><span class="p">:</span><span class="s2">&quot;credentialAtomicQuerySig&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;rules&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;query&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;allowed_issuers&quot;</span><span class="p">:[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;req&quot;</span><span class="p">:{</span><span class="w"> </span>
+<span class="w">                        </span><span class="nt">&quot;dateOfBirth&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;$lt&quot;</span><span class="p">:</span><span class="mi">20020101</span><span class="w"></span>
+<span class="w">                            </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="p">},</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;schema&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;{add your schema hash here}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;AgeCredential&quot;</span><span class="w"></span>
+<span class="w">                            </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}]</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<blockquote>
+<p>The scope section inside the JSON file must match the query previously set when calling the "setZKPRequest" function</p>
+</blockquote>
+<p>Note that the request resembles in most of its parts with the one designed for <a href="https://0xpolygonid.github.io/tutorials/verifier/verification-library/request-api-guide/" target="_blank">off-chain verification</a>. The extra part that has been added here is the <code>transcation_data</code> that includes:</p>
+<ul>
+<li><code>contract_address</code>, namely the address of the Verifier contract, in this case, ERC20Verifier</li>
+<li><code>method_id</code>, namely the <a href="https://solidity-by-example.org/function-selector/">Function Selector</a> of the <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/interfaces/IZKPVerifier.sol#L5" target="_blank"><code>submitZKPResponse</code></a> function</li>
+<li><code>chain_id</code>, the ID of the chain where the Smart Contract has been deployed</li>
+<li><code>network</code>, the name of the network where the Smart contract has been deployed</li>
+</ul>
+<blockquote>
+<p>To display the QR code inside your frontend, you can use the <code>express.static</code> built-in middleware function together with this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> or this <a href="https://codesandbox.io/s/yp1pmpjo4z?file=/index.js">Code Sandbox</a>.</p>
+</blockquote>
+<p>Scanning the QR with their Polygon ID Wallet, users will be able to generate proofs and send transactions to the Smart Contract in order to claim their airdrops.</p>
+<p>The same proof generation request can also be delivered to users via Deep Linking. In order to do so is necessary to encode the <code>json</code> file to Base64 Format. The related deep link would be <code>iden3comm://?i_m={{base64EncodedJsonHere}}</code>. For example, in this specific case the deep link would be <code>iden3comm://?i_m=eyAgCiAgICAiaWQiOiJjODExODQ5ZC02YmZiLTRkODUtOTM2ZS0zZDk3NTljN2YxMDUiLAogICAgInR5cCI6ImFwcGxpY2F0aW9uL2lkZW4zY29tbS1wbGFpbi1qc29uIiwKICAgICJ0eXBlIjoiaHR0cHM6Ly9pZGVuMy1jb21tdW5pY2F0aW9uLmlvL3Byb29mcy8xLjAvY29udHJhY3QtaW52b2tlLXJlcXVlc3QiLAogICAgImJvZHkiOnsKICAgICAgICAidHJhbnNhY3Rpb25fZGF0YSI6ewogICAgICAgICAgICAiY29udHJhY3RfYWRkcmVzcyI6IjxFUkMyMFZlcmlmaWVyIGNvbnRyYWN0IGFkZHJlc3M+IiwKICAgICAgICAgICAgIm1ldGhvZF9pZCI6ImI2ODk2N2UyIiwKICAgICAgICAgICAgImNoYWluX2lkIjo4MDAwMSwKICAgICAgICAgICAgIm5ldHdvcmsiOiJwb2x5Z29uLW11bWJhaSIKICAgICAgICAgICAgfSwKICAgICAgICAicmVhc29uIjoiYWlyZHJvcCBwYXJ0aWNpcGF0aW9uIiwKICAgICAgICAic2NvcGUiOlt7CiAgICAgICAgICAgICJpZCI6MSwKICAgICAgICAgICAgImNpcmN1aXRfaWQiOiJjcmVkZW50aWFsQXRvbWljUXVlcnlTaWciLAogICAgICAgICAgICAicnVsZXMiOnsKICAgICAgICAgICAgICAgICJxdWVyeSI6ewogICAgICAgICAgICAgICAgICAgICJhbGxvd2VkX2lzc3VlcnMiOlsiKiJdLAogICAgICAgICAgICAgICAgICAgICJyZXEiOnsgCiAgICAgICAgICAgICAgICAgICAgICAgICJkYXRlT2ZCaXJ0aCI6ewogICAgICAgICAgICAgICAgICAgICAgICAgICAgIiRsdCI6MjAwMjAxMDEKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICAic2NoZW1hIjp7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAidXJsIjoiaHR0cHM6Ly9zMy5ldS13ZXN0LTEuYW1hem9uYXdzLmNvbS9wb2x5Z29uaWQtc2NoZW1hcy85YjFjMDVmNC03ZmI2LTQ3OTItYWJlMy1kMWRkYmQ5YTk2MDkuanNvbi1sZCIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAidHlwZSI6IkFnZUNyZWRlbnRpYWwiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9XQogICAgICAgICAgICB9Cn0=</code></p>
+<h2 id="user-demo-claim-the-airdrop">User Demo: Claim the Airdrop!</h2>
+<p>This video shows how a user can use their PolygonID wallet app to claim a ERC-20 token airdrop. To join the airdrop users are required to have a claim of type <code>KYCAgeCredential</code> attesting that they have been born before 01/01/2002.</p>
+<div align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NvPfh3nqeEQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<div class="video-wrapper">
+
+</div>
+
+<p>Or you can direcly test it scanning the QR Code below using your Polygon ID App: </p>
+<div align="center">
+<img src= "../../../imgs/qr-code-on-chain-verification.png" align="center" width="400" style="border: 4px solid black"/>
+</div>
+<p><br></p>
+<h3 id="how-the-proof-submission-is-executed">How the proof submission is executed?</h3>
+<p>The wallet needs to call the <code>submitZKPResponse()</code> function before it can submit the proof for the requirements set in the Airdrop Participation process. This function forms part of the ZKPVerifier Interface <a href="https://github.com/iden3/contracts/blob/master/contracts/interfaces/IZKPVerifier.sol#L6"><code>IZKPVerifier</code></a> and is actually implemented inside the <a href="https://github.com/iden3/contracts/blob/master/contracts/ZKPVerifier.sol#L19"><code>ZKPVerifier Contract</code></a></p>
+<div class="highlight"><pre><span></span><code><span class="kt">import</span><span class="w"> </span><span class="s2">&quot;./ICircuitValidator.sol&quot;</span><span class="p">;</span><span class="w"></span>
+
+interface<span class="w"> </span>IZKPVerifier<span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">submitZKPResponse</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">uint64</span><span class="w"> </span><span class="nv">requestId</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="kt">uint256</span><span class="p">[]</span><span class="w"> </span><span class="kt">memory</span><span class="w"> </span>inputs<span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="kt">uint256</span><span class="p">[</span><span class="m m-Decimal">2</span><span class="p">]</span><span class="w"> </span><span class="kt">memory</span><span class="w"> </span>a<span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="kt">uint256</span><span class="p">[</span><span class="m m-Decimal">2</span><span class="p">][</span><span class="m m-Decimal">2</span><span class="p">]</span><span class="w"> </span><span class="kt">memory</span><span class="w"> </span>b<span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="kt">uint256</span><span class="p">[</span><span class="m m-Decimal">2</span><span class="p">]</span><span class="w"> </span><span class="kt">memory</span><span class="w"> </span>c<span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="kt">external</span><span class="w"> </span><span class="kt">returns</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="extend-it-to-your-own-logic">Extend it to Your Own Logic</h2>
+<p>Now that you have been able to create your first on-chain zk-based application you can extend it to accommodate any type of imaginable logic. The target Smart Contract doesn't have to be an ERC20 but it can be an ERC721, a DeFi pool, a voting Smart Contract or whatever contract you can think of. Equally the query can be extended to any type of existing claim and based on the different operators available inside the <a href="https://0xpolygonid.github.io/tutorials/verifier/verification-library/zk-query-language/" target="_blank">ZK Query Language</a>.</p>
+<p>Another possibility to customize your Smart Contract involves setting different zk requests. First of all, multiple <code>REQUEST_ID</code> must be defined inside the main Smart Contract. Therefore, the contract deployer can set a different query for each request ID and create different outcomes inside <code>_afterProofSubmit</code> according to the type of proof received. For example, an airdrop contract can verify the role of a user inside a DAO and distribute a different amount of tokens based on the role.</p>
+<h2 id="further-tutorial-for-on-chain-verification">Further Tutorial for On-chain Verification</h2>
+<ul>
+<li><a href="https://github.com/codingwithmanny/polygonid-on-chain-verification">Polygon ID On-chain Verifications - Codingwithmanny</a>, contains a more detailed explanation of the ERC20 Airdrop using Polygon ID. Furthermore it contains a section for debugging common errors and for minting an NFT starting from on-chain Polygon ID Claim Verification.</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../verification-library/verifier-set-up/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Tutorial - Run a Verifier" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Tutorial - Run a Verifier
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../verification-library/zk-query-language/" class="md-footer__link md-footer__link--next" aria-label="Next: ZK Query Language" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              ZK Query Language
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

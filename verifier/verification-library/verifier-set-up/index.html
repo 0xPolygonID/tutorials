@@ -1,0 +1,1409 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://polygon.technology/polygon-id/verifier/verification-library/verifier-set-up/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Tutorial - Run a Verifier - Polygon ID Documentation tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#7e56c2">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#run-a-verifier" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Polygon ID Documentation tutorials" class="md-header__button md-logo" aria-label="Polygon ID Documentation tutorials" data-md-component="logo">
+      
+  <img src="../../../logo-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Polygon ID Documentation tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tutorial - Run a Verifier
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../issuer/issuer-overview/" class="md-tabs__link">
+        Issuer
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../verifier-overview/" class="md-tabs__link md-tabs__link--active">
+        Verifier
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../wallet/wallet-overview/" class="md-tabs__link">
+        Wallet
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../contracts/overview/" class="md-tabs__link">
+        Smart Contracts
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Polygon ID Documentation tutorials" class="md-nav__button md-logo" aria-label="Polygon ID Documentation tutorials" data-md-component="logo">
+      
+  <img src="../../../logo-white.svg" alt="logo">
+
+    </a>
+    Polygon ID Documentation tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Issuer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Issuer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Issuer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/issuer-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Platform API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Platform API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Platform API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/flow-tutorial/happy-path/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_3">
+          API Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API Reference" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          API Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/onboarding-orgs/apis/" class="md-nav__link">
+        Onboarding Organization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/issuer/apis/" class="md-nav__link">
+        Issuer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/schemas/apis/" class="md-nav__link">
+        Claim Schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/offers/apis/" class="md-nav__link">
+        Claim Offers
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Verifier
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Verifier" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Verifier
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Off-chain Verification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Off-chain Verification" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Off-chain Verification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verifier-library-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_2" type="checkbox" id="__nav_3_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_2">
+          APIs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="APIs" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          APIs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../request-api-guide/" class="md-nav__link">
+        ZK Request APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verification-api-guide/" class="md-nav__link">
+        Verification APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jwz/" class="md-nav__link">
+        JWZ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Tutorial - Run a Verifier
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Tutorial - Run a Verifier
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#verifier-server-setup" class="md-nav__link">
+    Verifier Server Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifier-client-setup" class="md-nav__link">
+    Verifier Client Setup
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          On-chain Verification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="On-chain Verification" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          On-chain Verification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-chain-verification/overview/" class="md-nav__link">
+        Implement ERC20 zk airdrop in 20 minutes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zk-query-language/" class="md-nav__link">
+        ZK Query Language
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Wallet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wallet" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Wallet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wallet/wallet-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Smart Contracts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Smart Contracts" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Smart Contracts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contracts/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#verifier-server-setup" class="md-nav__link">
+    Verifier Server Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifier-client-setup" class="md-nav__link">
+    Verifier Client Setup
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="run-a-verifier">Run a Verifier</h1>
+<p>Any application that wants to authenticate user based on their Polygon ID Identity off-chain must set up a Verifier. A Verifier is made of a Server and a Client. </p>
+<p>The Server generates <a href="../request-api-guide/">the ZK Request</a> according to the requirements of the platform. There are two types of authentication:</p>
+<ul>
+<li><a href="../request-api-guide/#basic-auth"><strong>Basic Auth</strong></a>: For example, a platform that issues claims must authenticate users by their identifiers before sharing claims with them. </li>
+<li><a href="../request-api-guide/#query-based-auth"><strong>Query-based Auth</strong></a>: For example, a platform that gives access only to those users that are over 18 years of age.</li>
+</ul>
+<p>The second role of the Server is to execute <a href="../verification-api-guide/">Verification</a> of the proof sent by the Identity Wallet.</p>
+<p>The Verifier Client is the point of interaction with the user. In its simplest form, a client needs to embed a QR code that displays the zk request generated by the Server. The verification request can also be delivered to users via Deep Linking. After scanning the zk request, the user will generate a proof based on that request locally on their wallet. This proof is therefore sent back to the Verifier Server that verifies whether the proof is valid.</p>
+<p>This tutorial is based on the verification of a Claim of Type <code>AgeCredential</code> with a single attribute <code>dateOfBirth</code> in format age with a <a href="https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld">Schema URL</a></p>
+<p>The prerequisite is that users have the Polygon ID Wallet app installed and fetched a claim of type <code>AgeCredential</code> attesting their date of birth. A claim with the same features can be issued using <a href="https://platform-test.polygonid.com">Polygon ID Platform UI</a> or <a href="../../../issuer/platform-api/introduction/">Polygon APIs</a>.</p>
+<p>Specifically, the verifier will set up the query: "Prove that you were born before the <code>2000/01/01</code>. To set up a different query check out the <a href="../zk-query-language/">ZK Query Language section</a></p>
+<hr />
+<p><strong>Note:</strong> The executable code for this section can be found <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration" target="_blank">here</a>.</p>
+<hr />
+<h2 id="verifier-server-setup">Verifier Server Setup</h2>
+<ol>
+<li>
+<p><strong>Add the authorization package to your project</strong> </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">GoLang</label><label for="__tabbed_1_2">Javascript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>go get github.com/iden3/go-iden3-auth
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>npm i @iden3/js-iden3-auth --save
+</code></pre></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Set up a server</strong> </p>
+<p>Initiate a server that contains two endpoints: </p>
+<ul>
+<li>GET /api/sign-in: Returns auth request.</li>
+<li>POST /api/callback: Receives the callback request from the identity wallet containing the proof and verifies it.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">GoLang</label><label for="__tabbed_2_2">Javascript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;encoding/json&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;io&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;net/http&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;strconv&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;time&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s">&quot;github.com/iden3/go-circuits&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">auth</span><span class="w"> </span><span class="s">&quot;github.com/iden3/go-iden3-auth&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;github.com/iden3/go-iden3-auth/loaders&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;github.com/iden3/go-iden3-auth/pubsignals&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;github.com/iden3/go-iden3-auth/state&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;github.com/iden3/iden3comm/protocol&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">http</span><span class="p">.</span><span class="nx">HandleFunc</span><span class="p">(</span><span class="s">&quot;/api/sign-in&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">GetAuthRequest</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">http</span><span class="p">.</span><span class="nx">HandleFunc</span><span class="p">(</span><span class="s">&quot;/api/callback&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Callback</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">http</span><span class="p">.</span><span class="nx">ListenAndServe</span><span class="p">(</span><span class="s">&quot;:8080&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// Create a map to store the auth requests and their session IDs</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">requestMap</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{})</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">auth</span><span class="p">,</span><span class="w"> </span><span class="nx">resolver</span><span class="p">,</span><span class="w"> </span><span class="nx">loaders</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@iden3/js-iden3-auth&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">getRawBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;raw-body&#39;</span><span class="p">)</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8080</span><span class="p">;</span><span class="w"></span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/api/sign-in&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;get Auth Request&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">GetAuthRequest</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/api/callback&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;callback&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Callback</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;server running on port 8080&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="c1">// Create a map to store the auth requests and their session IDs</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">requestMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Sign-in endpoint</strong> </p>
+<p>This endpoint generates the auth request for the user. Using this endpoint, the developers set up the requirements that users must meet in order to sign in. </p>
+<blockquote>
+<p>If created using Polygon ID Platform, the schema URL can be fetched from there and pasted inside your Query</p>
+</blockquote>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">GoLang</label><label for="__tabbed_3_2">Javascript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1">// GetAuthRequest returns auth request</span><span class="w"></span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">GetAuthRequest</span><span class="p">(</span><span class="nx">w</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Audience is verifier id</span><span class="w"></span>
+<span class="w">    </span><span class="nx">rURL</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;&lt;YOUR REMOTE NGROK HOST&gt;&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">sessionID</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="nx">CallbackURL</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;/api/callback&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Audience</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">uri</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%s%s?sessionId=%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">rURL</span><span class="p">,</span><span class="w"> </span><span class="nx">CallbackURL</span><span class="p">,</span><span class="w"> </span><span class="nx">strconv</span><span class="p">.</span><span class="nx">Itoa</span><span class="p">(</span><span class="nx">sessionID</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="nx">protocol</span><span class="p">.</span><span class="nx">AuthorizationRequestMessage</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Generate request for basic auth</span><span class="w"></span>
+<span class="w">    </span><span class="nx">request</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">auth</span><span class="p">.</span><span class="nx">CreateAuthorizationRequestWithMessage</span><span class="p">(</span><span class="s">&quot;test flow&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;message to sign&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Audience</span><span class="p">,</span><span class="w"> </span><span class="nx">uri</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">request</span><span class="p">.</span><span class="nx">ID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;7f38a193-0918-4a48-9fac-36adfdb8b542&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">request</span><span class="p">.</span><span class="nx">ThreadID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;7f38a193-0918-4a48-9fac-36adfdb8b542&quot;</span><span class="w"></span>
+
+<span class="hll"><span class="w">    </span><span class="c1">// Add query-based request</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">mtpProofRequest</span><span class="w"> </span><span class="nx">protocol</span><span class="p">.</span><span class="nx">ZeroKnowledgeProofRequest</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="nx">mtpProofRequest</span><span class="p">.</span><span class="nx">ID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="nx">mtpProofRequest</span><span class="p">.</span><span class="nx">CircuitID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">circuits</span><span class="p">.</span><span class="nx">AtomicQuerySigCircuitID</span><span class="p">)</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="nx">mtpProofRequest</span><span class="p">.</span><span class="nx">Rules</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}{</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="s">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="nx">pubsignals</span><span class="p">.</span><span class="nx">Query</span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">            </span><span class="nx">AllowedIssuers</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;*&quot;</span><span class="p">},</span><span class="w"></span>
+</span><span class="hll"><span class="w">            </span><span class="nx">Req</span><span class="p">:</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}{</span><span class="w"></span>
+</span><span class="hll"><span class="w">                </span><span class="s">&quot;dateOfBirth&quot;</span><span class="p">:</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}{</span><span class="w"></span>
+</span><span class="hll"><span class="w">                    </span><span class="s">&quot;$lt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20000101</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">                </span><span class="p">},</span><span class="w"></span>
+</span><span class="hll"><span class="w">            </span><span class="p">},</span><span class="w"></span>
+</span><span class="hll"><span class="w">            </span><span class="nx">Schema</span><span class="p">:</span><span class="w"> </span><span class="nx">protocol</span><span class="p">.</span><span class="nx">Schema</span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">                </span><span class="nx">URL</span><span class="p">:</span><span class="w">  </span><span class="s">&quot;{add your schema url here}&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">                </span><span class="nx">Type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;AgeCredential&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">            </span><span class="p">},</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="p">},</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</span><span class="hll">
+</span><span class="hll"><span class="w">    </span><span class="nx">request</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nx">Scope</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nx">Scope</span><span class="p">,</span><span class="w"> </span><span class="nx">mtpProofRequest</span><span class="p">)</span><span class="w"></span>
+</span>
+<span class="w">    </span><span class="c1">// Store zk request in map associated with session ID</span><span class="w"></span>
+<span class="w">    </span><span class="nx">requestMap</span><span class="p">[</span><span class="nx">strconv</span><span class="p">.</span><span class="nx">Itoa</span><span class="p">(</span><span class="nx">sessionID</span><span class="p">)]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">request</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">msgBytes</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="nx">w</span><span class="p">.</span><span class="nx">Header</span><span class="p">().</span><span class="nx">Set</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">w</span><span class="p">.</span><span class="nx">WriteHeader</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">w</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">msgBytes</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1">// GetAuthRequest returns auth request</span><span class="w"></span>
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">GetAuthRequest</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Audience is verifier id</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">hostUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;YOUR REMOTE NGROK HOST&gt;&#39;</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">sessionId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">callbackURL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/api/callback&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">audience</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">uri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">hostUrl</span><span class="si">}${</span><span class="nx">callbackURL</span><span class="si">}</span><span class="sb">?sessionId=</span><span class="si">${</span><span class="nx">sessionId</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Generate request for basic auth</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">auth</span><span class="p">.</span><span class="nx">createAuthorizationRequestWithMessage</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;test flow&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;message to sign&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">audience</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">uri</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">request</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;7f38a193-0918-4a48-9fac-36adfdb8b542&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">request</span><span class="p">.</span><span class="nx">thid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;7f38a193-0918-4a48-9fac-36adfdb8b542&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="hll"><span class="w">    </span><span class="c1">// Add query-based request</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">proofRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="nx">circuit_id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;credentialAtomicQuerySig&#39;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nx">query</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nx">allowedIssuers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">],</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nx">schema</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;AgeCredential&#39;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{add your schema url here}&#39;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="p">},</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nx">req</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">            </span><span class="nx">dateOfBirth</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">            </span><span class="nx">$lt</span><span class="o">:</span><span class="w"> </span><span class="mf">20000101</span><span class="p">,</span><span class="w"> </span><span class="c1">// dateOfBirth field less then 2000/01/01</span><span class="w"></span>
+</span><span class="hll"><span class="w">            </span><span class="p">},</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="p">},</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="p">},</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="p">},</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="p">};</span><span class="w"></span>
+</span><span class="hll">
+</span><span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">scope</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[...</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">proofRequest</span><span class="p">];</span><span class="w"></span>
+</span>
+<span class="w">    </span><span class="c1">// Store zk request in map associated with session ID</span><span class="w"></span>
+<span class="w">    </span><span class="nx">requestMap</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">sessionId</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="nx">request</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">200</span><span class="p">).</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="nx">request</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<p>Note: The highlighted lines are to be added only if the authentication needs to design a <a href="../zk-query-language/">query</a> for a specific proof as in the case of <a href="../request-api-guide/#query-based-auth">Query-based Auth</a>. When not included, it will perform a <a href="../request-api-guide/#basic-auth">Basic Auth</a>. </p>
+</blockquote>
+</li>
+<li>
+<p><strong>Callback Endpoint</strong></p>
+<p>The request generated in the previous endpoint already contains the CallBackURL so that the response generated by the wallet will be automatically forwarded to the server callback function. The callback post endpoint receives the proof generated by the identity wallet. The role of the callback endpoint is to execute the <a href="../verification-api-guide/">Verification</a> on the proof.</p>
+<blockquote>
+<p>To ADD: The identity state <code>contractAddress</code> on Polygon Mumbai is 0x46Fd04eEa588a3EA7e9F055dd691C688c4148ab3. The public verification keys for iden3 circuits generated after the trusted setup can be found <a href="https://github.com/iden3/tutorial-examples/tree/main/verifier-integration/keys" target="_blank">here</a> and must be added to your project inside a folder called <code>keys</code>. Also, don't forget to add the Mumbai RPC endpoint (such as Alchemy or Infura) inside the <code>ethURL</code> variable!</p>
+</blockquote>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">GoLang</label><label for="__tabbed_4_2">Javascript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1">// Callback verifies the proof after sign-in callbacks</span><span class="w"></span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">Callback</span><span class="p">(</span><span class="nx">w</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Get session ID from request</span><span class="w"></span>
+<span class="w">    </span><span class="nx">sessionID</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">Query</span><span class="p">().</span><span class="nx">Get</span><span class="p">(</span><span class="s">&quot;sessionId&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// extract proof from the request</span><span class="w"></span>
+<span class="w">    </span><span class="nx">tokenBytes</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">io</span><span class="p">.</span><span class="nx">ReadAll</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Add Polygon Mumbai RPC node endpoint - needed to read on-chain state</span><span class="w"></span>
+<span class="w">    </span><span class="nx">ethURL</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;&lt;RPCNODEURL&gt;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Add identity state contract address</span><span class="w"></span>
+<span class="w">    </span><span class="nx">contractAddress</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;0x46Fd04eEa588a3EA7e9F055dd691C688c4148ab3&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Locate the directory that contains circuit&#39;s verification keys</span><span class="w"></span>
+<span class="w">    </span><span class="nx">keyDIR</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;../keys&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// fetch authRequest from sessionID</span><span class="w"></span>
+<span class="w">    </span><span class="nx">authRequest</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">requestMap</span><span class="p">[</span><span class="nx">sessionID</span><span class="p">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// load the verifcation key</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">verificationKeyloader</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">loaders</span><span class="p">.</span><span class="nx">FSKeyLoader</span><span class="p">{</span><span class="nx">Dir</span><span class="p">:</span><span class="w"> </span><span class="nx">keyDIR</span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">resolver</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">state</span><span class="p">.</span><span class="nx">ETHResolver</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">RPCUrl</span><span class="p">:</span><span class="w">   </span><span class="nx">ethURL</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Contract</span><span class="p">:</span><span class="w"> </span><span class="nx">contractAddress</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// EXECUTE VERIFICATION</span><span class="w"></span>
+<span class="w">    </span><span class="nx">verifier</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">auth</span><span class="p">.</span><span class="nx">NewVerifier</span><span class="p">(</span><span class="nx">verificationKeyloader</span><span class="p">,</span><span class="w"> </span><span class="nx">loaders</span><span class="p">.</span><span class="nx">DefaultSchemaLoader</span><span class="p">{</span><span class="nx">IpfsURL</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ipfs.io&quot;</span><span class="p">},</span><span class="w"> </span><span class="nx">resolver</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">authResponse</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">verifier</span><span class="p">.</span><span class="nx">FullVerify</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">Context</span><span class="p">(),</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="nx">tokenBytes</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="nx">authRequest</span><span class="p">.(</span><span class="nx">protocol</span><span class="p">.</span><span class="nx">AuthorizationRequestMessage</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">http</span><span class="p">.</span><span class="nx">Error</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">.</span><span class="nx">Error</span><span class="p">(),</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusInternalServerError</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">userID</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">authResponse</span><span class="p">.</span><span class="nx">From</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">messageBytes</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&quot;User with ID &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">userID</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; Successfully authenticated&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">w</span><span class="p">.</span><span class="nx">WriteHeader</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">w</span><span class="p">.</span><span class="nx">Header</span><span class="p">().</span><span class="nx">Set</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">w</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">messageBytes</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1">// Callback verifies the proof after sign-in callbacks</span><span class="w"></span>
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">Callback</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Get session ID from request</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">sessionId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">sessionId</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// extract proof from the request</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">raw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">getRawBody</span><span class="p">(</span><span class="nx">req</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">tokenStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">raw</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">trim</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// fetch authRequest from sessionID</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">authRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">requestMap</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">sessionId</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Locate the directory that contains circuit&#39;s verification keys</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">verificationKeyloader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">loaders</span><span class="p">.</span><span class="nx">FSKeyLoader</span><span class="p">(</span><span class="s1">&#39;../keys&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">sLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">loaders</span><span class="p">.</span><span class="nx">UniversalSchemaLoader</span><span class="p">(</span><span class="s1">&#39;ipfs.io&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Add Polygon Mumbai RPC node endpoint - needed to read on-chain state and identity state contract address</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">ethStateResolver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">resolver</span><span class="p">.</span><span class="nx">EthStateResolver</span><span class="p">(</span><span class="s1">&#39;&lt;Polygon Mumbai RPC NODE&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0x46Fd04eEa588a3EA7e9F055dd691C688c4148ab3&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// EXECUTE VERIFICATION</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">verifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">auth</span><span class="p">.</span><span class="nx">Verifier</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="nx">verificationKeyloader</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">sLoader</span><span class="p">,</span><span class="w"> </span><span class="nx">ethStateResolver</span><span class="p">,</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+
+
+<span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">authResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">verifier</span><span class="p">.</span><span class="nx">fullVerify</span><span class="p">(</span><span class="nx">tokenStr</span><span class="p">,</span><span class="w"> </span><span class="nx">authRequest</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">500</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">200</span><span class="p">).</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;user with ID: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">authResponse</span><span class="p">.</span><span class="kr">from</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot; Succesfully authenticated&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</li>
+</ol>
+<blockquote>
+<p>If you need to deploy an App or to build a Docker container you'll need to bundle the <a href="https://github.com/iden3/go-rapidsnark/tree/main/witness">libwasmer.so</a> library together with the app. </p>
+</blockquote>
+<h2 id="verifier-client-setup">Verifier Client Setup</h2>
+<p>The Verifier Client must fetch the Auth Request generated by the Server ("/api/sign-in" endpoint) and deliver it to the user via a QR Code. </p>
+<p>To do so, add the <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> to your Verifier repository. This folder contains an HTML static webpage that renders a static webpage with the QR code containing the Auth Request.</p>
+<blockquote>
+<p>To display the QR code inside your frontend, you can use the <code>express.static</code> built-in middleware function together with this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> or this <a href="https://codesandbox.io/s/yp1pmpjo4z?file=/index.js">Code Sandbox</a>.</p>
+</blockquote>
+<p>The same request can also be delivered to users via Deep Linking. In order to do so is necessary to encode the <code>request</code> file to Base64 Format. The related deep link would be <code>iden3comm://?i_m={{base64EncodedRequestHere}}</code>.</p>
+<ol>
+<li>
+<p><strong>Add routing to your Express Server</strong></p>
+<p>To serve static files, we use the <a href="https://expressjs.com/en/starter/static-files.html" target="_blank">express.static built-in middleware function</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="nx">auth</span><span class="p">,</span><span class="w"> </span><span class="nx">resolver</span><span class="p">,</span><span class="w"> </span><span class="nx">loaders</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@iden3/js-iden3-auth&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">getRawBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;raw-body&#39;</span><span class="p">)</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8080</span><span class="p">;</span><span class="w"></span>
+
+<span class="hll"><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="k">static</span><span class="p">(</span><span class="s1">&#39;static&#39;</span><span class="p">));</span><span class="w"></span>
+</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/api/sign-in&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;get Auth Request&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">GetAuthRequest</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/api/callback&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;callback&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Callback</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;server running on port 8080&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="c1">// Create a map to store the auth requests and their session IDs</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">requestMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+</li>
+<li>
+<p><strong>Visit http://localhost:8080/</strong></p>
+<p>When visiting the URL, the users will need to scan the QR code with their id wallets.</p>
+<p><div align="center">
+<img src= "../../../imgs/verifier-static-1.png" align="" width="600"/>
+<img src= "../../../imgs/verifier-static-2.png" align="" width="600"/>
+<div align="center"><span style="font-size: 14px;">
+<br>
+<b> Sign Up with Polygon ID - Client Side </b></div>
+<br>
+</div></p>
+</li>
+<li>
+<p><strong>Implement Further Logic</strong></p>
+<p>This tutorial showcased a minimalistic application that leverages Polygon ID libraries for authentication purposes. Developers can leverage the broad set of existing claims held by users to set up any customized Query using our <a href="../zk-query-language/">zk Query Language</a> to unleash the full potential of the framework. </p>
+<p>For example, the concept can be extended to exchanges that require KYC claims, DAOs that require proof-of-personhood claims, or social media applications that intend to re-use users' aggregated reputation.</p>
+</li>
+</ol>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../jwz/" class="md-footer__link md-footer__link--prev" aria-label="Previous: JWZ" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              JWZ
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../on-chain-verification/overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Implement ERC20 zk airdrop in 20 minutes" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Implement ERC20 zk airdrop in 20 minutes
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

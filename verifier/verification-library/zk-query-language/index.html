@@ -1,0 +1,1516 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://polygon.technology/polygon-id/verifier/verification-library/zk-query-language/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>ZK Query Language - Polygon ID Documentation tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#7e56c2">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#query-language" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Polygon ID Documentation tutorials" class="md-header__button md-logo" aria-label="Polygon ID Documentation tutorials" data-md-component="logo">
+      
+  <img src="../../../logo-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Polygon ID Documentation tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ZK Query Language
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../issuer/issuer-overview/" class="md-tabs__link">
+        Issuer
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../verifier-overview/" class="md-tabs__link md-tabs__link--active">
+        Verifier
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../wallet/wallet-overview/" class="md-tabs__link">
+        Wallet
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../contracts/overview/" class="md-tabs__link">
+        Smart Contracts
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Polygon ID Documentation tutorials" class="md-nav__button md-logo" aria-label="Polygon ID Documentation tutorials" data-md-component="logo">
+      
+  <img src="../../../logo-white.svg" alt="logo">
+
+    </a>
+    Polygon ID Documentation tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Issuer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Issuer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Issuer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/issuer-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Platform API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Platform API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Platform API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/flow-tutorial/happy-path/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_3">
+          API Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API Reference" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          API Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/onboarding-orgs/apis/" class="md-nav__link">
+        Onboarding Organization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/issuer/apis/" class="md-nav__link">
+        Issuer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/schemas/apis/" class="md-nav__link">
+        Claim Schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/offers/apis/" class="md-nav__link">
+        Claim Offers
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Verifier
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Verifier" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Verifier
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Off-chain Verification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Off-chain Verification" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Off-chain Verification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verifier-library-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_2" type="checkbox" id="__nav_3_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_2">
+          APIs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="APIs" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          APIs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../request-api-guide/" class="md-nav__link">
+        ZK Request APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verification-api-guide/" class="md-nav__link">
+        Verification APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jwz/" class="md-nav__link">
+        JWZ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verifier-set-up/" class="md-nav__link">
+        Tutorial - Run a Verifier
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          On-chain Verification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="On-chain Verification" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          On-chain Verification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-chain-verification/overview/" class="md-nav__link">
+        Implement ERC20 zk airdrop in 20 minutes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ZK Query Language
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        ZK Query Language
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#equals-operator-1" class="md-nav__link">
+    Equals - Operator 1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#less-than-operator-2" class="md-nav__link">
+    Less-than - Operator 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#greater-than-operator-3" class="md-nav__link">
+    Greater-than - Operator 3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-operator-4" class="md-nav__link">
+    In - Operator 4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-in-operator-5" class="md-nav__link">
+    Not-in - Operator 5
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Wallet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wallet" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Wallet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wallet/wallet-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Smart Contracts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Smart Contracts" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Smart Contracts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contracts/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#equals-operator-1" class="md-nav__link">
+    Equals - Operator 1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#less-than-operator-2" class="md-nav__link">
+    Less-than - Operator 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#greater-than-operator-3" class="md-nav__link">
+    Greater-than - Operator 3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-operator-4" class="md-nav__link">
+    In - Operator 4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-in-operator-5" class="md-nav__link">
+    Not-in - Operator 5
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="query-language">Query Language</h1>
+<p>The <a href="https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerysig" target="_blank"><code>Atomic Query Signature Circuit</code></a> and <a href="https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerymtp" target="_blank"><code>Atomic Query MTP</code></a> circuits have been designed as generic circuits to do the zk verification based on users' claims. </p>
+<p>The Query Language sits on top of these circuits to provide a simple way for developers to design customised authentication requirements based on someone's claims. As long as the user holds a claim of a specific type, the Verifier can design a query related to the claim based on 5 operators, for example:  </p>
+<ul>
+<li>Must be an admin inside PolygonDAO to vote for a specific proposal - <code>equals</code> (operator 1).</li>
+<li>Must have been born before 2000-01-01 to access an adult content website - <code>less-than</code> (operator 2).</li>
+<li>Must have a monthly salary greater than $1000 to get a loan - <code>greater-than</code> (operator 3).</li>
+<li>Must be an admin or an hacker of PolygonDAO to enter a platform - <code>ìn</code> (operator 4).</li>
+<li>Must not be a resident of a country in the list of blacklisted countries to operate on an exchange - <code>not-in</code> (operator 5).</li>
+</ul>
+<p>The query is designed by the Verifier and presented to the user via a QR Code. Starting from the proof generated by the user as a response to the query, the Verifier is easily able to check if the query is satisfied or not. The Verifier <strong>doesn't get access to any user's data</strong>.</p>
+<p>The Query Language follows the same rules whether the verification is implemented on-chain or off-chain, while the syntax to define these is a bit different. For each of the query presented above, both the on-chain and off-chain way of designing will now be defined. </p>
+<blockquote>
+<p>The entire scripts to set a query are available here: <a href="../verifier-set-up/">off-chain verification</a>, <a href="../../on-chain-verification/overview/">on-chain verification</a></p>
+</blockquote>
+<h3 id="equals-operator-1">Equals - Operator 1</h3>
+<p><strong>Claim Schema</strong></p>
+<p>The ProofOfPersonhood claim encodes whether a user has been verified as a unique person or not. Here's the <a href="https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9fe70c03-ea4a-432c-a64d-ee8783549713.json-ld">Claim Schema</a> defined via a JSON-LD file.</p>
+<div align="center">
+<img src= "../../../imgs/query-proof-of-personhood.png" align="center" width="500"/>
+</div>
+<p><br></p>
+<p><strong>Query</strong></p>
+<p>When presented with this query, the user must prove that he/she is an Admin of Polygon DAO.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">off-chain</label><label for="__tabbed_1_2">on-chain</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">proofRequest</span><span class="o">:</span><span class="w"> </span><span class="kt">protocol.ZKPRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">1</span><span class="p">,</span><span class="w"> </span><span class="c1">// request id</span><span class="w"></span>
+<span class="w">  </span><span class="nx">circuit_id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;credentialAtomicQuerySig&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">query</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">allowedIssuers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">],</span><span class="w"> </span><span class="c1">// any issuer is valid</span><span class="w"></span>
+<span class="w">      </span><span class="nx">schema</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ProofOfPersonhood&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9fe70c03-ea4a-432c-a64d-ee8783549713.json-ld&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// extracted from PID platform</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nx">req</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">VerifiedPerson</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">$eq</span><span class="o">:</span><span class="w"> </span><span class="kt">1</span><span class="p">,</span><span class="w"> </span><span class="c1">// the value must be 1 = true</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">schemaHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bc17cbe68b8dd1868281dd1f23f823e1&quot;</span><span class="w"> </span><span class="c1">// extracted from PID Platform</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">schemaEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fromLittleEndian</span><span class="p">(</span><span class="nx">hexToBytes</span><span class="p">(</span><span class="nx">schemaHash</span><span class="p">))</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">circuitId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;credentialAtomicQuerySig&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="nx">schema</span><span class="o">:</span><span class="w"> </span><span class="kt">ethers.BigNumber.from</span><span class="p">(</span><span class="nx">schemaEnd</span><span class="p">),</span><span class="w"></span>
+<span class="nx">slotIndex</span><span class="o">:</span><span class="w"> </span><span class="kt">2</span><span class="p">,</span><span class="w"> </span><span class="c1">// slotIndex2 indicates the value stored as Attribute 1 inside the claim</span><span class="w"></span>
+<span class="nx">operator</span><span class="o">:</span><span class="w"> </span><span class="kt">1</span><span class="p">,</span><span class="w"></span>
+<span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">63</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)],</span><span class="w"> </span><span class="c1">// the value must be 1 = true</span><span class="w"></span>
+<span class="nx">circuitId</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">// Corresponding QR Code</span><span class="w"></span>
+<span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;c811849d-6bfb-4d85-936e-3d9759c7f105&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;typ&quot;</span><span class="p">:</span><span class="s2">&quot;application/iden3comm-plain-json&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;https://iden3-communication.io/proofs/1.0/contract-invoke-request&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;transaction_data&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;contract_address&quot;</span><span class="p">:</span><span class="s2">&quot;0x53baE2308366cd5799B2A95539Ec9E2F5d6f1e0c&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">//replace it with your contract address</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;method_id&quot;</span><span class="p">:</span><span class="s2">&quot;b68967e2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;chain_id&quot;</span><span class="p">:</span><span class="mi">80001</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;network&quot;</span><span class="p">:</span><span class="s2">&quot;polygon-mumbai&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="s2">&quot;airdrop participation&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;scope&quot;</span><span class="p">:[{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;circuit_id&quot;</span><span class="p">:</span><span class="s2">&quot;credentialAtomicQuerySig&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;rules&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;query&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;allowed_issuers&quot;</span><span class="p">:[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;req&quot;</span><span class="p">:{</span><span class="w"> </span>
+<span class="w">                        </span><span class="nt">&quot;VerifiedPerson&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;$eq&quot;</span><span class="p">:</span><span class="mi">1</span><span class="w"></span>
+<span class="w">                            </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="p">},</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;schema&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9fe70c03-ea4a-432c-a64d-ee8783549713.json-ld&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ProofOfPersonhood&quot;</span><span class="w"> </span>
+<span class="w">                            </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}]</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h3 id="less-than-operator-2">Less-than - Operator 2</h3>
+<p><strong>Claim Schema</strong></p>
+<p>The AgeCredential claim encodes the date of birth of the claim subject. Here's the <a href="https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld">Claim Schema</a> defined via a JSON-LD file.</p>
+<div align="center">
+<img src= "../../../imgs/query2.png" align="center" width="500"/>
+</div>
+<p><br></p>
+<p><strong>Query</strong></p>
+<p>When presented with this query, the user must prove that he/she has been born before 2001/01/01.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">off-chain</label><label for="__tabbed_2_2">on-chain</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">proofRequest</span><span class="o">:</span><span class="w"> </span><span class="kt">protocol.ZKPRequest</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">1</span><span class="p">,</span><span class="w"> </span><span class="c1">// request id</span><span class="w"></span>
+<span class="w">    </span><span class="nx">circuit_id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;credentialAtomicQuerySig&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">query</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">allowedIssuers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">],</span><span class="w"> </span><span class="c1">// any issuer is valid</span><span class="w"></span>
+<span class="w">      </span><span class="nx">schema</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;AgeCredential&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// extracted from PID platform</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nx">req</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">dateOfBirth</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">$lt</span><span class="o">:</span><span class="w"> </span><span class="kt">20010101</span><span class="p">,</span><span class="w"> </span><span class="c1">// the dateofbirth must be prior to 2001/01/01</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">schemaHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;f03ac39aa54a5a2770a30f17d8042507&quot;</span><span class="w"> </span><span class="c1">// extracted from PID Platform</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">schemaEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fromLittleEndian</span><span class="p">(</span><span class="nx">hexToBytes</span><span class="p">(</span><span class="nx">schemaHash</span><span class="p">))</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">circuitId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;credentialAtomicQuerySig&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="nx">schema</span><span class="o">:</span><span class="w"> </span><span class="kt">ethers.BigNumber.from</span><span class="p">(</span><span class="nx">schemaEnd</span><span class="p">),</span><span class="w"></span>
+<span class="nx">slotIndex</span><span class="o">:</span><span class="w"> </span><span class="kt">2</span><span class="p">,</span><span class="w"> </span><span class="c1">// slotIndex2 indicates the value stored as Attribute 1 inside the claim</span><span class="w"></span>
+<span class="nx">operator</span><span class="o">:</span><span class="w"> </span><span class="kt">2</span><span class="p">,</span><span class="w"></span>
+<span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">20010101</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">63</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)],</span><span class="w"></span>
+<span class="nx">circuitId</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">// Corresponding QR Code</span><span class="w"></span>
+<span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;c811849d-6bfb-4d85-936e-3d9759c7f105&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;typ&quot;</span><span class="p">:</span><span class="s2">&quot;application/iden3comm-plain-json&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;https://iden3-communication.io/proofs/1.0/contract-invoke-request&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;transaction_data&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;contract_address&quot;</span><span class="p">:</span><span class="s2">&quot;0xCe03F5d970b0BA0e5d2b1C82160dEa1b05191C73&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">//replace it with your contract address</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;method_id&quot;</span><span class="p">:</span><span class="s2">&quot;b68967e2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;chain_id&quot;</span><span class="p">:</span><span class="mi">80001</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;network&quot;</span><span class="p">:</span><span class="s2">&quot;polygon-mumbai&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="s2">&quot;airdrop participation&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;scope&quot;</span><span class="p">:[{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;circuit_id&quot;</span><span class="p">:</span><span class="s2">&quot;credentialAtomicQuerySig&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;rules&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;query&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;allowed_issuers&quot;</span><span class="p">:[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;req&quot;</span><span class="p">:{</span><span class="w"> </span>
+<span class="w">                        </span><span class="nt">&quot;dateOfBirth&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;$lt&quot;</span><span class="p">:</span><span class="mi">20010101</span><span class="w"></span>
+<span class="w">                            </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="p">},</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;schema&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;AgeCredential&quot;</span><span class="w"> </span>
+<span class="w">                            </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}]</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h3 id="greater-than-operator-3">Greater-than - Operator 3</h3>
+<p><strong>Claim Schema</strong></p>
+<p>The EmployeeData claim encodes two attributes:</p>
+<ul>
+<li>the starting date of employment</li>
+<li>the monthly salary of an employee </li>
+</ul>
+<p>Here's the <a href="https://s3.eu-west-1.amazonaws.com/polygonid-schemas/ccbec58c-7f05-4cd3-994c-614b1f066e1c.json-ld">Claim Schema</a> defined via a JSON-LD file.</p>
+<div align="center">
+<img src= "../../../imgs/query3.png" align="center" width="500"/>
+</div>
+<p><br></p>
+<p><strong>Query</strong></p>
+<p>When presented with this query, the user must prove that his/her monthly salary is greater than $1000.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">off-chain</label><label for="__tabbed_3_2">on-chain</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">proofRequest</span><span class="o">:</span><span class="w"> </span><span class="kt">protocol.ZKPRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">1</span><span class="p">,</span><span class="w"> </span><span class="c1">// request id</span><span class="w"></span>
+<span class="w">  </span><span class="nx">circuit_id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;credentialAtomicQuerySig&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">query</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">allowedIssuers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">],</span><span class="w"> </span><span class="c1">// any issuer is valid</span><span class="w"></span>
+<span class="w">      </span><span class="nx">schema</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;EmployeeData&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://s3.eu-west-1.amazonaws.com/polygonid-schemas/ccbec58c-7f05-4cd3-994c-614b1f066e1c.json-ld&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// extracted from PID platform</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nx">req</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">MonthlySalary</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">$gt</span><span class="o">:</span><span class="w"> </span><span class="kt">1000</span><span class="p">,</span><span class="w"> </span><span class="c1">// the role must be 3 = Admin</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">schemaHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;f4cfcaa00dbc2954ded157c8e25792ee&quot;</span><span class="w">  </span><span class="c1">// extracted from PID platform</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">schemaEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fromLittleEndian</span><span class="p">(</span><span class="nx">hexToBytes</span><span class="p">(</span><span class="nx">schemaHash</span><span class="p">))</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">circuitId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;credentialAtomicQuerySig&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="nx">schema</span><span class="o">:</span><span class="w"> </span><span class="kt">ethers.BigNumber.from</span><span class="p">(</span><span class="nx">schemaEnd</span><span class="p">),</span><span class="w"></span>
+<span class="nx">slotIndex</span><span class="o">:</span><span class="w"> </span><span class="kt">3</span><span class="p">,</span><span class="w">  </span><span class="c1">// slotIndex3 indicates the value stored as Attribute 2 inside the claim</span><span class="w"></span>
+<span class="nx">operator</span><span class="o">:</span><span class="w"> </span><span class="kt">3</span><span class="p">,</span><span class="w"></span>
+<span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1000</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">63</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)],</span><span class="w"></span>
+<span class="nx">circuitId</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">// Corresponding QR Code</span><span class="w"></span>
+<span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;c811849d-6bfb-4d85-936e-3d9759c7f105&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;typ&quot;</span><span class="p">:</span><span class="s2">&quot;application/iden3comm-plain-json&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;https://iden3-communication.io/proofs/1.0/contract-invoke-request&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;transaction_data&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;contract_address&quot;</span><span class="p">:</span><span class="s2">&quot;0x114cdF17C054782BbFB6F182B3502f1Ea2973dbd&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">//replace it with your contract address</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;method_id&quot;</span><span class="p">:</span><span class="s2">&quot;b68967e2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;chain_id&quot;</span><span class="p">:</span><span class="mi">80001</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;network&quot;</span><span class="p">:</span><span class="s2">&quot;polygon-mumbai&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="s2">&quot;airdrop participation&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;scope&quot;</span><span class="p">:[{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;circuit_id&quot;</span><span class="p">:</span><span class="s2">&quot;credentialAtomicQuerySig&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;rules&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;query&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;allowed_issuers&quot;</span><span class="p">:[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;req&quot;</span><span class="p">:{</span><span class="w"> </span>
+<span class="w">                        </span><span class="nt">&quot;MonthlySalary&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;$gt&quot;</span><span class="p">:</span><span class="mi">1000</span><span class="w"></span>
+<span class="w">                            </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="p">},</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;schema&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;https://s3.eu-west-1.amazonaws.com/polygonid-schemas/ccbec58c-7f05-4cd3-994c-614b1f066e1c.json-ld&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;EmployeeData&quot;</span><span class="w"> </span>
+<span class="w">                            </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}]</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<blockquote>
+<p>Note that the slotIndex queried inside the on-chain example is no longer 2. That's because this claim schema comprises of two attributes and the query refers to the second atttribute, therefore the value is put inside of slotIndex 3, according to claim structure.</p>
+</blockquote>
+<h3 id="in-operator-4">In - Operator 4</h3>
+<p><strong>Claim Schema</strong></p>
+<p>The PolygonDAOMember claim encodes the role of a member inside Polygon DAO. Each role is defined by a number. Here's the <a href="https://s3.eu-west-1.amazonaws.com/polygonid-schemas/edf4e0da-d023-42cd-b627-0717566382b1.json-ld">Claim Schema</a> defined via a JSON-LD file.</p>
+<div align="center">
+<img src= "../../../imgs/query1.png" align="center" width="500"/>
+</div>
+<p><br></p>
+<p><strong>Query</strong></p>
+<p>When presented with this query, the user must prove that he/she is either an Admin or an Hacker of Polygon DAO.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">off-chain</label><label for="__tabbed_4_2">on-chain</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">proofRequest</span><span class="o">:</span><span class="w"> </span><span class="kt">protocol.ZKPRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">1</span><span class="p">,</span><span class="w"> </span><span class="c1">// request id</span><span class="w"></span>
+<span class="w">  </span><span class="nx">circuit_id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;credentialAtomicQuerySig&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">query</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">allowedIssuers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">],</span><span class="w"> </span><span class="c1">// any issuer is valid</span><span class="w"></span>
+<span class="w">      </span><span class="nx">schema</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;PolygonDAOMember&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://s3.eu-west-1.amazonaws.com/polygonid-schemas/edf4e0da-d023-42cd-b627-0717566382b1.json-ld&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// extracted from PID platform</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nx">req</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Role</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">$in</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">],</span><span class="w"> </span><span class="c1">// the role must either 3 = Admin or 2 = Hacker</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">schemaHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;c6cd9c4ea01df58ef5386515a3e3acc0&quot;</span><span class="w"> </span><span class="c1">// extracted from PID Platform</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">schemaEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fromLittleEndian</span><span class="p">(</span><span class="nx">hexToBytes</span><span class="p">(</span><span class="nx">schemaHash</span><span class="p">))</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">circuitId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;credentialAtomicQuerySig&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="nx">schema</span><span class="o">:</span><span class="w"> </span><span class="kt">ethers.BigNumber.from</span><span class="p">(</span><span class="nx">schemaEnd</span><span class="p">),</span><span class="w"></span>
+<span class="nx">slotIndex</span><span class="o">:</span><span class="w"> </span><span class="kt">2</span><span class="p">,</span><span class="w"> </span><span class="c1">// slotIndex2 indicates the value stored as Attribute 1 inside the claim</span><span class="w"></span>
+<span class="nx">operator</span><span class="o">:</span><span class="w"> </span><span class="kt">4</span><span class="p">,</span><span class="w"></span>
+<span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">62</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)],</span><span class="w"></span>
+<span class="nx">circuitId</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">// Corresponding QR Code</span><span class="w"></span>
+<span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;c811849d-6bfb-4d85-936e-3d9759c7f105&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;typ&quot;</span><span class="p">:</span><span class="s2">&quot;application/iden3comm-plain-json&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;https://iden3-communication.io/proofs/1.0/contract-invoke-request&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;transaction_data&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;contract_address&quot;</span><span class="p">:</span><span class="s2">&quot;0xB2858515075057EF5a91e872ef4adB11ae639536&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">//replace it with your contract address</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;method_id&quot;</span><span class="p">:</span><span class="s2">&quot;b68967e2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;chain_id&quot;</span><span class="p">:</span><span class="mi">80001</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;network&quot;</span><span class="p">:</span><span class="s2">&quot;polygon-mumbai&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="s2">&quot;airdrop participation&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;scope&quot;</span><span class="p">:[{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;circuit_id&quot;</span><span class="p">:</span><span class="s2">&quot;credentialAtomicQuerySig&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;rules&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;query&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;allowed_issuers&quot;</span><span class="p">:[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;req&quot;</span><span class="p">:{</span><span class="w"> </span>
+<span class="w">                        </span><span class="nt">&quot;Role&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;$in&quot;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"></span>
+<span class="w">                            </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="p">},</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;schema&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;https://s3.eu-west-1.amazonaws.com/polygonid-schemas/edf4e0da-d023-42cd-b627-0717566382b1.json-ld&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;PolygonDAOMember&quot;</span><span class="w"> </span>
+<span class="w">                            </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}]</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h3 id="not-in-operator-5">Not-in - Operator 5</h3>
+<p><strong>Claim Schema</strong></p>
+<p>The Residence claim encodes the Country of Residence of the claim subject according to the <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">ISO Standard</a></p>
+<p>Here's the <a href="https://s3.eu-west-1.amazonaws.com/polygonid-schemas/a57232c5-b9b8-41b6-b6bc-7fbf10c5046c.json-ld">Claim Schema</a> defined via a JSON-LD file.</p>
+<div align="center">
+<img src= "../../../imgs/query5.png" align="center" width="500"/>
+</div>
+<p><br></p>
+<p><strong>Query</strong></p>
+<p>When presented with this query, the user must prove that he/she is not resident of the countries <code>840, 120, 340, 509</code> identified following the ISO Standard.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">off-chain</label><label for="__tabbed_5_2">on-chain</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">proofRequest</span><span class="o">:</span><span class="w"> </span><span class="kt">protocol.ZKPRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">1</span><span class="p">,</span><span class="w"> </span><span class="c1">// request id</span><span class="w"></span>
+<span class="w">  </span><span class="nx">circuit_id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;credentialAtomicQuerySig&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">query</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">allowedIssuers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">],</span><span class="w"> </span><span class="c1">// any issuer is valid</span><span class="w"></span>
+<span class="w">      </span><span class="nx">schema</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Residence&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://s3.eu-west-1.amazonaws.com/polygonid-schemas/a57232c5-b9b8-41b6-b6bc-7fbf10c5046c.json-ld&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// extracted from PID platform</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nx">req</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">CountryOfResidence</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">$nin</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">840</span><span class="p">,</span><span class="w"> </span><span class="mf">120</span><span class="p">,</span><span class="w"> </span><span class="mf">340</span><span class="p">,</span><span class="w"> </span><span class="mf">509</span><span class="p">],</span><span class="w"> </span><span class="c1">// these 4 code represent countries included in the blacklist of the verifier</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">schemaHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;27dca47f1a53c4738850d627e2c4bd48&quot;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">schemaEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fromLittleEndian</span><span class="p">(</span><span class="nx">hexToBytes</span><span class="p">(</span><span class="nx">schemaHash</span><span class="p">))</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">circuitId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;credentialAtomicQuerySig&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="nx">schema</span><span class="o">:</span><span class="w"> </span><span class="kt">ethers.BigNumber.from</span><span class="p">(</span><span class="nx">schemaEnd</span><span class="p">),</span><span class="w"></span>
+<span class="nx">slotIndex</span><span class="o">:</span><span class="w"> </span><span class="kt">2</span><span class="p">,</span><span class="w"> </span><span class="c1">// slotIndex2 indicates the value stored as Attribute 1 inside the claim</span><span class="w"></span>
+<span class="nx">operator</span><span class="o">:</span><span class="w"> </span><span class="kt">5</span><span class="p">,</span><span class="w"></span>
+<span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">840</span><span class="p">,</span><span class="w"> </span><span class="mf">120</span><span class="p">,</span><span class="w"> </span><span class="mf">340</span><span class="p">,</span><span class="w"> </span><span class="mf">509</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">60</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)],</span><span class="w"></span>
+<span class="nx">circuitId</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">// Corresponding QR Code</span><span class="w"></span>
+<span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;c811849d-6bfb-4d85-936e-3d9759c7f105&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;typ&quot;</span><span class="p">:</span><span class="s2">&quot;application/iden3comm-plain-json&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;https://iden3-communication.io/proofs/1.0/contract-invoke-request&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;transaction_data&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;contract_address&quot;</span><span class="p">:</span><span class="s2">&quot;0x58899aB4176e71d779c25C901eBc5F921211E0C2&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//replace it with your contract address</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;method_id&quot;</span><span class="p">:</span><span class="s2">&quot;b68967e2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;chain_id&quot;</span><span class="p">:</span><span class="mi">80001</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;network&quot;</span><span class="p">:</span><span class="s2">&quot;polygon-mumbai&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="s2">&quot;airdrop participation&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;scope&quot;</span><span class="p">:[{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;circuit_id&quot;</span><span class="p">:</span><span class="s2">&quot;credentialAtomicQuerySig&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;rules&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;query&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;allowed_issuers&quot;</span><span class="p">:[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;req&quot;</span><span class="p">:{</span><span class="w"> </span>
+<span class="w">                        </span><span class="nt">&quot;CountryOfResidence&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;$nin&quot;</span><span class="p">:[</span><span class="mi">840</span><span class="p">,</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w"> </span><span class="mi">340</span><span class="p">,</span><span class="w"> </span><span class="mi">509</span><span class="p">]</span><span class="w"></span>
+<span class="w">                            </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="p">},</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;schema&quot;</span><span class="p">:{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;https://s3.eu-west-1.amazonaws.com/polygonid-schemas/a57232c5-b9b8-41b6-b6bc-7fbf10c5046c.json-ld&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Residence&quot;</span><span class="w"> </span>
+<span class="w">                            </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}]</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<blockquote>
+<p>When designing a query, filling the <code>req</code> field is not mandatory. For instance, a platform can just ask the user to have an AgeCredential claim as a way to identify unique humans without any requirements related to the date of birth. In that case, the Veriifer should simply not fill the <code>req</code> field inside the query.</p>
+</blockquote>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../on-chain-verification/overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Implement ERC20 zk airdrop in 20 minutes" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Implement ERC20 zk airdrop in 20 minutes
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../wallet/wallet-overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Overview
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

@@ -1,0 +1,1172 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://polygon.technology/polygon-id/verifier/verification-library/jwz/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>JWZ - Polygon ID Documentation tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#7e56c2">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jwz-json-web-zero-knowledge" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Polygon ID Documentation tutorials" class="md-header__button md-logo" aria-label="Polygon ID Documentation tutorials" data-md-component="logo">
+      
+  <img src="../../../logo-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Polygon ID Documentation tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JWZ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../issuer/issuer-overview/" class="md-tabs__link">
+        Issuer
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../verifier-overview/" class="md-tabs__link md-tabs__link--active">
+        Verifier
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../wallet/wallet-overview/" class="md-tabs__link">
+        Wallet
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../contracts/overview/" class="md-tabs__link">
+        Smart Contracts
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Polygon ID Documentation tutorials" class="md-nav__button md-logo" aria-label="Polygon ID Documentation tutorials" data-md-component="logo">
+      
+  <img src="../../../logo-white.svg" alt="logo">
+
+    </a>
+    Polygon ID Documentation tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Issuer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Issuer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Issuer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/issuer-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Platform API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Platform API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Platform API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/flow-tutorial/happy-path/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_3">
+          API Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API Reference" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          API Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/onboarding-orgs/apis/" class="md-nav__link">
+        Onboarding Organization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/issuer/apis/" class="md-nav__link">
+        Issuer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/schemas/apis/" class="md-nav__link">
+        Claim Schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../issuer/platform-api/offers/apis/" class="md-nav__link">
+        Claim Offers
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Verifier
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Verifier" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Verifier
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Off-chain Verification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Off-chain Verification" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Off-chain Verification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verifier-library-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_2" type="checkbox" id="__nav_3_2_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_2">
+          APIs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="APIs" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          APIs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../request-api-guide/" class="md-nav__link">
+        ZK Request APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verification-api-guide/" class="md-nav__link">
+        Verification APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          JWZ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        JWZ
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#header" class="md-nav__link">
+    Header
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#payload-message" class="md-nav__link">
+    Payload Message
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signature" class="md-nav__link">
+    Signature
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difference-between-jwt-and-jwz" class="md-nav__link">
+    Difference between JWT and JWZ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libraries" class="md-nav__link">
+    Libraries
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verifier-set-up/" class="md-nav__link">
+        Tutorial - Run a Verifier
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          On-chain Verification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="On-chain Verification" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          On-chain Verification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-chain-verification/overview/" class="md-nav__link">
+        Implement ERC20 zk airdrop in 20 minutes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zk-query-language/" class="md-nav__link">
+        ZK Query Language
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Wallet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wallet" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Wallet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wallet/wallet-overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Smart Contracts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Smart Contracts" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Smart Contracts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contracts/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#header" class="md-nav__link">
+    Header
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#payload-message" class="md-nav__link">
+    Payload Message
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signature" class="md-nav__link">
+    Signature
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difference-between-jwt-and-jwz" class="md-nav__link">
+    Difference between JWT and JWZ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libraries" class="md-nav__link">
+    Libraries
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="jwz-json-web-zero-knowledge">JWZ - JSON Web Zero Knowledge</h1>
+<p>JSON Web Zero-knowledge (JWZ) is an open standard for representing messages proven with zero-knowledge technology.</p>
+<p>Based on the existing secure messaging standards, namely, JWM (JSON Web Message) and JWT (JSON Web Token), JWZ is a standard format for representing and sending secure messages backed by zero-knowledge technology. It is a novel way of providing interaction between two parties that intend to exchange messages while keeping the sender's public keys hidden. The proof that the wallet generates is packed in the JWZ format and sent to the Verifier using <code>callbackUrl</code>.</p>
+<p>In Iden3 Protocol, JWZ is the core primitive to manage communications between different parties. A JWZ expands the signature schema of the popular <a href="https://jwt.io/introduction" target="_blank">JWT standard</a>.</p>
+<p>Any message can be packed inside a JWZ while the proof guarantees data integrity and provenance of the message, providing helpful metadata among the message.</p>
+<p><strong>JWZ</strong></p>
+<p>This is an example of a JWZ generated by an identity wallet as a response to the auth request generated as a response to a zk request posed by a Verifier, similar to the one performed inside the <a href="../verifier-set-up/">Verifier Setup Tutorial</a>.</p>
+<p>JWZ consists of three parts separated by a dot (.):</p>
+<ul>
+<li>Header</li>
+<li>Payload message</li>
+<li>Proof</li>
+</ul>
+<p><code>eyJhbGciOiJncm90aDE2IiwiY2lyY3VpdElkIjoiYXV0aCIsImNyaXQiOlsiY2lyY3VpdElkIl0sInR5cCI6ImFwcGxpY2F0aW9uL2lkZW4zLXprcC1qc29uIn0.eyJpZCI6IjZhOWU4MDlhLTAwNzktNDI2OS1hMzA5LTdlYmIyZDE2YTIzYyIsInR5cCI6ImFwcGxpY2F0aW9uL2lkZW4zY29tbS1wbGFpbi1qc29uIiwidHlwZSI6Imh0dHBzOi8vaWRlbjMtY29tbXVuaWNhdGlvbi5pby9hdXRob3JpemF0aW9uLzEuMC9yZXNwb25zZSIsInRoaWQiOiI3ZjM4YTE5My0wOTE4LTRhNDgtOWZhYy0zNmFkZmRiOGI1NDIiLCJmcm9tIjoiMTFCckE5cmhiWEJwWEMyS0tUOTlzNTEyc1htYnlWa3V1MjFuWWU0NHFiIiwidG8iOiIxMTI1R0pxZ3c2WUVzS0Z3ajYzR1k4N01NeFBMOWt3REt4UFVpd01MTloiLCJib2R5Ijp7Im1lc3NhZ2UiOiJtZXNzYWdlIHRvIHNpZ24iLCJzY29wZSI6W3siaWQiOjEsImNpcmN1aXRfaWQiOiJjcmVkZW50aWFsQXRvbWljUXVlcnlTaWciLCJwcm9vZiI6eyJwaV9hIjpbIjIzNDkzNTkyMTg4NjIyMTAxOTk4NTgzMTc3MTE2OTMwMDAyNTg2MzIwMjQxMzk4MjE2NTQ0MTk1Nzg4MTg3MTc0MDk5MTExMDMzNDUiLCI5NzgzNjU5NTQyNzgxOTM1OTQ3NTk0MjcxMTk1ODA5OTk3MzcyOTM4NDk5NzQ1MDM3NzI1MjMxNDgwNjE3NzgyODk1MTA4Nzk4NjM4IiwiMSJdLCJwaV9iIjpbWyIyNzIyNTc0ODgxMjgxNTQ1MDgyOTAzNjAyMjIyMDYwOTQ3MjA3OTA0NzcwMjYyMzMwOTM2NTQ3MTQ5NjAzNzAxNzE5MTE1Njc2OTY2IiwiOTEyNTA4MDA3ODY0MzM4OTU0ODIzNzExMjk1NDU2MzAyOTE4NTU1NjI4NjMwMTg5MDM5ODc2MzUxNDUyMzExOTQ4MDAzNjU3MDMxMSJdLFsiMTM2NDAzMDk4MDA3ODQwNTUyMDI2OTYwOTk3ODI5MTk3OTg1NjE5ODU0OTA3MDI2NjM1MzgxNjgyMTkxMTUxNzU4NDk5OTk5MTkzNzMiLCIxMDM2MzMyMDQ2MjI5NjAwMTc5ODU2MDUwNTc4MTM5NzM3MzAzMjk0MzI5NzU3MTU4OTY3NzA3NjQyMDU1MDg3Nzg2MzYzNDQ3NzY1MiJdLFsiMSIsIjAiXV0sInBpX2MiOlsiMTk0NjgyODk1MDc0Mjg1MTUyOTcwNTU0MjM1MjEzNjkwNTg1MTQ4NTgyMjgxMTE0MDA2MTkzOTcwODkxODQ3OTg3OTU1MDIwMzA0MzQiLCI2MTg0NTc0NjY3ODYyNjg5OTQ2Mjk0MzgwMDAxMDk5NjgzOTI3NTYwMzk0ODE4MjM2Mzc5MzEzNTgxMTI2NjIwMjYyMDUxMzI1OTkwIiwiMSJdLCJjdXJ2ZSI6bnVsbCwicHJvdG9jb2wiOiJncm90aDE2In0sInB1Yl9zaWduYWxzIjpbIjE2NTE2MTkxMjIyMjc2NDg0NzQzMDE5NDIyMDM5ODIxMTA4ODcwNjI3MjcxNTgwNzIwMzI5NTk5MzQwNzg5MjQxMjcwMDE1Mjg2Mjg4IiwiMzc4MTg4ODY2MjM0Njc5Nzk0MTcxNjY1Njk4NTU0NjQ4OTEyMjYyNTUwMTQzODY2NTUyMzY5MTQ3NDY4MTY2OTAyMzc4NzkwOTEyIiwiMTI5NzU3NjYzNTEzNTMyMjM1ODA4MDk5MDYxNzAwMDY0NjYwNzAzOTQ3NDE3ODM5MjUzOTI2OTE1MTU5NDc2NTI2NDc1MTY3NDYxODIiLCIxIiwiNTMxMDMwMjA4MzM5MTc0NDM5OTUxMDAxNTExODU5MjI4OTU5MTYyMTkzNDcwNzY5NTM2MDMwMzIxODI4MTIyMjI2MDczOTI3NjgiLCIxNTU4NjUxOTcwMDcwNTkxMjc3OTE3MzU3MzgzMDEyMTYyMzU2NTg4OTcyODE3MjAzOTE5NTk2ODQyNTU3MTA5MTAxMzc0NTY5ODg2NiIsIjE2NTUzMDQwNDkiLCIyMTA0NTk1Nzk4NTkwNTgxMzU0MDQ3NzAwNDM3ODgwMjgyOTIzOTgiLCIyIiwiMiIsIjIwMDAwMTAxIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIl19XX19.eyJwcm9vZiI6eyJwaV9hIjpbIjIxNzkwODAzMjI2NDE1NDQzNTg3NTAzMjk4NzY5MjQwODA5MDYzMTE5MTgzMjY4MzMzODU1NzM4MTI4NDU4MDA2NjI1MTM4NzM4MTIwIiwiMTY2OTg2MjAyMzY2MjE3Mjk1MjM4NjUzNzc5MTkzODMyNjM2MDc3MzQ4OTU0NjQ5MDEwNDY2ODI3Mjc0NDE4NDczODcwNTM0NTIyMjMiLCIxIl0sInBpX2IiOltbIjQ1MzU3NDg4NDc0NTE2MjA3MjcwMzA4NTA5NjgzNDgyODM1MzMyMjE4OTIxNTY0Nzk3ODQ0Nzg1NTA1NzYyOTE5Njc4NzAxNDYzNjkiLCI5NzM4MjczODE4NDA0ODMyNzYzNzk3NzU1NzI5MzY0NDY5MzU5MDMyNTg5Mzc0MjU3MDc3OTg3MzE0ODQwMDc0MjkxNzAwMDQ2NjYzIl0sWyI4MDQyMTUzMDUwOTA0ODE0NzUzNTI0Mjk5OTM2OTczNjg4MDMzNDg0NzU5MDk5MDAwNjE2OTUyNTk3MjQwOTI0MDIwMTYxNTIyOTAzIiwiMTIxODAwMzE1NDk1NzkwMzU5OTI1MTU5NDI5MzQ1MDk3MjgwNzQ0NDYwMzU5MDU2MDkxNzA2MDAxMTE3NDM4MDgxMDM2MzE1MzAxNiJdLFsiMSIsIjAiXV0sInBpX2MiOlsiMTA3OTQ0MzMyNTU0NTc0MDU0NTcxNTA5NjUxMDgyNDI0MTg2NzkyNzEyNjQyOTExNDIwNzkzNTgzODc3OTUwNTA4NzE4MTg0MDU4NjIiLCIyMDk0MjA1NTIxMTA2NDMyNTg2NjU4NjUxMDAwNzU2NjgwMjcyNjg3NjgxNjIzNzEyMTgyODM2MDQ4Mzk0ODc0MTIyMzk5MTkzNTE5OCIsIjEiXSwicHJvdG9jb2wiOiJncm90aDE2In0sInB1Yl9zaWduYWxzIjpbIjE4MDE2NDYyOTI3NzgzNjAwNDgyODIyNjgxNTQ4OTg1MDYxMDk5MzY5MTQ0MjczMzE1OTA1MDU1Mzc4NDUxMjg5NzM1MjY0MTI3NTMyIiwiMTI5NzU3NjYzNTEzNTMyMjM1ODA4MDk5MDYxNzAwMDY0NjYwNzAzOTQ3NDE3ODM5MjUzOTI2OTE1MTU5NDc2NTI2NDc1MTY3NDYxODIiLCIzNzgxODg4NjYyMzQ2Nzk3OTQxNzE2NjU2OTg1NTQ2NDg5MTIyNjI1NTAxNDM4NjY1NTIzNjkxNDc0NjgxNjY5MDIzNzg3OTA5MTIiXX0</code></p>
+<p>Each part of the token can be parsed into a human-readable string by <a href="https://www.base64decode.org/" target="_blank">base 64 decoding</a>.</p>
+<h3 id="header">Header</h3>
+<p>Defines the feature of the token.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;alg&quot;</span><span class="p">:</span><span class="s2">&quot;groth16&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;circuitId&quot;</span><span class="p">:</span><span class="s2">&quot;auth&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;crit&quot;</span><span class="p">:[</span><span class="s2">&quot;circuitId&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;typ&quot;</span><span class="p">:</span><span class="s2">&quot;application/iden3-zkp-json&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p><strong>alg</strong> - is a zero-knowledge algorithm that is used for proof generation.</p>
+<p><strong>circuitId</strong> - is a circuit that is used for proof generation. For authentication - auth circuit must be used.</p>
+<p><strong>crit</strong> - describes the list of header keys that the verifier must support. </p>
+<p><strong>typ</strong> - is the media type of the message. In our case, it is the type of the protocol of the packed message <em>application/iden3-zkp-json</em>.</p>
+<h3 id="payload-message">Payload Message</h3>
+<p>Contains the message that needs to be shared with another party.</p>
+<p>In this example, the message is the proof related to the query analysed previously. However, any type of message can be included in the payload. </p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;6a9e809a-0079-4269-a309-7ebb2d16a23c&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;typ&quot;</span><span class="p">:</span><span class="s2">&quot;application/iden3comm-plain-json&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;https://iden3-communication.io/authorization/1.0/response&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;thid&quot;</span><span class="p">:</span><span class="s2">&quot;7f38a193-0918-4a48-9fac-36adfdb8b542&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="s2">&quot;11BrA9rhbXBpXC2KKT99s512sXmbyVkuu21nYe44qb&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;message to sign&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;scope&quot;</span><span class="p">:[</span><span class="w"></span>
+<span class="w">                    </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;circuit_id&quot;</span><span class="p">:</span><span class="s2">&quot;credentialAtomicQuerySig&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;proof&quot;</span><span class="p">:</span><span class="w"></span>
+<span class="w">                        </span><span class="p">{</span><span class="nt">&quot;pi_a&quot;</span><span class="p">:[</span><span class="s2">&quot;2349359218862210199858317711693000258632024139821654419578818717409911103345&quot;</span><span class="p">,</span><span class="s2">&quot;9783659542781935947594271195809997372938499745037725231480617782895108798638&quot;</span><span class="p">,</span><span class="s2">&quot;1&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">                        </span><span class="nt">&quot;pi_b&quot;</span><span class="p">:[[</span><span class="s2">&quot;2722574881281545082903602222060947207904770262330936547149603701719115676966&quot;</span><span class="p">,</span><span class="s2">&quot;9125080078643389548237112954563029185556286301890398763514523119480036570311&quot;</span><span class="p">],[</span><span class="s2">&quot;13640309800784055202696099782919798561985490702663538168219115175849999919373&quot;</span><span class="p">,</span><span class="s2">&quot;10363320462296001798560505781397373032943297571589677076420550877863634477652&quot;</span><span class="p">],[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">]],</span><span class="w"></span>
+<span class="w">                        </span><span class="nt">&quot;pi_c&quot;</span><span class="p">:[</span><span class="s2">&quot;19468289507428515297055423521369058514858228111400619397089184798795502030434&quot;</span><span class="p">,</span><span class="s2">&quot;6184574667862689946294380001099683927560394818236379313581126620262051325990&quot;</span><span class="p">,</span><span class="s2">&quot;1&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">                        </span><span class="nt">&quot;curve&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">                        </span><span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="s2">&quot;groth16&quot;</span><span class="p">},</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;pub_signals&quot;</span><span class="p">:[</span><span class="s2">&quot;16516191222276484743019422039821108870627271580720329599340789241270015286288&quot;</span><span class="p">,</span><span class="s2">&quot;378188866234679794171665698554648912262550143866552369147468166902378790912&quot;</span><span class="p">,</span><span class="s2">&quot;12975766351353223580809906170006466070394741783925392691515947652647516746182&quot;</span><span class="p">,</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;53103020833917443995100151185922895916219347076953603032182812222607392768&quot;</span><span class="p">,</span><span class="s2">&quot;15586519700705912779173573830121623565889728172039195968425571091013745698866&quot;</span><span class="p">,</span><span class="s2">&quot;1655304049&quot;</span><span class="p">,</span><span class="s2">&quot;210459579859058135404770043788028292398&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;20000101&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">]</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">]</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="signature">Signature</h3>
+<p>It represents a ZK authentication proof based on the <code>auth circuit</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proof&quot;</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;pi_a&quot;</span><span class="p">:[</span><span class="s2">&quot;21790803226415443587503298769240809063119183268333855738128458006625138738120&quot;</span><span class="p">,</span><span class="s2">&quot;16698620236621729523865377919383263607734895464901046682727441847387053452223&quot;</span><span class="p">,</span><span class="s2">&quot;1&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;pi_b&quot;</span><span class="p">:[[</span><span class="s2">&quot;4535748847451620727030850968348283533221892156479784478550576291967870146369&quot;</span><span class="p">,</span><span class="s2">&quot;9738273818404832763797755729364469359032589374257077987314840074291700046663&quot;</span><span class="p">],[</span><span class="s2">&quot;8042153050904814753524299936973688033484759099000616952597240924020161522903&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;1218003154957903599251594293450972807444603590560917060011174380810363153016&quot;</span><span class="p">],[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">]],</span><span class="nt">&quot;pi_c&quot;</span><span class="p">:[</span><span class="s2">&quot;10794433255457405457150965108242418679271264291142079358387795050871818405862&quot;</span><span class="p">,</span><span class="s2">&quot;20942055211064325866586510007566802726876816237121828360483948741223991935198&quot;</span><span class="p">,</span><span class="s2">&quot;1&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="s2">&quot;groth16&quot;</span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;pub_signals&quot;</span><span class="p">:[</span><span class="s2">&quot;18016462927783600482822681548985061099369144273315905055378451289735264127532&quot;</span><span class="p">,</span><span class="s2">&quot;12975766351353223580809906170006466070394741783925392691515947652647516746182&quot;</span><span class="p">,</span><span class="s2">&quot;378188866234679794171665698554648912262550143866552369147468166902378790912&quot;</span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="difference-between-jwt-and-jwz">Difference between JWT and JWZ</h3>
+<p>JWT relies on digital signatures for secure transmission of information. In particular, <em>"JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA"</em>. (<a href="https://jwt.io/introduction" target="_blank">JWT.io</a>). In JWZ, this signature is performed with zero-knowledge. In particular:</p>
+<ul>
+<li>The <code>header</code> and the <code>payload</code> get hashed together using the Poseidon hash.</li>
+<li>The JWZ initiator signs the hashed content using his/her private key.</li>
+<li>The JWZ creator generates a proof using the authorization circuit to demonstrate that his/her identity signed the content.</li>
+<li>The proof gets included in the <code>zero- knowledge proof</code> of the JWZ together with the public inputs used inside the circuit to generate the proof.</li>
+<li>Any third party that accesses the JWZ can verify the proof to check if the information contained in the payload actually originated from that identity and hasn't been tampered with.</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>JWZ represents the main instrument to communicate securely between parties off-chain. This data primitive integrates seamlessly within web2 architectures for authentication purposes. </p>
+<blockquote>
+<p>Here, we used the JWZ to manage the communication between the user and the Verifier. A JWZ can also be used in the communication between the user and the Issuer so that the user can prove his/her identity in order to fetch the claims associated with his/her identity.</p>
+</blockquote>
+<h3 id="libraries">Libraries</h3>
+<ul>
+<li><a href="https://github.com/iden3/js-jwz" target="_blank">js-jwz</a> for JavaScript implementation</li>
+<li><a href="https://github.com/iden3/go-jwz" target="_blank">go-jwz</a> for Go implementation</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../verification-api-guide/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Verification APIs" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Verification APIs
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../verifier-set-up/" class="md-footer__link md-footer__link--next" aria-label="Next: Tutorial - Run a Verifier" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Tutorial - Run a Verifier
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
