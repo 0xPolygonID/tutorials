@@ -1,3 +1,5 @@
+// [ ] TODO: need to update how the JWZ token look like
+
 # JWZ - JSON Web Zero Knowledge
 
 JSON Web Zero-knowledge (JWZ) is an open standard for representing messages proven with zero-knowledge technology.

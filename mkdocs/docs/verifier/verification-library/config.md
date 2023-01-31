@@ -1,3 +1,5 @@
+// [ ] TODO: need to update the libraries here
+
 # Configuration
 
 The set of APIs included in the verification library can be split into two steps:
