@@ -4,9 +4,9 @@
 
 The first step of interacting with a wallet involves presenting a zk request. In this tutorial, we will explain the difference between two types of zk requests: **Basic Auth Request** and **Query-based Request**.
 
-A Basic Auth Request allow to design a minimal identifier request to the user. As a response to that, the user will share a proof that he/she is the owner of that identifier.
+A Basic Auth Request allows to design a minimal identifier request to the user. As a response to that, the user will share a proof that he/she is the owner of that identifier.
 
-A Query-based Request allow to design a more complex query request to the user. As a response to that, the user will share a proof that he/she owns a claim that satisfies the properties defined inside the query.
+A Query-based Request allows to design a more complex query request to the user. As a response to that, the user will share a proof that he/she owns a claim that satisfies the properties defined inside the query.
 
 ## Basic Auth Request
 

@@ -1,3 +1,5 @@
+// [ ] TODO: update example of the query language when new JS library is available
+
 # Query Language
 
 The <a href="https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerysig" target="_blank">`Atomic Query Signature Circuit`</a> and <a href="https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerymtp" target="_blank">`Atomic Query MTP`</a> circuits have been designed as generic circuits to do the zk verification based on users' claims. 
