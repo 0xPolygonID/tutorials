@@ -1,3 +1,5 @@
+// [ ] TODO: add diagram flows
+
 # Verifier Overview
 
 A Verifier is any web2 or web3 platform that wants to authenticate users based on their claims. Verifiers can set up queries based on **users’ existing claims** collected from a broad set of [Issuers](../issuer/issuer-overview.md). A [Query](./verification-library/zk-query-language.md) encapsulates the criteria that a user must match to authenticate, such as “must be a member of XYZ DAO” or “must be over 18 years old”. Polygon ID provides a seamless, customized and privacy-based authentication experience to users.
