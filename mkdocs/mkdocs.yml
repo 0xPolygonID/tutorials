@@ -35,7 +35,7 @@ nav:
         - Issuer: "issuer/platform-api/issuer/apis.md"
         - Claim Schemas: "issuer/platform-api/schemas/apis.md"
         - Claim Offers: "issuer/platform-api/offers/apis.md" 
-  - Verifier:
+  - Verifier SDK:
     - Overview: "verifier/verifier-overview.md"
     - Off-chain Verification:
       - Introduction: "verifier/verification-library/verifier-library-intro.md"

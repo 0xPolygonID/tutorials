@@ -1,5 +1,6 @@
 // [ ] TODO: add reference to the Issuer Node as way to create other credentials
 // [ ] TODO: fix lining highlighting
+// [ ] TODO: Update all the code snippets to the latest version of the library
 // [ ] TODO: update reference to the verification keys in step 4
 
 
