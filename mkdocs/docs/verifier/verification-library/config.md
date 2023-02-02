@@ -1,10 +1,10 @@
-// [ ] TODO: need to update the libraries here
+// TODO: Update references to the library
 
 # Configuration
 
 The set of APIs included in the verification library can be split into two steps:
 
-- [ZK Request APIs](./request-api-guide.md) allow to design the proof request to be presented to the user in order to authenticate.
+- [Request APIs](./request-api-guide.md) allow to design the request to be presented to the user in order to authenticate.
 - [Verification APIs](./verification-api-guide.md) allow verifying the proof sent by the user. The proof is generated as response to the request. 
 
 > Check the [workflow](./verifier-library-intro.md) to disambiguate between these two processes

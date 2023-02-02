@@ -2,15 +2,15 @@
 
 # Request API
 
-The first step of interacting with a wallet involves presenting a zk request. In this tutorial, we will explain the difference between two types of zk requests: **Basic Auth Request** and **Query-based Request**.
+The first step of interacting with a wallet involves presenting a request. In this tutorial, we will explain the difference between two types of requests: **Basic Auth Request** and **Query-based Request**.
 
-A Basic Auth Request allows to design a minimal identifier request to the user. As a response to that, the user will share a proof that he/she is the owner of that identifier.
+A Basic Auth Request allows to design a minimal DID request to the user. As a response to that, the user will share a proof that he/she is the owner of that DID.
 
-A Query-based Request allows to design a more complex query request to the user. As a response to that, the user will share a proof that he/she owns a claim that satisfies the properties defined inside the query.
+A Query-based Request allows to design a more complex query request to the user. As a response to that, the user will share a proof that he/she owns a credential that satisfies the properties defined inside the query.
 
 ## Basic Auth Request
 
-The Basic Auth Request allows verifiers to interact with a wallet and authenticate the user by its identifier.  
+The Basic Auth Request allows verifiers to interact with a wallet and authenticate the user by its DID.  
 Basic Auth Request can be implemented by any platform that is interested in providing a seamless web2-like login experience to its users without setting any specific requirements.
 
 #### CreateAuthorizationRequest
@@ -29,7 +29,7 @@ Basic Auth Request can be implemented by any platform that is interested in prov
     ```
 
 
-Generate an Auth Request to the user that includes a *reason* for authenticating. The *audience* represents the identifier of the requester, while the *url* is the callback url where the user must send the response for verification
+Generate an Auth Request to the user that includes a *reason* for authenticating. The *audience* represents the DID of the requester, while the *url* is the callback url where the user must send the response for verification
 
 ---
 
@@ -52,7 +52,7 @@ The same functionality of CreateAuthorizationRequest but it also includes a *mes
 
 ## Query-based Request 
 
-The Query-based Auth Request allows verifiers to interact with a wallet by setting up specific requirements for authentication. These requirements are the conditions that the user has to satisfy based on the claims held in his/her wallet.
+The Query-based Auth Request allows verifiers to interact with a wallet by setting up specific requirements for authentication. These requirements are the conditions that the user has to satisfy based on the credentials held in his/her wallet.
 
 > The Query has to be attached to the Basic Auth Request output of the previous API. An example of its usage can be found <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/index.js#L50" target="_blank">here</a>
 
@@ -98,14 +98,15 @@ The Query-based Auth Request allows verifiers to interact with a wallet by setti
     };
     request.body.scope = [...scope, proofRequest];
     ```
-Generate a request to proof that satisfies certain requirements. 
+
+Generate a request to prove that the user owns a credential that satisfies certain requirements. 
 
 `ID` represents the request id: ideally, in production, it should be a unique value for each request. `CircuitID` represents the identifier of the circuit that the user must use to generate the requested proof: [here](https://github.com/iden3/go-circuits/blob/39e45740df5eba9c70acfb1d89cc72f3285aadf8/circuits.go#L13) you can find a reference to the available circuits. 
 
-In this case, the user has to provide a proof that he/she owns a claim issued by the `allowedIssuer` of schema `type` **KYCAgeCredential** described in the url provided in `context`. This claim contains details in its `credentialSubject` of the birthday of the receiver. In this scenario, the user has to prove that the value contained in the attribute `birthday` is less than `lt` 20010101, namely that the user was born before 01/01/2000.
+In this case, the user has to provide a proof that he/she owns a credential issued by the `allowedIssuer` of schema `type` **KYCAgeCredential** described in the url provided in `context`. This credential contains details in its `credentialSubject` of the birthday of the receiver. In this scenario, the user has to prove that the value contained in the attribute `birthday` is less than `lt` 20010101, namely that the user was born before 01/01/2000.
 
-An additional optional field that can be included in the query is `skipClaimRevocationCheck`. By setting it to `true`, the user doesn't need to provide the proof of the revocation of the claim, which would otherwise be provided by default. 
-This is useful for claims that are still useful even if they have been revoked. For example, a claim that states that a user is an employee of Google, is still useful even if it has been revoked after the user left the company and the claim was revoked.
+An additional optional field that can be included in the query is `skipClaimRevocationCheck`. By setting it to `true`, the user doesn't need to provide the proof of the revocation of the credential, which would otherwise be provided by default. 
+This is useful for credentials that are still useful even if they have been revoked. For example, a credential that states that a user is an employee of Google, is still useful even if it has been revoked after the user left the company and the credential was revoked.
 
     ```go
     mtpProofRequest.Query = map[string]interface{}{
