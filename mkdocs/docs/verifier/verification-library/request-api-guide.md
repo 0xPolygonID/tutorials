@@ -1,6 +1,6 @@
 // [ ] TODO: replace example on line 57 with a correct link
 
-# ZK Request API
+# Request API
 
 The first step of interacting with a wallet involves presenting a zk request. In this tutorial, we will explain the difference between two types of zk requests: **Basic Auth Request** and **Query-based Request**.
 

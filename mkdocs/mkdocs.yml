@@ -41,7 +41,7 @@ nav:
       - Introduction: "verifier/verification-library/verifier-library-intro.md"
       - APIs: 
         - Config: "verifier/verification-library/config.md"
-        - ZK Request APIs: "verifier/verification-library/request-api-guide.md"
+        - Request APIs: "verifier/verification-library/request-api-guide.md"
         - Verification APIs: "verifier/verification-library/verification-api-guide.md"
         - JWZ: "verifier/verification-library/jwz.md"
       - Tutorial - Run a Verifier: "verifier/verification-library/verifier-set-up.md"
