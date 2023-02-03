@@ -1,4 +1,5 @@
 // [ ] TODO: update example of the query language when new JS library is available
+// [ ] TODO: add referebce to Not equal operator
 
 # Query Language
 
