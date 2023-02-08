@@ -108,13 +108,15 @@ In this case, the user has to provide a proof that he/she owns a credential issu
 An additional optional field that can be included in the query is `skipClaimRevocationCheck`. By setting it to `true`, the user doesn't need to provide the proof of the revocation of the credential, which would otherwise be provided by default. 
 This is useful for credentials that are still useful even if they have been revoked. For example, a credential that states that a user is an employee of Google, is still useful even if it has been revoked after the user left the company and the credential was revoked.
 
-    ```go
-    mtpProofRequest.Query = map[string]interface{}{
-    ...
-    "skipClaimRevocationCheck": true,
-    ...
-    }
-    ```
+```go
+
+mtpProofRequest.Query = map[string]interface{}{
+...
+"skipClaimRevocationCheck": true,
+...
+}
+
+```
 
 Further examples of query-based requests can be found [here](https://github.com/iden3/auth-flow-demo/blob/feature/support-auth-v2/server/go/app/handlers/auth.go#L91)
 
