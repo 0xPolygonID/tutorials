@@ -1,10 +1,10 @@
 # To Remove Claims: 'removeClaims'
  
-The claims stored on the SDK can be removed locally (they remain on the Issuer unless removed by it) by the Integrator. This is done using `removeClaims()` function, which removes claims from a list of ids:
+The credentials stored on the SDK storage can be removed locally (they remain on the Issuer unless removed by it) by the Integrator. This is done using `removeClaims()` function, which removes credentials from the stoarge based on a list of `claimIds`:
  
 ```
 Future<void> removeClaims({required List<String> claimIds,
-      required String identifier,
+      required String did,
       required String privateKey})
  
    {
@@ -16,12 +16,15 @@ Future<void> removeClaims({required List<String> claimIds,
     ));
    }
 ```
-A single claim can also be removed based on its id using the `removeClaim()` function:
+<!-- does `identifier` need to be changed to `did` in above? -->
+# To Remove a Claim: 'removeClaim'
+
+A single credential can also be removed from the stoarge based on its `claimId` using the `removeClaim()` function:
  
 ```
 Future<void> removeClaim(
       {required String claimId,
-      required String identifier,
+      required String did,
       required String privateKey})
  
    {
@@ -34,3 +37,4 @@ Future<void> removeClaim(
    }
  
 ```
+<!-- does `identifier` need to be changed to `did` in above? -->

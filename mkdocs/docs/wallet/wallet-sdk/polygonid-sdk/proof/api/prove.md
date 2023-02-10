@@ -16,4 +16,19 @@ Future<JWZProof> prove(
             circuitData, publicKey, queryParam));
   }
 ```
+<!-- Do the parameters above be updated as per repository?
+{required String did,
+      int? profileNonce,
+      required ClaimEntity claim,
+      required CircuitDataEntity circuitData,
+      required ProofScopeRequest request,
+      String? privateKey,
+      String? challenge}
+-->
+
+<!-- Does function body be replaced with override: 
+return _proveUseCase.execute(
+        param: GenerateProofParam(did, profileNonce ?? 0, 0, claim, request,
+            circuitData, privateKey, challenge))
+-->
 The `prove()` function generates a `JWZProof` that fulfills the proof query parameters with a valid identity and claims. This proof is shared by an Integrator with a Verifier. The `prove()` returns a `JWZProof` object so that the Integrator is able to verify the requested information (requested from Identity) with the Verifier. 

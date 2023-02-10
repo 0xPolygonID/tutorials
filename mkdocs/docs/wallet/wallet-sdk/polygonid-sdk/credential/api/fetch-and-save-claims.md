@@ -1,13 +1,11 @@
 # To Fetch and Save Claims: `fetchAndSaveClaims`
  
-An Integrator can fetch claims stored on an Issuer and then save them in the Wallet.
- 
-To fetch and save a list of claims from an Issuer, the `fetchAndSaveClaims()` function is called.
+An Integrator can fetch credentials stored on an Issuer and then save them in the Wallet. The`fetchAndSaveClaims()` function is called to fetch and save a list of credentials from an Issuer.
  
 ```
 Future<List<ClaimEntity>> fetchAndSaveClaims(
-      {required List<CredentialRequestEntity> credentialRequests,
-      required String identifier,
+      {required OfferIden3MessageEntity message,
+      required String did,
       required String privateKey})
     
      {
@@ -19,7 +17,11 @@ Future<List<ClaimEntity>> fetchAndSaveClaims(
      }
  
 ```
- 
+ <!-- Does 'identifier' in above code need to be changed to 'did' ?
+Does 'credentialRequests` in above code need to be removed?
+  -->
+
+<!-- Does following description need to change as there is no Credential Request Entities in the method?-->
 The `fetchAndSaveClaims()` function uses a list of `Credential Request Entities`as the input parameter. A `Credential Request Entity` is generated when an Integrator scans the QR code to get claims from an Issuer. The function returns a list of `Claim Entities`.
  
 ## Wallet-Issuer Interaction for Fetching Claims
