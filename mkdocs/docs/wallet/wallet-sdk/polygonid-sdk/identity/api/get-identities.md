@@ -1,9 +1,9 @@
  # To Get Identities: `getIdentities`
  
-We can get a list of public information about all the identities stored on the SDK using `getIdentities()` function. This is the entry point for any Integrator.
+We can get a list of public information about all the identities stored on the SDK using `getIdentities()` function. 
  
 ```
-Future<List<IdentityEntity>> getIdentities() async
+Future<List<IdentityEntity>> getIdentities()
  
 {
    return _getIdentitiesUseCase.execute();
@@ -13,8 +13,8 @@ Future<List<IdentityEntity>> getIdentities() async
 The `getIdentities()` function returns a list of `IdentityEntity` stored in the sdk.
 
  
-The role of `getIdentities()` is to obtain a list of `IdentityEntity` stored on the SDK for an Integrator. The `identifier` String is the unique id of the identity.
+The role of `getIdentities()` is to return a list of `IdentityEntity` associated with the identities stored on the SDK. If an error occurs while retrieving the list of `IdentityEntity`, it throws `IdentityException`.
  
-This way, `getIdentities()` obtains a list of identities stored on the SDK for an Integrator.
+
 
 
