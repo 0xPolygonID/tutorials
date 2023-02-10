@@ -1,8 +1,11 @@
 // [ ] TODO: add diagram here!
+// [ ] TODO: specify difference between MTP and Sig validator
+// [ ] TODO: update Steph's sandbox with the last version! 
+// [ ] TODO: update smart contract section here
 
 # On-chain ZK Verification
 
-The on-chain verification workflow allows Dapps to verify users' claims inside a Smart Contract. Zero-Knowledge Proof cryptography enables this verification to happen in a private manner, namely without revealing any personal information of the user (prover).
+The on-chain verification workflow allows Dapps to verify users' credentials inside a Smart Contract. Zero-Knowledge Proof cryptography enables this verification to happen in a private manner, namely without revealing any personal information of the user (prover).
 
 This flow is especially needed when further on-chain logic wants to be implemented on successful verification such as:
 
@@ -17,13 +20,12 @@ In this tutorial, we will create an ERC20 zk Airdrop Contract. The chosen query 
 
 > To set up a different query check out the [ZK Query Language section](../verification-library/zk-query-language.md)
 
-This tutorial is based on the verification of a Claim of Type `AgeCredential` with a single attribute `dateOfBirth` in format age with a [Schema URL](https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld).
+This tutorial is based on the verification of a Claim of Type `KYCAgeCredential` with an attribute `birthday` with a Schema URL `https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld`.
 
-The prerequisite is that users have the Polygon ID Wallet app installed and fetched a claim of type `AgeCredential` attesting their date of birth. A claim with the same features can be issued using [Polygon ID Platform UI](https://platform-test.polygonid.com) or [Polygon APIs](../../issuer/platform-api/introduction.md).
+The prerequisite is that users have the [Polygon ID Wallet app](../../wallet/wallet-overview.md) installed and self-issued a claim of type `KYC Age Credential Merklized` using our [Issuer Sandbox](https://issuer-v2.polygonid.me/) 
 
 ---
 **Note:** The full executable code related to this tutorial can be cloned from this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/on-chain-verification" target="_blank">repository</a>.
-
 --- 
 
 ### Design the ERC20 zk Airdrop Verifier Contract 
@@ -170,17 +172,28 @@ Execute this Hardhat script to deploy the contract
 ```js
 
 async function main() {
-  const verifierContract ="ERC20Verifier"
+  const verifierContract = "ERC20Verifier";
   const verifierName = "ERC20zkAirdrop";
-  const verifierSymbol = "zkERC20"; 
-  const ERC20Verifier = await ethers.getContractFactory(verifierContract);
+  const verifierSymbol = "zkERC20";
+
+
+  const spongePoseidonLib = "0x12d8C87A61dAa6DD31d8196187cFa37d1C647153";
+  const poseidon6Lib = "0xb588b8f07012Dc958aa90EFc7d3CF943057F17d7";
+
+
+  const ERC20Verifier = await ethers.getContractFactory(verifierContract,{
+    libraries: {
+      SpongePoseidon: spongePoseidonLib,
+      PoseidonUnit6L: poseidon6Lib
+    },
+  } );
   const erc20Verifier = await ERC20Verifier.deploy(
     verifierName,
     verifierSymbol
   );
 
   await erc20Verifier.deployed();
-  console.log(verifierName, " deployed to:", erc20Verifier.address);
+  console.log(verifierName, " contract address:", erc20Verifier.address);
 }
 ```
 
@@ -196,74 +209,70 @@ As previously mentioned, the actual zkp request "to be born before 01/01/2001" h
 
 In particular, the query must be designed as follow: 
 
-- `schema` is the hash of the schema that you can retrieve from the issuer dashboard at [Polygon ID Platform](https://platform-test.polygonid.com/). In order to use it inside the query it should be converted from hex to bigint. 
-- `slotIndex` is the index of the attribute you are querying. It can be either 2 or 3. 2 if the corresponding information is stored as `Attribute #1` or 3 if the information is stored as `Attribute #2`
+- `schema` is the bigInt representation of the schema you are using. This can be obtained by passing your schema to this Go Sandbox [link](https://go.dev/play/p/rnrRbxXTRY6)
+- `claimPathKey` This can be obtained by passing your schema to this Go Sandbox [link](https://go.dev/play/p/rnrRbxXTRY6)
 - `operator` is either 1,2,3,4,5. To understand more about the operator you can check the [zk query language](../verification-library/zk-query-language.md)
 - `value` represents the threshold value you are querying. If the data type during the schema creation was set to `Yes or no`, value true equals to `1` and false equals to `0`
-- `circuitId` is the ID of the circuit you are using for verification. For now it will always correspond to `credentialAtomicQuerySig`
 
 > Check out our [Smart Contract section](../../contracts/overview.md#credentialatomicquerysigvalidator) to learn more about the set of verifications executed on the zk proof.
 
 Execute this Hardhat script to set the zk request to the Smart Contract.
 
-> Remember to replace the `schemaHash` with the one you grabbed from Polygon ID Platform
+
 
 ```js
 
+const Operators = {
+  NOOP : 0, // No operation, skip query verification in circuit
+  EQ : 1, // equal
+  LT : 2, // less than
+  GT : 3, // greater than
+  IN : 4, // in
+  NIN : 5, // not in
+  NE : 6   // not equal
+}
+
 async function main() {
 
-    const circuitId = "credentialAtomicQuerySig";
-    const validatorAddress = "0xb1e86C4c687B85520eF4fd2a0d14e81970a15aFB";
+  // you can run https://go.dev/play/p/rnrRbxXTRY6 to get schema hash and claimPathKey using YOUR schema
+  const schemaBigInt = "74977327600848231385663280181476307657"
 
-    // Grab the schema hash from Polygon ID Platform
-    const schemaHash = "{add your schema hash here}"
+   // merklized path to field in the W3C credential according to JSONLD  schema e.g. birthday in the KYCAgeCredential under the url "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld"
+  const schemaClaimPathKey = "20376033832371109177683048456014525905119173674985843915445634726167450989630"
 
-    const schemaEnd = fromLittleEndian(hexToBytes(schemaHash))
-    
-    const ageQuery = {
-    schema: ethers.BigNumber.from(schemaEnd),
-    slotIndex: 2,
-    operator: 2,
-    value: [20020101, ...new Array(63).fill(0).map(i => 0)],
-    circuitId,
+  const requestId = 1;
+
+  const query = {
+    schema: schemaBigInt,
+    claimPathKey  : schemaClaimPathKey,
+    operator: Operators.LT, // operator
+    value: [20020101, ...new Array(63).fill(0).map(i => 0)], // for operators 1-3 only first value matters
     };
 
-    // add the address of the contract just deployed
-    ERC20VerifierAddress = "<>"
+  // add the address of the contract just deployed
+  const ERC20VerifierAddress = "<ERC20VerifierAddress>"
 
-    let erc20Verifier = await hre.ethers.getContractAt("ERC20Verifier", ERC20VerifierAddress)
+  let erc20Verifier = await hre.ethers.getContractAt("ERC20Verifier", ERC20VerifierAddress)
 
-    const requestId = await erc20Verifier.TRANSFER_REQUEST_ID();
 
-    try {
-        await erc20Verifier.setZKPRequest(
+  const validatorAddress = "0xC8334388DbCe2F73De2354e7392EA326011515b8"; // sig validator
+  // const validatorAddress = "0xB39B28F7157BC428F2A0Da375f584c3a1ede9121"; // mtp validator
+
+  try {
+    await erc20Verifier.setZKPRequest(
         requestId,
         validatorAddress,
-        ageQuery
-        );
-        console.log("Request set");
-    } catch (e) {
-        console.log("error: ", e);
-    }
-}
-
-function hexToBytes(hex) {
-    for (var bytes = [], c = 0; c < hex.length; c += 2)
-        bytes.push(parseInt(hex.substr(c, 2), 16));
-    return bytes;
-}
-
-function fromLittleEndian(bytes) {
-    const n256 = BigInt(256);
-    let result = BigInt(0);
-    let base = BigInt(1);
-    bytes.forEach((byte) => {
-      result += base * BigInt(byte);
-      base = base * n256;
-    });
-    return result;
+        query.schema,
+        query.claimPathKey,
+        query.operator,
+        query.value
+    );
+    console.log("Request set");
+  } catch (e) {
+    console.log("error: ", e);
   }
-  
+}
+
 ```
 
 The contract is now correctly deployed on Mumbai Testnet and the query has been set up, congratulations! Now it is time to launch the airdrop! 
@@ -273,37 +282,38 @@ The contract is now correctly deployed on Mumbai Testnet and the query has been 
 The last step is to design the proof request to be embedded inside a QR code that will be shown to the users that want to claim their airdrops. In this particular case this is how the request should look like (remember to modify it by adding the address of your ERC20Verifier Contract):
 
 ```json
-{  
-    "id":"c811849d-6bfb-4d85-936e-3d9759c7f105",
-    "typ":"application/iden3comm-plain-json",
-    "type":"https://iden3-communication.io/proofs/1.0/contract-invoke-request",
-    "body":{
-        "transaction_data":{
-            "contract_address":"<ERC20Verifier contract address>",
-            "method_id":"b68967e2",
-            "chain_id":80001,
-            "network":"polygon-mumbai"
-            },
-        "reason":"airdrop participation",
-        "scope":[{
-            "id":1,
-            "circuit_id":"credentialAtomicQuerySig",
-            "rules":{
-                "query":{
-                    "allowed_issuers":["*"],
-                    "req":{ 
-                        "dateOfBirth":{
-                            "$lt":20020101
-                            }
-                        },
-                    "schema":{
-                            "url":"{add your schema hash here}",
-                            "type":"AgeCredential"
-                            }
+{
+    "id": "7f38a193-0918-4a48-9fac-36adfdb8b542",
+    "typ": "application/iden3comm-plain-json",
+    "type": "https://iden3-communication.io/proofs/1.0/contract-invoke-request",
+    "thid": "7f38a193-0918-4a48-9fac-36adfdb8b542",
+    "body": {
+        "reason": "airdrop participation",
+        "transaction_data": {
+            "contract_address": "<ERC20VerifierAddress>",
+            "method_id": "b68967e2",
+            "chain_id": 80001,
+            "network": "polygon-mumbai"
+        },
+        "scope": [
+            {
+                "id": 1,
+                "circuitId": "credentialAtomicQuerySigV2OnChain",
+                "query": {
+                    "allowedIssuers": [
+                        "*"
+                    ],
+                    "context": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld",
+                    "credentialSubject": {
+                        "birthday": {
+                            "$lt": 20020101
                         }
-                    }
-                }]
+                    },
+                    "type": "KYCAgeCredential"
+                }
             }
+        ]
+    }
 }
 ```
 
