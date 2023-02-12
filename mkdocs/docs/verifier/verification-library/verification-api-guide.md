@@ -1,7 +1,4 @@
-// [ ] TODO: replace verification key folder 
-// [ ] TODO: update reference to verification under the hood 
-// [ ] TODO: add reference to the state contract
-// [ ] TODO: add reference to the right circuits
+// [ ] TODO: replace verification key folder on line 71 to the trusted setup repo 
 
 # Verification
 
@@ -70,7 +67,7 @@ Eventually, it returns an instance of a Verifier. To set up a verifier different
 
 -  `keyDIR` is the path where the public verification keys for iden3 circuits are located (such as `"./keys"`). The verification key folder can be found <a href="https://github.com/iden3/tutorial-examples/tree/main/verifier-integration/keys" target="_blank">here</a>.
 - `ethURL` is the URL of your RPC node provider such as `"https://polygon-testnet-rpc.allthatnode.com:8545"` for Polygon Mumbai.
-- `contractAddress` is the address of the identity state Smart Contract. On Polygon Mumbai, it is 0xb8a86e138C3fe64CbCba9731216B1a638EEc55c8.
+- `contractAddress` is the address of the identity state Smart Contract. On Polygon Mumbai, it is 0x134B1BE34911E39A8397ec6289782989729807a4.
 - `resolverPrefix` is the prefix of the resolver. For Polygon Mumbai it is `"polygon:mumbai"`
 
 **Execute the verification**
@@ -105,8 +102,8 @@ The auth library provides a simple handler to extract all the necessary metadata
 
 Starting from the circuit-specific public verification key, the proof, and the public inputs provided by the user, it is possible to verify the proof. In this case, the proof verification involves: 
 
-- Verification of the proof contained based on the <a href="https://docs.iden3.io/protocol/main-circuits/#authentication" target="_blank">`Auth Circuit`</a>
-- Verification of the proof contained based on the <a href="https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerysig" target="_blank">`AtomicQuerySig Circuit`</a> or <a href="https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerymtp" target="_blank">`AtomicQueryMTP`</a> based on the query.
+- Verification of the proof contained based on the <a href="https://docs.iden3.io/protocol/main-circuits/#authV2" target="_blank">`AuthV2 Circuit`</a>
+- Verification of the proof contained based on the <a href="https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerysigv2" target="_blank">`AtomicQuerySig Circuit`</a> or <a href="https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerymtpV2" target="_blank">`AtomicQueryMTP`</a> based on the query.
 
 ### Verification of On-chain Identity States
 
