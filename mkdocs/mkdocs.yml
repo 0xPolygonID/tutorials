@@ -91,9 +91,23 @@ nav:
     - Overview: "contracts/overview.md"
   - Issuer Node: 
     - Overview: "issuer-node/issuer-node-overview.md"
+    - Issuer Node API: 
+      - Introduction: "issuer-node/issuer-node-api/introduction.md"
+      - Getting Started: "issuer-node/issuer-node-api/flow-tutorial/general-flow.md"
+      - Create Schema: "issuer-node/issuer-node-api/create-schema.md"
+      - API Reference: 
+        - Identity: "issuer-node/issuer-node-api/identity/apis.md"
+        - Claim: "issuer-node/issuer-node-api/claim/apis.md"
+        - Agent: "issuer-node/issuer-node-api/agent/apis.md"
+      - Local Setup: 
+        - Configure IDE Example: "issuer-node/issuer-node-local-setup/configure-ide.md"
+        - Run Issuer Node: "issuer-node/issuer-node-local-setup/run-issuer-node.md"
 
 # If you declare plugins, you need to declare all of them, 
 # including search (which would otherwise have been installed by default.)
 plugins:
   - search
   - mermaid2
+
+
+ 
