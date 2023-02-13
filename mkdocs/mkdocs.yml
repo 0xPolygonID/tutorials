@@ -25,7 +25,7 @@ markdown_extensions:
 
 nav:
   - Home: "index.md"
-  - Issuer Node:
+  - Issuer:
     - Overview: "issuer/issuer-overview.md"
     - Platform API:
       - Introduction: "issuer/platform-api/introduction.md"
