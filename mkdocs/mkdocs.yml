@@ -89,7 +89,9 @@ nav:
 #            - Generate Proof: "wallet/wallet-sdk/polygonid-sdk/proof/api/prove.md"
   - Smart Contracts: 
     - Overview: "contracts/overview.md"
-  
+  - Issuer Node: 
+    - Overview: "issuer-node/issuer-node-overview.md"
+
 # If you declare plugins, you need to declare all of them, 
 # including search (which would otherwise have been installed by default.)
 plugins:
