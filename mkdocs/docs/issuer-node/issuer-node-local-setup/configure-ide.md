@@ -28,7 +28,7 @@ GoLand lets you set your own GOPATH and GOROOT locations.
 1. When you open GoLand IDE, you will see option to create a new project or open an existing one. To create a new project, click **Projects** on the left panel and then click **New Project**. 
 
     <div align="center">
-   <img src= "../imgs/goland-new-project.png" align="center" width="500" style="border: 1px solid black"/>
+   <img src= "../../imgs/goland-new-project.png" align="center" width="500" style="border: 1px solid black"/>
    </div>
    <br>
 
@@ -47,13 +47,13 @@ GoLand lets you set your own GOPATH and GOROOT locations.
     > Users/Username/go/src/awesomeProject
 
 <div align="center">
-   <img src= "../imgs/go-project-location.png" align="center" width="500" style="border: 1px solid black"/>
+   <img src= "../../imgs/go-project-location.png" align="center" width="500" style="border: 1px solid black"/>
    </div>
    <br>
 
 
  <div align="center">
-   <img src= "../imgs/gopath-project-location.png" align="center" width="500" style="border: 1px solid black"/>
+   <img src= "../../imgs/gopath-project-location.png" align="center" width="500" style="border: 1px solid black"/>
    </div>
    <br>  
 
@@ -64,13 +64,13 @@ GoLand lets you set your own GOPATH and GOROOT locations.
 
     
     <div align="center">
-   <img src= "../imgs/go-sdk-version.png" align="center" width="500" style="border: 1px solid black"/>
+   <img src= "../../imgs/go-sdk-version.png" align="center" width="500" style="border: 1px solid black"/>
    </div>
    <br>
 
 
     <div align="center">
-   <img src= "../imgs/go-sdk-location.png" align="center" width="500" style="border: 1px solid black"/>
+   <img src= "../../imgs/go-sdk-location.png" align="center" width="500" style="border: 1px solid black"/>
    </div>
    <br>
 
@@ -80,7 +80,7 @@ Click **OK**.
 4. As both the Project and Go SDK locations have been set, click **Create**. 
 
    <div align="center">
-   <img src= "../imgs/project-location.png" align="center" width="500" style="border: 1px solid black"/>
+   <img src= "../../imgs/project-location.png" align="center" width="500" style="border: 1px solid black"/>
    </div>
    <br>
 
@@ -120,14 +120,14 @@ Earlier, it was required for all the projects to be in the GOPATH/src directory 
 1. On the ***GoLand*** menu, click **Preferences**. 
 
  <div align="center">
-   <img src= "../imgs/preferences.png" align="center" width="100" style="border: 1px solid black"/>
+   <img src= "../../imgs/preferences.png" align="center" width="100" style="border: 1px solid black"/>
    </div>
    <br>
 
 2. Click the ***Go*** menu and then click **Go Modules**. Select the **Enable Go Modules Integration** check box. 
 
  <div align="center">
-   <img src= "../imgs/go-modules.png" align="center" width="100" style="border: 1px solid black"/>
+   <img src= "../../imgs/go-modules.png" align="center" width="100" style="border: 1px solid black"/>
    </div>
    <br>
 
@@ -142,13 +142,13 @@ The Go Modules are located under the **External Libraries** folder in your proje
 2. Under ***Project***, click **External Libraries** directory. Here, you can view all the Go Modules for your project. 
 
 <div align="center">
-   <img src= "../imgs/external-library.png" align="center" width="100" style="border: 1px solid black"/>
+   <img src= "../../imgs/external-library.png" align="center" width="100" style="border: 1px solid black"/>
    </div>
    <br>
 
 
 <div align="center">
-   <img src= "../imgs/all-go-modules.png" align="center" width="100" style="border: 1px solid black"/>
+   <img src= "../../imgs/all-go-modules.png" align="center" width="100" style="border: 1px solid black"/>
    </div>
    <br>
 
@@ -180,7 +180,7 @@ Under Global GOPATH, click the `+` symbol to add the path. Select path on your s
 
 
 <div align="center">
-   <img src= "../imgs/gopath-scopes.png" align="center" width="100" style="border: 1px solid black"/>
+   <img src= "../../imgs/gopath-scopes.png" align="center" width="100" style="border: 1px solid black"/>
    </div>
    <br>
 
