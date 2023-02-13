@@ -20,9 +20,9 @@ In this tutorial, we will create an ERC20 zk Airdrop Contract. The chosen query 
 
 > To set up a different query check out the [ZK Query Language section](../verification-library/zk-query-language.md)
 
-This tutorial is based on the verification of a Claim of Type `KYCAgeCredential` with an attribute `birthday` with a Schema URL `https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld`.
+This tutorial is based on the verification of a Credential of Type `KYCAgeCredential` with an attribute `birthday` with a Schema URL `https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld`.
 
-The prerequisite is that users have the [Polygon ID Wallet app](../../wallet/wallet-overview.md) installed and self-issued a claim of type `KYC Age Credential Merklized` using our [Issuer Sandbox](https://issuer-v2.polygonid.me/) 
+The prerequisite is that users have the [Polygon ID Wallet app](../../wallet/wallet-overview.md) installed and self-issued a Credential of type `KYC Age Credential Merklized` using our [Issuer Sandbox](https://issuer-v2.polygonid.me/) 
 
 ---
 **Note:** The full executable code related to this tutorial can be cloned from this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/on-chain-verification" target="_blank">repository</a>.
@@ -37,7 +37,7 @@ The ERC20Verifier is an ERC20 standard contract on steroids. The extra functiona
 
 The ERC20Verifier contract must define at least a single `TRANSFER_REQUEST_ID`. This is the Identifier of the request that the contract is posing to the user.
 
-> In this specific case the request is: "to be born before 01/01/2001". Note that this hasn't been added yet to the Smart Contract. It will be added in a few minutes!
+> In this specific case the request is: "to be born before 01/01/2002". Note that this hasn't been added yet to the Smart Contract. It will be added in a few minutes!
 
 ```solidity
 pragma solidity ^0.8.0;
@@ -274,7 +274,7 @@ The contract is now correctly deployed on Mumbai Testnet and the query has been 
 
 ### Add the Proof Request Inside a QR Code 
 
-The last step is to design the proof request to be embedded inside a QR code that will be shown to the users that want to claim their airdrops. In this particular case this is how the request should look like (remember to modify it by adding the address of your ERC20Verifier Contract):
+The last step is to design the proof request to be embedded inside a QR code that will be shown to the users that want to Credential their airdrops. In this particular case this is how the request should look like (remember to modify it by adding the address of your ERC20Verifier Contract):
 
 ```json
 {
@@ -323,13 +323,13 @@ Note that the request resembles in most of its parts with the one designed for <
 
 > To display the QR code inside your frontend, you can use the `express.static` built-in middleware function together with this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> or this [Code Sandbox](https://codesandbox.io/s/yp1pmpjo4z?file=/index.js).
 
-Scanning the QR with their Polygon ID Wallet, users will be able to generate proofs and send transactions to the Smart Contract in order to claim their airdrops.
+Scanning the QR with their Polygon ID Wallet, users will be able to generate proofs and send transactions to the Smart Contract in order to Credential their airdrops.
 
 The same proof generation request can also be delivered to users via Deep Linking. In order to do so is necessary to encode the `json` file to Base64 Format. The related deep link would be `iden3comm://?i_m={{base64EncodedJsonHere}}`. For example, in this specific case the deep link would be `iden3comm://?i_m=eyAgCiAgICAiaWQiOiJjODExODQ5ZC02YmZiLTRkODUtOTM2ZS0zZDk3NTljN2YxMDUiLAogICAgInR5cCI6ImFwcGxpY2F0aW9uL2lkZW4zY29tbS1wbGFpbi1qc29uIiwKICAgICJ0eXBlIjoiaHR0cHM6Ly9pZGVuMy1jb21tdW5pY2F0aW9uLmlvL3Byb29mcy8xLjAvY29udHJhY3QtaW52b2tlLXJlcXVlc3QiLAogICAgImJvZHkiOnsKICAgICAgICAidHJhbnNhY3Rpb25fZGF0YSI6ewogICAgICAgICAgICAiY29udHJhY3RfYWRkcmVzcyI6IjxFUkMyMFZlcmlmaWVyIGNvbnRyYWN0IGFkZHJlc3M+IiwKICAgICAgICAgICAgIm1ldGhvZF9pZCI6ImI2ODk2N2UyIiwKICAgICAgICAgICAgImNoYWluX2lkIjo4MDAwMSwKICAgICAgICAgICAgIm5ldHdvcmsiOiJwb2x5Z29uLW11bWJhaSIKICAgICAgICAgICAgfSwKICAgICAgICAicmVhc29uIjoiYWlyZHJvcCBwYXJ0aWNpcGF0aW9uIiwKICAgICAgICAic2NvcGUiOlt7CiAgICAgICAgICAgICJpZCI6MSwKICAgICAgICAgICAgImNpcmN1aXRfaWQiOiJjcmVkZW50aWFsQXRvbWljUXVlcnlTaWciLAogICAgICAgICAgICAicnVsZXMiOnsKICAgICAgICAgICAgICAgICJxdWVyeSI6ewogICAgICAgICAgICAgICAgICAgICJhbGxvd2VkX2lzc3VlcnMiOlsiKiJdLAogICAgICAgICAgICAgICAgICAgICJyZXEiOnsgCiAgICAgICAgICAgICAgICAgICAgICAgICJkYXRlT2ZCaXJ0aCI6ewogICAgICAgICAgICAgICAgICAgICAgICAgICAgIiRsdCI6MjAwMjAxMDEKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICAic2NoZW1hIjp7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAidXJsIjoiaHR0cHM6Ly9zMy5ldS13ZXN0LTEuYW1hem9uYXdzLmNvbS9wb2x5Z29uaWQtc2NoZW1hcy85YjFjMDVmNC03ZmI2LTQ3OTItYWJlMy1kMWRkYmQ5YTk2MDkuanNvbi1sZCIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAidHlwZSI6IkFnZUNyZWRlbnRpYWwiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9XQogICAgICAgICAgICB9Cn0=`
 
 ## User Demo: Claim the Airdrop!
 
-This video shows how a user can use their PolygonID wallet app to claim a ERC-20 token airdrop. To join the airdrop users are required to have a claim of type `KYCAgeCredential` attesting that they have been born before 01/01/2002.
+This video shows how a user can use their PolygonID wallet app to claim a ERC-20 token airdrop. To join the airdrop users are required to have a Credential of type `KYCAgeCredential` attesting that they have been born before 01/01/2002.
 
 <div align="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NvPfh3nqeEQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -368,10 +368,10 @@ interface IZKPVerifier {
 
 ## Extend it to Your Own Logic
 
-Now that you have been able to create your first on-chain zk-based application you can extend it to accommodate any type of imaginable logic. The target Smart Contract doesn't have to be an ERC20 but it can be an ERC721, a DeFi pool, a voting Smart Contract or whatever contract you can think of. Equally the query can be extended to any type of existing claim and based on the different operators available inside the <a href="https://0xpolygonid.github.io/tutorials/verifier/verification-library/zk-query-language/" target="_blank">ZK Query Language</a>.
+Now that you have been able to create your first on-chain zk-based application you can extend it to accommodate any type of imaginable logic. The target Smart Contract doesn't have to be an ERC20 but it can be an ERC721, a DeFi pool, a voting Smart Contract or whatever contract you can think of. Equally the query can be extended to any type of existing Credential and based on the different operators available inside the <a href="https://0xpolygonid.github.io/tutorials/verifier/verification-library/zk-query-language/" target="_blank">ZK Query Language</a>.
 
 Another possibility to customize your Smart Contract involves setting different zk requests. First of all, multiple `REQUEST_ID` must be defined inside the main Smart Contract. Therefore, the contract deployer can set a different query for each request ID and create different outcomes inside `_afterProofSubmit` according to the type of proof received. For example, an airdrop contract can verify the role of a user inside a DAO and distribute a different amount of tokens based on the role.
 
 ## Further Tutorial for On-chain Verification
 
-- [Polygon ID On-chain Verifications - Codingwithmanny](https://github.com/codingwithmanny/polygonid-on-chain-verification), contains a more detailed explanation of the ERC20 Airdrop using Polygon ID. Furthermore it contains a section for debugging common errors and for minting an NFT starting from on-chain Polygon ID Claim Verification.
+- [Polygon ID On-chain Verifications - Codingwithmanny](https://github.com/codingwithmanny/polygonid-on-chain-verification), contains a more detailed explanation of the ERC20 Airdrop using Polygon ID. Furthermore it contains a section for debugging common errors and for minting an NFT starting from on-chain Polygon ID Credential Verification.
