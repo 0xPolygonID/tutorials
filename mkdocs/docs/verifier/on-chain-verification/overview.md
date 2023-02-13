@@ -1,8 +1,3 @@
-// [ ] TODO: add diagram here!
-// [ ] TODO: specify difference between MTP and Sig validator
-// [ ] TODO: update Steph's sandbox with the last version! 
-// [ ] TODO: update smart contract section here
-
 # On-chain ZK Verification
 
 The on-chain verification workflow allows Dapps to verify users' credentials inside a Smart Contract. Zero-Knowledge Proof cryptography enables this verification to happen in a private manner, namely without revealing any personal information of the user (prover).
@@ -13,6 +8,28 @@ This flow is especially needed when further on-chain logic wants to be implement
 - Allow voting only to account members of your DAO 
 - Block airdrops to users that belong to a specific country
 - Allow trading only to accounts that passed the KYC verification
+
+## On-chain verification flow
+
+<div align="center">
+<img src= "../../../imgs/on-chain-verification-flow.png" align="center" width="600"/>
+<div align="center"><span style="font-size: 14px;">
+<br>
+<b> On-chain verification workflow </b></div>
+<br>
+</div>
+
+At its core, every on-chain interaction between a Verifier and a user's Wallet follows this workflow:
+
+- The Verifier designs a [Request] for the users. This has to be recorded on-chain inside the Verifier Smart Contract.
+- The Requestnis delivered to the user within a QR code (or via deep-linking; it is up to the implementer).
+- The user scans the QR code using his/her mobile ID wallet and parses the request
+- The user fetches the revocation status of the requested credential from the Issuer of that credential.
+- The user generates a zk proof on mobile according to the request of the website starting from the credentials held in his/her wallet. This also contains the zk proof that the credential is not revoked.
+- The user sends the zk proof to the Verifier Smart Contract.
+- The Verifier Smart Contract verifies the zk Proof.
+- The Verifier Smart Contract checks that the State of the Issuer of the credential and the State of the user are still valid and have not been revoked.
+- If the verification is successful, the Verifier executes the logic defined in the Smart Contract.
 
 ## Implement ERC20 ZK Airdrop in 20 Minutes 
 
@@ -203,15 +220,13 @@ async function main() {
 As previously mentioned, the actual zkp request "to be born before 01/01/2002" hasn't been added to the Smart Contract yet. To do so it is necessary to call <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L59" target="_blank">`setZKPRequest`</a> function inherited inside the ERC20Verifier which takes 6 inputs:
 
 1. `requestId`: the id associated with the request.
-2. `validator`: the address of the <a href="https://github.com/0xPolygonID/contracts/tree/main/contracts/validators" target="_blank">Validators Smart Contract</a> already deployed on Mumbai. This is the contracts that executes the verification on the zk proof submitted by the user. It can be of type CredentialAtomicQuerySigValidator or CredentialAtomicQueryMTPValidator.
+2. `validator`: the address of the <a href="https://github.com/0xPolygonID/contracts/tree/main/contracts/validators" target="_blank">Validators Smart Contract</a> already deployed on Mumbai. This is the contracts that executes the verification on the zk proof submitted by the user. It can be of type [CredentialAtomicQuerySigValidator](../../contracts/overview.md#credentialatomicquerysigvalidator) or [CredentialAtomicQueryMTPValidator](../../contracts/overview.md#credentialatomicquerymtpvalidator).
 3. `schema` namely the bigInt representation of the schema of the requested credential. This can be obtained by passing your schema to this Go Sandbox [link](https://go.dev/play/p/rnrRbxXTRY6)
 4. `claimPathKey` represents the path to the queries key inside the merklized credential. In this case it is the path to the `birthday` key. This can be obtained by passing your schema to this Go Sandbox [link](https://go.dev/play/p/rnrRbxXTRY6).
 5. `operator` is either 1,2,3,4,5. To understand more about the operator you can check the [zk query language](../verification-library/zk-query-language.md)
 6. `value` represents the threshold value you are querying. In this case it is the date 01/01/2002. 
 
-In particular, the query must be designed as follow: 
-
-> Check out our [Smart Contract section](../../contracts/overview.md#credentialatomicquerysigvalidator) to learn more about the set of verifications executed on the zk proof.
+> Check out our [Smart Contract section](../../contracts/overview.md) to learn more about the set of verifications executed on the zk proof.
 
 Execute this Hardhat script to set the zk request to the Smart Contract.
 
