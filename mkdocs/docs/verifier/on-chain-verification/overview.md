@@ -16,7 +16,7 @@ This flow is especially needed when further on-chain logic wants to be implement
 
 ## Implement ERC20 ZK Airdrop in 20 Minutes 
 
-In this tutorial, we will create an ERC20 zk Airdrop Contract. The chosen query criteria is to be born before `01/01/2001`. Users that are able to prove that were born before that date will be able to get the airdrop. Otherwise, they will not. The proof submitted to the Smart Contract will not reveal any information about the specific date of birth of the user. That is the magic of zero-knowledge! 
+In this tutorial, we will create an ERC20 zk Airdrop Contract. The chosen query criteria is to be born before `01/01/2002`. Users that are able to prove that were born before that date will be able to get the airdrop. Otherwise, they will not. The proof submitted to the Smart Contract will not reveal any information about the specific date of birth of the user. That is the magic of zero-knowledge! 
 
 > To set up a different query check out the [ZK Query Language section](../verification-library/zk-query-language.md)
 
@@ -63,7 +63,7 @@ contract ERC20Verifier is ERC20, ZKPVerifier {
 
 The ZKPVerifier Contract provides 2 hooks: 
 
-<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L93" target="_blank">`_beforeProofSubmit`</a> and <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L102" target="_blank">`afterProofSubmit`</a>. These hooks are called before and after any proof gets submitted and can be used to create personalized logic inside your Smart Contract.
+<a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L114" target="_blank">`_beforeProofSubmit`</a> and <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L123" target="_blank">`afterProofSubmit`</a>. These hooks are called before and after any proof gets submitted and can be used to create personalized logic inside your Smart Contract.
 
 In this specific case, it must be checked that the sender of the proof matches the address contained in the proof challenge. This requirement is necessary to prevent proof front-running. This condition is added inside `_beforeProofSubmit`.
 
@@ -170,7 +170,6 @@ The contract is now fully written!
 Execute this Hardhat script to deploy the contract
 
 ```js
-
 async function main() {
   const verifierContract = "ERC20Verifier";
   const verifierName = "ERC20zkAirdrop";
@@ -201,24 +200,20 @@ async function main() {
 
 ### Set the ZKP Request
 
-As previously mentioned, the actual zkp request "to be born before 01/01/2001" hasn't been added to the Smart Contract yet. To do so it is necessary to call <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L62" target="_blank">`setZKPRequest`</a> function inherited inside the ERC20Verifier which takes 3 input:
+As previously mentioned, the actual zkp request "to be born before 01/01/2002" hasn't been added to the Smart Contract yet. To do so it is necessary to call <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/verifiers/ZKPVerifier.sol#L59" target="_blank">`setZKPRequest`</a> function inherited inside the ERC20Verifier which takes 6 inputs:
 
 1. `requestId`: the id associated with the request.
-2. `validator`: the address of the <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQuerySigValidator.sol" target="_blank">Validator Smart Contract</a> already deployed on Mumbai. This is the contract that actually executes the verification on the zk proof submitted by the user
-3. `query`: the rules that the user must satisfy.
+2. `validator`: the address of the <a href="https://github.com/0xPolygonID/contracts/tree/main/contracts/validators" target="_blank">Validators Smart Contract</a> already deployed on Mumbai. This is the contracts that executes the verification on the zk proof submitted by the user. It can be of type CredentialAtomicQuerySigValidator or CredentialAtomicQueryMTPValidator.
+3. `schema` namely the bigInt representation of the schema of the requested credential. This can be obtained by passing your schema to this Go Sandbox [link](https://go.dev/play/p/rnrRbxXTRY6)
+4. `claimPathKey` represents the path to the queries key inside the merklized credential. In this case it is the path to the `birthday` key. This can be obtained by passing your schema to this Go Sandbox [link](https://go.dev/play/p/rnrRbxXTRY6).
+5. `operator` is either 1,2,3,4,5. To understand more about the operator you can check the [zk query language](../verification-library/zk-query-language.md)
+6. `value` represents the threshold value you are querying. In this case it is the date 01/01/2002. 
 
 In particular, the query must be designed as follow: 
-
-- `schema` is the bigInt representation of the schema you are using. This can be obtained by passing your schema to this Go Sandbox [link](https://go.dev/play/p/rnrRbxXTRY6)
-- `claimPathKey` This can be obtained by passing your schema to this Go Sandbox [link](https://go.dev/play/p/rnrRbxXTRY6)
-- `operator` is either 1,2,3,4,5. To understand more about the operator you can check the [zk query language](../verification-library/zk-query-language.md)
-- `value` represents the threshold value you are querying. If the data type during the schema creation was set to `Yes or no`, value true equals to `1` and false equals to `0`
 
 > Check out our [Smart Contract section](../../contracts/overview.md#credentialatomicquerysigvalidator) to learn more about the set of verifications executed on the zk proof.
 
 Execute this Hardhat script to set the zk request to the Smart Contract.
-
-
 
 ```js
 
@@ -255,8 +250,8 @@ async function main() {
   let erc20Verifier = await hre.ethers.getContractAt("ERC20Verifier", ERC20VerifierAddress)
 
 
-  const validatorAddress = "0xC8334388DbCe2F73De2354e7392EA326011515b8"; // sig validator
-  // const validatorAddress = "0xB39B28F7157BC428F2A0Da375f584c3a1ede9121"; // mtp validator
+  const validatorAddress = "0xF2D4Eeb4d455fb673104902282Ce68B9ce4Ac450"; // sig validator
+  // const validatorAddress = "0x3DcAe4c8d94359D31e4C89D7F2b944859408C618"; // mtp validator
 
   try {
     await erc20Verifier.setZKPRequest(
