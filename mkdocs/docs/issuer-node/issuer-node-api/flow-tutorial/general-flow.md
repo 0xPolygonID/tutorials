@@ -1,6 +1,6 @@
 # Issuer Node: General Flow (Work in Progress!!)
 
-Identity Server Flow includes:
+Issuer Node Flow includes:
 
 1. Create New Identity
 2. Create New Credential
@@ -8,10 +8,9 @@ Identity Server Flow includes:
 
 
 ## Start Issuer Node
+ 
 
-Currently, our Identity Server acts both as the Issuer Server and Publisher Server. To start both, we shall use two different instances of the server in separate windows. 
-
-Following is a summary of the steps taken to make the identity0server up and running and initite the database. The database we have chosen is Postgres where all the Identity and claim related data is stored. To see the steps in detail, please read......
+Following is a summary of the steps taken to make the Issuer Node up and running and initite the database. The database we have chosen is Postgres where all the Identity and claim related data is stored. To see the steps in detail, please read......
 
 1. Run docker-compose.yml file in the identity-server repository. This starts all the four containers: (vault, redis, db, and db-explorer. Please note that, in the current version, we have not used db-explorer. 
 
