@@ -38,7 +38,7 @@ where the `path` shows the location of the docker-compose.yml file.
 This starts the postgres, redis, and vault containers:
 
 <div align="center">
-   <img src= "../imgs/makeup.png" align="center" width="200" style="border: 1px solid black"/>
+   <img src= "../../imgs/makeup.png" align="center" width="200" style="border: 1px solid black"/>
    </div>
    <br>
 
@@ -50,7 +50,7 @@ docker ps
 This lets you see all the containers that are currently running along with their statuses and ports.
 
 <div align="center">
-   <img src= "../imgs/docker-ps.png" align="center" width="200" style="border: 1px solid black"/>
+   <img src= "../../imgs/docker-ps.png" align="center" width="200" style="border: 1px solid black"/>
    </div>
    <br>
 
@@ -70,7 +70,7 @@ vault write iden3/import/pbkey key_type=ethereum private_key=<privkey>
 ```
 
 <div align="center">
-   <img src= "../imgs/ethereum-priv-key.png" align="center" width="200" style="border: 1px solid black"/>
+   <img src= "../../imgs/ethereum-priv-key.png" align="center" width="200" style="border: 1px solid black"/>
    </div>
    <br>
 
@@ -94,7 +94,7 @@ Url="postgres://polygonid:polygonid@localhost:5432/platformid?sslmode=disable
 - Ethereum URL: For this, you first  to sign up on Alchemy. Then create an app; enter app details including chain as Polygon and Network as Polygon Mumbai. Click **View Key** to know your JSON RPC URL and paste it into the field in the Ethereum URL field. 
 
 <div align="center">
-   <img src= "../imgs/alchemy.png" align="center" width="200" style="border: 1px solid black"/>
+   <img src= "../../imgs/alchemy.png" align="center" width="200" style="border: 1px solid black"/>
    </div>
    <br>
 
@@ -113,7 +113,7 @@ Url="postgres://polygonid:polygonid@localhost:5432/platformid?sslmode=disable
 This loads all the build files for the Node and it starts at the port specified in the `config.toml` file. 
 
 <div align="center">
-   <img src= "../imgs/node-start.png" align="center" width="200" style="border: 1px solid black"/>
+   <img src= "../../imgs/node-start.png" align="center" width="200" style="border: 1px solid black"/>
    </div>
    <br>
 
