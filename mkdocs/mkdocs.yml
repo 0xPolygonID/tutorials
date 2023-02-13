@@ -99,7 +99,7 @@ nav:
         - Identity: "issuer-node/issuer-node-api/identity/apis.md"
         - Claim: "issuer-node/issuer-node-api/claim/apis.md"
         - Agent: "issuer-node/issuer-node-api/agent/apis.md"
-      - Local Setup: 
+    - Local Setup: 
         - Configure IDE Example: "issuer-node/issuer-node-local-setup/configure-ide.md"
         - Run Issuer Node: "issuer-node/issuer-node-local-setup/run-issuer-node.md"
 
