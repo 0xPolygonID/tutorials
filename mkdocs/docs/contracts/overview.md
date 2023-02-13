@@ -25,7 +25,7 @@ CredentialAtomicQuerySigValidator address:
 
 <a href="https://github.com/0xPolygonID/contracts/blob/main/contracts/validators/CredentialAtomicQueryMTPValidator.sol" target="_blank">**CredentialAtomicQueryMTPValidator.sol - Github**</a>
 
-Performs the same set of verifications of the [CredentialAtomicQuerySigValidator](./credentialatomicquerysigvalidator.md) but for credential of type `MTP`
+Performs the same set of verifications of the CredentialAtomicQuerySigValidator but for credential of type `MTP`
 
 CredentialAtomicQueryMTPValidator address:
 
