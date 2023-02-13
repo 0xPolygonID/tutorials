@@ -33,7 +33,6 @@ In this example, the verifier will set up the query: "Prove that you were born b
 
 		``` bash 
 		go get github.com/iden3/go-iden3-auth
-		go get github.com/iden3/go-circuits
 		```
 
 	=== "Javascript"

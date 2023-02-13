@@ -14,7 +14,7 @@ Both the APIs are available either in Golang or Javascript:
 === "GoLang"
 
     ```bash
-    go get github.com/iden3/go-iden3-auth && github.com/iden3/go-circuits
+    go get github.com/iden3/go-iden3-auth
     ```
 
     ```go
