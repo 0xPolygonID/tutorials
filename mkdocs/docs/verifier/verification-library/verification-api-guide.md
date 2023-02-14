@@ -1,4 +1,4 @@
-// [ ] TODO: replace verification key folder on line 71 to the trusted setup repo 
+// [ ] Add reference to JS usage of this library
 
 # Verification
 
@@ -65,7 +65,7 @@ Unpacks the `req`
 This creates a resolver which is used to fetch the identity state from the [State Smart Contract](https://docs.iden3.io/contracts/state/) and a verification key loader which is used to fetch the verification keys necessary to verify a zero knowledge proof. 
 Eventually, it returns an instance of a Verifier. To set up a verifier different parameters need to be passed:
 
--  `keyDIR` is the path where the public verification keys for iden3 circuits are located (such as `"./keys"`). The verification key folder can be found <a href="https://github.com/iden3/tutorial-examples/tree/main/verifier-integration/keys" target="_blank">here</a>.
+-  `keyDIR` is the path where the public verification keys for iden3 circuits are located (such as `"./keys"`). The verification key folder can be found <a href="https://github.com/0xPolygonID/phase2ceremony" target="_blank">here</a>.
 - `ethURL` is the URL of your RPC node provider such as `"https://polygon-testnet-rpc.allthatnode.com:8545"` for Polygon Mumbai.
 - `contractAddress` is the address of the identity state Smart Contract. On Polygon Mumbai, it is 0x134B1BE34911E39A8397ec6289782989729807a4.
 - `resolverPrefix` is the prefix of the resolver. For Polygon Mumbai it is `"polygon:mumbai"`
@@ -94,6 +94,8 @@ Execute the verification. It verifies that the proof shared by the user satisfie
 `authRequest` is the request previously presented to that specific user.
 `pubsignals.WithAcceptedStateTransitionDelay(time.Minute*5))` is the delay accepted by the Verifier. By setting it to 5 minutes, as in this case, the Verifier accepts a proof that verifies the validity of a credential against a state, as stated in the [Smart Contract](https://docs.iden3.io/contracts/state/), which is up to 5 minutes old.
 
+> An example of the usage of this api can be found <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/index.js#L50" target="_blank">here</a>
+
 ## Verification - Under the Hood
 
 The auth library provides a simple handler to extract all the necessary metadata from the proof and execute all the verifications needed. The verification procedure that is happening behind the scenes involves the following steps: 
@@ -103,7 +105,7 @@ The auth library provides a simple handler to extract all the necessary metadata
 Starting from the circuit-specific public verification key, the proof, and the public inputs provided by the user, it is possible to verify the proof. In this case, the proof verification involves: 
 
 - Verification of the proof contained based on the <a href="https://docs.iden3.io/protocol/main-circuits/#authV2" target="_blank">`AuthV2 Circuit`</a>
-- Verification of the proof contained based on the <a href="https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerysigv2" target="_blank">`AtomicQuerySig Circuit`</a> or <a href="https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerymtpV2" target="_blank">`AtomicQueryMTP`</a> based on the query.
+- Verification of the proof contained based on the <a href="https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerysigv2" target="_blank">`AtomicQuerySigV2 Circuit`</a> or <a href="https://docs.iden3.io/protocol/main-circuits/#credentialatomicquerymtpV2" target="_blank">`AtomicQueryMTPV2`</a> based on the query.
 
 ### Verification of On-chain Identity States
 

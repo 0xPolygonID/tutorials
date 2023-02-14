@@ -1,3 +1,5 @@
+// TODO: Add reference to Reference smart contract when merged at line 221
+
 # On-chain ZK Verification
 
 The on-chain verification workflow allows Dapps to verify users' credentials inside a Smart Contract. Zero-Knowledge Proof cryptography enables this verification to happen in a private manner, namely without revealing any personal information of the user (prover).
@@ -21,8 +23,8 @@ This flow is especially needed when further on-chain logic wants to be implement
 
 At its core, every on-chain interaction between a Verifier and a user's Wallet follows this workflow:
 
-- The Verifier designs a [Request] for the users. This has to be recorded on-chain inside the Verifier Smart Contract.
-- The Requestnis delivered to the user within a QR code (or via deep-linking; it is up to the implementer).
+- After having deployed a [Verifier Smart Contract](#design-the-erc20-zk-airdrop-verifier-contract), the Verifier designs a [Request](#set-the-zkp-request) for the users. This has to be recorded on-chain inside the Verifier Smart Contract. 
+- The Request is delivered to the user within a QR code (or via deep-linking; it is up to the implementer).
 - The user scans the QR code using his/her mobile ID wallet and parses the request
 - The user fetches the revocation status of the requested credential from the Issuer of that credential.
 - The user generates a zk proof on mobile according to the request of the website starting from the credentials held in his/her wallet. This also contains the zk proof that the credential is not revoked.
@@ -30,6 +32,8 @@ At its core, every on-chain interaction between a Verifier and a user's Wallet f
 - The Verifier Smart Contract verifies the zk Proof.
 - The Verifier Smart Contract checks that the State of the Issuer of the credential and the State of the user are still valid and have not been revoked.
 - If the verification is successful, the Verifier executes the logic defined in the Smart Contract.
+
+Note that an active action from the Verifier is only required at step 1. All the rest of the interaction is between the user and the Smart Contract. All the verification logic is executed programmatically inside the Smart Contract.
 
 ## Implement ERC20 ZK Airdrop in 20 Minutes 
 
@@ -43,6 +47,7 @@ The prerequisite is that users have the [Polygon ID Wallet app](../../wallet/wal
 
 ---
 **Note:** The full executable code related to this tutorial can be cloned from this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/on-chain-verification" target="_blank">repository</a>.
+
 --- 
 
 ### Design the ERC20 zk Airdrop Verifier Contract 
@@ -213,7 +218,7 @@ async function main() {
 }
 ```
 
-> The contract ERC20Verifier must be deployed on the Mumbai test network as there is a set of supporting contracts that are already deployed on Mumbai! 
+> The contract ERC20Verifier must be deployed on the Mumbai test network as there is a [set of supporting contracts]() that are already deployed on Mumbai! 
 
 ### Set the ZKP Request
 
@@ -223,7 +228,7 @@ As previously mentioned, the actual zkp request "to be born before 01/01/2002" h
 2. `validator`: the address of the <a href="https://github.com/0xPolygonID/contracts/tree/main/contracts/validators" target="_blank">Validators Smart Contract</a> already deployed on Mumbai. This is the contracts that executes the verification on the zk proof submitted by the user. It can be of type [CredentialAtomicQuerySigValidator](../../contracts/overview.md#credentialatomicquerysigvalidator) or [CredentialAtomicQueryMTPValidator](../../contracts/overview.md#credentialatomicquerymtpvalidator).
 3. `schema` namely the bigInt representation of the schema of the requested credential. This can be obtained by passing your schema to this Go Sandbox [link](https://go.dev/play/p/rnrRbxXTRY6)
 4. `claimPathKey` represents the path to the queries key inside the merklized credential. In this case it is the path to the `birthday` key. This can be obtained by passing your schema to this Go Sandbox [link](https://go.dev/play/p/rnrRbxXTRY6).
-5. `operator` is either 1,2,3,4,5. To understand more about the operator you can check the [zk query language](../verification-library/zk-query-language.md)
+5. `operator` is either 1,2,3,4,5,6. To understand more about the operator you can check the [zk query language](../verification-library/zk-query-language.md)
 6. `value` represents the threshold value you are querying. In this case it is the date 01/01/2002. 
 
 > Check out our [Smart Contract section](../../contracts/overview.md) to learn more about the set of verifications executed on the zk proof.
@@ -340,7 +345,7 @@ Note that the request resembles in most of its parts with the one designed for <
 
 Scanning the QR with their Polygon ID Wallet, users will be able to generate proofs and send transactions to the Smart Contract in order to Credential their airdrops.
 
-The same proof generation request can also be delivered to users via Deep Linking. In order to do so is necessary to encode the `json` file to Base64 Format. The related deep link would be `iden3comm://?i_m={{base64EncodedJsonHere}}`. For example, in this specific case the deep link would be `iden3comm://?i_m=eyAgCiAgICAiaWQiOiJjODExODQ5ZC02YmZiLTRkODUtOTM2ZS0zZDk3NTljN2YxMDUiLAogICAgInR5cCI6ImFwcGxpY2F0aW9uL2lkZW4zY29tbS1wbGFpbi1qc29uIiwKICAgICJ0eXBlIjoiaHR0cHM6Ly9pZGVuMy1jb21tdW5pY2F0aW9uLmlvL3Byb29mcy8xLjAvY29udHJhY3QtaW52b2tlLXJlcXVlc3QiLAogICAgImJvZHkiOnsKICAgICAgICAidHJhbnNhY3Rpb25fZGF0YSI6ewogICAgICAgICAgICAiY29udHJhY3RfYWRkcmVzcyI6IjxFUkMyMFZlcmlmaWVyIGNvbnRyYWN0IGFkZHJlc3M+IiwKICAgICAgICAgICAgIm1ldGhvZF9pZCI6ImI2ODk2N2UyIiwKICAgICAgICAgICAgImNoYWluX2lkIjo4MDAwMSwKICAgICAgICAgICAgIm5ldHdvcmsiOiJwb2x5Z29uLW11bWJhaSIKICAgICAgICAgICAgfSwKICAgICAgICAicmVhc29uIjoiYWlyZHJvcCBwYXJ0aWNpcGF0aW9uIiwKICAgICAgICAic2NvcGUiOlt7CiAgICAgICAgICAgICJpZCI6MSwKICAgICAgICAgICAgImNpcmN1aXRfaWQiOiJjcmVkZW50aWFsQXRvbWljUXVlcnlTaWciLAogICAgICAgICAgICAicnVsZXMiOnsKICAgICAgICAgICAgICAgICJxdWVyeSI6ewogICAgICAgICAgICAgICAgICAgICJhbGxvd2VkX2lzc3VlcnMiOlsiKiJdLAogICAgICAgICAgICAgICAgICAgICJyZXEiOnsgCiAgICAgICAgICAgICAgICAgICAgICAgICJkYXRlT2ZCaXJ0aCI6ewogICAgICAgICAgICAgICAgICAgICAgICAgICAgIiRsdCI6MjAwMjAxMDEKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICAic2NoZW1hIjp7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAidXJsIjoiaHR0cHM6Ly9zMy5ldS13ZXN0LTEuYW1hem9uYXdzLmNvbS9wb2x5Z29uaWQtc2NoZW1hcy85YjFjMDVmNC03ZmI2LTQ3OTItYWJlMy1kMWRkYmQ5YTk2MDkuanNvbi1sZCIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAidHlwZSI6IkFnZUNyZWRlbnRpYWwiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9XQogICAgICAgICAgICB9Cn0=`
+The same proof generation request can also be delivered to users via Deep Linking. In order to do so is necessary to [encode](https://www.base64encode.org/) the `json` file to Base64 Format. The related deep link would be `iden3comm://?i_m={{base64EncodedJsonHere}}`. For example, in this specific case the deep link would be `iden3comm://?i_m=ewogICAgImlkIjogIjdmMzhhMTkzLTA5MTgtNGE0OC05ZmFjLTM2YWRmZGI4YjU0MiIsCiAgICAidHlwIjogImFwcGxpY2F0aW9uL2lkZW4zY29tbS1wbGFpbi1qc29uIiwKICAgICJ0eXBlIjogImh0dHBzOi8vaWRlbjMtY29tbXVuaWNhdGlvbi5pby9wcm9vZnMvMS4wL2NvbnRyYWN0LWludm9rZS1yZXF1ZXN0IiwKICAgICJ0aGlkIjogIjdmMzhhMTkzLTA5MTgtNGE0OC05ZmFjLTM2YWRmZGI4YjU0MiIsCiAgICAiYm9keSI6IHsKICAgICAgICAicmVhc29uIjogImFpcmRyb3AgcGFydGljaXBhdGlvbiIsCiAgICAgICAgInRyYW5zYWN0aW9uX2RhdGEiOiB7CiAgICAgICAgICAgICJjb250cmFjdF9hZGRyZXNzIjogIjxFUkMyMFZlcmlmaWVyQWRkcmVzcz4iLAogICAgICAgICAgICAibWV0aG9kX2lkIjogImI2ODk2N2UyIiwKICAgICAgICAgICAgImNoYWluX2lkIjogODAwMDEsCiAgICAgICAgICAgICJuZXR3b3JrIjogInBvbHlnb24tbXVtYmFpIgogICAgICAgIH0sCiAgICAgICAgInNjb3BlIjogWwogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaWQiOiAxLAogICAgICAgICAgICAgICAgImNpcmN1aXRJZCI6ICJjcmVkZW50aWFsQXRvbWljUXVlcnlTaWdWMk9uQ2hhaW4iLAogICAgICAgICAgICAgICAgInF1ZXJ5IjogewogICAgICAgICAgICAgICAgICAgICJhbGxvd2VkSXNzdWVycyI6IFsKICAgICAgICAgICAgICAgICAgICAgICAgIioiCiAgICAgICAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAgICAgICAiY29udGV4dCI6ICJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vaWRlbjMvY2xhaW0tc2NoZW1hLXZvY2FiL21haW4vc2NoZW1hcy9qc29uLWxkL2t5Yy12My5qc29uLWxkIiwKICAgICAgICAgICAgICAgICAgICAiY3JlZGVudGlhbFN1YmplY3QiOiB7CiAgICAgICAgICAgICAgICAgICAgICAgICJiaXJ0aGRheSI6IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICIkbHQiOiAyMDAyMDEwMQogICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICAidHlwZSI6ICJLWUNBZ2VDcmVkZW50aWFsIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgXQogICAgfQp9`
 
 ## User Demo: Claim the Airdrop!
 
@@ -364,7 +369,7 @@ Or you can direcly test it scanning the QR Code below using your Polygon ID App:
 
 ### How the proof submission is executed?
 
-The wallet needs to call the `submitZKPResponse()` function before it can submit the proof for the requirements set in the Airdrop Participation process. This function forms part of the ZKPVerifier Interface [`IZKPVerifier`](https://github.com/iden3/contracts/blob/master/contracts/interfaces/IZKPVerifier.sol#L6) and is actually implemented inside the [`ZKPVerifier Contract`](https://github.com/iden3/contracts/blob/master/contracts/ZKPVerifier.sol#L19)
+The wallet needs to call the `submitZKPResponse()` function before it can submit the proof for the requirements set in the Airdrop Participation process. This function forms part of the ZKPVerifier Interface [`IZKPVerifier`](https://github.com/iden3/contracts/blob/master/contracts/interfaces/IZKPVerifier.sol#L7) and is actually implemented inside the [`ZKPVerifier Contract`](https://github.com/iden3/contracts/blob/master/contracts/ZKPVerifier.sol#L21)
 
 ```solidity
 

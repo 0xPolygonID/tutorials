@@ -1,4 +1,4 @@
-// TODO: Update references to the library
+// TODO: Check reference to JS Library
 
 # Configuration
 
