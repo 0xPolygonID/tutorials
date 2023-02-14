@@ -22,6 +22,9 @@ Does 'credentialRequests` in above code need to be removed?
   -->
 
 <!-- Does following description need to change as there is no Credential Request Entities in the method?-->
+
+<!-- what does OfferIden3MessageEntity do? -->
+
 The `fetchAndSaveClaims()` function uses a list of `Credential Request Entities`as the input parameter. A `Credential Request Entity` is generated when an Integrator scans the QR code to get claims from an Issuer. The function returns a list of `Claim Entities`.
  
 ## Wallet-Issuer Interaction for Fetching Claims
