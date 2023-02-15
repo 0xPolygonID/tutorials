@@ -69,6 +69,11 @@ Another aspect of privacy comes from the fact that the Issuer would not be able 
 - [A Deep Dive Into Polygon ID - November 2022](https://youtu.be/utpazrLrSbY)
 - [A Deeper Dive Into Polygon ID - November 2022](https://youtu.be/fQ9DiGUnvwA)
 
+## Further Resources On Verifiable Credentials
+
+- [Verifiable Credentials: The Ultimate Guide](https://www.dock.io/post/verifiable-credentials)
+- [Understanding and Using Verifiable Credentials](https://www.youtube.com/watch?v=BxLSSH_EHjo)
+
 ---
 
 ###### <div align="center">

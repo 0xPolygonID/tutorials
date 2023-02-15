@@ -22,7 +22,7 @@ The process of verifying user information based on their credentials can happen 
 - [Off-chain Verification](./verification-library/verifier-library-intro.md) provides all the elements to create a customized Query, set up a verifier and generate a QR code (or deeplink) on the client side to request proof from the user.
 - [On-chain Verification](./on-chain-verification/overview.md) allows Dapps to verify users' credentials inside a Smart Contract using zero knowledge proof cryptography. 
 
-## Quick Demo 
+## Quick Start 
 
 You can quickly try out the Verification experience by following the steps below: 
 
