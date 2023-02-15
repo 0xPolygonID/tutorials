@@ -33,6 +33,7 @@ Please note that the secret is internally converted to a 32- length bytes array 
 
 `network` is the type of network (Mainnet or Testnet) associated with the identity. 
  
+
 The role of `createIdentity()` is to create a `PrivateIdentityEntity` for an Integrator and then store it on the SDK. The identifier and private key that this function generates are used by the Integrator every time it needs to interact with the Identity using the SDK. The `PrivateIdentityEntity` is created from the secret and represents an identity.
  
 So, in the nutshell, `createIdentity()` creates and stores an identity on the SDK and returns the `PrivateIdentityEntity` object to the integrator to be able to operate with the identity. 

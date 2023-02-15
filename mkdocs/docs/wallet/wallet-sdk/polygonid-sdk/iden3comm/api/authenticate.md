@@ -18,7 +18,7 @@ Future<void> authenticate(
 ```
 `Iden3MessageEntity` is the iden3 message retrieved from the `getIden3Message()` method
 `did` is the unique id of the identity.
-`profileNonce`:
+`profileNonce` is the nonce of the profile of an identity. 
 `privateKey` of the identity is a key that is used to access the sensitive information of the identity. This key is also used for generating proofs by using the credentials associated with the identity. 
 
 `pushToken` lets an Integrator receive the iden3 messages through push notification.
