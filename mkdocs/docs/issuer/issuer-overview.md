@@ -6,7 +6,7 @@ An issuer might be:
 
 - A DAO that issues “membership claims" to its members.
 - A Government that issues ID to its citizens.
-- An Face detection ML application that issues "proof of personhood" claims. 
+- A Face detection ML application that issues "proof of personhood" claims. 
 - An employer that endorses its employees.
 
 [Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) are a flexible data format able to express any type of information so that developers can unleash their creativity.
@@ -23,5 +23,7 @@ Using Polygon ID an Issuer can Issuer Credentials to their users (or friends!).
 
 You can quickly try out how the Credential Issuance experience look like by following the steps below: 
 
-- Download the [Polygon ID Wallet](../wallet/wallet-overview.md) and create an Identity.
-- Fetch a credential in your wallet issued by the [Demo Issuer](https://issuer-demo.polygonid.me/)
+- Download the Polygon ID Wallet App and create an Identity.ß
+> - For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
+> - For iOS: <a href="https://apps.apple.com/us/app/polygon-id/id1629870183" target="_blank">Polygon ID on the App Store</a>
+- Fetch a credential from the [Demo Issuer](https://issuer-demo.polygonid.me/)
