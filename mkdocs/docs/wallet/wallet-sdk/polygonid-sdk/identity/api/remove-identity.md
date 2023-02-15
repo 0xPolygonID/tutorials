@@ -11,9 +11,9 @@ Future<void> removeIdentity(
 
 The `removeIdentity()` function removes a previously created and stored Identity from the SDK, The `genesisDiD` String and the `privateKey` are passed as parameters to the function.
 
-`genesisDiD` is the unique id of the identity for which profile nonce os zero. 
+`genesisDiD` is the unique id of the identity for which profile nonce as zero. 
 
-`privateKey` is the key that is used to access the sensitive information related to an identity. This key is also used to generate proofs using the credentials associated with that identity.
+`privateKey` is the key that is used to access sensitive information related to an identity. This key is also used to generate proofs using the credentials associated with that identity.
 
 If an error occurs, the function throws an `IdentityException`. 
  

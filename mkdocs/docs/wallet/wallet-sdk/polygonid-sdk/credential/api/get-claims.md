@@ -12,7 +12,7 @@ Future<List<ClaimEntity>> getClaims(
  
 ```
 
-This function returns a list of `Claim Entity` based on some pre-defined criteria or filters. The function uses `privateKey` and `did` as input parameters.
+This function returns a list of `ClaimEntity` based on some pre-defined criteria or filters. The function uses `privateKey` and `did` as input parameters.
 
 `privateKey` of the identity is a key that is used to access the sensitive information of the identity. This key is also used for generating proofs by using the credentials associated with the identity. 
 
@@ -20,7 +20,7 @@ This function returns a list of `Claim Entity` based on some pre-defined criteri
  
 # Get Claims by Ids: `getClaimsByIds`
  
-The `getClaimsByIds()` function retreives a list of credentials stored on the SDK  usinga list of credential ids.
+The `getClaimsByIds()` function retrieves a list of credentials stored on the SDK using a list of credential ids.
 
 ## Get Claims by Ids
  
@@ -32,6 +32,6 @@ Future<List<ClaimEntity>> getClaimsByIds(
 
 ```
 
-The function, based on the  credential ids, retrieves a list of `ClaimEntity` from the storage. 
+The method, based on the credential ids, retrieves a list of `ClaimEntity` from the storage. 
 
 > Note: An Issuer assigns ids to the credentials. The wallet, after fetching these credentials, stores them on the SDK. 

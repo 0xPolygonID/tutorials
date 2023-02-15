@@ -16,10 +16,9 @@ Future<Map<int, String>?>backupIdentity({required String privateKey, required bl
 
 `blockchain` is the name of the blockchain associated with the identity. In our case, it is **Polygon**. 
 
-`network` is the type of the network (Mainnet or Testnet) associated with the identity. 
+`network` is the type of network (Mainnet or Testnet) associated with the identity. 
 
 The method returns a `map` of profile nonces and encrypted databases associated with the identity. 
 
 If an error occurs, the method throws an `IdentityException`.
 
-<!-- What is a profile nonce -->

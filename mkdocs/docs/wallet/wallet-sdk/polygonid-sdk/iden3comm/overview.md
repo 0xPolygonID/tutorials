@@ -7,8 +7,8 @@ The Iden3comm protocol defines the structure of the messages, requests, and resp
 - Authorization Request Messages and Response Body
 - Authorization Response Messages and Response Body
 - Zero-knowledge  Proof Requests and Responses
-- Credential Request Messages for Claim Issuance and Claim Fetching
-- Credential Response Messages for Claim Issuance
+- Credential Request Messages for Credential Issuance and Credential Fetching
+- Credential Response Messages for Credential Issuance
 - Iden3 Messages for Message Fetch Requests
 - Revocation Status Request Messages
 - Device Registration Requests

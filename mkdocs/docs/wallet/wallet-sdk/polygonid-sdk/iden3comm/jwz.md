@@ -105,7 +105,7 @@ JWT relies on digital signatures for secure transmission of information. In part
 
 JWZ represents the main instrument to communicate securely between parties off-chain. This data primitive integrates seamlessly within web2 architectures for authentication purposes. 
 
-> Here, we used the JWZ to manage the communication between the user and the Verifier. A JWZ can also be used in the communication between the user and the Issuer so that the user can prove his/her identity in order to fetch the claims associated with his/her identity.
+> Here, we used the JWZ to manage the communication between the user and the Verifier. A JWZ can also be used in the communication between the user and the Issuer so that the user can prove his/her identity in order to fetch the credentials associated with his/her identity.
 
 ### Libraries
 
