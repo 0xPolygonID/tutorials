@@ -1,25 +1,28 @@
 # To Get Identity: `getIdentity`
  
 We can get an identity stored on the SDK using `getIdentity()` function. 
+
+## Get an Identity
  
 ```
 Future<IdentityEntity> getIdentity(
-      {required String did, String? privateKey})
+      {required String genesisDid, String? privateKey});
 
-{
-   return _getIdentityUseCase.execute(
-        param:
-            GetIdentityParam(identifier: identifier, privateKey: privateKey));
- 
-}
 ```
-<!--
-Does "identifier" need to be replaced with "did" in the above lines of code? -->
 
-The `getIdentity()` function gets an `IdentityEntity` from an identifier. It returns an identity as a `PrivateIdentityEntity` or `IdentityEntity` if `privateKey` is ommited or invalid for that identifier. <!-- is above sentence correct? -->
+The `getIdentity()` function gets an `IdentityEntity` from an identifier. It returns an identity as a `PrivateIdentityEntity` or `IdentityEntity` (in case if `privateKey` is omitted or invalid for that identifier). <!-- is above sentence correct? -->
 
-`did` is the unique id of the identity. `privateKey` is the key that is used to access the sensitive information related to an identity. This key is also used to generate proofs using the credentials associated with that identity. 
+`did` is the unique id of the identity and `genesisDid` is the `did` of the first profile of the identity, it is the unique id of the identity for which profile nonce is 0.
+
+> Note: It is worth noting that `did` is a Decentralized Identifier associated with an identity and enables verifiable identities. A `did` could be a person, thing, organization, or even an abstract entity. The controller of the `did` can prove that it is the real owner of the identity without the need of seeking permissions/approvals from any centralized authority. 
+
+A `did` is expresssed in the following format (as per [w3.org](https://www.w3.org/) standards):
+
+**did: did method: did method-specific identifier**
+
+`privateKey` is the key that is used to access the sensitive information related to an identity. This key is also used to generate proofs using the credentials associated with that identity. 
  
-The role of `getIdentity()` is to obtain an `IdentityEntity` stored on the SDK for an Integrator. The `identifier` string is the unique id of the identity. Identity `privateKey` is the key used to access all the sensitive info from the identity and also to realize operations like generating proofs using the claims associated to the identity.
- 
-This way, `getIdentity()` obtains an identity stored on the SDK for an Integrator.
+
+
+
+

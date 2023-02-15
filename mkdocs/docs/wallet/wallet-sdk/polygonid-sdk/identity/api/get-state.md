@@ -2,6 +2,8 @@
 
 This function returns the present state of an identity.
 
+## Get Identity State
+
 ```
 Future<String> getState(String did)
 ```

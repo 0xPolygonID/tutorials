@@ -3,17 +3,17 @@
 Creating an Identity is the first step that an Integrator needs to follow for using Polygon ID SDK. An identity is created with a unique identifier that is used to:
  
 - Authenticate an Integrator/User
-- Authenticate with the Issuer for issuing claims (credentials) to the Identity. Then these claims are securely stored on the wallet.
+- Authenticate with the Issuer for issuing credentials to the Identity. Then these credentials are securely stored on the wallet.
  
 ## Create an Identity
  
 In the SDK, an identity is created using `createIdentity()` function. This is the entry point for any Integrator.
  
 ```
-Future<PrivateIdentityEntity> createIdentity({String? secret, required blockchain, required network}) 
+Future<PrivateIdentityEntity> createIdentity({String? secret, required blockchain, required network}); 
  
 {
-   return _createIdentityUseCase.execute(
+    return _createIdentityUseCase.execute(
         param: CreateIdentityParam(
       secret: secret,
     ));

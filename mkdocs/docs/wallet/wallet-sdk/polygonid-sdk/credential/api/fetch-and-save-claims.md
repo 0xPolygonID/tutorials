@@ -1,33 +1,30 @@
 # To Fetch and Save Claims: `fetchAndSaveClaims`
  
-An Integrator can fetch credentials stored on an Issuer and then save them in the Wallet. The`fetchAndSaveClaims()` function is called to fetch and save a list of credentials from an Issuer.
+An Integrator can fetch credentials stored on an Issuer and then save them in his/her wallet. The`fetchAndSaveClaims()` function is called to fetch and save a list of credentials from an Issuer.
  
+## Fetch and Save Claims
 ```
 Future<List<ClaimEntity>> fetchAndSaveClaims(
       {required OfferIden3MessageEntity message,
       required String did,
-      required String privateKey})
+      required String privateKey});
     
-     {
-       return _fetchAndSaveClaimsUseCase.execute(
-        param: FetchAndSaveClaimsParam(
-            requests: credentialRequests,
-            identifier: identifier,
-            privateKey: privateKey));
-     }
- 
 ```
- <!-- Does 'identifier' in above code need to be changed to 'did' ?
-Does 'credentialRequests` in above code need to be removed?
-  -->
-
-<!-- Does following description need to change as there is no Credential Request Entities in the method?-->
 
 <!-- what does OfferIden3MessageEntity do? -->
 
-The `fetchAndSaveClaims()` function uses a list of `Credential Request Entities`as the input parameter. A `Credential Request Entity` is generated when an Integrator scans the QR code to get claims from an Issuer. The function returns a list of `Claim Entities`.
+The `fetchAndSaveClaims()` function uses `OfferIden3MessageEntity`, `privateKey`, and `did` as the input parameters. and returns a list of `ClaimEntity`.
+
+`OfferIden3MessageEntity`: ???
+
+
  
-## Wallet-Issuer Interaction for Fetching Claims
+`privateKey` of the identity is a key that is used to access the sensitive information of the identity. This key is also used for generating proofs by using the credentials associated with the identity. 
+
+`did` is the unique id of the identity. 
+
+
+## Wallet-Issuer Interaction for Fetching Claims (Needs to be Revised!!)
  
  
 1. Integrator scans the QR code displayed on the Issuer site to get the iden3 message.

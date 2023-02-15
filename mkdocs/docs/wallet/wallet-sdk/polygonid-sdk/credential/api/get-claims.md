@@ -2,49 +2,36 @@
 
 After a credential is fetched from an Issuer and stored on the wallet SDK, an Integrator can retrieve this credential from the storage. This is done using `getClaims()` function.
  
+## Get Claims
+
 ```
 Future<List<ClaimEntity>> getClaims(
       {List<FilterEntity>? filters,
       required String did,
-      required String privateKey})
+      required String privateKey});
  
-   {
-      return _getClaimsUseCase.execute(
-        param: GetClaimsParam(
-         filters: filters,
-         identifier: identifier,
-         privateKey: privateKey,
-      ));
-   }
 ```
-<!-- does `identifier` need to be changed to `did` in above? -->
 
+This function returns a list of `Claim Entity` based on some pre-defined criteria or filters. The function uses `privateKey` and `did` as input parameters.
 
-This function returns a list of `Claim Entity` based on some pre-defined criteria or filters.
+`privateKey` of the identity is a key that is used to access the sensitive information of the identity. This key is also used for generating proofs by using the credentials associated with the identity. 
+
+`did` is the unique id of the identity. 
  
-## To Get Claims by Ids: `getClaimsByIds`
+# Get Claims by Ids: `getClaimsByIds`
  
-The `getClaimsByIds()` function retreives a list of credentials stored on the SDK  using credential ids.
+The `getClaimsByIds()` function retreives a list of credentials stored on the SDK  usinga list of credential ids.
+
+## Get Claims by Ids
  
 ```
 Future<List<ClaimEntity>> getClaimsByIds(
       {required List<String> claimIds,
       required String did,
-      required String privateKey})
-   {
-       return _getClaimsUseCase.execute(
-        param: GetClaimsParam(
-      filters: [
-        FilterEntity(
-            operator: FilterOperator.inList, name: 'id', value: claimIds)
-      ],
-      identifier: identifier,
-      privateKey: privateKey,
-    ));
-   }
+      required String privateKey});
+
 ```
-<!-- does `identifier` need to be changed to `did` in above? -->
 
-The function, based on the ids, retrieves a list of `ClaimEntity` from the storage. 
+The function, based on the  credential ids, retrieves a list of `ClaimEntity` from the storage. 
 
-> Note: An Issuer assigns `claimIds` to the credentials. The wallet, after fetching these credentials, stores them on the SDK. 
+> Note: An Issuer assigns ids to the credentials. The wallet, after fetching these credentials, stores them on the SDK. 
