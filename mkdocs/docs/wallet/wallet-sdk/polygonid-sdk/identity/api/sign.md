@@ -23,7 +23,7 @@ Thus the role of `sign()` is to sign a message string for an Integrator using id
  
 
 <div align="center">
-<img src= "../../../../../../imgs/identity-wallet.png" align="center" width="500"/>
+<img src= "../../../../../imgs/identity-wallet.png" align="center" width="500"/>
 </div>
 <br>
 

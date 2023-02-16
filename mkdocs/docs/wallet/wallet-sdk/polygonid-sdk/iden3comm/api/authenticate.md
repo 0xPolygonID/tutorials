@@ -39,14 +39,14 @@ An Integrator, to interact with an Issuer, needs to authenticate with it first.
 1.  On the Polygon ID app (which is based on SDK), an Integrator clicks **Connect**.
  
       <div align="center">
-      <img src= "../../../../../../imgs/polygonid-wallet-connect.png" align="center" width="150" border="1"/>
+      <img src= "../../../../../imgs/polygonid-wallet-connect.png" align="center" width="150" border="1"/>
       </div>
       <br>
  
 2.  The Issuer displays a QR code. The Integrator, using the app, scans this code.
  
       <div align="center">
-      <img src= "../../../../../../imgs/qr-code-scan.png" align="center" width="150"/>
+      <img src= "../../../../../imgs/qr-code-scan.png" align="center" width="150"/>
       </div>
       <br>
  
@@ -54,7 +54,7 @@ An Integrator, to interact with an Issuer, needs to authenticate with it first.
 3.  With this, the `Authenticate()` function (with the identifier, private key and message as the inputs) is executed. The function authenticates the Identity and sends the authentication information (in the form of a big encoded message based on JWZ) to the Issuer.
  
       <div align="center">
-      <img src= "../../../../../../imgs/jwz.png" align="center" width="250"/>
+      <img src= "../../../../../imgs/jwz.png" align="center" width="250"/>
       </div>
       <br>
  

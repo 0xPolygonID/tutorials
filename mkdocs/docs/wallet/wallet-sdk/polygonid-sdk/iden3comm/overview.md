@@ -14,7 +14,7 @@ The Iden3comm protocol defines the structure of the messages, requests, and resp
 - Device Registration Requests
 
 <div align="center">
-<img src= "../../../../../imgs/iden3comm.png" align="center" width="500"/>
+<img src= "../../../../imgs/iden3comm.png" align="center" width="500"/>
 </div>
 <br>
 
