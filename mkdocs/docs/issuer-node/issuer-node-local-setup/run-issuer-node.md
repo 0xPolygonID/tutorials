@@ -1,8 +1,8 @@
 # Run Issuer Node Locally on IDE
 
-As we stated earlier in the tutorials, Issuer Node is platform-agnostic and can be run with CLI or IDE, or even on a cloud-based platfrom. In this tutorial, we are going to show you the steps needed to start the Node on GoLand IDE.
+As we stated earlier in the tutorials, the Issuer Node is platform-agnostic and can be run with CLI or IDE, or even on a cloud-based platfrom. In this tutorial, we are going to show you the steps needed to start the Node on GoLand IDE.
 
-> Warning: Please note that for the M1 chips, running the Issuer Node with dockerization might give some errors. This is a "known "issue". We have tested this for ubuntu and macOS but for Windows, testing has noy yet ben carried out.
+> Warning: Please note that for the M1 chips, running the Issuer Node with dockerization might give some errors. This is a "known issue". We have tested this for ubuntu and macOS however for Windows, testing has not yet been carried out.
 
 
 1. **Clone the Repositoy**: Clone the <a href="https://github.com/0xPolygonID/sh-id-platform" target="_blank">Issuer Node Repository</a>
@@ -90,7 +90,7 @@ to your system.
 
       - Keystore PluginIden3MountPath: The path that needs to be added to the vault so that it can be configured correctly.
 
-      - Ethereum URL: For this, you first  to sign up on Alchemy. Then create an app; enter app details including chain as Polygon and Network as Polygon Mumbai. Click **View Key** to know your JSON RPC URL and paste it into the field in the Ethereum URL field. 
+      - Ethereum URL: For this, you first need to sign up on Alchemy. Then create an app; enter app details including chain as Polygon and Network as Polygon Mumbai. Click **View Key** to know your JSON RPC URL and paste it into the field in the Ethereum URL field. 
 
       <div align="center">
          <img src= "../../../imgs/alchemy.png" align="center" style="border: 1px solid black"/>
