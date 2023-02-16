@@ -4,11 +4,11 @@ Restoring an Identity can be done using an identity backup and the secret used t
  
 ## Restore an Identity
  
-In the SDK, an identity is restored using `restoreIdentity()` function. This is the entry point for any Integrator.
+In the SDK, an identity is restored using `restoreIdentity()` function. It restores the `IdentityEntity` from a `privateKey`and `encryptedIdentityDb` (Encrypted Identity Database) associated with the identity. 
  
 ```
 Future<PrivateIdentityEntity> restoreIdentity(
-      {required String secret, required String encryptedIdentityDb}) async
+      {required String privateKey, required String blockchain, required String network, Map<int, String>? encryptedIdentityDbs});
  
 {
    return _restoreIdentityUseCase.execute(
@@ -18,19 +18,18 @@ Future<PrivateIdentityEntity> restoreIdentity(
     ));
 }
 ```
-The `restoreIdentity()` function restores and stores an `IdentityEntity` from a secret if replacing already existing one in the Polygon ID SDK. It returns an identity as a `PrivateIdentityEntity`.
+It returns an identity as a `PrivateIdentityEntity`.
 Throws `IdentityException` if an error occurs.
-The `encryptedIdentityDb` stores all the sensitive information related to the identity (claims, state, etc.). This information is stored in the SDK database and is accessible only to an Identity. 
 
-**Note**: Depending on the length requirement of the secret string, either an Identity is successfully restored or an error is displayed in form of an exception when the function is executed.
+`privateKey` of the identity is a key that is used to access the sensitive information of the identity. This key is also used for generating proofs by using the credentials associated with the identity. 
 
-**Note**: Be aware the secret is internally converted to a 32 length bytes array
-in order to be compatible with the SDK. The following rules will be applied:
- - If the byte array is not 32 length, it will be padded with 0s.
- - If the byte array is longer than 32, an exception will be thrown.
- 
- 
-The role of `restoreIdentity()` is to restore an `IdentityEntity` for an Integrator and then storing it on the SDK. The identifier and private key that this function generates are used by the Integrator every time it needs to interact with the Identity using the SDK. The `PrivateIdentityEntity` is restored from the secret and represents an identity.
- 
-Hence `restoreIdentity()` restores and stores an identity on the SDK and returns the `PrivateIdentityEntity` object to the integrator to be able to operate with the identity. 
+`blockchain` is the name of the blockchain associated with the identity. In our case, it is **Polygon**. 
 
+`network` is the type of network (Mainnet or Testnet) associated with the identity. 
+
+The `encryptedIdentityDbs` stores all the sensitive information related to the identity. It is  a database where all the information associated with an identity is stored and secured by the identity (credentials, state, etc.). This information is stored in the SDK database and is accessible only by an Identity. The `encryptedIdentityDbs` are passed as a map of key:value pair where key is `profileNonce` and Value is its corresponding `encryptedIdentityDb` value.
+
+
+In short, the role of `restoreIdentity()` is to restore an `IdentityEntity` for an Integrator and then store it on the SDK. It returns the `PrivateIdentityEntity` object to the integrator to be able to operate with the identity. 
+
+> Note: `profileNonce` functionality would be a part of the next release of the Wallet SDK.

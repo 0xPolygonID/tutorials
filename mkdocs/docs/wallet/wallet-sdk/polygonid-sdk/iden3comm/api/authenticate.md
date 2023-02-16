@@ -1,25 +1,37 @@
 # To Authenticate Identity with Issuer
 
-An Integrator, in order to use the services of an Issuer, needs to authenticate itself with that Issuer. For this to happen, the Integrator needs to call the `authenticate()` function.
- 
+An Integrator, in order to use the services of an Issuer, needs to authenticate itself with that Issuer. For this to happen, the Integrator needs to call the `authenticate()` method. 
+
+## Authenticate Identity
+
+The `authenticate()` method uses 
+`Iden3MessageEntity`, `did`, `profileNonce`, `privateKey`, and an optional `pushToken` as input parameters.
+
 ```
 Future<void> authenticate(
       {required Iden3MessageEntity message,
-      required String identifier,
+      required String did,
+      int? profileNonce,
       required String privateKey,
-      String? pushToken}) {
-    return _authenticateUseCase.execute(
-        param: AuthenticateParam(
-      message: message,
-      identifier: identifier,
-      privateKey: privateKey,
-      pushToken: pushToken,
-    ));
-  }
+      String? pushToken});
+
 ```
- 
-As seen above, the `authenticate()` function uses the `identifier` string, the `private key` string (returned from the `createIdentity()` function), and the `Iden3 Message Entity` as the input parameters. The push token is an optional parameter; it lets an integrator receive the iden3 messages through push notification.
- 
+`Iden3MessageEntity` is the iden3 message retrieved from the `getIden3Message()` method
+`did` is the unique id of the identity.
+`profileNonce` is the nonce of the profile of an identity. 
+`privateKey` of the identity is a key that is used to access the sensitive information of the identity. This key is also used for generating proofs by using the credentials associated with the identity. 
+
+`pushToken` lets an Integrator receive the iden3 messages through push notification.
+
+## Steps
+
+1. Retrieve `CircuitDataEntity` from the loadCircuitFiles. `CircuitDataEntity` are the circuits used for generating an authentication proof that we share with the Issuer with JWZ.
+
+2. Retrieve iden3message by scanning the QR code and transform it as a string message with `getiden3message()` method. 
+
+3. Get authToken from authenticate() and authenticate Identity with authToken.
+
+
 ### Wallet-Issuer Interaction using Authentication
  
 An Integrator, to interact with an Issuer, needs to authenticate with it first. 
