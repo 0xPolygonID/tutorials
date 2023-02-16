@@ -15,7 +15,7 @@ In this tutorial, we shall see how to create a schema using [Serto Editor](https
    </div>
    <br>
 
-3. On the **Create New Schema** screen, enter Credential Schema Name, URL Slug, Version of the schema, and its description. 
+3. On the **Create New Schema** screen, enter Credential Schema Name (let's say it is named "golang-fan"), URL Slug, Version of the schema, and its description. 
 
     <div align="center">
    <img src= "../../imgs/create-schema1.png" align="center" width="700" style="border: 1px solid black"/>
@@ -71,18 +71,63 @@ You can now see your schema in the JSON/JSON-LD formats:
    </div>
    <br>
 
-7. Once a schema is created, you can use it to issue Verifiable Credentials. On Serto, you can do it via Serto Agent (it is in the testing phase) or manually.
 
-    <div align="center">
-   <img src= "../../imgs/issue-vc.png" align="center" width="700" style="border: 1px solid black"/>
-   </div>
-   <br>
+**Create Credential from Schema Using Issuer Node** 
 
-   <div align="center">
-   <img src= "../../imgs/issue-vc2.png" align="center" width="700" style="border: 1px solid black"/>
+Once a schema is created, you can use it to issue Verifiable Credential from the Issuer Node.
+
+Follow the steps of [user wallet demo](./demo-user-wallet.md) to create a credential. 
+
+1. Open the **Create Claim** window:
+
+<div align="center">
+   <img src= "../../imgs/create-credential.png" align="center" width="700" style="border: 1px solid black"/>
    </div>
-   <br>
  
+ and enter the following details:
+
+***Schema***: As you have created your own schema, click the dropdown against `Schema` to select **Custom**.
+
+***URL***: Copy JSON Schema URL from your schema
+created on Serto and paste it in the **URL** field. 
+
+<div align="center">
+   <img src= "../../imgs/json-schema-url.png" align="center" width="700" style="border: 1px solid black"/>
+   </div>
+
+***Type***: Copy JSON-LD Context  URL from your schema
+created on Serto and paste it in the **Type** field.
+
+<div align="center">
+   <img src= "../../imgs/json-ld-context-url.png" align="center" width="700" style="border: 1px solid black"/>
+   </div>
+
+***Expiration Date***: Enter date of expiry of the new credential that you are going to create. 
+
+3. Click **Submit**. 
+
+<div align="center">
+   <img src= "../../imgs/enter-schema-links.png" align="center" width="700" style="border: 1px solid black"/>
+   </div>
+
+This creates a new credential which you can view under Credentail List. Click the icon to view this credential.  
+
+3. Open the 
+<div align="center">
+   <img src= "../../imgs/view-credential.png" align="center" width="700" style="border: 1px solid black"/>
+   </div>
+
+<br>
+
+<div align="center">
+   <img src= "../../imgs/credential1.png" align="center" width="700" style="border: 1px solid black"/>
+   </div>
+
+<br>
+
+ <div align="center">
+   <img src= "../../imgs/credential2.png" align="center" width="700" style="border: 1px solid black"/>
+   </div>
 
 
 
