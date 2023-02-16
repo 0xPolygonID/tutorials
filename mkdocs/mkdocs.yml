@@ -27,17 +27,22 @@ nav:
   - Home: "index.md"
   - Issuer:
     - Overview: "issuer/issuer-overview.md"
-    - Platform API:
-      - Introduction: "issuer/platform-api/introduction.md"
-      - Getting Started: "issuer/platform-api/flow-tutorial/happy-path.md"
-      - API Reference: 
-        - Onboarding Organization: "issuer/platform-api/onboarding-orgs/apis.md"
-        - Issuer: "issuer/platform-api/issuer/apis.md"
-        - Claim Schemas: "issuer/platform-api/schemas/apis.md"
-        - Claim Offers: "issuer/platform-api/offers/apis.md" 
-  - Verifier SDK:
+    - Issuer Node: 
+      - Overview: "issuer-node/issuer-node-overview.md"
+      - Issuer Node API: 
+        - Introduction: "issuer-node/issuer-node-api/introduction.md"
+        - Getting Started: "issuer-node/issuer-node-api/flow-tutorial/general-flow.md"
+        - Create Schema: "issuer-node/issuer-node-api/create-schema.md"
+        - API Reference: 
+          - Identity: "issuer-node/issuer-node-api/identity/apis.md"
+          - Claim: "issuer-node/issuer-node-api/claim/apis.md"
+          - Agent: "issuer-node/issuer-node-api/agent/apis.md"
+      - Local Setup: 
+          - Configure IDE Example: "issuer-node/issuer-node-local-setup/configure-ide.md"
+          - Run Issuer Node: "issuer-node/issuer-node-local-setup/run-issuer-node.md"
+  - Verifier:
     - Overview: "verifier/verifier-overview.md"
-    - Off-chain Verification:
+    - Verfier SDK - Off-chain:
       - Introduction: "verifier/verification-library/verifier-library-intro.md"
       - APIs: 
         - Config: "verifier/verification-library/config.md"
@@ -45,7 +50,7 @@ nav:
         - Verification APIs: "verifier/verification-library/verification-api-guide.md"
         - JWZ: "verifier/verification-library/jwz.md"
       - Tutorial - Run a Verifier: "verifier/verification-library/verifier-set-up.md"
-    - On-chain Verification:
+    - Verifier SDK - On-chain:
       - Implement ERC20 zk airdrop in 20 minutes: "verifier/on-chain-verification/overview.md"
     - ZK Query Language : "verifier/verification-library/zk-query-language.md"
   - Wallet: 

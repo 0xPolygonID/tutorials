@@ -1,5 +1,3 @@
-// [ ] TODO: replace example on line 57 with a correct link
-
 # Request API
 
 The first step of interacting with a wallet involves presenting a request. In this tutorial, we will explain the difference between two types of requests: **Basic Auth Request** and **Query-based Request**.
@@ -24,9 +22,18 @@ Basic Auth Request can be implemented by any platform that is interested in prov
 
 === "Javascript"
 
+    ```bash
+    WIP
+    ```  
+
+<!-- === "Javascript"
+
     ```js
     const request : protocol.AuthorizationRequestMessage = auth.createAuthorizationRequest(reason, audience, url)
-    ```
+    ``` -->
+
+
+> An example of the usage of this api can be found <a href="https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/go/index.go#L41" target="_blank">here</a>
 
 
 Generate an Auth Request to the user that includes a *reason* for authenticating. The *audience* represents the DID of the requester, while the *url* is the callback url where the user must send the response for verification
@@ -44,9 +51,15 @@ Generate an Auth Request to the user that includes a *reason* for authenticating
 
 === "Javascript"
 
+    ```bash
+    WIP
+    ```  
+
+<!-- === "Javascript"
+
     ```js
     const request : protocol.AuthorizationRequestMessage = auth.createAuthorizationRequestWithMessage(reason, messageToSign, audience, url)
-    ```
+    ``` -->
 
 The same functionality of CreateAuthorizationRequest but it also includes a *messageToSign*. This message will be shown to the users inside their wallets and will be signed as part of the response.
 
@@ -54,7 +67,7 @@ The same functionality of CreateAuthorizationRequest but it also includes a *mes
 
 The Query-based Auth Request allows verifiers to interact with a wallet by setting up specific requirements for authentication. These requirements are the conditions that the user has to satisfy based on the credentials held in his/her wallet.
 
-> The Query has to be attached to the Basic Auth Request output of the previous API. An example of its usage can be found <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/index.js#L50" target="_blank">here</a>
+> The Query has to be attached to the Basic Auth Request output of the previous API. An example of its usage can be found <a href="https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/go/index.go#L47" target="_blank">here</a>
 
 === "GoLang"
 
@@ -77,6 +90,12 @@ The Query-based Auth Request allows verifiers to interact with a wallet by setti
 
 === "Javascript"
 
+    ```bash
+    WIP
+    ```  
+
+<!-- === "Javascript"
+
     ```js
     const proofRequest: protocol.ZKPRequest = {
     id: 1,
@@ -97,13 +116,14 @@ The Query-based Auth Request allows verifiers to interact with a wallet by setti
     },
     };
     request.body.scope = [...scope, proofRequest];
-    ```
+    ``` -->
 
 Generate a request to prove that the user owns a credential that satisfies certain requirements. 
 
 `ID` represents the request id: ideally, in production, it should be a unique value for each request. `CircuitID` represents the identifier of the circuit that the user must use to generate the requested proof: [here](https://github.com/iden3/go-circuits/blob/39e45740df5eba9c70acfb1d89cc72f3285aadf8/circuits.go#L13) you can find a reference to the available circuits. 
 
-In this case, the user has to provide a proof that he/she owns a credential issued by the `allowedIssuer` of schema `type` **KYCAgeCredential** described in the url provided in `context`. This credential contains details in its `credentialSubject` of the birthday of the receiver. In this scenario, the user has to prove that the value contained in the attribute `birthday` is less than `lt` 20010101, namely that the user was born before 01/01/2000.
+In this case, the user has to provide a proof that he/she owns a credential issued by the `allowedIssuer` of schema `type` **KYCAgeCredential** described in the url provided in `context`. By setting the `allowedIssuer` to `*`, the user can provide a proof of that credential issued by any issuer. Alternatively, if the verifier adds the DID of a specific issuer inside the `allowedIssuer` array, the user must provide a proof of a credential issued by that specific issuer.
+This credential contains details in its `credentialSubject` of the birthday of the receiver. In this scenario, the user has to prove that the value contained in the attribute `birthday` is less than `lt` 20000101, namely that the user was born before 01/01/2000.
 
 An additional optional field that can be included in the query is `skipClaimRevocationCheck`. By setting it to `true`, the user doesn't need to provide the proof of the revocation of the credential, which would otherwise be provided by default. 
 This is useful for credentials that are still useful even if they have been revoked. For example, a credential that states that a user is an employee of Google, is still useful even if it has been revoked after the user left the company and the credential was revoked.
@@ -117,8 +137,6 @@ mtpProofRequest.Query = map[string]interface{}{
 }
 
 ```
-
-Further examples of query-based requests can be found [here](https://github.com/iden3/auth-flow-demo/blob/feature/support-auth-v2/server/go/app/handlers/auth.go#L91)
 
 > Check out our [Query Language guide](./zk-query-language.md) to design any type of query request you can think of!
 
