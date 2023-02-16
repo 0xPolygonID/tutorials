@@ -1,4 +1,4 @@
-# To Fetch and Save Claims: `fetchAndSaveClaims`
+# To Fetch and Save Credentials: `fetchAndSaveClaims`
  
 An Integrator can fetch credentials stored on an Issuer and then save them in his/her wallet. The`fetchAndSaveClaims()` function is called to fetch and save a list of credentials from an Issuer.
  

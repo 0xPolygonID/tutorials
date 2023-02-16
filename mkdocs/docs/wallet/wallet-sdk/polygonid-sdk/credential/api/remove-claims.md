@@ -18,11 +18,11 @@ Future<void> removeClaims({required List<String> claimIds,
 
 `did` is the unique id of the identity. 
 
-# To Remove a Claim: 'removeClaim'
+# To Remove a Credential: 'removeClaim'
 
 A single credential can also be removed from the storage based on its credential id. 
 
-## Remove a Single Claim
+## Remove a Single Credential
 
 The `removeClaim()` method, just like `removeClaims()` method, removes a single credential based on credential's id. 
  

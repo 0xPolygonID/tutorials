@@ -1,8 +1,8 @@
- # To Get Claims: `getClaims` 
+ # To Get Credentials: `getClaims` 
 
 After a credential is fetched from an Issuer and stored on the wallet SDK, an Integrator can retrieve this credential from the storage. This is done using `getClaims()` function.
  
-## Get Claims
+## Get Credentials
 
 ```
 Future<List<ClaimEntity>> getClaims(
@@ -18,11 +18,11 @@ This function returns a list of `ClaimEntity` based on some pre-defined criteria
 
 `did` is the unique id of the identity. 
  
-# Get Claims by Ids: `getClaimsByIds`
+# Get Credentials by Ids: `getClaimsByIds`
  
 The `getClaimsByIds()` function retrieves a list of credentials stored on the SDK using a list of credential ids.
 
-## Get Claims by Ids
+## Get Credentials by Ids
  
 ```
 Future<List<ClaimEntity>> getClaimsByIds(

@@ -7,7 +7,7 @@ The proof generation by the wallet SDK is based on two types of authorization re
  
 ## Basic Auth Request
  
-The Issuer/Verifier sends the `Basic Auth` request to the wallet when wallet needs to prove its identity (based on the Identifier generated earlier) to the Issuer/Verifier. This request is sent when an Identity needs to prove that it is, indeed, what it claims to be. 
+The Issuer/Verifier sends the `Basic Auth` request to the wallet when wallet needs to prove its identity (based on the Identifier generated earlier) to the Issuer/Verifier. This request is sent when an Identity needs to prove that it is, indeed, what it asserts to be. 
  
 ### Structure of Basic Auth Request
  
@@ -82,7 +82,7 @@ where:
 - **thid**: Id of the message thread
 - **from**: from where the authentication request comes, i.e. the identifier of the identity from which a Verifier requests proof
 - **typ**: iden3comm Media Type, i.e. File format for the type field. (For example, JSON)
-- **type**: Type of iden3comm Protocol Message; type of request; it could be an auth request, proof request, or a claim offer
+- **type**: Type of iden3comm Protocol Message; type of request; it could be an auth request, proof request, or a credential offer
 - **reason**: reason of authentication (it could be age verification or simply a test flow)
 - **message**: Message to be signed; can be left blank
 - **callbackUrl**: URL to which requested information is sent and response is received

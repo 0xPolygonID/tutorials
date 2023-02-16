@@ -1,4 +1,4 @@
-# To Update Claim: `updateClaim`
+# To Update Credentials: `updateClaim`
  
 The credentials stored on the SDK can be updated using the credential's id.
 
