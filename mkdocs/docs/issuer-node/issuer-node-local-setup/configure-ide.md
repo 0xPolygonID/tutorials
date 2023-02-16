@@ -1,6 +1,6 @@
 # Configure GoLand IDE
 
-If you intend to start Issuer Node on an IDE, you need to configure it first. Here, we will illustrate how to configure **GoLand IDE**. Steps may vary dependong on the IDE you choose. 
+If you intend to start the Issuer Node on an IDE, you need to configure it first. Here, we will illustrate how to configure **GoLand IDE**. Steps may vary dependong on the IDE you choose. 
 
  **Introduction**: GoLand is a Go IDE that lets you build applications using developer tools that are combined to be viewed as a GUI(Graphical User Interface). GoLand lets you write Go code, compile, and debug your code, and install plugins for developing your applications. 
 
@@ -57,7 +57,7 @@ GoLand lets you set your own GOPATH and GOROOT locations.
    </div>
    <br>  
 
-3. Set your GOROOT location. As you read in the beginning of this tutorial, GOROOT defines the location of your Go SDK installation. 
+3. Set your GOROOT location. As indicated in the beginning of this tutorial, GOROOT defines the location of your Go SDK installation. 
 
     If Go SDK is not pre-installed (shows `NO SDK`) on your machine, you need to install it first. For this, select the **Add SDK** symbol `+` and select **Download** to download the required version of the Go SDK (If you already have the setup stored locally, select **Local** and upload it). If you choose to download, select the correct version of the SDK in the ***Download Go SDK*** box; by default, the system shows the latest version on the top of the list. Enter location for the SDK. The default GOROOT path is: 
     > Users/Username/go
@@ -87,7 +87,7 @@ Click **OK**.
 
 
 ## Go Modules
-Go Modules is a collection all those pacakages (source codes) that are released together. It is a dependency management syatam  for go based projects. A Go Module keeps track of the dependency managment as well as their versioning with a `go.mod` file at its root. A `go.mod` file  defines the path of the Module and all the dependency (other modules) requirements. A typical `go.mod` file looks like:
+Go Modules is a collection all those packages (source codes) that are released together. It is a dependency management system  for go based projects. A Go Module keeps track of the dependency managment as well as their versioning with a `go.mod` file at its root. A `go.mod` file  defines the path of the Module and all the dependency (other modules) requirements. A typical `go.mod` file looks like:
 ```
 module module path
 
@@ -112,7 +112,7 @@ require (
 	github.com/pqr/stv v0.20.1-beta
 )
 ```
-Earlier, it was required for all the projects to be in the GOPATH/src directory and all the project dependencies were downloaded to GOPATH/src. But with Go Modules acting as a dependency manager witha go.mod file in it, we can intialize our project anywhere and there is no need to keep it under GOPATH. In such a case, all the dependencies are downloaded in the GOPATH/pkg/mod with the versioning coming into picture. Doing so keeps the project files separated from the GO source code.
+Earlier, it was required for all the projects to be in the GOPATH/src directory and all the project dependencies were downloaded to GOPATH/src. But with Go Modules acting as a dependency manager with a go.mod file in it, we can initialize our project anywhere and there is no need to keep it under GOPATH. In such a case, all the dependencies are downloaded in the GOPATH/pkg/mod with the versioning coming into picture. Doing so keeps the project files separated from the GO source code.
 
 
 ### Enable Go Modules in a Project
@@ -161,9 +161,9 @@ The Go Modules are located under the **External Libraries** folder in your proje
 
 GoLand lets you set your GOPATH for three different scopes:
 
-- Global GOPATH: The global scope lets you configure a GOPATH  for all the projects on your GoLand IDE. Set it only once and it will be applicable for all teh projects. 
+- Global GOPATH: The global scope lets you configure a GOPATH  for all the projects on your GoLand IDE. Set it only once and it will be applicable for all the projects. 
 
-- Project GOPATH: The project scope lets you configure GOPATH only for your current project on IDE. This indiactes that one project can have different GOPATH while the other one can have an entirely different one.
+- Project GOPATH: The project scope lets you configure GOPATH only for your current project on IDE. This indicates that one project can have a different GOPATH while the other one can have an entirely different one.
 
 - Module GOPATH: The module GOPATh is set for one module.
 
