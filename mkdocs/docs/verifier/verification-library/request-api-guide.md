@@ -1,6 +1,3 @@
-// [ ] TODO: replace 35-56-62 with correct link
-// [ ] Add reference to JS usage of this library
-
 # Request API
 
 The first step of interacting with a wallet involves presenting a request. In this tutorial, we will explain the difference between two types of requests: **Basic Auth Request** and **Query-based Request**.
@@ -25,14 +22,21 @@ Basic Auth Request can be implemented by any platform that is interested in prov
 
 === "Javascript"
 
+    ```bash
+    WIP
+    ```  
+
+<!-- === "Javascript"
+
     ```js
     const request : protocol.AuthorizationRequestMessage = auth.createAuthorizationRequest(reason, audience, url)
-    ```
+    ``` -->
+
+
+> An example of the usage of this api can be found <a href="https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/go/index.go#L41" target="_blank">here</a>
 
 
 Generate an Auth Request to the user that includes a *reason* for authenticating. The *audience* represents the DID of the requester, while the *url* is the callback url where the user must send the response for verification
-
-> An example of the usage of this api can be found <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/index.js#L50" target="_blank">here</a>
 
 ---
 
@@ -47,19 +51,23 @@ Generate an Auth Request to the user that includes a *reason* for authenticating
 
 === "Javascript"
 
+    ```bash
+    WIP
+    ```  
+
+<!-- === "Javascript"
+
     ```js
     const request : protocol.AuthorizationRequestMessage = auth.createAuthorizationRequestWithMessage(reason, messageToSign, audience, url)
-    ```
+    ``` -->
 
 The same functionality of CreateAuthorizationRequest but it also includes a *messageToSign*. This message will be shown to the users inside their wallets and will be signed as part of the response.
-
-> An example of the usage of this api can be found <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/index.js#L50" target="_blank">here</a>
 
 ## Query-based Request 
 
 The Query-based Auth Request allows verifiers to interact with a wallet by setting up specific requirements for authentication. These requirements are the conditions that the user has to satisfy based on the credentials held in his/her wallet.
 
-> The Query has to be attached to the Basic Auth Request output of the previous API. An example of its usage can be found <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/index.js#L50" target="_blank">here</a>
+> The Query has to be attached to the Basic Auth Request output of the previous API. An example of its usage can be found <a href="https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/go/index.go#L47" target="_blank">here</a>
 
 === "GoLang"
 
@@ -82,6 +90,12 @@ The Query-based Auth Request allows verifiers to interact with a wallet by setti
 
 === "Javascript"
 
+    ```bash
+    WIP
+    ```  
+
+<!-- === "Javascript"
+
     ```js
     const proofRequest: protocol.ZKPRequest = {
     id: 1,
@@ -102,7 +116,7 @@ The Query-based Auth Request allows verifiers to interact with a wallet by setti
     },
     };
     request.body.scope = [...scope, proofRequest];
-    ```
+    ``` -->
 
 Generate a request to prove that the user owns a credential that satisfies certain requirements. 
 

@@ -42,7 +42,7 @@ nav:
           - Run Issuer Node: "issuer-node/issuer-node-local-setup/run-issuer-node.md"
   - Verifier:
     - Overview: "verifier/verifier-overview.md"
-    - Off-chain Verification:
+    - Verfier SDK - Off-chain:
       - Introduction: "verifier/verification-library/verifier-library-intro.md"
       - APIs: 
         - Config: "verifier/verification-library/config.md"
@@ -50,7 +50,7 @@ nav:
         - Verification APIs: "verifier/verification-library/verification-api-guide.md"
         - JWZ: "verifier/verification-library/jwz.md"
       - Tutorial - Run a Verifier: "verifier/verification-library/verifier-set-up.md"
-    - On-chain Verification:
+    - Verifier SDK - On-chain:
       - Implement ERC20 zk airdrop in 20 minutes: "verifier/on-chain-verification/overview.md"
     - ZK Query Language : "verifier/verification-library/zk-query-language.md"
   - Wallet: 

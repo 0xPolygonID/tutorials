@@ -1,5 +1,3 @@
-// [ ] TODO: add JS reference
-
 # Run a Verifier
 
 Any application that wants to authenticate user based on their Polygon ID Identity off-chain must set up a Verifier. A Verifier is made of a Server and a Client. 
@@ -35,9 +33,9 @@ In this example, the verifier will set up the query: "Prove that you were born b
 
 	=== "Javascript"
 
-		```bash 
-		npm i @iden3/js-iden3-auth --save
-		```
+		```bash
+		WIP
+		```  
 
 2. **Set up a server** 
 
@@ -78,34 +76,12 @@ In this example, the verifier will set up the query: "Prove that you were born b
 		// Create a map to store the auth requests and their session IDs
 		var requestMap = make(map[string]interface{})
 		```
-
+	
 	=== "Javascript"
 
-		```js
-		const express = require('express');
-		const {auth, resolver, loaders} = require('@iden3/js-iden3-auth')
-		const getRawBody = require('raw-body')
-
-		const app = express();
-		const port = 8080;
-
-		app.get("/api/sign-in", (req, res) => {
-			console.log('get Auth Request');
-			GetAuthRequest(req,res);
-		});
-
-		app.post("/api/callback", (req, res) => {
-			console.log('callback');
-			Callback(req,res);
-		});
-
-		app.listen(port, () => {
-			console.log('server running on port 8080');
-		});
-
-		// Create a map to store the auth requests and their session IDs
-		const requestMap = new Map();
-		```
+		```bash
+		WIP
+		```  
 
 3. **Sign-in endpoint** 
 
@@ -162,62 +138,13 @@ In this example, the verifier will set up the query: "Prove that you were born b
 			return
 		}
 		```
-
+	
 	=== "Javascript"
 
-		```js hl_lines="23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44"
-		// GetAuthRequest returns auth request
-		async function GetAuthRequest(req,res) {
+		```bash
+		WIP
+		```  
 
-			// Audience is verifier id
-			const hostUrl = '<YOUR REMOTE NGROK HOST ON PORT 8080>'; 
-			const sessionId = 1;
-			const callbackURL = "/api/callback"
-			const audience = "1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ"
-
-			const uri = `${hostUrl}${callbackURL}?sessionId=${sessionId}`;
-
-			// Generate request for basic auth
-			const request = auth.createAuthorizationRequestWithMessage(
-				'test flow',
-				'message to sign',
-				audience,
-				uri,
-			);
-			
-			request.id = '7f38a193-0918-4a48-9fac-36adfdb8b542';
-			request.thid = '7f38a193-0918-4a48-9fac-36adfdb8b542';
-
-			// Add query-based request
-			const proofRequest = {
-			id: 1,
-			circuit_id: 'credentialAtomicQuerySig',
-			rules: {
-				query: {
-				allowedIssuers: ['*'],
-				schema: {
-					type: 'AgeCredential',
-					url: '{add your schema url here}',
-				},
-				req: {
-					dateOfBirth: {
-					$lt: 20000101, // dateOfBirth field less then 2000/01/01
-					},
-				},
-				},
-			},
-			};
-
-			const scope = request.body.scope ?? [];
-			request.body.scope = [...scope, proofRequest];
-
-			// Store zk request in map associated with session ID
-			requestMap.set(`${sessionId}`, request);
-
-			return res.status(200).set('Content-Type', 'application/json').send(request);
-
-		}
-		```
 	> Note: The highlighted lines are to be added only if the authentication needs to design a [query](./zk-query-language.md) for a specific proof as in the case of [Query-based Auth](./request-api-guide.md#query-based-auth). When not included, it will perform a [Basic Auth](./request-api-guide.md#basic-auth). 
 
 4. **Callback Endpoint**
@@ -293,42 +220,9 @@ In this example, the verifier will set up the query: "Prove that you were born b
 
 	=== "Javascript"
 
-		```js
-		// Callback verifies the proof after sign-in callbacks
-		async function Callback(req,res) {
-
-			// Get session ID from request
-			const sessionId = req.query.sessionId;
-
-			// extract proof from the request
-			const raw = await getRawBody(req);
-			const tokenStr = raw.toString().trim();
-
-			// fetch authRequest from sessionID
-			const authRequest = requestMap.get(`${sessionId}`);
-				
-			// Locate the directory that contains circuit's verification keys
-			const verificationKeyloader = new loaders.FSKeyLoader('../keys');
-			const sLoader = new loaders.UniversalSchemaLoader('ipfs.io');
-
-			// Add Polygon Mumbai RPC node endpoint - needed to read on-chain state and identity state contract address
-			const ethStateResolver = new resolver.EthStateResolver('<Polygon Mumbai RPC NODE>', '0x134B1BE34911E39A8397ec6289782989729807a4');
-
-			// EXECUTE VERIFICATION
-			const verifier = new auth.Verifier(
-			verificationKeyloader,
-			sLoader, ethStateResolver,
-		);
-
-
-		try {
-			authResponse = await verifier.fullVerify(tokenStr, authRequest);
-		} catch (error) {
-		return res.status(500).send(error);
-		}
-		return res.status(200).set('Content-Type', 'application/json').send("user with ID: " + authResponse.from + " Succesfully authenticated");
-		}
-		```
+		```bash
+		WIP
+		```  
 
 > If you need to deploy an App or to build a Docker container you'll need to bundle the [libwasmer.so](https://github.com/iden3/go-rapidsnark/tree/main/witness) library together with the app. 
 
@@ -336,11 +230,21 @@ In this example, the verifier will set up the query: "Prove that you were born b
 
 The Verifier Client must fetch the Auth Request generated by the Server ("/api/sign-in" endpoint) and deliver it to the user via a QR Code. 
 
-To do so, add the <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> to your Verifier repository. This folder contains an HTML static webpage that renders a static webpage with the QR code containing the Auth Request.
+> To display the QR code inside your frontend, you can this [Code Sandbox](https://codesandbox.io/s/yp1pmpjo4z?file=/index.js).
+
+The same request can also be delivered to users via Deep Linking. In order to do so is necessary to encode the `request` file to Base64 Format. The related deep link would be `iden3comm://?i_m={{base64EncodedRequestHere}}`.
+
+**Implement Further Logic**
+
+This tutorial showcased a minimalistic application that leverages Polygon ID libraries for authentication purposes. Developers can leverage the broad set of existing Credentials held by users to set up any customized Query using our [zk Query Language](./zk-query-language.md) to unleash the full potential of the framework. 
+
+For example, the concept can be extended to exchanges that require KYC Credentials, DAOs that require proof-of-personhood Credentials, or social media applications that intend to re-use users' aggregated reputation.
+
+
+<!-- To do so, add the <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> to your Verifier repository. This folder contains an HTML static webpage that renders a static webpage with the QR code containing the Auth Request.
 
 > To display the QR code inside your frontend, you can use the `express.static` built-in middleware function together with this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> or this [Code Sandbox](https://codesandbox.io/s/yp1pmpjo4z?file=/index.js).
 
-The same request can also be delivered to users via Deep Linking. In order to do so is necessary to encode the `request` file to Base64 Format. The related deep link would be `iden3comm://?i_m={{base64EncodedRequestHere}}`.
 
 1. **Add routing to your Express Server**
 
@@ -391,4 +295,4 @@ The same request can also be delivered to users via Deep Linking. In order to do
 
 	This tutorial showcased a minimalistic application that leverages Polygon ID libraries for authentication purposes. Developers can leverage the broad set of existing Credentials held by users to set up any customized Query using our [zk Query Language](./zk-query-language.md) to unleash the full potential of the framework. 
 
-	For example, the concept can be extended to exchanges that require KYC Credentials, DAOs that require proof-of-personhood Credentials, or social media applications that intend to re-use users' aggregated reputation.
+	For example, the concept can be extended to exchanges that require KYC Credentials, DAOs that require proof-of-personhood Credentials, or social media applications that intend to re-use users' aggregated reputation. -->
