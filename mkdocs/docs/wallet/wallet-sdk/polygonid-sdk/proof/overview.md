@@ -4,7 +4,7 @@ The proof generation starts with the Wallet scanning the QR code on the Verifier
  
 ## Steps of Proof Generation
  
-1. Integrator selects the type of claim (for the credential) for which it seeks verification.
+1. Integrator selects the type of credential for which it seeks verification.
  
 2. Verifier website/app displays the QR code depending on the credential type selected by the Integrator.
  
@@ -23,6 +23,6 @@ The proof generation starts with the Wallet scanning the QR code on the Verifier
 <img src= "../../../../../imgs/proof-generation.png" alt="Proof Generation" align="center" width="500"/>
 </div>
 
-Read more about the circuits used for proof generation [here](https://docs.iden3.io/protocol/main-circuits/)
+Read more about the circuits used for proof generation [here](https://docs.iden3.io/protocol/main-circuits/).
 
 

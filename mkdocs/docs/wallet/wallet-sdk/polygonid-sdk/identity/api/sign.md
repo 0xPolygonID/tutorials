@@ -1,26 +1,32 @@
 # To Sign Message: `sign`
 
 
-In the SDK, a message can be signed using `sign()` function. 
+In the SDK, a message can be signed using the `sign()` function. 
  
+## Sign a Message
+
 ```
  Future<String> sign(
-      {required String privateKey, required String message}) async
+      {required String privateKey, required String message});
  
-{
-   return _signMessageUseCase.execute(
-        param: SignMessageParam(privateKey, message));
- 
-}
 ```
-The `sign()` function signs a message using identity's private key; the private key and the message are passed as parameters to the function and a signature String is returned. Thus the role of `sign()` is to sign a message string for an Integrator using identity's private key.
- 
 
+The `sign()` function signs a message using identity's private key; 
+
+the `privateKey` and the `message` are passed as the input parameters to the function and a signature string is returned. 
+
+`privateKey` of the identity is a key that is used to access the sensitive information of the identity. This key is also used for generating proofs by using the credentials associated with the identity. 
+
+`message` is the actual message sent by the Integrator and it needs to be signed. 
+
+Thus the role of `sign()` is to sign a message string for an Integrator using identity's `privateKey`.
+ 
 
 <div align="center">
-<img src= "../../../../../../imgs/identity-wallet.png" align="center" width="500"/>
+<img src= "../../../../../imgs/identity-wallet.png" align="center" width="500"/>
 </div>
 <br>
+
 
 **Note**: When an Integrator scans a QR code, an iden3 message is created. This message has a `challenge` field from which the String `message` (used as input parameter) is generated. The `message` is then used to sign with the identity to generate a signature string.
 

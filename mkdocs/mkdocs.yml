@@ -27,74 +27,92 @@ nav:
   - Home: "index.md"
   - Issuer:
     - Overview: "issuer/issuer-overview.md"
-    - Platform API:
-      - Introduction: "issuer/platform-api/introduction.md"
-      - Getting Started: "issuer/platform-api/flow-tutorial/happy-path.md"
-      - API Reference: 
-        - Onboarding Organization: "issuer/platform-api/onboarding-orgs/apis.md"
-        - Issuer: "issuer/platform-api/issuer/apis.md"
-        - Claim Schemas: "issuer/platform-api/schemas/apis.md"
-        - Claim Offers: "issuer/platform-api/offers/apis.md" 
+    - Issuer Node: 
+      - Overview: "issuer-node/issuer-node-overview.md"
+      - Issuer Node API: 
+        - Introduction: "issuer-node/issuer-node-api/introduction.md"
+        - Getting Started: "issuer-node/issuer-node-api/flow-tutorial/general-flow.md"
+        - Create Schema: "issuer-node/issuer-node-api/create-schema.md"
+        - API Reference: 
+          - Identity: "issuer-node/issuer-node-api/identity/apis.md"
+          - Claim: "issuer-node/issuer-node-api/claim/apis.md"
+          - Agent: "issuer-node/issuer-node-api/agent/apis.md"
+      - Local Setup: 
+          - Configure IDE Example: "issuer-node/issuer-node-local-setup/configure-ide.md"
+          - Run Issuer Node: "issuer-node/issuer-node-local-setup/run-issuer-node.md"
   - Verifier:
     - Overview: "verifier/verifier-overview.md"
-    - Off-chain Verification:
+    - Verfier SDK - Off-chain:
       - Introduction: "verifier/verification-library/verifier-library-intro.md"
       - APIs: 
         - Config: "verifier/verification-library/config.md"
-        - ZK Request APIs: "verifier/verification-library/request-api-guide.md"
+        - Request APIs: "verifier/verification-library/request-api-guide.md"
         - Verification APIs: "verifier/verification-library/verification-api-guide.md"
         - JWZ: "verifier/verification-library/jwz.md"
       - Tutorial - Run a Verifier: "verifier/verification-library/verifier-set-up.md"
-    - On-chain Verification:
+    - Verifier SDK - On-chain:
       - Implement ERC20 zk airdrop in 20 minutes: "verifier/on-chain-verification/overview.md"
     - ZK Query Language : "verifier/verification-library/zk-query-language.md"
   - Wallet: 
     - Overview: "wallet/wallet-overview.md"
-#   - Wallet SDK:
-#     - Flutter SDK:
-#       - Overview: "wallet/wallet-sdk/flutter-sdk/flutter-sdk-overview.md"        - Install Flutter SDK: "wallet/wallet-sdk/flutter-sdk/install-flutter-sdk.md"
+#    - Wallet SDK:
+#      - Flutter SDK:
+#        - Overview: "wallet/wallet-sdk/flutter-sdk/flutter-sdk-overview.md"        
+#        - Install Flutter SDK: "wallet/wallet-sdk/flutter-sdk/install-flutter-sdk.md"
 #        - Build App with SDK: "wallet/wallet-sdk/flutter-sdk/build-app-with-flutter-sdk.md"
 #      - Polygon ID Wallet SDK:
-#       - Overview: "wallet/wallet-sdk/polygonid-sdk/polygonid-sdk-overview.md"
-#       - Polygon ID SDK Plugin: "wallet/wallet-sdk/polygonid-sdk/polygonid-sdk-plugin.md"
-#       - Example App: "wallet/wallet-sdk/polygonid-sdk/example-app.md"
-#       - Identity:
-#         - Overview: "wallet/wallet-sdk/polygonid-sdk/identity/overview.md"
-#         - APIs:            
-#           - Create Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/create-identity.md"
-#           - Get Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/get-identity.md"
-#           - Get Identities: "wallet/wallet-sdk/polygonid-sdk/identity/api/get-identities.md"
-#           - Remove Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/remove-identity.md"
-#           - Restore Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/restore-identity.md"
-#           - Sign Message: "wallet/wallet-sdk/polygonid-sdk/identity/api/sign.md"
+#        - Overview: "wallet/wallet-sdk/polygonid-sdk/polygonid-sdk-overview.md"
+#        - Polygon ID SDK Plugin: "wallet/wallet-sdk/polygonid-sdk/polygonid-sdk-plugin.md"
+#        - Example App: "wallet/wallet-sdk/polygonid-sdk/example-app.md"
+#        - Identity:
+#          - Overview: "wallet/wallet-sdk/polygonid-sdk/identity/overview.md"
+#          - APIs:            
+#            - Create Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/create-identity.md"
+#            - Backup Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/backup-identity.md"
+#            - Get DID Identifier: "wallet/wallet-sdk/polygonid-sdk/identity/api/get-did-identifier.md"
+#            - Get Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/get-identity.md"
+#            - Get Identities: "wallet/wallet-sdk/polygonid-sdk/identity/api/get-identities.md"
+#            - Remove Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/remove-identity.md"
+#            - Restore Identity: "wallet/wallet-sdk/polygonid-sdk/identity/api/restore-identity.md"
+#            - Get State: "wallet/wallet-sdk/polygonid-sdk/identity/api/get-state.md"        
+#            - Sign Message: "wallet/wallet-sdk/polygonid-sdk/identity/api/sign.md"
 #        - Credential: 
-#          - Overview: "wallet/wallet-sdk/polygonid-sdk/credential/overview.md"
-#         - APIs:           
-#            - Fetch and Save Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/fetch-and-save-claims.md"
-#            - Get Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/get-claims.md"
-#            - Update Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/update-claims.md"
-#            - Remove Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/remove-claims.md"
-#       - Iden3comm:
-#          - Overview: "wallet/wallet-sdk/polygonid-sdk/iden3comm/overview.md"
-#          - Auth Requests: "wallet/wallet-sdk/polygonid-sdk/iden3comm/auth-requests.md"
-#          - JWZ: "wallet/wallet-sdk/polygonid-sdk/iden3comm/jwz.md"
-#          - APIs: 
-#            - Authenticate: "wallet/wallet-sdk/polygonid-sdk/iden3comm/api/authenticate.md"
-#            - Get Proof: "wallet/wallet-sdk/polygonid-sdk/iden3comm/api/get-proofs.md"
-#            - Get Vocabulary: "wallet/wallet-sdk/polygonid-sdk/iden3comm/api/get-vocabs.md"
-#            - Get Iden3 Message: "wallet/wallet-sdk/polygonid-sdk/iden3comm/api/iden3-message.md"
+#            - Overview: "wallet/wallet-sdk/polygonid-sdk/credential/overview.md"
+#            - APIs:           
+#              - Fetch and Save Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/fetch-and-save-claims.md"
+#              - Get Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/get-claims.md"
+#              - Update Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/update-claims.md"
+#              - Remove Claims: "wallet/wallet-sdk/polygonid-sdk/credential/api/remove-claims.md"
+#        - Iden3comm:
+#            - Overview: "wallet/wallet-sdk/polygonid-sdk/iden3comm/overview.md"
+#            - Auth Requests: "wallet/wallet-sdk/polygonid-sdk/iden3comm/auth-requests.md"
+#            - JWZ: "wallet/wallet-sdk/polygonid-sdk/iden3comm/jwz.md"
+#            - APIs: 
+#              - Authenticate: "wallet/wallet-sdk/polygonid-sdk/iden3comm/api/authenticate.md"
+#              - Get Proof: "wallet/wallet-sdk/polygonid-sdk/iden3comm/api/get-proofs.md"
+#              - Get Vocabulary: "wallet/wallet-sdk/polygonid-sdk/iden3comm/api/get-vocabs.md"
+#              - Get Iden3 Message: "wallet/wallet-sdk/polygonid-sdk/iden3comm/api/iden3-message.md"
 #        - Proof:
-#          - Overview: "wallet/wallet-sdk/polygonid-sdk/proof/overview.md"
-#          - APIs: 
-#            - Generate Proof: "wallet/wallet-sdk/polygonid-sdk/proof/api/prove.md"
+#            - Overview: "wallet/wallet-sdk/polygonid-sdk/proof/overview.md"
+#            - APIs: 
+#              - Generate Proof: "wallet/wallet-sdk/polygonid-sdk/proof/api/prove.md"
   - Smart Contracts: 
     - Overview: "contracts/overview.md"
-
+#  - Issuer Node: 
+#    - Overview: "issuer-node/issuer-node-overview.md"
+#    - Issuer Node API: 
+#      - Introduction: "issuer-node/issuer-node-api/introduction.md"
+#      - Getting Started: "issuer-node/issuer-node-api/flow-tutorial/general-flow.md"
+#      - API Reference: 
+#        - Identity: "issuer-node/issuer-node-api/identity/apis.md"
+#        - Claim: "issuer-node/issuer-node-api/claim/apis.md"
+#        - Agent: "issuer-node/issuer-node-api/agent/apis.md"
+#    - Local Setup: 
+#        - Configure IDE Example: "issuer-node/issuer-node-local-setup/configure-ide.md"
+#        - Run Issuer Node: "issuer-node/issuer-node-local-setup/run-issuer-node.md"
+  
 # If you declare plugins, you need to declare all of them, 
 # including search (which would otherwise have been installed by default.)
 plugins:
   - search
   - mermaid2
-
-
- 

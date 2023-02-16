@@ -1,30 +1,29 @@
 # Issuer Overview
 
-An Issuer is any subject that issues claims. You can think of a claim as a statement: something an Issuer says about another subject. For example, when a university (Issuer) says that a student (subject) has a degree, this is a claim.
+An Issuer is any subject that issues Verifiable Credentials. You can think of a credentials as a statement: something an Issuer says about another subject. For example, when a university (Issuer) says that a student (subject) has a degree, this is a credentials.
 
 An issuer might be: 
 
 - A DAO that issues “membership claims" to its members.
 - A Government that issues ID to its citizens.
-- An Face detection ML application that issues "proof of personhood" claims. 
+- A Face detection ML application that issues "proof of personhood" claims. 
 - An employer that endorses its employees.
 
-<a href="https://docs.iden3.io/protocol/claims-structure/" target="_blank">Claims</a> are a flexible data format able to express any type of information so that developers can unleash their creativity.
+[Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) are a flexible data format able to express any type of information so that developers can unleash their creativity.
 
-To operate, an Issuer must interact with the [Polygon ID Platform](https://platform-test.polygonid.com/), either using the no-code User Interface or through the [Platform API](./platform-api/introduction.md). 
+To operate, an Issuer must run an [Issuer Node](./issuer-node/issuer-node-overview.md), which is a self-hosted Node that exposes all the functionalities necessary to run an issuer.
 
 <div align="center">
 <img src= "../../imgs/issuer-intro.png" align="center" />
 </div>
 
-Using Polygon ID an Issuer can: 
+Using Polygon ID an Issuer can Issuer Credentials to their users (or friends!).
 
-- Create <a href="https://docs.iden3.io/protocol/claim-schema/" target="_blank">Schemas</a> to define the structure of the claims you want to issue (or simply use existing schemas)
-- Issue Claims based on the schemas just created and share them with your users (or friends!)
+## Quick Start 
 
-Here's a demo of how it looks from the Issuer perspective using Polygon ID Platform:
+You can quickly try out how the Credential Issuance experience look like by following the steps below: 
 
-<div align="center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VClUFjs8lh8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-
+- Download the Polygon ID Wallet App and create an Identity.ß
+> - For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
+> - For iOS: <a href="https://apps.apple.com/us/app/polygon-id/id1629870183" target="_blank">Polygon ID on the App Store</a>
+- Fetch a credential from the [Demo Issuer](https://issuer-demo.polygonid.me/)

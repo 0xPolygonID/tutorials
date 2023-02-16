@@ -2,7 +2,7 @@
  
 To use Polygon ID Mobile SDK, we have created a Polygon ID SDK Plugin. This plugin helps you communicate with our Polygon ID Platform. 
 
-The following steps illustrate how to do initial setup to get things started and then use this plugin to create an identity, authenticate this identity, fetch a claim from an Issuer using identity, and generate a proof to verify (by Verifier) this claim. 
+The following steps illustrate how to do initial setup to get things started and then use this plugin to create an identity, authenticate this identity, fetch a credential from an Issuer using identity, and generate a proof to verify (by Verifier) this credential. 
 
 
 ## Initial Setup
@@ -100,10 +100,10 @@ A. **Identity**
 B. **Credential**
 
 1. Create CredentialRequestEntity from the Iden3Message received from an Issuer.
-2. Fetch and Save claims (received from Issuer)on SDK using CredentialRequestEntity, Identifier, and Private Key.
-3. Get claims that are saved on wallet SDK. Can also retrieve them with claim ids.
-4. Remove claim(s) (only if required).
-5. Update claim (only if required).
+2. Fetch and Save credentials (received from Issuer)on SDK using CredentialRequestEntity, Identifier, and Private Key.
+3. Get credentials that are saved on wallet SDK. Can also retrieve them with credential ids.
+4. Remove credential(s) (only if required).
+5. Update credential (only if required).
 
 C. **Proof**
 
@@ -215,15 +215,15 @@ Future<void> authenticate({
 
 **B. Credential**
 
-This part of the flow consists of retrieving claims from an Issuer and saving them in the wallet. One or more claims can be retrieved and one or more claims can be removed from the wallet. 
+This part of the flow consists of retrieving credentials from an Issuer and saving them in the wallet. One or more credentials can be retrieved and one or more credentials can be removed from the wallet. 
 
-#### ***1. Fetch and Save Claims***
+#### ***1. Fetch and Save Credentials***
 
-This functionality consists of retreiving claims from an Issuer (by fetching them) and then saving them on the wallet.
+This functionality consists of retreiving credentials from an Issuer (by fetching them) and then saving them on the wallet.
 
 This involves:
 - Generate `CredentialRequestEntity` using `identifier`, `callbackUrl`, and `thid` and `from` fields of `iden3Message`. `thid`is the id of the message and `from` stands for the identifier from which Verifier requests proof.
-- Fetch and Save claim using `CredentialRequestEntity`, `identifier`, and `privateKey`.
+- Fetch and Save credentials using `CredentialRequestEntity`, `identifier`, and `privateKey`.
 
 ```
 Future<void> fetchAndSaveClaims({
@@ -258,9 +258,9 @@ Future<void> fetchAndSaveClaims({
 ```
 
 
-#### ***2. Get Claims***
+#### ***2. Get Credentials***
 
-Once claims have been saved on the wallet SDK, these can be retrieved by the Integrator using `credential.getClaims()` with `identifier`, and `privateKey` used as the mandatory input parameters and `filters` as an optional one. `Filters` let an Integrate get claims based on some pre-determined criteria. 
+Once credentials have been saved on the wallet SDK, these can be retrieved by the Integrator using `credential.getClaims()` with `identifier`, and `privateKey` used as the mandatory input parameters and `filters` as an optional one. `Filters` let an Integrate get credentials based on some pre-determined criteria. 
 
 ```
 Future<void> getAllClaims({
@@ -277,9 +277,9 @@ Future<void> getAllClaims({
 ```
 
 
-#### ***3. Get Claims by Ids***
+#### ***3. Get Credentials by Ids***
 
-This functionality lets an Integrator get claims from an Issuer based on their ids. The `claimId`, `identifier`, and `privateKey`are passed as input parameters to the `credential. getClaimsByIds()` function and a list of claims in form of `ClaimEntity` are retrieved. The id of each claim is stored on the SDK from where they can be retrieved.
+This functionality lets an Integrator get credentials from an Issuer based on their ids. The `claimId`, `identifier`, and `privateKey`are passed as input parameters to the `credential. getClaimsByIds()` function and a list of credentials in form of `ClaimEntity` are retrieved. The id of each credential is stored on the SDK from where they can be retrieved.
 
 ```
 Future<void> getClaimsByIds({
@@ -296,9 +296,9 @@ Future<void> getClaimsByIds({
 ```
 
 
-#### ***4. Remove a Claim***
+#### ***4. Remove a Credential***
 
-A claim can be removed from the wallet using `credential.removeClaim()` by passing `claimId` (the id of the claim to be removed), the `identifier` and the `privateKey` as the input parameters. 
+A credential can be removed from the wallet using `credential.removeClaim()` by passing `claimId` (the id of the credential to be removed), the `identifier` and the `privateKey` as the input parameters. 
 
 ```
 Future<void> removeClaim({
@@ -314,9 +314,9 @@ Future<void> removeClaim({
 }
 ```
 
-#### ***5. Remove  Multiple Claims***
+#### ***5. Remove  Multiple Credentials***
 
-This is similar to removing a single claim described above. In this case, you need to pass a list of `claimids` to be removed, the `identifier`, and the `privateKey` as the input parameters to `credential.removeClaims()`.
+This is similar to removing a single credential described above. In this case, you need to pass a list of `claimids` to be removed, the `identifier`, and the `privateKey` as the input parameters to `credential.removeClaims()`.
 
 ```
 Future<void> removeClaims({
@@ -332,15 +332,15 @@ Future<void> removeClaims({
 }
 ```
 
-#### ***6. Update Claim***
+#### ***6. Update Credential***
 
-To update a claim, `credential.updateClaim()` function is used with the following fields passed as input parameters:
+To update a credential, `credential.updateClaim()` function is used with the following fields passed as input parameters:
 - `claimId`
 - `identifier`
 - `privateKey`
--  other information such as identity `state`, `issuer`, claim's `expiration` date, `type` of claim, etc. 
+-  other information such as identity `state`, `issuer`, credential's `expiration` date, `type` of credential, etc. 
 
-**Note**: Updating a claim means only the `info` field related to it can be changed. 
+**Note**: Updating a credential means only the `info` field related to it can be changed. 
 ```
 Future<void> updateClaim({
   required String claimId,
