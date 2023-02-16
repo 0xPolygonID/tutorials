@@ -1,5 +1,3 @@
-// TODO: Add reference to Reference smart contract when merged at line 221
-
 # On-chain ZK Verification
 
 The on-chain verification workflow allows Dapps to verify users' credentials inside a Smart Contract. Zero-Knowledge Proof cryptography enables this verification to happen in a private manner, namely without revealing any personal information of the user (prover).
