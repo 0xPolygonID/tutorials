@@ -2,7 +2,7 @@
 
 The agent endpoint acts as a port to  communicate messages between the mobile app and the server. The user, using agent endpoint, can access functionality through his/her mobile app. 
 
-The core feature of  message-based communication initiation in messaging specification is the process of lookup the two main properties of each identity: 
+The core feature of  message-based communication initiation in messaging specification is the process of looking up the two main properties of each identity: 
 
 1. An endpoint (web, email, etc) where messages can be delivered to a specific identity. 
 
