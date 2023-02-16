@@ -103,7 +103,6 @@ nav:
 #    - Issuer Node API: 
 #      - Introduction: "issuer-node/issuer-node-api/introduction.md"
 #      - Getting Started: "issuer-node/issuer-node-api/flow-tutorial/general-flow.md"
-#      - Create Schema: "issuer-node/issuer-node-api/create-schema.md"
 #      - API Reference: 
 #        - Identity: "issuer-node/issuer-node-api/identity/apis.md"
 #        - Claim: "issuer-node/issuer-node-api/claim/apis.md"
