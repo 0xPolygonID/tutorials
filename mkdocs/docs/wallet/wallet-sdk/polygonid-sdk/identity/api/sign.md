@@ -27,7 +27,6 @@ Thus the role of `sign()` is to sign a message string for an Integrator using id
 </div>
 <br>
 
-<!-- Is the following explanation correct? -->
 
 **Note**: When an Integrator scans a QR code, an iden3 message is created. This message has a `challenge` field from which the String `message` (used as input parameter) is generated. The `message` is then used to sign with the identity to generate a signature string.
 

@@ -7,7 +7,7 @@ The Polygon ID Wallet is a `Privacy by Default` wallet that helps protect a user
 The Polygon ID Wallet app is a reference implementation built using our Wallet SDK. Any other web3 wallets would be able to leverage the Wallet SDK to add the same functionalities. 
 
 <div align="center">
-<img src="../../imgs/polygon-id-reference-app.png" alt="Polygon ID app as a reference implementation" width="500" align="center" />
+<img src="../imgs/polygon-id-reference-app.png" alt="Polygon ID app as a reference implementation" width="500" align="center" />
 </div>
 <br>
 
