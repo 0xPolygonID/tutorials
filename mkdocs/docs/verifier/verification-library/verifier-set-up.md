@@ -19,6 +19,7 @@ In this example, the verifier will set up the query: "Prove that you were born b
 
 ---
 **Note:** The executable code for this section can be found <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration" target="_blank">here</a>.
+
 --- 
 
 ## Verifier Server Setup
