@@ -1,6 +1,6 @@
 # Issuer Overview
 
-An Issuer is any subject that issues Verifiable Credentials. You can think of a credentials as a statement: something an Issuer says about another subject. For example, when a university (Issuer) says that a student (subject) has a degree, this is a credentials.
+An Issuer is any subject that issues Verifiable Credentials. You can think of a credentials as a statement: something an Issuer says about another subject. For example, when a university (Issuer) says that a student (subject) has a degree, this is a credential.
 
 An issuer might be: 
 
@@ -17,11 +17,11 @@ To operate, an Issuer must run an [Issuer Node](./issuer-node/issuer-node-overvi
 <img src= "../../imgs/issuer-intro.png" align="center" />
 </div>
 
-Using Polygon ID an Issuer can Issuer Credentials to their users (or friends!).
+Using Polygon ID an Issuer can issue Credentials to their users (or friends!).
 
 ## Quick Start 
 
-You can quickly try out how the Credential Issuance experience look like by following the steps below: 
+You can quickly try out how the Credential Issuance experience looks like by following the steps below: 
 
 - Download the Polygon ID Wallet App and create an Identity.ß
 > - For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>

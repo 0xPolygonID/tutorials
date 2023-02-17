@@ -17,7 +17,7 @@ Following is a summary of the steps taken to make the Issuer Node up and running
 
 2. Add Issuer configuration file to the project.
 
-3. Copy the `Initial Root Token` from the vault container and paste it as the value of the `KS Vault Token` field in the Issuer Configutration File. Without this token being saved in the vault first, one cannot access the vault. There is also a mount path specified in the config fiel; this is called `KS_Vault_Mount_Path` and it gives partial or full access to the vault. In local enviornment, for example, this path gives full access to the vay=ult. In Prodcution, however, this access may be selective. 
+3. Copy the `Initial Root Token` from the vault container and paste it as the value of the `KS Vault Token` field in the Issuer Configutration File. Without this token being saved in the vault first, one cannot access the vault. There is also a mount path specified in the config file; this is called `KS_Vault_Mount_Path` and it gives partial or full access to the vault. In local environment, for example, this path gives full access to the vay=ult. In Production, however, this access may be selective. 
 
 4. Add Postgres as the database in the Identity Server Project by adding a Data Source. 
 
@@ -25,7 +25,7 @@ Following is a summary of the steps taken to make the Issuer Node up and running
 
 6. Start another instance of the identity server. Add Publisher configuration file to the project.
 
-7. Store Ethereum Private Key (used for deploying smart contract later) in the vault. This Key belongs to an external wallet which is used for sendind transaction for deploying contract on-chain. The Key is stored in vault so that no ine can have the direct access to the key. 
+7. Store Ethereum Private Key (used for deploying smart contract later) in the vault. This Key belongs to an external wallet which is used for sending the transaction for deploying the contract on-chain. The Key is stored in vault so that no one can have the direct access to the key. 
 
 8. Run Publisher configuration file in the project. This starts the Publisher server. 
 
@@ -42,9 +42,9 @@ The following diagram shows the flow to start the Issuer Server:
 
 1. Create Storage for the three Merkle trees: Claims Tree, Revocation Tree, and Roots Tree in the database. 
 
-2. Generate a random Baby Jubjub Key (BJJ private key) and store in the vault (we, in the identity server, are using HashiCorp Vault for storage). This is done to prevent the direct access to this private key. 
+2. Generate a random Baby Jubjub Key (BJJ private key) and store it in the vault (we, in the identity server, are using HashiCorp Vault for storage). This is done to prevent the direct access to this private key. 
 
-3. Generate Public Key from the BJJ private key. Using this public key, auth scehma (a template that defines the structure of a claim and how the claim data is stored in a Merkle Tree), and Revication nOnce (a random number which , if has value, indicates that the claim is revoked an hence is invalid), an `auth claim` is created.
+3. Generate Public Key from the BJJ private key. Using this public key, auth schema (a template that defines the structure of a claim and how the claim data is stored in a Merkle Tree), and Revocation nOnce (a random number which , if has value, indicates that the claim is revoked an hence is invalid), an `auth claim` is created.
 
 4. The auth claim along with public key is added to the Claims Tree Root. 
 
@@ -53,7 +53,7 @@ The following diagram shows the flow to start the Issuer Server:
 
 6. Generate proof for this auth claim. For this a Merkle Tree Proof is created and this MT Proof is added to the auth claim.
 
-7. The auth claim  is stored in the `claims` table in database alomg with other data  such as claim's revocation status, its expiration date, revocation nonce, and others. THe `Identity State` is saved in the `Identity-States` table  along with other data such as previous Identity State (if any), along with other details. `Identifier` gets stored in the `Identities` table. The three Merkle trees are stored in teh `Identities-mts` while the three roots of the these trees are stored in the `mt-roots` table. 
+7. The auth claim  is stored in the `claims` table in database along with other data  such as claim's revocation status, its expiration date, revocation nonce, and others. THe `Identity State` is saved in the `Identity-States` table  along with other data such as the previous Identity State (if any), along with other details. `Identifier` gets stored in the `Identities` table. The three Merkle trees are stored in the `Identities-mts` while the three roots of the these trees are stored in the `mt-roots` table. 
 
 
 <div align="center">
@@ -62,18 +62,18 @@ The following diagram shows the flow to start the Issuer Server:
    <br>
 
 ## Create New Claim 
-In tehi spart of the flow, the Issuer Server creates a claim requested by the Integrator and sends it to the Integrator who thn stores it in the wallet. 
+In this part of the flow, the Issuer Server creates a claim requested by the Integrator and sends it to the Integrator who then stores it in the wallet. 
 
-1. Integrator sends the requst for connection; it sends a did (decentralized identifier) documnet to the Issuer Server. 
+1. Integrator sends the request for connection; it sends a did (decentralized identifier) document to the Issuer Server. 
 2. Issuer Server, after verifying the did document, creates a new connection and sends a push notification to the Integrator. 
 3. Integrator calls POST KYCAgeCredential API endpoint (for requesting an age-based claim) to the server. In this request, the Integrator sends details like credential schema, schema type, user's identifier, birthday, and otherbdetails to the Issuer Server.
-3. Issuer server stores the schema in its redis cache. It uses CredentailFetchRequestMessage() function to authenticate the claim request. 
+3. Issuer server stores the schema in its redis cache. It uses the CredentailFetchRequestMessage() function to authenticate the claim request. 
 4. Using Process() function, the data slots for claim are selected where the actual data (birth date and documnet type) would be stored.
 
-5. Issuer Server creates an age-based claim using Create Claim() method while using schema, user identifier, birthday, document type, revoacation nonce and expiration date as input parameters.
+5. Issuer Server creates an age-based claim using the Create Claim() method while using schema, user identifier, birthday, document type, revocation nonce and expiration date as input parameters.
 6. Once a claim is created, it is added to the Merkle Tree as its leaf node. 
-7. Using GetAuthClaim() and SignClaimEntry() methids, the Issuer signs the claim and creates a signature proof for this claim. 
-8. This signature proof and claim's revication status are added to the claim. 
+7. Using GetAuthClaim() and SignClaimEntry() methods, the Issuer signs the claim and creates a signature proof for this claim. 
+8. This signature proof and claim's revocation status are added to the claim. 
 9. Claim is stored to the database using Save().
 10. Integrator sends request to receive claim from the Issuer using GET KYCAgeCredentail API endpoint. 
 11. POST Import KYCAgeCredentail API is called to receive this claim in the Integrator's wallet. 
@@ -89,7 +89,7 @@ In tehi spart of the flow, the Issuer Server creates a claim requested by the In
 
 The Publisher, like the Issuer is a part of the Identity Server and reads any change in an identity's state from the database continuously. When it finds a new state, it publishes the same to the blockchain. The information to publish on-chain is decided by the Publisher. 
 
-Publisher checks `claims` table (to verify if the claim is added to the Claims tree or not), `revocation` table (to verify that the claim is not revoked, and `Identity States` table (to know the latest state of Identity)  from the database. Until teh Identity State is not `confirmed`, the state is not published on-chain. The Publsiher meeds to wait for a ceratin number of blocks before transaction is confirmed and state is updated on-chain. Ket us see how this is done in detail:
+Publisher checks `claims` table (to verify if the claim is added to the Claims tree or not), `revocation` table (to verify that the claim is not revoked, and `Identity States` table (to know the latest state of Identity)  from the database. Until the Identity State is not `confirmed`, the state is not published on-chain. The Publsher meeds to wait for a certain number of blocks before the transaction is confirmed and state is updated on-chain. Let us see how this is done in detail:
 
 1. For publishing state on-chain, we require nonRevocationProof() for latest IDentity State. For this, GenerateRevocationProof() is called which uses REvocation Nonce and Revocation Root as the input parameters. 
 

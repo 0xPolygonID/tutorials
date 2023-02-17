@@ -4,7 +4,7 @@ JSON Web Zero-knowledge (JWZ) is an open standard for representing messages prov
 
 Based on the existing secure messaging standards, namely, JWM (JSON Web Message) and JWT (JSON Web Token), JWZ is a standard format for representing and sending secure messages backed by zero-knowledge technology. It is a novel way of providing interaction between two parties that intend to exchange messages while keeping the sender's public keys hidden. The proof that the wallet generates is packed in the JWZ format and sent to the Verifier using `callbackUrl`.
 
-In Iden3 Protocol, JWZ is the core primitive to manage communications between different parties. A JWZ expands the signature schema of the popular <a href="https://jwt.io/introduction" target="_blank">JWT standard</a>.
+In the Iden3 Protocol, JWZ is the core primitive to manage communications between different parties. A JWZ expands the signature schema of the popular <a href="https://jwt.io/introduction" target="_blank">JWT standard</a>.
 
 Any message can be packed inside a JWZ while the proof guarantees data integrity and provenance of the message, providing helpful metadata among the message.
 
@@ -244,7 +244,7 @@ It represents a ZK authentication proof based on the `auth circuit`.
 
 ### Difference between JWT and JWZ
 
-JWT relies on digital signatures for secure transmission of information. In particular, *"JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA"*. (<a href="https://jwt.io/introduction" target="_blank">JWT.io</a>). In JWZ, this signature is performed with zero-knowledge. In particular:
+JWT relies on digital signatures for the secure transmission of information. In particular, *"JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA"*. (<a href="https://jwt.io/introduction" target="_blank">JWT.io</a>). In JWZ, this signature is performed with zero-knowledge. In particular:
 
 - The `header` and the `payload` get hashed together using the Poseidon hash.
 - The JWZ initiator signs the hashed content using his/her private key.
