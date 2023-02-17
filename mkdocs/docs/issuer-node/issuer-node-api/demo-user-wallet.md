@@ -60,14 +60,14 @@ To create a credential, the Polygon ID app must be installed on your mobile.
 6. On website, click **Create Claim**.
 
     <div align="center">
-    <img src= "../../imgs/create-credentials.png" align="center" width="200" height="400" border="1"/>
+    <img src= "../../imgs/create-credentials.png" align="center" width="200"  border="1"/>
     </div>
     <br>
 
     This shows the **Create Claim** window:
 
     <div align="center">
-    <img src= "../../imgs/create-cred-window.png" align="center" width="200" height="400" border="1"/>
+    <img src= "../../imgs/create-cred-window.png" align="center" width="200"  border="1"/>
     </div>
     <br>
 
@@ -76,7 +76,7 @@ To create a credential, the Polygon ID app must be installed on your mobile.
     > Note: Please note that in addition to selecting the schemas displayed on the menu, you can also select **Custom** to use your own schema. For this example, we are using KYCAGeCredential type of schema. As you select this, the JSON URL and JSON-LD Context URL are auto-poulated under the ***URL*** and the ***Type*** fields. The ***Expiration*** (date on which credential shall expire) and the ***Data JSON*** are also auto-populated. Click **Submit**
 
     <div align="center">
-    <img src= "../../imgs/select-schema.png" align="center" width="200" height="400" border="1"/>
+    <img src= "../../imgs/select-schema.png" align="center" width="200"  border="1"/>
     </div>
     <br>
 
