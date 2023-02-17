@@ -13,8 +13,6 @@ The Issuer Node can generate multiple identities for multiple Issuers and manage
  
 The Issuer Node provides API endpoints for the integrator's applications; these include endpoints for the requests to create an identity, issue credentials to the user and revocate credentials.  
 
-<!-- The Issuer Node is composed of an Issuer application, which is used to issue Verifiable Credentials to users.  -->
-
 ## Issuer Node Prerequisites
  
 Before building and running Issuer Node, you need to have the following installed on your system:
@@ -22,9 +20,12 @@ Before building and running Issuer Node, you need to have the following installe
 - **Docker Daemon/Engine**: Docker Daemon or Docker Engine must be installed on your system.
 - **Docker Compose**: Docker Compose must be installed on your system. Docker Compose is used to start the multiple containers together.
 
+
 > Note: You can install Docker Daemon and Docker Compose separately. Alternatively, you can install [Docker Desktop]((https://docs.docker.com/desktop/)) which includes both Daemon and Docker Compose. It is a tool to built and run containers for your applications. Due to its simplistic model, it removes the need to use CLI(Command Line Interface) to do core actions. With Docker Desktop, you can manage your containers from your application itself. 
 
-- **Go**: If you intend to run the Issuer Node on an IDE, install the latest version of Go. If the Go backend is dockerized like other containers, there is no need to install Go locally.  
+- **Go**: If you intend to run the Issuer Node on an IDE, install the latest version of Go. If the Go backend is dockerized like other containers, there is no need to install Go locally. 
+
+- **Makefile**: A Makefile automates software building process and contains rules that determine which parts of the program need to be recompiled. It consists of all the rules for different dependencies. The Makefile can be accessed using `make` command. 
 
 > Note: If you intend to run the Issuer Node via an IDE (Integrated Development Enviorment), you must have an IDE installed on your system. Please note that the Issuer Node is platform-agnostic and can be run via CLI, IDE, and even be deployed on cloud. For these tutorials, we shall explain how to run the Issuer Node on [GoLand IDE](https://www.jetbrains.com/go/). 
  
@@ -39,6 +40,8 @@ The Issuer Node comprises of the following components and each one of these comp
 - **Redis**: Redis is used for caching of the schemas that we use in Issuer Node. The schemas are downloaded from IPFS and are stored on Redis. This way, every time, the Issuer Node issues a Credential, it doesn't need to fetch the schemas from an external source; it can fetch it directly from Redis. This boosts the performance of the application. 
  
 - **DB**: This container is used as the data source for the Issuer Node. In our implementation of the Issuer Node, we have used Postgres as the database. It is where all the data related to issued credentials are stored. 
+
+> Note: In a testing environment, you can run  the Vault, Redis, and Postgres services inside a docker. But for production, you are advised to secure these services first before using them. 
 
 ## Core Libraries Used in Issuer Node
  
