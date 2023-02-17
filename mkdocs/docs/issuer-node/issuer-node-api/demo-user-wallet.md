@@ -11,56 +11,56 @@ To create a credential, the Polygon ID app must be installed on your mobile.
 1. On Issuer website, click **Signup**.
 
     <div align="center">
-    <img src= "../../imgs/signup.png" align="center" width="500"/>
+    <img src= "../../imgs/signup.png" align="center" width="300"/>
     </div>
     <br>
 
     It shows the QR code on screen:
 
     <div align="center">
-    <img src= "../../imgs/qr-code-display.png" align="center" width="500"/>
+    <img src= "../../imgs/qr-code-display.png" align="center" width="500" height="100"/>
     </div>
     <br>
 
 2. Open Polygon ID app and authenticate with pin/biometrics
 
     <div align="center">
-    <img src= "../../imgs/authenticate.png" align="center" width="500"/>
+    <img src= "../../imgs/authenticate.png" align="center" width="500" height="200"/>
     </div>
     <br>
 
 3. On app, click **Connect**.
 
     <div align="center">
-    <img src= "../../imgs/connect.jpg" align="center" width="500" border="1"/>
+    <img src= "../../imgs/connect.jpg" align="center" width="500" height="200" border="1"/>
     </div>
     <br>
 
 4. With app, scan the QR code displayed on the site and click **Connect Wallet**. 
 
     <div align="center">
-    <img src= "../../imgs/connect-wallet.jpg" align="center" width="500" border="1"/>
+    <img src= "../../imgs/connect-wallet.jpg" align="center" width="500" height="200" border="1"/>
     </div>
     <br>
 
 5. Authenticate again with your pin/biometrics. This starts the authentication of the user's wallet. 
 
     <div align="center">
-    <img src= "../../imgs/authenticating.png" align="center" width="500" border="1"/>
+    <img src= "../../imgs/authenticating.png" align="center" width="500" height="200" border="1"/>
     </div>
     <br>
 
     After authentication process is complete, the app shows the message if the identity is successfully authenticated or it failed to authenticate.  
 
     <div align="center">
-    <img src= "../../imgs/authenticated.png" align="center" width="500" border="1"/>
+    <img src= "../../imgs/authenticated.png" align="center" width="500" height="200" border="1"/>
     </div>
     <br>
 
 6. On website, click **Create Claim**.
 
     <div align="center">
-    <img src= "../../imgs/create-credentials.png" align="center" width="500" border="1"/>
+    <img src= "../../imgs/create-credentials.png" align="center" width="500"  border="1"/>
     </div>
     <br>
 
@@ -83,7 +83,7 @@ To create a credential, the Polygon ID app must be installed on your mobile.
     This creates a new credential.
 
     <div align="center">
-    <img src= "../../imgs/credential-created.png" align="center" width="500" border="1"/>
+    <img src= "../../imgs/credential-created.png" align="center" width="500"  height="200" border="1"/>
     </div>
     <br>
 
