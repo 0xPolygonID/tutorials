@@ -1,4 +1,6 @@
-# Run Issuer Node Locally on IDE
+# Run Issuer Node 
+
+## Run Issuer Node Locally on IDE
 
 As we stated earlier in the tutorials, the Issuer Node is platform-agnostic and can be run with CLI or IDE, or even on a cloud-based platfrom. In this tutorial, we are going to show you the steps needed to start the Node on GoLand IDE.
 
@@ -115,6 +117,12 @@ to your system.
       <img src= "../../../imgs/node-start.png" align="center" style="border: 1px solid black"/>
       </div>
       
+8. Browse ServerUrl configured in the config.toml file (in this case: http://localhost:3001). This shows the API documentation. 
+
+
+## Run Issuer Node in Standalone Mode
+
+
 
 
 
