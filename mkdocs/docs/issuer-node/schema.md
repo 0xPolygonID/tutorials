@@ -103,129 +103,129 @@ Last but not least, we have to create the JSON Schema Document. This a document 
 
 
     ```json hl_lines="6 7 109 117 118"
-    {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "$metadata": {
-          "uris": {
-            "jsonLdContext": "https://ede9-2001-818-d8bf-6400-54ac-1d59-9f0f-4c9c.ngrok.io/myage.json-ld",
-            "jsonSchema": "https://ede9-2001-818-d8bf-6400-54ac-1d59-9f0f-4c9c.ngrok.io/myage.json"
+  {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "$metadata": {
+        "uris": {
+          "jsonLdContext": "https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/proof-of-dao-longevity.json-ld",
+          "jsonSchema": "https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/proof-of-dao-longevity.json"
+        }
+      },
+      "required": [
+        "@context",
+        "id",
+        "type",
+        "issuanceDate",
+        "credentialSubject",
+        "credentialSchema",
+        "credentialStatus",
+        "issuer"
+      ],
+      "properties": {
+        "@context": {
+          "type": [
+            "string",
+            "array",
+            "object"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "items": {
+            "type": "string"
           }
         },
-        "required": [
-          "@context",
-          "id",
-          "type",
-          "issuanceDate",
-          "credentialSubject",
-          "credentialSchema",
-          "credentialStatus",
-          "issuer"
-        ],
-        "properties": {
-          "@context": {
-            "type": [
-              "string",
-              "array",
-              "object"
-            ]
-          },
-          "id": {
-            "type": "string"
-          },
-          "type": {
-            "type": [
-              "string",
-              "array"
-            ],
-            "items": {
+        "issuer": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "format": "uri",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "issuanceDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expirationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "credentialSchema": {
+          "type": "object",
+          "required": [
+            "id",
+            "type"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uri"
+            },
+            "type": {
               "type": "string"
             }
-          },
-          "issuer": {
-            "type": [
-              "string",
-              "object"
-            ],
-            "format": "uri",
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string",
-                "format": "uri"
-              }
-            }
-          },
-          "issuanceDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "expirationDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "credentialSchema": {
-            "type": "object",
-            "required": [
-              "id",
-              "type"
-            ],
-            "properties": {
-              "id": {
-                "type": "string",
-                "format": "uri"
-              },
-              "type": {
-                "type": "string"
-              }
-            }
-          },
-          "subjectPosition": {
-            "type": "string",
-            "enum": [
-              "none",
-              "index",
-              "value"
-            ]
-          },
-          "merklizationRootPosition": {
-            "type": "string",
-            "enum": [
-              "none",
-              "index",
-              "value"
-            ]
-          },
-          "revNonce": {
-            "type": "integer"
-          },
-          "version": {
-            "type": "integer"
-          },
-          "updatable": {
-            "type": "boolean"
-          },
-          "credentialSubject": {
-            "type": "object",
-            "required": [
-              "id",
-              "entryDate"
-            ],
-            "properties": {
-              "id": {
-                "title": "Credential Subject ID",
-                "type": "string",
-                "format": "uri"
-              },
-              "entryDate": {
-                "type": "integer"
-              }
+          }
+        },
+        "subjectPosition": {
+          "type": "string",
+          "enum": [
+            "none",
+            "index",
+            "value"
+          ]
+        },
+        "merklizationRootPosition": {
+          "type": "string",
+          "enum": [
+            "none",
+            "index",
+            "value"
+          ]
+        },
+        "revNonce": {
+          "type": "integer"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "updatable": {
+          "type": "boolean"
+        },
+        "credentialSubject": {
+          "type": "object",
+          "required": [
+            "id",
+            "entryDate"
+          ],
+          "properties": {
+            "id": {
+              "title": "Credential Subject ID",
+              "type": "string",
+              "format": "uri"
+            },
+            "entryDate": {
+              "type": "integer"
             }
           }
         }
       }
+    }
     ```
     
 ### Further Resources 
