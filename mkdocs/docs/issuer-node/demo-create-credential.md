@@ -11,7 +11,7 @@ To create a credential, the Polygon ID app must be installed on your mobile.
 1. On Issuer website, click **Signup**.
 
     <div align="center">
-    <img src= "../../../../imgs/signup.png" align="center" width="300"/>
+    <img src= "../imgs/signup.png" align="center" width="300"/>
     </div>
     <br>
 
