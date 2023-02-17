@@ -79,7 +79,7 @@ to your system.
 
       - ServerPort: Enter the port on which Issuer Node would start. (Example: 3001)
 
-      - ServerUrl:  If the Issuer Node is to be started locally, enter the localhost URL (for example, http://localhost). If the Issuer Node is to be hosted on Google Cloud or an AWS or some other cloud (instead of being installed locally), enter the URL where the machine is located.
+      - ServerUrl:  If the Issuer Node is to be started locally, enter the localhost URL (for example, http://localhost:3001). If the Issuer Node is to be hosted on Google Cloud or an AWS or some other cloud (instead of being installed locally), enter the URL where the machine is located.
 
       - Database Url: The database URL that is provided by Docker. For example,
       Url="postgres://polygonid:polygonid@localhost:5432/platformid?sslmode=disable
