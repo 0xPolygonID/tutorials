@@ -46,28 +46,28 @@ To create a credential, the Polygon ID app must be installed on your mobile.
 5. Authenticate again with your pin/biometrics. This starts the authentication of the user's wallet. 
 
     <div align="center">
-    <img src= "../../imgs/authenticating.png" align="center" width="500"  border="1"/>
+    <img src= "../../imgs/authenticating.png" align="center" width="200" height="400" border="1"/>
     </div>
     <br>
 
     After authentication process is complete, the app shows the message if the identity is successfully authenticated or it failed to authenticate.  
 
     <div align="center">
-    <img src= "../../imgs/authenticated.png" align="center" width="500"  border="1"/>
+    <img src= "../../imgs/authenticated.png" align="center" width="200" height="400" border="1"/>
     </div>
     <br>
 
 6. On website, click **Create Claim**.
 
     <div align="center">
-    <img src= "../../imgs/create-credentials.png" align="center" width="500"  border="1"/>
+    <img src= "../../imgs/create-credentials.png" align="center" width="200" height="400" border="1"/>
     </div>
     <br>
 
     This shows the **Create Claim** window:
 
     <div align="center">
-    <img src= "../../imgs/create-cred-window.png" align="center" width="500" border="1"/>
+    <img src= "../../imgs/create-cred-window.png" align="center" width="200" height="400" border="1"/>
     </div>
     <br>
 
@@ -76,14 +76,14 @@ To create a credential, the Polygon ID app must be installed on your mobile.
     > Note: Please note that in addition to selecting the schemas displayed on the menu, you can also select **Custom** to use your own schema. For this example, we are using KYCAGeCredential type of schema. As you select this, the JSON URL and JSON-LD Context URL are auto-poulated under the ***URL*** and the ***Type*** fields. The ***Expiration*** (date on which credential shall expire) and the ***Data JSON*** are also auto-populated. Click **Submit**
 
     <div align="center">
-    <img src= "../../imgs/select-schema.png" align="center" width="500" border="1"/>
+    <img src= "../../imgs/select-schema.png" align="center" width="200" height="400" border="1"/>
     </div>
     <br>
 
     This creates a new credential.
 
     <div align="center">
-    <img src= "../../imgs/credential-created.png" align="center" width="500"  height="200" border="1"/>
+    <img src= "../../imgs/credential-created.png" align="center" width="200"  border="1"/>
     </div>
     <br>
 
@@ -97,22 +97,22 @@ To create a credential, the Polygon ID app must be installed on your mobile.
    A Credential looks like this:
 
     <div align="center">
-    <img src= "../../imgs/cred1.png" align="center" width="500" border="1"/>
+    <img src= "../../imgs/cred1.png" align="center" width="200" border="1"/>
     </div>
     
 
    <div align="center">
-    <img src= "../../imgs/cred2.png" align="center" width="500" border="1"/>
+    <img src= "../../imgs/cred2.png" align="center" width="200" border="1"/>
     </div>
     
 
     <div align="center">
-    <img src= "../../imgs/cred3.png" align="center" width="500" border="1"/>
+    <img src= "../../imgs/cred3.png" align="center" width="200" border="1"/>
     </div>
     
 
     <div align="center">
-    <img src= "../../imgs/cred4.png" align="center" width="500" border="1"/>
+    <img src= "../../imgs/cred4.png" align="center" width="200" border="1"/>
     </div>
     <br>
 
