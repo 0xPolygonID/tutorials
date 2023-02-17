@@ -17,3 +17,4 @@ In the sections to come, you will read more about the Polygon ID SDK plugin and 
 
 >Note: Please note that the iOS Simulator for testing the Polygon ID SDK application is still under maintenance and would be available to use soon. 
 
+
