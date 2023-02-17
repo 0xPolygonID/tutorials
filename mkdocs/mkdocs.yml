@@ -38,6 +38,7 @@ nav:
           - Agent: "issuer-node/issuer-node-api/agent/apis.md"
       - Local Setup:     
           - Run Issuer Node: "issuer-node/issuer-node-local-setup/run-issuer-node.md"
+      - Create New Schemas : "issuer-node/schema.md"
   - Verifier:
     - Overview: "verifier/verifier-overview.md"
     - Verfier SDK - Off-chain:
