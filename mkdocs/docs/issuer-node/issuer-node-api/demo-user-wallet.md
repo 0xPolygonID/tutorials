@@ -32,7 +32,7 @@ To create a credential, the Polygon ID app must be installed on your mobile.
 3. On app, click **Connect**.
 
     <div align="center">
-    <img src= "../../imgs/connect.jpg" align="center" width="150" height="200" border="1"/>
+    <img src= "../../imgs/connect.jpg" align="center" width="200" height="200" border="1"/>
     </div>
     <br>
 
