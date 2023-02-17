@@ -1,4 +1,4 @@
-# Credential Schema
+# Create Custom Schemas
 
 A Schema Type encodes the structure of a particular Verifiable Credential (VC) by defining the new of the type, the fields that must be included inside the VC, and a description for these fields.
 
@@ -14,7 +14,7 @@ A schema type is made of two documents:
 
 Without further ado, let's jump into building a new Schema Type!
 
-### Build a new Schema Type 
+## Tutorial
 
 ---
 **Note:** The executable code for this section can be found <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/credential-schema" target="_blank">here</a>.
