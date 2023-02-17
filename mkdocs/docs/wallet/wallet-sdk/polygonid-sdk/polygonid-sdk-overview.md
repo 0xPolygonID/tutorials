@@ -15,5 +15,5 @@ Here, we can conclude that an Integrator can use Polygon ID SDK to build an Iden
 
 In the sections to come, you will read more about the Polygon ID SDK plugin and also an example app that will guide you to the initial setup required for using this plugin. In the later part of this example app, you will get to know the overall flow of the functionality that this plugin provides.  
 
-
+>Note: Please note that the iOS Simulator for testing the Polygon ID SDK application is still under maintenance and would be available to use soon. 
 
