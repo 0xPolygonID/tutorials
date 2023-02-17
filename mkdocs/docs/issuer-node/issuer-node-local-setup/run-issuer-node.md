@@ -114,7 +114,7 @@ to your system.
    <div align="center">
       <img src= "../../../imgs/node-start.png" align="center" style="border: 1px solid black"/>
       </div>
-      <br>
+      
 
 
 
