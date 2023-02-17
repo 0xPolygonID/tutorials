@@ -18,14 +18,14 @@ To create a credential, the Polygon ID app must be installed on your mobile.
     It shows the QR code on screen:
 
     <div align="center">
-    <img src= "../../imgs/qr-code-display.png" align="center" width="500"/>
+    <img src= "../../imgs/qr-code-display.png" align="center" width="200"/>
     </div>
     <br>
 
 2. Open Polygon ID app and authenticate with pin/biometrics
 
     <div align="center">
-    <img src= "../../imgs/authenticate.png" align="center" width="500"/>
+    <img src= "../../imgs/authenticate.png" align="center" width="200" height="400"/>
     </div>
     <br>
 
@@ -39,7 +39,7 @@ To create a credential, the Polygon ID app must be installed on your mobile.
 4. With app, scan the QR code displayed on the site and click **Connect Wallet**. 
 
     <div align="center">
-    <img src= "../../imgs/connect-wallet.jpg" align="center" width="500"  border="1"/>
+    <img src= "../../imgs/connect-wallet.jpg" align="center" width="200" height="400" border="1"/>
     </div>
     <br>
 
