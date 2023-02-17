@@ -32,13 +32,11 @@ nav:
       - Issuer Node API: 
         - Introduction: "issuer-node/issuer-node-api/introduction.md"
         - Getting Started: "issuer-node/issuer-node-api/flow-tutorial/general-flow.md"
-        - Create Schema: "issuer-node/issuer-node-api/create-schema.md"
-        - API Reference: 
+        - API Reference:
           - Identity: "issuer-node/issuer-node-api/identity/apis.md"
           - Claim: "issuer-node/issuer-node-api/claim/apis.md"
           - Agent: "issuer-node/issuer-node-api/agent/apis.md"
-      - Local Setup: 
-          - Configure IDE Example: "issuer-node/issuer-node-local-setup/configure-ide.md"
+      - Local Setup:     
           - Run Issuer Node: "issuer-node/issuer-node-local-setup/run-issuer-node.md"
   - Verifier:
     - Overview: "verifier/verifier-overview.md"
