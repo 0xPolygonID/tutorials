@@ -6,16 +6,16 @@ The Issuer Node is a self-hosted Node that any implementer can quickly setup and
 - Issue Credentials to an identity
 - Share Credentials to the user's wallet
 - Publish [identity states](https://docs.iden3.io/getting-started/identity/identity-state/) on-chain 
-<!-- - Manage data communication protocols between wallet agents -->
-- Generate zero-knowledge proofs for an identity using circuits
+- Manage data communication protocols between wallet agents 
+
  
 The Issuer Node can generate multiple identities for multiple Issuers and manages the states of these identities by updating the state stored on-chain. 
  
 The Issuer Node provides API endpoints for the integrator's applications; these include endpoints for the requests to create an identity, issue credentials to the user and revocate credentials.  
 
-## Issuer Node Prerequisites
+## Recommended Installations for Issuer Node
  
-Before building and running Issuer Node, you need to have the following installed on your system:
+Though not mandatory, it is good to have the following software installed on your system:
 
 - **Docker Daemon/Engine**: Docker Daemon or Docker Engine must be installed on your system.
 - **Docker Compose**: Docker Compose must be installed on your system. Docker Compose is used to start the multiple containers together.
