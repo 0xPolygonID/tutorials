@@ -27,7 +27,7 @@ Though not mandatory, it is good to have the following software installed on you
 
 - **Makefile**: A Makefile automates software building process and contains rules that determine which parts of the program need to be recompiled. It consists of all the rules for different dependencies. The Makefile can be accessed using `make` command. 
 
-> Note: If you intend to run the Issuer Node via an IDE (Integrated Development Enviorment), you must have an IDE installed on your system. Please note that the Issuer Node is platform-agnostic and can be run via CLI, IDE, and even be deployed on cloud. For these tutorials, we shall explain how to run the Issuer Node on [GoLand IDE](https://www.jetbrains.com/go/). 
+> Note: If you intend to run the Issuer Node via an IDE (Integrated Development Enviorment), you can have any IDE installed on your system. Please note that the Issuer Node is platform-agnostic and can be run via CLI, IDE, and even be deployed on cloud. You can run it as a standalone server also. 
  
 ## Issuer Node Components
  
