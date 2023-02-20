@@ -20,21 +20,14 @@ Basic Auth Request can be implemented by any platform that is interested in prov
     request = auth.CreateAuthorizationRequest(reason, audience, url)
     ```
 
+
 === "Javascript"
-
-    ```bash
-    WIP
-    ```  
-
-<!-- === "Javascript"
 
     ```js
     const request : protocol.AuthorizationRequestMessage = auth.createAuthorizationRequest(reason, audience, url)
-    ``` -->
+    ```
 
-
-> An example of the usage of this api can be found <a href="https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/go/index.go#L41" target="_blank">here</a>
-
+> An example of the usage of this api can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/go/index.go#L41) (GO) and [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/js/index.js#L39) (JS)
 
 Generate an Auth Request to the user that includes a *reason* for authenticating. The *audience* represents the DID of the requester, while the *url* is the callback url where the user must send the response for verification
 
@@ -47,19 +40,13 @@ Generate an Auth Request to the user that includes a *reason* for authenticating
     ```go
     var request protocol.AuthorizationRequestMessage
     request = auth.CreateAuthorizationRequestWithMessage(reason, messageToSign, audience, url)
-    ```
+    ```  
 
 === "Javascript"
 
-    ```bash
-    WIP
-    ```  
-
-<!-- === "Javascript"
-
     ```js
     const request : protocol.AuthorizationRequestMessage = auth.createAuthorizationRequestWithMessage(reason, messageToSign, audience, url)
-    ``` -->
+    ```
 
 The same functionality of CreateAuthorizationRequest but it also includes a *messageToSign*. This message will be shown to the users inside their wallets and will be signed as part of the response.
 
@@ -90,39 +77,30 @@ The Query-based Auth Request allows verifiers to interact with a wallet by setti
 
 === "Javascript"
 
-    ```bash
-    WIP
-    ```  
-
-<!-- === "Javascript"
-
     ```js
     const proofRequest: protocol.ZKPRequest = {
-    id: 1,
-    circuit_id: 'credentialAtomicQuerySig',
-    rules: {
-        query: {
-        allowedIssuers: ['11AbuG9EKnWVXK1tooT2NyStQod2EnLhfccSajkwJA'],
-        schema: {
-            type: 'KYCCountryOfResidenceCredential',
-            url: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v2.json-ld',
-        },
-        req: {
-            countryCode: {
-            $nin: [840, 120, 340, 509],
-            },
-        },
-        },
-    },
-    };
+				id: 1,
+				circuitId: 'credentialAtomicQuerySigV2',
+				query: {
+				  allowedIssuers: ['*'],
+				  type: 'KYCAgeCredential',
+				  context: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld',
+				  credentialSubject: {
+					birthday: {
+					  $lt: 20000101,
+					},
+				  },
+			  },
+			};
     request.body.scope = [...scope, proofRequest];
-    ``` -->
+    ```
 
 Generate a request to prove that the user owns a credential that satisfies certain requirements. 
 
 `ID` represents the request id: ideally, in production, it should be a unique value for each request. `CircuitID` represents the identifier of the circuit that the user must use to generate the requested proof: [here](https://github.com/iden3/go-circuits/blob/39e45740df5eba9c70acfb1d89cc72f3285aadf8/circuits.go#L13) you can find a reference to the available circuits. 
 
-In this case, the user has to provide a proof that he/she owns a credential issued by the `allowedIssuer` of schema `type` **KYCAgeCredential** described in the url provided in `context`. By setting the `allowedIssuer` to `*`, the user can provide a proof of that credential issued by any issuer. Alternatively, if the verifier adds the DID of a specific issuer inside the `allowedIssuer` array, the user must provide a proof of a credential issued by that specific issuer.
+In this case, the user has to provide a proof that he/she owns a credential issued by the `allowedIssuer` of schema `type` **KYCAgeCredential** described in the url provided in `context`. **This is the JSON-LD context of the credential**.
+By setting the `allowedIssuer` to `*`, the user can provide a proof of that credential issued by any issuer. Alternatively, if the verifier adds the DID of a specific issuer inside the `allowedIssuer` array, the user must provide a proof of a credential issued by that specific issuer.
 This credential contains details in its `credentialSubject` of the birthday of the receiver. In this scenario, the user has to prove that the value contained in the attribute `birthday` is less than `lt` 20000101, namely that the user was born before 01/01/2000.
 
 An additional optional field that can be included in the query is `skipClaimRevocationCheck`. By setting it to `true`, the user doesn't need to provide the proof of the revocation of the credential, which would otherwise be provided by default. 
@@ -137,6 +115,8 @@ mtpProofRequest.Query = map[string]interface{}{
 }
 
 ```
+
+> An example of the usage of this api can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/go/index.go#L47) (GO) and [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/js/index.js#L49) (JS)
 
 > Check out our [Query Language guide](./zk-query-language.md) to design any type of query request you can think of!
 
