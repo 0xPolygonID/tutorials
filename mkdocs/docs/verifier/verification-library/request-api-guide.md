@@ -99,7 +99,8 @@ Generate a request to prove that the user owns a credential that satisfies certa
 
 `ID` represents the request id: ideally, in production, it should be a unique value for each request. `CircuitID` represents the identifier of the circuit that the user must use to generate the requested proof: [here](https://github.com/iden3/go-circuits/blob/39e45740df5eba9c70acfb1d89cc72f3285aadf8/circuits.go#L13) you can find a reference to the available circuits. 
 
-In this case, the user has to provide a proof that he/she owns a credential issued by the `allowedIssuer` of schema `type` **KYCAgeCredential** described in the url provided in `context`. By setting the `allowedIssuer` to `*`, the user can provide a proof of that credential issued by any issuer. Alternatively, if the verifier adds the DID of a specific issuer inside the `allowedIssuer` array, the user must provide a proof of a credential issued by that specific issuer.
+In this case, the user has to provide a proof that he/she owns a credential issued by the `allowedIssuer` of schema `type` **KYCAgeCredential** described in the url provided in `context`. **This is the JSON-LD context of the credential**.
+By setting the `allowedIssuer` to `*`, the user can provide a proof of that credential issued by any issuer. Alternatively, if the verifier adds the DID of a specific issuer inside the `allowedIssuer` array, the user must provide a proof of a credential issued by that specific issuer.
 This credential contains details in its `credentialSubject` of the birthday of the receiver. In this scenario, the user has to prove that the value contained in the attribute `birthday` is less than `lt` 20000101, namely that the user was born before 01/01/2000.
 
 An additional optional field that can be included in the query is `skipClaimRevocationCheck`. By setting it to `true`, the user doesn't need to provide the proof of the revocation of the credential, which would otherwise be provided by default. 
