@@ -11,7 +11,7 @@ An issuer might be:
 
 [Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) are a flexible data format able to express any type of information so that developers can unleash their creativity.
 
-To operate, an Issuer must run an [Issuer Node](./issuer-node/issuer-node-overview.md), which is a self-hosted Node that exposes all the functionalities necessary to run an issuer.
+To operate, an Issuer must run an [Issuer Node](../issuer-node/issuer-node-overview.md), which is a self-hosted Node that exposes all the functionalities necessary to run an issuer.
 
 <div align="center">
 <img src= "../../imgs/issuer-intro.png" align="center" />
