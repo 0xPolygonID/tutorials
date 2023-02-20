@@ -77,8 +77,8 @@ The JSON-LD Context contains:
               "type": "@type",
               "vocab": "https://github.com/0xPolygonID/tutorial-examples/main/credential-schema/proof-of-dao-longevity-vocab.md#",
               "xsd": "http://www.w3.org/2001/XMLSchema#",
-              "age": {
-                "@id": "vocab:age",
+              "entryDate": {
+                "@id": "vocab:entryDate",
                 "@type": "xsd:integer"
               }
             }
