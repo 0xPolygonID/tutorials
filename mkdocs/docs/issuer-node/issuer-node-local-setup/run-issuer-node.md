@@ -77,7 +77,7 @@ to your system.
 
       With this, the Ethereum Private Key is written into the vault container. 
 
-6. **Set Field Values in Configuration File**: In the `config.toml` file in the repository, set values for the following fields:
+6. **Set Field Values in Configuration File**: We have provided a `config.toml.sample` file. Copy this file in the `config.toml` in your project, and then set values for the following fields:
 
       - ServerPort: Enter the port on which Issuer Node would start. (Example: 3001)
 
@@ -105,6 +105,7 @@ to your system.
 
       - Circuit Path: The path to the circuits folder in your Issuer Node repository. This contains files for prover circuits.
 
+
 7. Run the following command to start the Issuer Node:
 
       ```
@@ -121,6 +122,87 @@ to your system.
 
 
 ## Run Issuer Node in Standalone Mode
+
+If you want to start the Issuer Node in the standalone mode, you can follow these steps:
+
+1. **Set Field Values in Configuration File**: We have provided a `config.toml.sample` file. Copy this file in the `config.toml` in your project, and then set different values. This is same as step 6 of the previous section. 
+
+2. Run this command:
+
+      ```
+      make build
+      ```
+This command compiles your project and run these 4 executables:
+
+- Platform: It is the main executable required to run the project. It is the platform API. 
+
+- Migrate: It is used to create database schema in Posgres. 
+
+- Pending_Publisher: It is a service that runs in the background and the purpose is to check for transactions that we send to the blockchain. 
+
+- Configurator: 
+
+      <div align="center">
+         <img src= "../../imgs/make-build.png" align="center" style="border: 1px solid black"/>
+         </div>
+         <br>
+
+3. Make sure that all the services: Postgres, Vault, and Redis are up and running. This is to be noted that if you are running your Issuer Node only for evaluation purposes, it is ok to use the docker images. But for production, you must use set up your own Postgres, Vault, and Redis. Like in the previous secion, you can use the following command to start docker containers:
+
+      ```
+      make up
+      ```
+
+      <div align="center">
+         <img src= "../../imgs/services-running.png" align="center" style="border: 1px solid black"/>
+         </div>
+         <br>
+
+4. Configure your databse using the following command:
+
+      ```
+      make db/migrate
+      ```
+
+      <div align="center">
+         <img src= "../../imgs/migration-done.png" align="center" style="border: 1px solid black"/>
+         </div>
+         <br>
+
+This checks the current structure of the database, and accordingly, either creates or updates the database. 
+
+5. Run this command to start the Issuer Node:
+
+      ```
+      ./bin/platform
+      ```
+
+      <div align="center">
+         <img src= "../../imgs/issuer-node-starts.png" align="center" style="border: 1px solid black"/>
+         </div>
+         <br>
+
+This starts the Issuer Node. You can now browse to the port configured for your server (ServerPort)in the `config.toml` file and view the API documetation. For example, this could be: http://localhost:3001.
+
+6. Run the following command to start the Pending_Publisher service:
+
+      ```
+      ./bin/pending_publisher
+      ```
+This step checks for errors, if any, as the tranactions are publsihed on-chain. 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
 
 
 
