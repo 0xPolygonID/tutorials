@@ -354,7 +354,7 @@ This tutorial showcased a minimalistic application that leverages Polygon ID lib
 For example, the concept can be extended to exchanges that require KYC Credentials, DAOs that require proof-of-personhood Credentials, or social media applications that intend to re-use users' aggregated reputation.
 
 
-<!-- To do so, add the <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> to your Verifier repository. This folder contains an HTML static webpage that renders a static webpage with the QR code containing the Auth Request.
+To do so, add the <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> to your Verifier repository. This folder contains an HTML static webpage that renders a static webpage with the QR code containing the Auth Request.
 
 > To display the QR code inside your frontend, you can use the `express.static` built-in middleware function together with this <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/verifier-integration/js/static" target="_blank">Static Folder</a> or this [Code Sandbox](https://codesandbox.io/s/yp1pmpjo4z?file=/index.js).
 
@@ -408,4 +408,4 @@ For example, the concept can be extended to exchanges that require KYC Credentia
 
 	This tutorial showcased a minimalistic application that leverages Polygon ID libraries for authentication purposes. Developers can leverage the broad set of existing Credentials held by users to set up any customized Query using our [zk Query Language](./zk-query-language.md) to unleash the full potential of the framework. 
 
-	For example, the concept can be extended to exchanges that require KYC Credentials, DAOs that require proof-of-personhood Credentials, or social media applications that intend to re-use users' aggregated reputation. -->
+	For example, the concept can be extended to exchanges that require KYC Credentials, DAOs that require proof-of-personhood Credentials, or social media applications that intend to re-use users' aggregated reputation.
