@@ -39,7 +39,7 @@ to your system.
       This starts the postgres, redis, and vault containers:
 
       <div align="center">
-         <img src= "../../../imgs/makeup.png" align="center" style="border: 1px solid black"/>
+         <img src= "../../imgs/makeup.png" align="center" style="border: 1px solid black"/>
          </div>
          <br>
 
@@ -51,7 +51,7 @@ to your system.
       This lets you see all the containers that are currently running along with their statuses and ports.
 
       <div align="center">
-         <img src= "../../../imgs/docker-ps.png" align="center" style="border: 1px solid black"/>
+         <img src= "../../imgs/docker-ps.png" align="center" style="border: 1px solid black"/>
          </div>
       <br>
 
@@ -71,7 +71,7 @@ to your system.
       ```
 
       <div align="center">
-         <img src= "../../../imgs/ethereum-priv-key.png" align="center" style="border: 1px solid black"/>
+         <img src= "../../imgs/ethereum-priv-key.png" align="center" style="border: 1px solid black"/>
          </div>
          <br>
 
@@ -95,7 +95,7 @@ to your system.
       - Ethereum URL: For this, you first need to sign up on Alchemy. Then create an app; enter app details including chain as Polygon and Network as Polygon Mumbai. Click **View Key** to know your JSON RPC URL and paste it into the field in the Ethereum URL field. 
 
       <div align="center">
-         <img src= "../../../imgs/alchemy.png" align="center" style="border: 1px solid black"/>
+         <img src= "../../imgs/alchemy.png" align="center" style="border: 1px solid black"/>
          </div>
          <br>
 
@@ -114,7 +114,7 @@ to your system.
    This loads all the build files for the Node and it starts at the port specified in the `config.toml` file. 
 
    <div align="center">
-      <img src= "../../../imgs/node-start.png" align="center" style="border: 1px solid black"/>
+      <img src= "../../imgs/node-start.png" align="center" style="border: 1px solid black"/>
       </div>
       
 8. Browse ServerUrl configured in the config.toml file (in this case: http://localhost:3001). This shows the API documentation. 

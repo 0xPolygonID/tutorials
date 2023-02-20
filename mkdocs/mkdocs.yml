@@ -31,7 +31,7 @@ nav:
       - Overview: "issuer-node/issuer-node-overview.md"
       - Issuer Node API: 
         - Introduction: "issuer-node/issuer-node-api/introduction.md"
-        - Getting Started: "issuer-node/issuer-node-api/flow-tutorial/general-flow.md"
+##      - Getting Started: "issuer-node/issuer-node-api/flow-tutorial/general-flow.md"
         - API Reference:
           - Identity: "issuer-node/issuer-node-api/identity/apis.md"
           - Claim: "issuer-node/issuer-node-api/claim/apis.md"
