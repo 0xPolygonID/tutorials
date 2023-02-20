@@ -17,7 +17,7 @@ Without further ado, let's jump into building a new Schema Type!
 ## Tutorial
 
 ---
-**Note:** The executable code for this section can be found <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/credential-schema" target="_blank">here</a>.
+**Note:** The executable code and **further schemas examples** for this section can be found <a href="https://github.com/0xPolygonID/tutorial-examples/tree/main/credential-schema" target="_blank">here</a>. 
 
 --- 
 
@@ -95,7 +95,8 @@ The JSON-LD Context contains:
 
 **5. Create the JSON Schema**
 
-Last but not least, we have to create the JSON Schema Document. This a document that contains the serialization rule and the instruction for the Issuer to build Verifiable Credentials based on a specific schema type and spot any error in the process. Although it might seem complex and verbose, there are just a few values that need to be updated to adapt to your purpose:
+Last but not least, we have to create the JSON Schema Document.  We decide to name it `proof-of-dao-longevity.json`.
+This a document that contains the serialization rule and the instruction for the Issuer to build Verifiable Credentials based on a specific schema type and spot any error in the process. Although it might seem complex and verbose, there are just a few values that need to be updated to adapt to your purpose:
 
 - Add the `uris` to your specific `jsonLdContext` and `jsonSchema`
     
