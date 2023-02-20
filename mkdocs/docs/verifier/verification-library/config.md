@@ -24,16 +24,9 @@ Both the APIs are available either in Golang or Javascript:
         "github.com/iden3/go-iden3-auth/state"
         "github.com/iden3/iden3comm/protocol"
     )
-    ```     
+    ```    
 
-    
 === "Javascript"
-
-    ```bash
-    WIP
-    ```  
-
-<!-- === "Javascript"
 
     ```bash
     npm i @iden3/js-iden3-auth --save
@@ -41,4 +34,4 @@ Both the APIs are available either in Golang or Javascript:
 
     ```js
     const {auth, resolver, protocol, loaders, circuits} = require('@iden3/js-iden3-auth')
-    ``` -->
+    ```

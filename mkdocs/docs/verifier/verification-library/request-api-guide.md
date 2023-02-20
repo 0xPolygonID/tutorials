@@ -20,21 +20,14 @@ Basic Auth Request can be implemented by any platform that is interested in prov
     request = auth.CreateAuthorizationRequest(reason, audience, url)
     ```
 
+
 === "Javascript"
-
-    ```bash
-    WIP
-    ```  
-
-<!-- === "Javascript"
 
     ```js
     const request : protocol.AuthorizationRequestMessage = auth.createAuthorizationRequest(reason, audience, url)
-    ``` -->
+    ```
 
-
-> An example of the usage of this api can be found <a href="https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/go/index.go#L41" target="_blank">here</a>
-
+> An example of the usage of this api can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/go/index.go#L41) (GO) and [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/js/index.js#L39) (JS)
 
 Generate an Auth Request to the user that includes a *reason* for authenticating. The *audience* represents the DID of the requester, while the *url* is the callback url where the user must send the response for verification
 
@@ -47,19 +40,13 @@ Generate an Auth Request to the user that includes a *reason* for authenticating
     ```go
     var request protocol.AuthorizationRequestMessage
     request = auth.CreateAuthorizationRequestWithMessage(reason, messageToSign, audience, url)
-    ```
+    ```  
 
 === "Javascript"
 
-    ```bash
-    WIP
-    ```  
-
-<!-- === "Javascript"
-
     ```js
     const request : protocol.AuthorizationRequestMessage = auth.createAuthorizationRequestWithMessage(reason, messageToSign, audience, url)
-    ``` -->
+    ```
 
 The same functionality of CreateAuthorizationRequest but it also includes a *messageToSign*. This message will be shown to the users inside their wallets and will be signed as part of the response.
 
@@ -90,33 +77,23 @@ The Query-based Auth Request allows verifiers to interact with a wallet by setti
 
 === "Javascript"
 
-    ```bash
-    WIP
-    ```  
-
-<!-- === "Javascript"
-
     ```js
     const proofRequest: protocol.ZKPRequest = {
-    id: 1,
-    circuit_id: 'credentialAtomicQuerySig',
-    rules: {
-        query: {
-        allowedIssuers: ['11AbuG9EKnWVXK1tooT2NyStQod2EnLhfccSajkwJA'],
-        schema: {
-            type: 'KYCCountryOfResidenceCredential',
-            url: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v2.json-ld',
-        },
-        req: {
-            countryCode: {
-            $nin: [840, 120, 340, 509],
-            },
-        },
-        },
-    },
-    };
+				id: 1,
+				circuitId: 'credentialAtomicQuerySigV2',
+				query: {
+				  allowedIssuers: ['*'],
+				  type: 'KYCAgeCredential',
+				  context: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld',
+				  credentialSubject: {
+					birthday: {
+					  $lt: 20000101,
+					},
+				  },
+			  },
+			};
     request.body.scope = [...scope, proofRequest];
-    ``` -->
+    ```
 
 Generate a request to prove that the user owns a credential that satisfies certain requirements. 
 
@@ -137,6 +114,8 @@ mtpProofRequest.Query = map[string]interface{}{
 }
 
 ```
+
+> An example of the usage of this api can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/go/index.go#L47) (GO) and [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/js/index.js#L49) (JS)
 
 > Check out our [Query Language guide](./zk-query-language.md) to design any type of query request you can think of!
 
