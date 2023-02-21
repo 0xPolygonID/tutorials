@@ -9,7 +9,7 @@ This flow details the steps that can be carried out to acheive full integration 
 3. Create Claim 
 4. Create Claim Using Existing Schemas
 5. Create a QR Code to Accept Credential
-6. Share QR Code
+
 
 ### Setup the Issuer Node
 
@@ -263,9 +263,11 @@ With the `Get Claim QR Code` endpoint, you can generate a json which is then use
 
 The identifier `did` of the user that we generated with `Create Identity` endpoint and Credential Id `cid` that we generated in `Create Claim` endpoint are passed as the path variable in the request URL. 
 
+<!--screenhsot for request body to be pasted here-->
 
 The Issuer Node responds by sending a json. Copy this json and paste it on a third-party website that can generate QR code. Scan this QR Code and this adds the credential to user's wallet. 
 
+<!--screenhsot for response body (json) and QR code on the third-party site to be pasted here-->
 
 
 
