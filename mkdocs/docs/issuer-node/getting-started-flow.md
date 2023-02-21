@@ -263,13 +263,45 @@ With the `Get Claim QR Code` endpoint, you can generate a json which is then use
 
 The identifier `did` of the user that we generated with `Create Identity` endpoint and Credential Id `cid` that we generated in `Create Claim` endpoint are passed as the path variable in the request URL. 
 
-<!--screenhsot for request body to be pasted here-->
+The Issuer Node responds by sending a json. 
 
-The Issuer Node responds by sending a json. Copy this json and paste it on a third-party website that can generate QR code. Scan this QR Code and this adds the credential to user's wallet. 
+```
+{
+"id": "string",
+"typ": "string",
+"type": "string",
+"thid": "string",
+"body": {
+"url": "string",
+"credentials": [
+{
+"id": "string",
+"description": "string"
+}]},
+"from": "string",
+"to": "string"
+}
+```
 
-<!--screenhsot for response body (json) and QR code on the third-party site to be pasted here-->
 
+where `credentials` contains the credential id (`cid`) and the related schema link. 
 
+`url` is where user's mobile needs to make the endpoint call. 
+
+`from` is the `did` of the Issuer
+
+`to` is the `did` of the user's wallet
+
+`typ` and `type` indicate the way user's wallet interacts with the 
+
+Copy this json and paste it on a third-party website that can generate QR code. 
+
+<div align="center">
+    <img src= "../imgs/qr-code-generated.png" align="center" width="200"  border="1"/>
+    </div>
+    <br>
+
+The user can scan this QR Code using his/her Polygon ID app and this adds the credential to the user's wallet. 
 
 
 
