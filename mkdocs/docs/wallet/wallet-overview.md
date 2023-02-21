@@ -18,15 +18,9 @@ The Polygon ID Wallet app is a reference implementation built using our Wallet S
 
 ## Quick Start
 
-To get started with the Polygon ID Wallet, you need to:
-
-1. Download the Polygon ID Wallet App and create an Identity. 
+To get started with the Polygon ID Wallet, download the Polygon ID Wallet App and create an Identity. 
     > - For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
     > - For iOS: <a href="https://apps.apple.com/us/app/polygon-id/id1629870183" target="_blank">Polygon ID on the App Store</a>
-
-2. Follow the [Demo-Issuer tutorial](../issuer/demo-issuer.md) to create a credential and fetch it inside your wallet.
-
-3. Follow the [Demo-Verifier tutorial](../verifier/demo-verifier.md) to present a zero knowledge proof based on that credential to a Verifier.
 
 ## Features of the Polygon ID Wallet
 

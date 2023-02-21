@@ -1,6 +1,6 @@
 # Demo Issuer
 
-The Demo Issuer is a playground that allows you to create credentials without having to set up an Issuer Node and fetch it inside your wallet.
+The [Demo Issuer](https://issuer-demo.polygonid.me/) is a playground that allows you to create credentials without having to set up an Issuer Node and fetch it inside your wallet.
 
 ## Prerequisites
 
@@ -8,13 +8,11 @@ The Demo Issuer is a playground that allows you to create credentials without ha
     > - For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
     > - For iOS: <a href="https://apps.apple.com/us/app/polygon-id/id1629870183" target="_blank">Polygon ID on the App Store</a>
 
-## Create Credential
+## Quick Start
 
 To create a credential, you require a schema that contains semantics of the JSON vocabulary and is used to describe a large number of data sets. The schema contains links to JSON-LD Context and JSON URL. For this tutorial, we shall be using an existing KYC-based Age Credential schema.
 
 To create a credential, the Polygon ID app must be installed on your mobile. 
-
-**Steps to Create Credential**
 
 1. On Issuer website, click **Signup**.
 
