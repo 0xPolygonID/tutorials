@@ -13,7 +13,7 @@
 ---
 # Polygon ID: An Introduction
 
-Polygon ID is a toolset that gives developers the power to build trusted and secure relationships between users and apps, following the principles of self-sovereign identity (SSI) and privacy by default. Polygon ID enables organizations on one side to issue verifiable credentials about users, and organizations on the other side to verify those claims via a suite of tools created for each member of the SSI ecosystem.
+Polygon ID is an Identity Infrastructure that gives developers the power to build trusted and secure relationships between users and apps, following the principles of self-sovereign identity (SSI) and privacy by default. Polygon ID enables organizations on one side to issue verifiable credentials about users, and organizations on the other side to verify those claims via a suite of tools created for each member of the SSI ecosystem.
 
 ## Why Polygon ID?
 
