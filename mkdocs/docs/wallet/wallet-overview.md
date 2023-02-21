@@ -18,9 +18,10 @@ The Polygon ID Wallet app is a reference implementation built using our Wallet S
 
 ## Quick Start
 
-To get started with the Polygon ID Wallet, download the Polygon ID Wallet App and create an Identity. 
-    > - For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
-    > - For iOS: <a href="https://apps.apple.com/us/app/polygon-id/id1629870183" target="_blank">Polygon ID on the App Store</a>
+To get started with the Polygon ID Wallet, download the Polygon ID Wallet App and create an Identity:
+
+- For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
+- For iOS: <a href="https://apps.apple.com/us/app/polygon-id/id1629870183" target="_blank">Polygon ID on the App Store</a>
 
 ## Features of the Polygon ID Wallet
 
