@@ -42,6 +42,7 @@ nav:
     - Create Custom Schemas : "issuer/schema.md"
   - Verifier:
     - Overview: "verifier/verifier-overview.md"
+    - Quick Start - Demo Verifier : "verifier/demo-verifier.md"
     - Verfier SDK - Off-chain:
       - Introduction: "verifier/verification-library/verifier-library-intro.md"
       - APIs: 

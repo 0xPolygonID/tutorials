@@ -15,6 +15,14 @@ The Polygon ID Wallet app is a reference implementation built using our Wallet S
 
 >**Note**: Polygon ID Wallet is built using Flutter SDK. No other SDK is supported yet. 
 
+
+## Quick Start
+
+To get started with the Polygon ID Wallet, download the Polygon ID Wallet App and create an Identity:
+
+- For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
+- For iOS: <a href="https://apps.apple.com/us/app/polygon-id/id1629870183" target="_blank">Polygon ID on the App Store</a>
+
 ## Features of the Polygon ID Wallet
 
 The Polygon ID Wallet supports the following features:
@@ -26,13 +34,6 @@ The Polygon ID Wallet supports the following features:
 - Communication with Issuer and Verifier.
 - Identity recovery using seed phrase.
 
-<br>
-
-> Download links for the PolygonID Wallet App:
-> - For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
-> - For iOS: <a href="https://apps.apple.com/us/app/polygon-id/id1629870183" target="_blank">Polygon ID on the App Store</a>
-
-<br>
 
 It is worth noticing that, in order to comply with the principles of the Self-Sovereign Identity (SSI), all the credentials are stored only locally on your wallet and are not stored on-chain; this ensures strong privacy for the sensitive data related to your credential(s). 
  

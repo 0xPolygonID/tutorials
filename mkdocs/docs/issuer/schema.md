@@ -55,7 +55,7 @@ The JSON-LD Context contains:
 
     In this case we create a field defined `vocab` and attach the url that identifies the vocabulary. In this case it is 
     
-    `https://github.com/0xPolygonID/tutorial-examples/main/credential-schema/proof-of-dao-longevity-vocab.md#`
+    `https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/proof-of-dao-longevity-vocab.md#`
 
 
 - The field that we want to include inside the credential, defined together with its identifier and its data type (all xsd data type are available)
@@ -75,7 +75,7 @@ The JSON-LD Context contains:
               "@protected": true,
               "id": "@id",
               "type": "@type",
-              "vocab": "https://github.com/0xPolygonID/tutorial-examples/main/credential-schema/proof-of-dao-longevity-vocab.md#",
+              "vocab": "https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/proof-of-dao-longevity-vocab.md#",
               "xsd": "http://www.w3.org/2001/XMLSchema#",
               "entryDate": {
                 "@id": "vocab:entryDate",
