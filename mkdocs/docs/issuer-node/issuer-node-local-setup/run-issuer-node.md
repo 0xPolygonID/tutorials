@@ -4,8 +4,6 @@
 
 As we stated earlier in the tutorials, the Issuer Node is platform-agnostic and can be run with CLI or IDE, or even on a cloud-based platfrom. In this tutorial, we are going to show you the steps needed to start the Node on GoLand IDE.
 
-> Warning: Please note that for the M1 chips, running the Issuer Node with dockerization might give some errors. This is a "known issue". We have tested this for ubuntu and macOS however for Windows, testing has not yet been carried out.
-
 
 1. **Clone the Repositoy**: Clone the <a href="https://github.com/0xPolygonID/sh-id-platform" target="_blank">Issuer Node Repository</a>
 to your system.
@@ -88,7 +86,7 @@ to your system.
 
       - Keystore Address: It is the address of the vault running locally in the docker.  (for example, http://localhost:8200/)
 
-      - Keystore Token: It is the Initial Root Token of the Vault. Copy the value of this token from the Vault Container and paste it here. See an example in the screenshot below:
+      - Keystore Token: It is the Initial Root Token of the Vault. Copy the value of this token from the Vault container and paste it here. Or, once you have run the docker conatiners, the token can be copied from this path in the repository: "infrastructure/local/.vault/data/init.out".  
 
       - Keystore PluginIden3MountPath: The path that needs to be added to the vault so that it can be configured correctly.
 
@@ -120,10 +118,13 @@ to your system.
       
 8. Browse ServerUrl configured in the config.toml file (in this case: http://localhost:3001). This shows the API documentation. 
 
+> Note: Please note that for the M1 chips, running the Issuer Node with dockerization might give some errors. This is a "known issue". We have tested this for ubuntu and macOS however for Windows, testing has not yet been carried out. To avoid getting this error, please follow the steps to start the Issuer Node in the standalone mode explained in the next section. 
 
 ## Run Issuer Node in Standalone Mode
 
-If you want to start the Issuer Node in the standalone mode, you can follow these steps:
+The standalone mode of the Issuer Node allows to compile the Issuer Node and creating the executables to run it without using docker. 
+
+Follow these steps to start the Issuer Node in the standalone mode:
 
 1. **Set Field Values in Configuration File**: We have provided a `config.toml.sample` file. Copy this file in the `config.toml` in your project, and then set different values. This is same as step 6 of the previous section. 
 
@@ -132,7 +133,7 @@ If you want to start the Issuer Node in the standalone mode, you can follow thes
       ```
       make build
       ```
-This command compiles your project and run these 4 executables:
+This command compiles your project and run these 3 executables:
 
 - Platform: It is the main executable required to run the project. It is the platform API. 
 
