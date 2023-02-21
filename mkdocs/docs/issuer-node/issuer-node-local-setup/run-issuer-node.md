@@ -122,7 +122,7 @@ to your system.
 
 ## Run Issuer Node in Standalone Mode
 
-The standalone mode of the Issuer Node allows to compile the Issuer Node and creating the executables to run it without using docker. 
+The standalone mode of the Issuer Node allows to compile the Issuer Node and creating the executables to run it without using docker. To run in the standalone mode, you would need compile it with GoLang 1.19 environment.  
 
 Follow these steps to start the Issuer Node in the standalone mode:
 
@@ -133,7 +133,7 @@ Follow these steps to start the Issuer Node in the standalone mode:
       ```
       make build
       ```
-This command compiles your project and run these 3 executables:
+This command will compile, run a `go install`, and will generate a binary for each of the three executables:
 
 - Platform: It is the main executable required to run the project. It is the platform API. 
 
@@ -158,7 +158,7 @@ This command compiles your project and run these 3 executables:
          </div>
          <br>
 
-4. Configure your databse using the following command:
+4. Configure your datbase using the following command:
 
       ```
       make db/migrate
@@ -189,7 +189,7 @@ This starts the Issuer Node. You can now browse to the port configured for your 
       ```
       ./bin/pending_publisher
       ```
-This step checks for errors, if any, as the tranactions are publsihed on-chain. 
+This step checks for errors, if any, as the transactions are published on-chain. 
 
 
 

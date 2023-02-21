@@ -2,7 +2,7 @@
 
 This demo illustrates the process of creating a credential using Polygon ID app and a demo Issuer website. 
 
-To create a credential, you require a schema that contains semantics of the JSON vocabulary and is used to describe a large number of data sets. The schema contains links to JSON-LD Context and JSON URL. For this tutorial, we shall be using an existing KYC-based Age Credential schema.
+To create a credential, you require a schema that contains semantics of the JSON vocabulary and is used to describe a large number of data sets. The schema contains links to JSON-LD Context and JSON URL. For this tutorial, we shall be using an existing KYC-based Age Credential Schema.
 
 To create a credential, the Polygon ID app must be installed on your mobile. 
 
@@ -73,7 +73,9 @@ To create a credential, the Polygon ID app must be installed on your mobile.
 
 7. Click the ***Schema*** dropdown menu and select the type of schema you want to use for creating credential. 
 
-    > Note: Please note that in addition to selecting the schemas displayed on the menu, you can also select **Custom** to use your own schema. For this example, we are using KYCAGeCredential type of schema. As you select this, the JSON URL and JSON-LD Context URL are auto-poulated under the ***URL*** and the ***Type*** fields. The ***Expiration*** (date on which credential shall expire) and the ***Data JSON*** are also auto-populated. Click **Submit**
+Please note that in addition to selecting the schemas displayed on the menu, you can also select **Custom** to use your own schema. 
+
+For this example, we are using a pre-existing KYCAGeCredential type of schema. As you select this, the JSON URL and JSON-LD Context URL are auto-poulated under the ***URL*** and the ***Type*** fields. The ***Expiration*** (date on which credential shall expire) and the ***Data JSON*** are also auto-populated. Click **Submit**
 
     <div align="center">
     <img src= "../imgs/select-schema.png" align="center" width="200"  border="1"/>
