@@ -39,7 +39,7 @@ to your system.
       This starts the postgres, redis, and vault containers:
 
       <div align="center">
-         <img src= "../../imgs/makeup.png" align="center" style="border: 1px solid black"/>
+         <img src= "../../../imgs/makeup.png" align="center" style="border: 1px solid black"/>
          </div>
          <br>
 
@@ -140,7 +140,6 @@ This command compiles your project and run these 4 executables:
 
 - Pending_Publisher: It is a service that runs in the background and the purpose is to check for transactions that we send to the blockchain. 
 
-- Configurator: 
 
       <div align="center">
          <img src= "../../imgs/make-build.png" align="center" style="border: 1px solid black"/>
