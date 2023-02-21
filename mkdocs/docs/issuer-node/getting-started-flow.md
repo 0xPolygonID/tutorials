@@ -1,13 +1,13 @@
 # Getting Started -  Full Flow Tutorial
 
-This flow details the steps that can be carried out to acheive full integration of the Issuer Node with the Polygon ID APIs.
+This flow details the steps that can be carried out to achieve full integration of the Issuer Node with the Polygon ID APIs.
 
 ## Steps of Flow
 
 1. Setup the Issuer Node
 2. Create an Identity
-3. Create Claim 
-4. Create Claim Using Existing Schemas
+3. Create Credential 
+4. Create Credential Using Existing Schemas
 5. Create a QR Code to Accept Credential
 
 
@@ -35,7 +35,7 @@ make up
       vault write iden3/import/pbkey key_type=ethereum private_key=<privkey>
       ```
 
-3. To setup your Issuer Node and make it all up and running, you need to configure it first. This is done using a `config.toml` file. The repository provides you with a `config.toml.sample` file that contains different fields and their sample values. To start configuring these fields, create a `config.toml` file in your repository and paste the contents of the `config.toml.sample` in it. Now you can set values as required:
+3. To set up your Issuer Node and make it all up and running, you need to configure it first. This is done using a `config.toml` file. The repository provides you with a `config.toml.sample` file that contains different fields and their sample values. To start configuring these fields, create a `config.toml` file in your repository and paste the contents of the `config.toml.sample` in it. Now you can set values as required:
 
 - ServerPort: Enter the port on which Issuer Node would start. (Example: 3001)
 
@@ -66,9 +66,9 @@ make up
 
 #### Start Issuer Node in Standalone Mode 
 
-In the Standalone Mode, compile the Issuer Node and creating the executables to run it without using docker.
+In the Standalone Mode, we compile the Issuer Node and create the executables to run it without using docker.
 
-1. Configure the config.toml file like you did in previous section.
+1. Configure the config.toml file like you did in the previous section.
 
 2. Run this command:
 
@@ -80,7 +80,7 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
 3. Make sure that Vault, Redis, and Postgres are all running. 
 
 
-4. Configure your datbase using the following command:
+4. Configure your database using the following command:
 
       ```
       make db/migrate
@@ -103,7 +103,7 @@ This starts the Issuer Node.
 
 ### Authenticate to Send Requests
 
-Before you can start making API calls to the Issuer Node with endpoints, you need to authenticate first with a username and a password. This is done using `Authentication` endpoint using Postman or your own API platform. 
+Before you can start making API calls to the Issuer Node with endpoints, you need to authenticate first with a username and a password. This is done using the `Authentication` endpoint using Postman or your own API platform. 
 
 ### Create Identity
 
@@ -119,7 +119,8 @@ Next, you need to create an Identity for the issuer/user. For this, make a call 
   }
 }
 ```
-The Issuer Node responds by sending a response message that contains: `identifier`(Identifier of the Issuer) and the `identity state` (the state of the identity). This `identifier` would be used to create credentials as we would see in the next step. 
+The Issuer Node responds by sending a response message that contains:
+`identifier` (Identifier of the Issuer) and the `identity state` (the state of the identity). This `identifier` would be used to create credentials as we would see in the next step. 
 
 ```
 {
@@ -143,7 +144,7 @@ The Issuer Node responds by sending a response message that contains: `identifie
 
 ### Create Credential
 
-Post Identity creation, you can start the process of credential creation. For this, `Create Claim` endpoint is used. The `identifier` (or `id`) of the issuer/user you generated in the previous step is passed in the request URL. `credentialSchema` (schema on which crednetial's format would be based) and `credentialSubject` (Subject details such as `id`(user's wallet id ), and other information (for example, birthday) are passed in the request body. 
+Post Identity creation, you can start the process of credential creation. For this, the `Create Claim` endpoint is used. The `identifier` (or `id`) of the issuer/user you generated in the previous step is passed in the request URL. `credentialSchema` (schema on which credential's format would be based) and `credentialSubject` (Subject details such as `id`(user's wallet id ), and other information (for example, birthday) are passed in the request body. 
 
 ```
 {
@@ -157,7 +158,7 @@ Post Identity creation, you can start the process of credential creation. For th
     "expiration": 12345
 }
 ```
-The Issuer Node responds by sending a credential id string. When this credential is later issued to the user, it gets stored in user's wallet along with credential's id string.
+The Issuer Node responds by sending a credential id string. When this credential is later issued to the user, it gets stored in the user's wallet along with the credential's id string.
 
 ```
 {
@@ -171,14 +172,14 @@ In the previous section, you saw how to create a credential by calling the endpo
 
 **Steps to Create Credential**
 
-1. On Issuer website, click **Signup**.
+1. Onthe Issuer website, click **Signup**.
 
     <div align="center">
     <img src= "../imgs/signup.png" align="center" width="300"/>
     </div>
     <br>
 
-    It shows the QR code on screen:
+    It shows the QR code on the screen:
 
     <div align="center">
     <img src= "../imgs/qr-code-display.png" align="center" width="200"/>
@@ -192,14 +193,14 @@ In the previous section, you saw how to create a credential by calling the endpo
     </div>
     <br>
 
-3. On app, click **Connect**.
+3. On the app, click **Connect**.
 
     <div align="center">
     <img src= "../imgs/connect.jpg" align="center" width="200" height="400" border="2"/>
     </div>
     <br>
 
-4. With app, scan the QR code displayed on the site and click **Connect Wallet**. 
+4. With the app, scan the QR code displayed on the site and click **Connect Wallet**. 
 
     <div align="center">
     <img src= "../imgs/connect-wallet.jpg" align="center" width="200" height="400" border="1"/>
@@ -213,14 +214,14 @@ In the previous section, you saw how to create a credential by calling the endpo
     </div>
     <br>
 
-    After authentication process is complete, the app shows the message if the identity is successfully authenticated or it failed to authenticate.  
+    After the authentication process is complete, the app shows the message if the identity is successfully authenticated or if it failed to authenticate.  
 
     <div align="center">
     <img src= "../imgs/authenticated.png" align="center" width="200" height="400" border="1"/>
     </div>
     <br>
 
-6. On website, click **Create Claim**.
+6. On the demo website, click **Create Claim**.
 
     <div align="center">
     <img src= "../imgs/create-credentials.png" align="center" width="200"  border="1"/>
@@ -234,9 +235,9 @@ In the previous section, you saw how to create a credential by calling the endpo
     </div>
     <br>
 
-7. Click the ***Schema*** dropdown menu and select the type of schema you want to use for creating credential. 
+7. Click the ***Schema*** dropdown menu and select the type of schema you want to use for creating a credential. 
 
-    Please note that in addition to selecting the schemas displayed on the menu, you can also select **Custom** to use your own schema. But for this flow, we are using a pre-existing KYCAGeCredential type of schema. As you select this schema, the JSON URL and JSON-LD Context URL are auto-poulated under the ***URL*** and the ***Type*** fields. The ***Expiration*** (date on which credential shall expire) and the ***Data JSON*** are also auto-populated. Click **Submit**
+    Please note that in addition to selecting the schemas displayed on the menu, you can also select **Custom** to use your own schema. But for this flow, we are using a pre-existing KYCAGeCredential type of schema. As you select this schema, the JSON URL and JSON-LD Context URL are auto-populated under the ***URL*** and the ***Type*** fields. The ***Expiration*** (date on which the credential shall expire) and the ***Data JSON*** are also auto-populated. Click **Submit**
 
     <div align="center">
     <img src= "../imgs/select-schema.png" align="center" width="200"  border="1"/>
@@ -259,11 +260,11 @@ In the previous section, you saw how to create a credential by calling the endpo
 
 ### Create QR Code to Accept a Credential
 
-With the `Get Claim QR Code` endpoint, you can generate a json which is then used to create a QR code. A user can use a third-party application to generate a QR Code from this json. 
+With the `Get Claim QR Code` endpoint, you can generate a JSON which is then used to create a QR code. A user can use a third-party application to generate a QR Code from this JSON. 
 
-The identifier `did` of the user that we generated with `Create Identity` endpoint and Credential Id `cid` that we generated in `Create Claim` endpoint are passed as the path variable in the request URL. 
+The identifier `did` of the user that we generated with the `Create Identity` endpoint and Credential Id `cid` that we generated in the `Create Claim` endpoint are passed as the path variable in the request URL. 
 
-The Issuer Node responds by sending a json. 
+The Issuer Node responds by sending a JSON. 
 
 ```
 {
@@ -286,22 +287,31 @@ The Issuer Node responds by sending a json.
 
 where `credentials` contains the credential id (`cid`) and the related schema link. 
 
-`url` is where user's mobile needs to make the endpoint call. 
+`url` is the address to which the user's mobile  calls the endpoint. 
 
-`from` is the `did` of the Issuer
+`from` is the `did` of the Issuer.
 
-`to` is the `did` of the user's wallet
+`to` is the `did` of the user's wallet.
 
-`typ` and `type` indicate the way user's wallet interacts with the 
+`typ` and `type` indicate the way user's wallet interacts with the Node. 
 
-Copy this json and paste it on a third-party website that can generate QR code. 
+Copy this JSON and paste it on a third-party website that can generate a QR code. 
 
 <div align="center">
     <img src= "../imgs/qr-code-generated.png" align="center" width="200"  border="1"/>
     </div>
     <br>
 
-The user can scan this QR Code using his/her Polygon ID app and this adds the credential to the user's wallet. 
+The user can scan this QR Code using the Polygon ID app and accept the credentials.
 
+<div align="center">
+    <img src= "../imgs/credential-offer.jpg" align="center" width="200"  border="1"/>
+    </div>
+    <br>
 
+This adds the credential to the user's wallet. 
 
+<div align="center">
+    <img src= "../imgs/adding-credential.jpg" align="center" width="200"  border="1"/>
+    </div>
+    <br>
