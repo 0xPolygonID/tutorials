@@ -40,7 +40,7 @@ When presented with this query, the user must prove that he/she is a Person.
           query: {
             allowedIssuers: ['*'],
             type: 'ProofOfHumanity',
-            context: 'https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/schemas-examples/proof-of-humanity/proof-of-humanity.json-ld',
+            context: 'https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-humanity/proof-of-humanity.json-ld',
             credentialSubject: {
             isHuman: {
               $eq: 1,
@@ -121,7 +121,7 @@ When presented with this query, the user must prove that he/she has been born be
           circuitId: 'credentialAtomicQuerySigV2',
           query: {
             allowedIssuers: ['*'],
-            type: 'KycAgeCredential',
+            type: 'KYCAgeCredential',
             context: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld',
             credentialSubject: {
             birthday: {
@@ -190,7 +190,7 @@ When presented with this query, the user must prove that he/she has been born be
 
 **Credential Schema**
 
-The `EmployeeData` Schema encodes the monthly salary of the credential subject. Here's the [JSON-LD Context](https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/schemas-examples/employee-data/employee-data.json-ld) of the Schema Type.
+The `EmployeeData` Schema encodes the monthly salary of the credential subject. Here's the [JSON-LD Context](https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/employee-data/employee-data.json-ld) of the Schema Type.
 
 **Query**
 
@@ -205,7 +205,7 @@ When presented with this query, the user must prove that his/her monthly salary 
           query: {
             allowedIssuers: ['*'],
             type: 'EmployeeData',
-            context: 'https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/schemas-examples/employee-data/employee-data.json-ld',
+            context: 'https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/employee-data/employee-data.json-ld',
             credentialSubject: {
             monthlySalary: {
               $gt: 1000,
@@ -277,7 +277,7 @@ When presented with this query, the user must prove that his/her monthly salary 
 
 The `ProofOfDaoRole` Schema encodes the role of someone inside a DAO. Each role is identified by a code as described in the [Schema Vocab](https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role-vocab.md).
 
-Here's the [JSON-LD Context](https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role.json-ld) of the Schema Type.
+Here's the [JSON-LD Context](https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role.json-ld) of the Schema Type.
 
 **Query**
 
@@ -292,7 +292,7 @@ When presented with this query, the user must prove that he/she is either an Adm
           query: {
             allowedIssuers: ['*'],
             type: 'ProofOfDaoRole',
-            context: 'https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role.json-ld',
+            context: 'https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role.json-ld',
             credentialSubject: {
             role: {
               $in: [4, 5]],
@@ -461,7 +461,7 @@ When presented with this query, the user must prove that he/she is not resident 
           query: {
             allowedIssuers: ['*'],
             type: 'KYCCountryOfResidenceCredential',
-            context: 'https://github.com/iden3/claim-schema-vocab/blob/main/schemas/json-ld/kyc-v3.json-ld',
+            context: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld',
             credentialSubject: {
             countryCode: {
               $neq: 840
