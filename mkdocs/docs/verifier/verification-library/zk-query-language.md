@@ -7,7 +7,7 @@ The Query Language sits on top of these circuits to provide a simple way for dev
 - Must be a verified human to vote for a DAO specific proposal - `equals` (operator 1).
 - Must have been born before 2000-01-01 to access an adult content website - `less-than` (operator 2).
 - Must have a monthly salary greater than $1000 to get a loan - `greater-than` (operator 3).
-- Must be an admin or an hacker of PolygonDAO to enter a platform - `ìn` (operator 4).
+- Must be an admin or an hacker of a Dao to enter a platform - `ìn` (operator 4).
 - Must not be a resident of a country in the list of blacklisted countries to operate on an exchange - `not-in` (operator 5).
 - Must not be a resident of a specific country - `not-equal` (operator 6).
 
@@ -21,7 +21,7 @@ The Query Language follows the same rules whether the verification is implemente
 
 ### Equals - Operator 1
 
-**Claim Schema**
+**Credential Schema**
 
 The `ProofOfHumanity` Schema encodes whether a user has been verified as a human or not. Here's the [JSON-LD Context](https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-humanity/proof-of-humanity.json-ld) of the Schema Type.
 
@@ -105,15 +105,9 @@ When presented with this query, the user must prove that he/she is a Person.
 
 ### Less-than - Operator 2
 
-**Claim Schema**
+**Credential Schema**
 
-The `KYCAgeCredential` Schema encodes the date of birth of the credential subject. Here's the [JSON-LD Context](https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json-ld) of the Schema Type.
-
-
-<div align="center">
-<img src= "../../../imgs/query2.png" align="center" width="500"/>
-</div>
-<br>
+The `KYCAgeCredential` Schema encodes the date of birth of the credential subject. Here's the [JSON-LD Context](https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld) of the Schema Type.
 
 **Query**
 
@@ -122,28 +116,24 @@ When presented with this query, the user must prove that he/she has been born be
 === "off-chain"
 
     ```ts
-      const proofRequest: protocol.ZKPRequest  = {
-        id: 1, // request id
-        circuit_id: 'credentialAtomicQuerySig',
-        rules: {
+      const proofRequest: protocol.ZKPRequest = {
+          id: 1,
+          circuitId: 'credentialAtomicQuerySigV2',
           query: {
-          allowedIssuers: ['*'], // any issuer is valid
-          schema: {
-            type: 'AgeCredential',
-            url: 'https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld', // extracted from PID platform
-          },
-          req: {
-            dateOfBirth: {
-            $lt: 20010101, // the dateofbirth must be prior to 2001/01/01
+            allowedIssuers: ['*'],
+            type: 'KycAgeCredential',
+            context: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld',
+            credentialSubject: {
+            birthday: {
+              $lt: 20010101,
+            },
             },
           },
-          },
-        },
         };
     ```
 
 
-=== "on-chain"
+<!-- === "on-chain"
 
     ```ts
     const schemaHash = "f03ac39aa54a5a2770a30f17d8042507" // extracted from PID Platform
@@ -194,23 +184,13 @@ When presented with this query, the user must prove that he/she has been born be
                     }]
                 }
     }
-    ```
+    ``` -->
 
 ### Greater-than - Operator 3
 
-**Claim Schema**
+**Credential Schema**
 
-The EmployeeData claim encodes two attributes:
-
-- the starting date of employment
-- the monthly salary of an employee 
-
-Here's the [Claim Schema](https://s3.eu-west-1.amazonaws.com/polygonid-schemas/ccbec58c-7f05-4cd3-994c-614b1f066e1c.json-ld) defined via a JSON-LD file.
-
-<div align="center">
-<img src= "../../../imgs/query3.png" align="center" width="500"/>
-</div>
-<br>
+The `EmployeeData` Schema encodes the monthly salary of the credential subject. Here's the [JSON-LD Context](https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/schemas-examples/employee-data/employee-data.json-ld) of the Schema Type.
 
 **Query**
 
@@ -219,28 +199,24 @@ When presented with this query, the user must prove that his/her monthly salary 
 === "off-chain"
 
     ```ts
-    const proofRequest: protocol.ZKPRequest = {
-      id: 1, // request id
-      circuit_id: 'credentialAtomicQuerySig',
-      rules: {
-        query: {
-          allowedIssuers: ['*'], // any issuer is valid
-          schema: {
+      const proofRequest: protocol.ZKPRequest = {
+          id: 1,
+          circuitId: 'credentialAtomicQuerySigV2',
+          query: {
+            allowedIssuers: ['*'],
             type: 'EmployeeData',
-            url: 'https://s3.eu-west-1.amazonaws.com/polygonid-schemas/ccbec58c-7f05-4cd3-994c-614b1f066e1c.json-ld', // extracted from PID platform
-          },
-          req: {
-            MonthlySalary: {
-              $gt: 1000, // the role must be 3 = Admin
+            context: 'https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/schemas-examples/employee-data/employee-data.json-ld',
+            credentialSubject: {
+            monthlySalary: {
+              $gt: 1000,
+            },
             },
           },
-        },
-      },
-    };
+        };
     ```
 
 
-=== "on-chain"
+<!-- === "on-chain"
 
     ```ts
     const schemaHash = "f4cfcaa00dbc2954ded157c8e25792ee"  // extracted from PID platform
@@ -291,50 +267,43 @@ When presented with this query, the user must prove that his/her monthly salary 
                     }]
                 }
     }
-    ```
+    ``` -->
 
-> Note that the slotIndex queried inside the on-chain example is no longer 2. That's because this claim schema comprises of two attributes and the query refers to the second atttribute, therefore the value is put inside of slotIndex 3, according to claim structure.
+<!-- > Note that the slotIndex queried inside the on-chain example is no longer 2. That's because this claim schema comprises of two attributes and the query refers to the second atttribute, therefore the value is put inside of slotIndex 3, according to claim structure. -->
 
 ### In - Operator 4 
 
-**Claim Schema**
+**Credential Schema**
 
-The PolygonDAOMember claim encodes the role of a member inside Polygon DAO. Each role is defined by a number. Here's the [Claim Schema](https://s3.eu-west-1.amazonaws.com/polygonid-schemas/edf4e0da-d023-42cd-b627-0717566382b1.json-ld) defined via a JSON-LD file.
+The `ProofOfDaoRole` Schema encodes the role of someone inside a DAO. Each role is identified by a code as described in the [Schema Vocab](https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role-vocab.md).
 
-<div align="center">
-<img src= "../../../imgs/query1.png" align="center" width="500"/>
-</div>
-<br>
+Here's the [JSON-LD Context](https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role.json-ld) of the Schema Type.
 
 **Query**
 
-When presented with this query, the user must prove that he/she is either an Admin or an Hacker of Polygon DAO.
+When presented with this query, the user must prove that he/she is either an Admin or an Hacker of a DAO (which corresponds to value 4 and 5).
 
 === "off-chain"
 
     ```ts
-    const proofRequest: protocol.ZKPRequest = {
-      id: 1, // request id
-      circuit_id: 'credentialAtomicQuerySig',
-      rules: {
-        query: {
-          allowedIssuers: ['*'], // any issuer is valid
-          schema: {
-            type: 'PolygonDAOMember',
-            url: 'https://s3.eu-west-1.amazonaws.com/polygonid-schemas/edf4e0da-d023-42cd-b627-0717566382b1.json-ld', // extracted from PID platform
-          },
-          req: {
-            Role: {
-              $in: [2, 3], // the role must either 3 = Admin or 2 = Hacker
+      const proofRequest: protocol.ZKPRequest = {
+          id: 1,
+          circuitId: 'credentialAtomicQuerySigV2',
+          query: {
+            allowedIssuers: ['*'],
+            type: 'ProofOfDaoRole',
+            context: 'https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role.json-ld',
+            credentialSubject: {
+            role: {
+              $in: [4, 5]],
+            },
             },
           },
-        },
-      },
-    };
+        };
     ```
 
 
-=== "on-chain"
+<!-- === "on-chain"
 
     ```ts
     const schemaHash = "c6cd9c4ea01df58ef5386515a3e3acc0" // extracted from PID Platform
@@ -385,20 +354,14 @@ When presented with this query, the user must prove that he/she is either an Adm
                     }]
                 }
     }
-    ```
+    ``` -->
 
 ### Not-in - Operator 5
 
-**Claim Schema**
+**Credential Schema**
 
-The Residence claim encodes the Country of Residence of the claim subject according to the [ISO Standard](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)
+The `KYCCountryOfResidenceCredential` Schema encodes the countryCode of residence of the credential subject according to the [ISO Standard](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). Here's the [JSON-LD Context](https://github.com/iden3/claim-schema-vocab/blob/main/schemas/json-ld/kyc-v3.json-ld) of the Schema Type.
 
-Here's the [Claim Schema](https://s3.eu-west-1.amazonaws.com/polygonid-schemas/a57232c5-b9b8-41b6-b6bc-7fbf10c5046c.json-ld) defined via a JSON-LD file.
-
-<div align="center">
-<img src= "../../../imgs/query5.png" align="center" width="500"/>
-</div>
-<br>
 
 **Query**
 
@@ -407,28 +370,24 @@ When presented with this query, the user must prove that he/she is not resident 
 === "off-chain"
 
     ```ts
-    const proofRequest: protocol.ZKPRequest = {
-      id: 1, // request id
-      circuit_id: 'credentialAtomicQuerySig',
-      rules: {
-        query: {
-          allowedIssuers: ['*'], // any issuer is valid
-          schema: {
-            type: 'Residence',
-            url: 'https://s3.eu-west-1.amazonaws.com/polygonid-schemas/a57232c5-b9b8-41b6-b6bc-7fbf10c5046c.json-ld', // extracted from PID platform
-          },
-          req: {
-            CountryOfResidence: {
-              $nin: [840, 120, 340, 509], // these 4 code represent countries included in the blacklist of the verifier
+      const proofRequest: protocol.ZKPRequest = {
+          id: 1,
+          circuitId: 'credentialAtomicQuerySigV2',
+          query: {
+            allowedIssuers: ['*'],
+            type: 'KYCCountryOfResidenceCredential',
+            context: 'https://github.com/iden3/claim-schema-vocab/blob/main/schemas/json-ld/kyc-v3.json-ld',
+            credentialSubject: {
+            countryCode: {
+              $nin: [840, 120, 340, 509],
+            },
             },
           },
-        },
-      },
-    };
+        };
     ```
 
 
-=== "on-chain"
+<!-- === "on-chain"
 
     ```ts
     const schemaHash = "27dca47f1a53c4738850d627e2c4bd48"
@@ -479,6 +438,35 @@ When presented with this query, the user must prove that he/she is not resident 
                     }]
                 }
     }
-    ```  
+    ```   -->
 
 > When designing a query, filling the `req` field is not mandatory. For instance, a platform can just ask the user to have an AgeCredential claim as a way to identify unique humans without any requirements related to the date of birth. In that case, the Veriifer should simply not fill the `req` field inside the query. -->
+
+### Not-equal - Operator 6
+
+**Credential Schema**
+
+The `KYCCountryOfResidenceCredential` Schema encodes the countryCode of residence of the credential subject according to the [ISO Standard](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). Here's the [JSON-LD Context](https://github.com/iden3/claim-schema-vocab/blob/main/schemas/json-ld/kyc-v3.json-ld) of the Schema Type.
+
+**Query**
+
+When presented with this query, the user must prove that he/she is not resident of the country `840` identified following the ISO Standard.
+
+=== "off-chain"
+
+    ```ts
+      const proofRequest: protocol.ZKPRequest = {
+          id: 1,
+          circuitId: 'credentialAtomicQuerySigV2',
+          query: {
+            allowedIssuers: ['*'],
+            type: 'KYCCountryOfResidenceCredential',
+            context: 'https://github.com/iden3/claim-schema-vocab/blob/main/schemas/json-ld/kyc-v3.json-ld',
+            credentialSubject: {
+            countryCode: {
+              $neq: 840
+            },
+            },
+          },
+        };
+    ```
