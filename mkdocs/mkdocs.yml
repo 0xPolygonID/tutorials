@@ -27,6 +27,7 @@ nav:
   - Home: "index.md"
   - Issuer:
     - Overview: "issuer/issuer-overview.md"
+    - Quick Start - Demo Issuer : "issuer/demo-issuer.md"
     - Issuer Node: 
       - Overview: "issuer-node/issuer-node-overview.md"
       - Issuer Node API: 
@@ -38,7 +39,7 @@ nav:
           - Agent: "issuer-node/issuer-node-api/agent/apis.md"
       - Local Setup:     
           - Run Issuer Node: "issuer-node/issuer-node-local-setup/run-issuer-node.md"
-      - Create Custom Schemas : "issuer-node/schema.md"
+    - Create Custom Schemas : "issuer/schema.md"
   - Verifier:
     - Overview: "verifier/verifier-overview.md"
     - Verfier SDK - Off-chain:
