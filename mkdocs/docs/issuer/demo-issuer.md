@@ -4,9 +4,10 @@ The [Demo Issuer](https://issuer-demo.polygonid.me/) is a playground that allows
 
 ## Prerequisites
 
-- Download the Polygon ID Wallet App and create an Identity.
-    > - For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
-    > - For iOS: <a href="https://apps.apple.com/us/app/polygon-id/id1629870183" target="_blank">Polygon ID on the App Store</a>
+Download the Polygon ID Wallet App and create an Identity.
+
+- For Android: <a href="https://play.google.com/store/apps/details?id=com.polygonid.wallet" target="_blank">Polygon ID on Google Play</a>
+- For iOS: <a href="https://apps.apple.com/us/app/polygon-id/id1629870183" target="_blank">Polygon ID on the App Store</a>
 
 ## Quick Start
 
@@ -66,14 +67,14 @@ To create a credential, the Polygon ID app must be installed on your mobile.
 6. On website, click **Create Claim**.
 
     <div align="center">
-    <img src= "../../imgs/create-credentials.png" align="center" width="200"  border="1"/>
+    <img src= "../../imgs/create-credentials.png" align="center" width="500"  border="1"/>
     </div>
     <br>
 
     This shows the **Create Claim** window:
 
     <div align="center">
-    <img src= "../../imgs/create-cred-window.png" align="center" width="200"  border="1"/>
+    <img src= "../../imgs/create-cred-window.png" align="center" width="500"  border="1"/>
     </div>
     <br>
 
@@ -83,6 +84,7 @@ To create a credential, the Polygon ID app must be installed on your mobile.
     If you want to use a custom schema, select ***custom*** from the drop-down menu.
     For this example, we are using the `ProofOfDaoLongevity` schema created in the [Create Custom Schemas](./schema.md) tutorial.
     The menu needs to be populated with the JSON Schema URL and the Type of the schema. Which in this case are: 
+    
     - `https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/proof-of-dao-longevity.json`
     - `ProofOfDaoLongevity`
 
@@ -92,7 +94,7 @@ To create a credential, the Polygon ID app must be installed on your mobile.
     Once filled up, click **Submit**.
 
     <div align="center">
-    <img src= "../../imgs/select-schema.png" align="center" width="400"  border="1"/>
+    <img src= "../../imgs/select-schema.png" align="center" width="500"  border="1"/>
     </div>
     <br>
 
