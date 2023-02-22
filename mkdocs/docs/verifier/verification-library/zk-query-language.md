@@ -23,7 +23,7 @@ The Query Language follows the same rules whether the verification is implemente
 
 **Credential Schema**
 
-The `ProofOfHumanity` Schema encodes whether a user has been verified as a human or not. Here's the [JSON-LD Context](https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-humanity/proof-of-humanity.json-ld) of the Schema Type.
+The `ProofOfHumanity` Schema encodes whether a user has been verified as a human or not. Here's the [JSON-LD Context](https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-humanity/proof-of-humanity.jsonld) of the Schema Type.
 
 > You can create customised schemas, check out this [tutorial](../../issuer/schema.md)! 
 
@@ -40,7 +40,7 @@ When presented with this query, the user must prove that he/she is a Person.
           query: {
             allowedIssuers: ['*'],
             type: 'ProofOfHumanity',
-            context: 'https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-humanity/proof-of-humanity.json-ld',
+            context: 'https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-humanity/proof-of-humanity.jsonld',
             credentialSubject: {
             isHuman: {
               $eq: 1,
@@ -107,7 +107,7 @@ When presented with this query, the user must prove that he/she is a Person.
 
 **Credential Schema**
 
-The `KYCAgeCredential` Schema encodes the date of birth of the credential subject. Here's the [JSON-LD Context](https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld) of the Schema Type.
+The `KYCAgeCredential` Schema encodes the date of birth of the credential subject. Here's the [JSON-LD Context](https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v4.jsonld) of the Schema Type.
 
 **Query**
 
@@ -122,7 +122,7 @@ When presented with this query, the user must prove that he/she has been born be
           query: {
             allowedIssuers: ['*'],
             type: 'KYCAgeCredential',
-            context: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld',
+            context: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v4.jsonld',
             credentialSubject: {
             birthday: {
               $lt: 20010101,
@@ -190,7 +190,7 @@ When presented with this query, the user must prove that he/she has been born be
 
 **Credential Schema**
 
-The `EmployeeData` Schema encodes the monthly salary of the credential subject. Here's the [JSON-LD Context](https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/employee-data/employee-data.json-ld) of the Schema Type.
+The `EmployeeData` Schema encodes the monthly salary of the credential subject. Here's the [JSON-LD Context](https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/employee-data/employee-data.jsonld) of the Schema Type.
 
 **Query**
 
@@ -205,7 +205,7 @@ When presented with this query, the user must prove that his/her monthly salary 
           query: {
             allowedIssuers: ['*'],
             type: 'EmployeeData',
-            context: 'https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/employee-data/employee-data.json-ld',
+            context: 'https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/employee-data/employee-data.jsonld',
             credentialSubject: {
             monthlySalary: {
               $gt: 1000,
@@ -277,7 +277,7 @@ When presented with this query, the user must prove that his/her monthly salary 
 
 The `ProofOfDaoRole` Schema encodes the role of someone inside a DAO. Each role is identified by a code as described in the [Schema Vocab](https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role-vocab.md).
 
-Here's the [JSON-LD Context](https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role.json-ld) of the Schema Type.
+Here's the [JSON-LD Context](https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role.jsonld) of the Schema Type.
 
 **Query**
 
@@ -292,7 +292,7 @@ When presented with this query, the user must prove that he/she is either an Adm
           query: {
             allowedIssuers: ['*'],
             type: 'ProofOfDaoRole',
-            context: 'https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role.json-ld',
+            context: 'https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role.jsonld',
             credentialSubject: {
             role: {
               $in: [4, 5]],
@@ -360,7 +360,7 @@ When presented with this query, the user must prove that he/she is either an Adm
 
 **Credential Schema**
 
-The `KYCCountryOfResidenceCredential` Schema encodes the countryCode of residence of the credential subject according to the [ISO Standard](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). Here's the [JSON-LD Context](https://github.com/iden3/claim-schema-vocab/blob/main/schemas/json-ld/kyc-v3.json-ld) of the Schema Type.
+The `KYCCountryOfResidenceCredential` Schema encodes the countryCode of residence of the credential subject according to the [ISO Standard](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). Here's the [JSON-LD Context](https://github.com/iden3/claim-schema-vocab/blob/main/schemas/json-ld/kyc-v4.jsonld) of the Schema Type.
 
 
 **Query**
@@ -376,7 +376,7 @@ When presented with this query, the user must prove that he/she is not resident 
           query: {
             allowedIssuers: ['*'],
             type: 'KYCCountryOfResidenceCredential',
-            context: 'https://github.com/iden3/claim-schema-vocab/blob/main/schemas/json-ld/kyc-v3.json-ld',
+            context: 'https://github.com/iden3/claim-schema-vocab/blob/main/schemas/json-ld/kyc-v4.jsonld',
             credentialSubject: {
             countryCode: {
               $nin: [840, 120, 340, 509],
@@ -446,7 +446,7 @@ When presented with this query, the user must prove that he/she is not resident 
 
 **Credential Schema**
 
-The `KYCCountryOfResidenceCredential` Schema encodes the countryCode of residence of the credential subject according to the [ISO Standard](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). Here's the [JSON-LD Context](https://github.com/iden3/claim-schema-vocab/blob/main/schemas/json-ld/kyc-v3.json-ld) of the Schema Type.
+The `KYCCountryOfResidenceCredential` Schema encodes the countryCode of residence of the credential subject according to the [ISO Standard](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). Here's the [JSON-LD Context](https://github.com/iden3/claim-schema-vocab/blob/main/schemas/json-ld/kyc-v4.jsonld) of the Schema Type.
 
 **Query**
 
@@ -461,7 +461,7 @@ When presented with this query, the user must prove that he/she is not resident 
           query: {
             allowedIssuers: ['*'],
             type: 'KYCCountryOfResidenceCredential',
-            context: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld',
+            context: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v4.jsonld',
             credentialSubject: {
             countryCode: {
               $neq: 840

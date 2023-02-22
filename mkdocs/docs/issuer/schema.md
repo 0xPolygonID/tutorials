@@ -8,9 +8,9 @@ In order to issue Verifiable Credentials, you can refer to [existing schemas](ht
 
 A schema type is made of two documents:
 
-- `JSON-LD Context`, which contains a description of the type and its fields. [Here](https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld) is an example of JSON-LD Context for Schema Type `KYCAgeCredential`
+- `JSON-LD Context`, which contains a description of the type and its fields. [Here](https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v4.jsonld) is an example of JSON-LD Context for Schema Type `KYCAgeCredential`
 
-- `JSON Schema` which contains the validation rules for the Issuer Node. [Here](https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json) is an example of a JSON Schema for Schema Type `KYCAgeCredential`.
+- `JSON Schema` which contains the validation rules for the Issuer Node. [Here](https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v4.json) is an example of a JSON Schema for Schema Type `KYCAgeCredential`.
 
 Without further ado, let's jump into building a new Schema Type!
 
@@ -39,7 +39,7 @@ Describes the date when a contributor joined the DAO
 
 **3. Create the JSON-LD Context**
 
-Create a .json-ld file in your repository to contain the JSON-LD Context of the Schema Type. We decide to name it `proof-of-dao-longevity.json-ld`.
+Create a .json-ld file in your repository to contain the JSON-LD Context of the Schema Type. We decide to name it `proof-of-dao-longevity.jsonld`.
 
 The JSON-LD Context contains:
 
@@ -49,7 +49,7 @@ The JSON-LD Context contains:
 
     If you are working on Github, you can fetch the url directly from your published repository based on the file path. In this case it is 
 
-    `https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/proof-of-dao-longevity.json-ld#ProofOfDaoLongevity`
+    `https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/proof-of-dao-longevity.jsonld#ProofOfDaoLongevity`
         
 - the definition of the vocabulary with its url
 
@@ -69,7 +69,7 @@ The JSON-LD Context contains:
           "id": "@id",
           "type": "@type",
           "ProofOfDaoLongevity": {
-            "@id": "https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/proof-of-dao-longevity.json-ld#ProofOfDaoLongevity",
+            "@id": "https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/proof-of-dao-longevity.jsonld#ProofOfDaoLongevity",
             "@context": {
               "@version": 1.1,
               "@protected": true,
@@ -109,7 +109,7 @@ This a document that contains the serialization rule and the instruction for the
         "type": "object",
         "$metadata": {
           "uris": {
-            "jsonLdContext": "https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/proof-of-dao-longevity.json-ld",
+            "jsonLdContext": "https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/proof-of-dao-longevity.jsonld",
             "jsonSchema": "https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/proof-of-dao-longevity.json"
           }
         },
