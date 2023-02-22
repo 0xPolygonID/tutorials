@@ -17,9 +17,9 @@ This flow details the steps that can be carried out to achieve full integration 
 
 1. Start Docker Daemon and use the following command to run all the Vault, Redis, And Postgres containers.
 
-```
-make up
-```
+    ```
+    make up
+    ```
 
 2. Place Ethereum Private Key in Vault. For that, run the following command to start the vault container in the interactive mode. This command is used to go inside the vault and run `sh` or `bsh` commands inside it. 
 
@@ -37,26 +37,25 @@ make up
 
 3. To set up your Issuer Node and make it all up and running, you need to configure it first. This is done using a `config.toml` file. The repository provides you with a `config.toml.sample` file that contains different fields and their sample values. To start configuring these fields, create a `config.toml` file in your repository and paste the contents of the `config.toml.sample` in it. Now you can set values as required:
 
-- ServerPort: Enter the port on which Issuer Node would start. (Example: 3001)
+    - ServerPort: Enter the port on which Issuer Node would start. (Example: 3001)
 
-- ServerUrl:  If the Issuer Node is to be started locally, enter the localhost URL (for example, http://localhost:3001). If the Issuer Node is to be hosted on Google Cloud or an AWS or some other cloud (instead of being installed locally), enter the URL where the machine is located.
+    - ServerUrl:  If the Issuer Node is to be started locally, enter the localhost URL (for example, http://localhost:3001). If the Issuer Node is to be hosted on Google Cloud or an AWS or some other cloud (instead of being installed locally), enter the URL where the machine is located.
 
-- Database Url: The database URL that is provided by Docker. For example,
+    - Database Url: The database URL that is provided by Docker. For example,
       Url="postgres://polygonid:polygonid@localhost:5432/platformid?sslmode=disable
 
-- Keystore Address: It is the address of the vault running locally in the docker.  (for example, http://localhost:8200/)
+    - Keystore Address: It is the address of the vault running locally in the docker.  (for example, http://localhost:8200/)
 
-- Keystore Token: It is the Initial Root Token of the Vault. Copy the value of this token from the Vault container and paste it here. OR, once you have run the docker containers, the token can be copied from this path in the repository: "infrastructure/local/.vault/data/init.out".  
+    - Keystore Token: It is the Initial Root Token of the Vault. Copy the value of this token from the Vault container and paste it here. OR, once you have run the docker containers, the token can be copied from this path in the repository: "infrastructure/local/.vault/data/init.out".  
 
+    - Ethereum URL: For this, you first need to sign up on Alchemy. Then create an app; enter app details including chain as Polygon and Network as Polygon Mumbai. Click **View Key** to know your JSON RPC URL and paste it into the field in the Ethereum URL field. 
 
-- Ethereum URL: For this, you first need to sign up on Alchemy. Then create an app; enter app details including chain as Polygon and Network as Polygon Mumbai. Click **View Key** to know your JSON RPC URL and paste it into the field in the Ethereum URL field. 
-
-      <div align="center">
-         <img src= "../../../imgs/alchemy.png" align="center" style="border: 1px solid black"/>
+        <div align="center">
+         <img src= "../../imgs/alchemy.png" align="center" style="border: 1px solid black"/>
          </div>
          <br>
 
-- Ethereum Contract Address: Paste your Ethereum Contract Address here. 
+    - Ethereum Contract Address: Paste your Ethereum Contract Address here. 
 
 4. Run the following command to start the Issuer Node:
 
@@ -64,11 +63,11 @@ make up
       make run
       ```
 
-#### Start Issuer Node in Standalone Mode 
+#### Start Issuer Node in the Standalone Mode 
 
 In the Standalone Mode, we compile the Issuer Node and create the executables to run it without using docker.
 
-1. Configure the config.toml file like you did in the previous section.
+1. Configure the `config.toml` file like you did in the previous section.
 
 2. Run this command:
 
@@ -79,13 +78,11 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
 
 3. Make sure that Vault, Redis, and Postgres are all running. 
 
-
 4. Configure your database using the following command:
 
       ```
       make db/migrate
       ```
- 
 
 5. Run this command to start the Issuer Node:
 
@@ -93,7 +90,7 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
       ./bin/platform
       ```
 
-This starts the Issuer Node. 
+    This starts the Issuer Node. 
 
 6. Run the following command to start the Pending_Publisher service:
 
@@ -283,7 +280,6 @@ The Issuer Node responds by sending a JSON.
 "to": "string"
 }
 ```
-
 
 where `credentials` contains the credential id (`cid`) and the related schema link. 
 
