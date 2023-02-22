@@ -4,11 +4,12 @@ The collection of Claim endpoints are used to provide the following set of funct
 
 - Create a Verifiable Credential (VC)
 - Retrieve a credential or a set of credentials
+- Generate a JSON to create a QR code 
 - Update Identity State
 - Revoke a Verifiable Credential
 - Retrieve Revocation Status
 
-An id is assigned to a Verifiable Credential when it is created by an Issuer. A user can then retrieve a VC via its id. If a credential is no longer valid or lost, it can be revoked (rendered inactive and cannot be used). 
+An id (also called credential id) is assigned to a Verifiable Credential when it is created by an Issuer. A user can then retrieve a VC via its id. If a credential is no longer valid or lost, it can be revoked (rendered inactive and cannot be used). 
 
 ## Create Claim
 
@@ -136,6 +137,33 @@ The Issuer Node responds by sending a response message that contains the Verifia
 [API Reference](https://self-hosted-platform.polygonid.me/#get-/v1/-identifier-/claims)
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-cd69b428-9659-4e82-87c7-c2012f04327b)
+
+
+## Get Claim QR Code
+
+**Function**: Endpoint to generate a JSON which is then used to generate a QR code on a third-party app. The user can then scan this QR code and accept credentials to his/her wallet.  
+
+
+**How it Works**: The DID (identifier string retreived from calling the `Create Identity` endpoint) and credential Identifier (or `cid` retreived from the `Create Claim` endpoint) are passed as a path variables in the request URL. 
+
+The Issuer Node responds by sending a response message that contains a json which contains the following fields:
+
+`credentials` contains the credential id (`cid`) and a link to the schema associated with the credential.
+
+`url` is the address at which the user's mobile  calls the endpoint. 
+
+`from` is the `did` of the Issuer.
+
+`to` is the `did` of the user's wallet.
+
+`typ` and `type` indicate the way user's wallet interacts with the Node.
+
+This JSON can then be pasted on an third-party app's interface that supports generating QR codes. Once a QR code is generated, the user can scan it via Polygon ID app on mobile and accept a credential to his/her wallet. 
+
+[API Reference](https://self-hosted-platform.polygonid.me/#get-/v1/-identifier-/claims/-id-/qrcode)
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-258a68a6-6301-454b-84c2-62219748def3)
+
 
 
 ## Revoke Claim
