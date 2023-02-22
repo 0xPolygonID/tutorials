@@ -169,7 +169,7 @@ In the previous section, you saw how to create a credential by calling the endpo
 
 **Steps to Create Credential**
 
-1. Onthe Issuer website, click **Signup**.
+1. On the Issuer website, click **Signup**.
 
     <div align="center">
     <img src= "../../imgs/signup.png" align="center" width="300"/>
@@ -179,56 +179,56 @@ In the previous section, you saw how to create a credential by calling the endpo
     It shows the QR code on the screen:
 
     <div align="center">
-    <img src= "../imgs/qr-code-display.png" align="center" width="200"/>
+    <img src= "../../imgs/qr-code-display.png" align="center" width="200"/>
     </div>
     <br>
 
 2. Open Polygon ID app and authenticate with pin/biometrics
 
     <div align="center">
-    <img src= "../imgs/authenticate.png" align="center" width="200" height="400"/>
+    <img src= "../../imgs/authenticate.png" align="center" width="200" height="400"/>
     </div>
     <br>
 
 3. On the app, click **Connect**.
 
     <div align="center">
-    <img src= "../imgs/connect.jpg" align="center" width="200" height="400" border="2"/>
+    <img src= "../../imgs/connect.jpg" align="center" width="200" height="400" border="2"/>
     </div>
     <br>
 
 4. With the app, scan the QR code displayed on the site and click **Connect Wallet**. 
 
     <div align="center">
-    <img src= "../imgs/connect-wallet.jpg" align="center" width="200" height="400" border="1"/>
+    <img src= "../../imgs/connect-wallet.jpg" align="center" width="200" height="400" border="1"/>
     </div>
     <br>
 
 5. Authenticate again with your pin/biometrics. This starts the authentication of the user's wallet. 
 
     <div align="center">
-    <img src= "../imgs/authenticating.png" align="center" width="200" height="400" border="1"/>
+    <img src= "../../imgs/authenticating.png" align="center" width="200" height="400" border="1"/>
     </div>
     <br>
 
     After the authentication process is complete, the app shows the message if the identity is successfully authenticated or if it failed to authenticate.  
 
     <div align="center">
-    <img src= "../imgs/authenticated.png" align="center" width="200" height="400" border="1"/>
+    <img src= "../../imgs/authenticated.png" align="center" width="200" height="400" border="1"/>
     </div>
     <br>
 
 6. On the demo website, click **Create Claim**.
 
     <div align="center">
-    <img src= "../imgs/create-credentials.png" align="center" width="200"  border="1"/>
+    <img src= "../../imgs/create-credentials.png" align="center" width="200"  border="1"/>
     </div>
     <br>
 
     This shows the **Create Claim** window:
 
     <div align="center">
-    <img src= "../imgs/create-cred-window.png" align="center" width="200"  border="1"/>
+    <img src= "../../imgs/create-cred-window.png" align="center" width="200"  border="1"/>
     </div>
     <br>
 
@@ -237,21 +237,21 @@ In the previous section, you saw how to create a credential by calling the endpo
     Please note that in addition to selecting the schemas displayed on the menu, you can also select **Custom** to use your own schema. But for this flow, we are using a pre-existing KYCAGeCredential type of schema. As you select this schema, the JSON URL and JSON-LD Context URL are auto-populated under the ***URL*** and the ***Type*** fields. The ***Expiration*** (date on which the credential shall expire) and the ***Data JSON*** are also auto-populated. Click **Submit**
 
     <div align="center">
-    <img src= "../imgs/select-schema.png" align="center" width="200"  border="1"/>
+    <img src= "../../imgs/select-schema.png" align="center" width="200"  border="1"/>
     </div>
     <br>
 
     This creates a new credential.
 
     <div align="center">
-    <img src= "../imgs/credential-created.png" align="center" width="200"  border="1"/>
+    <img src= "../../imgs/credential-created.png" align="center" width="200"  border="1"/>
     </div>
     <br>
 
 8. Once a credential is created, you can view it on the Issuer site. For this, click the icon to open and view the credential. 
 
     <div align="center">
-    <img src= "../imgs/open-credential-link.png" align="center" width="500" border="1"/>
+    <img src= "../../imgs/open-credential-link.png" align="center" width="500" border="1"/>
     </div>
     <br>
 
@@ -294,20 +294,20 @@ where `credentials` contains the credential id (`cid`) and the related schema li
 Copy this JSON and paste it on a third-party website that can generate a QR code. 
 
 <div align="center">
-    <img src= "../imgs/qr-code-generated.png" align="center" width="200"  border="1"/>
+    <img src= "../../imgs/qr-code-generated.png" align="center" width="200"  border="1"/>
     </div>
     <br>
 
 The user can scan this QR Code using the Polygon ID app and accept the credentials.
 
 <div align="center">
-    <img src= "../imgs/credential-offer.jpg" align="center" width="200"  border="1"/>
+    <img src= "../../imgs/credential-offer.jpg" align="center" width="200"  border="1"/>
     </div>
     <br>
 
 This adds the credential to the user's wallet. 
 
 <div align="center">
-    <img src= "../imgs/adding-credential.jpg" align="center" width="200"  border="1"/>
+    <img src= "../../imgs/adding-credential.jpg" align="center" width="200"  border="1"/>
     </div>
     <br>
