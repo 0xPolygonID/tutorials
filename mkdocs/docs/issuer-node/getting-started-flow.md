@@ -172,7 +172,7 @@ In the previous section, you saw how to create a credential by calling the endpo
 1. Onthe Issuer website, click **Signup**.
 
     <div align="center">
-    <img src= "../imgs/signup.png" align="center" width="300"/>
+    <img src= "../../imgs/signup.png" align="center" width="300"/>
     </div>
     <br>
 
