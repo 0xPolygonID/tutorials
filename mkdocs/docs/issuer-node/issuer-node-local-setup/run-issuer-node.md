@@ -91,6 +91,8 @@ to your system.
       - Keystore PluginIden3MountPath: The path that needs to be added to the vault so that it can be configured correctly.
 
       - Ethereum URL: For this, you first need to sign up on Alchemy. Then create an app; enter app details including chain as Polygon and Network as Polygon Mumbai. Click **View Key** to know your JSON RPC URL and paste it into the field in the Ethereum URL field. 
+         
+         <br>
 
           <div align="center">
             <img src= "../../../imgs/alchemy.png" align="center" style="border: 1px solid black"/>
@@ -111,9 +113,9 @@ to your system.
       make run
       ```
 
-   This loads all the build files for the Node and it starts at the port specified in the `config.toml` file. 
+      This loads all the build files for the Node and it starts at the port specified in the `config.toml` file. 
 
-   <div align="center">
+      <div align="center">
       <img src= "../../../imgs/node-start.png" align="center" style="border: 1px solid black"/>
       </div>
       <br>
@@ -137,11 +139,11 @@ Follow these steps to start the Issuer Node in the standalone mode:
       ```
 This command will compile, run a `go install`, and will generate a binary for each of the three executables:
 
-- Platform: It is the main executable required to run the project. It is the platform API. 
+      - Platform: It is the main executable required to run the project. It is the platform API. 
 
-- Migrate: It is used to create a database schema in Postgres. 
+      - Migrate: It is used to create a database schema in Postgres. 
 
-- Pending_Publisher: It is a service that runs in the background and the purpose is to check for transactions that we send to the blockchain. 
+      - Pending_Publisher: It is a service that runs in the background and the purpose is to check for transactions that we send to the blockchain. 
 
 
       <div align="center">
@@ -149,7 +151,7 @@ This command will compile, run a `go install`, and will generate a binary for ea
          </div>
          <br>
 
-3. **Run Postgres, Redis and Vault Services**: Make sure that all the services including Postgres, Vault, and Redis are up and running. This is to be noted that if you are running your Issuer Node only for evaluation purposes, it is ok to use the docker images. But for production, you must use set up your own Postgres, Vault, and Redis. Like in the previous section, you can use the following command to start docker containers:
+3. **Run Postgres, Redis, and Vault Services**: Make sure that all the services including Postgres, Vault, and Redis are up and running. This is to be noted that if you are running your Issuer Node only for evaluation purposes, it is ok to use the docker images. But for production, you must use set up your own Postgres, Vault, and Redis. Like in the previous section, you can use the following command to start docker containers:
 
       ```
       make up
