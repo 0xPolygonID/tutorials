@@ -11,21 +11,21 @@ To create a credential, the Polygon ID app must be installed on your mobile.
 1. On the Issuer website, click **Signup**.
 
     <div align="center">
-    <img src= "../../../imgs/signup.png" align="center" width="300"/>
+    <img src= "../../imgs/signup.png" align="center" width="300"/>
     </div>
     <br>
 
     It shows the QR code on screen:
 
     <div align="center">
-    <img src= "../imgs/qr-code-display.png" align="center" width="200"/>
+    <img src= "../../imgs/qr-code-display.png" align="center" width="200"/>
     </div>
     <br>
 
 2. Open Polygon ID app and authenticate with pin/biometrics
 
     <div align="center">
-    <img src= "../imgs/authenticate.png" align="center" width="200" height="400"/>
+    <img src= "../../imgs/authenticate.png" align="center" width="200" height="400"/>
     </div>
     <br>
 
