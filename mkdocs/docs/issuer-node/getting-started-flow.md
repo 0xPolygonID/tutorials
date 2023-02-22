@@ -163,98 +163,6 @@ The Issuer Node responds by sending a credential id string. When this credential
 }
 ```
 
-### Create Credential Using Existing Schemas
-
-In the previous section, you saw how to create a credential by calling the endpoint. There is an alternative way to do this. You can create credentials by using existing credential schemas on a demo Issuer website. 
-
-**Steps to Create Credential**
-
-1. On the Issuer website, click **Signup**.
-
-    <div align="center">
-    <img src= "../../imgs/signup.png" align="center" width="300"/>
-    </div>
-    <br>
-
-    It shows the QR code on the screen:
-
-    <div align="center">
-    <img src= "../../imgs/qr-code-display.png" align="center" width="200"/>
-    </div>
-    <br>
-
-2. Open Polygon ID app and authenticate with pin/biometrics
-
-    <div align="center">
-    <img src= "../../imgs/authenticate.png" align="center" width="200" height="400"/>
-    </div>
-    <br>
-
-3. On the app, click **Connect**.
-
-    <div align="center">
-    <img src= "../../imgs/connect.jpg" align="center" width="200" height="400" border="2"/>
-    </div>
-    <br>
-
-4. With the app, scan the QR code displayed on the site and click **Connect Wallet**. 
-
-    <div align="center">
-    <img src= "../../imgs/connect-wallet.jpg" align="center" width="200" height="400" border="1"/>
-    </div>
-    <br>
-
-5. Authenticate again with your pin/biometrics. This starts the authentication of the user's wallet. 
-
-    <div align="center">
-    <img src= "../../imgs/authenticating.png" align="center" width="200" height="400" border="1"/>
-    </div>
-    <br>
-
-    After the authentication process is complete, the app shows the message if the identity is successfully authenticated or if it failed to authenticate.  
-
-    <div align="center">
-    <img src= "../../imgs/authenticated.png" align="center" width="200" height="400" border="1"/>
-    </div>
-    <br>
-
-6. On the demo website, click **Create Claim**.
-
-    <div align="center">
-    <img src= "../../imgs/create-credentials.png" align="center" width="200"  border="1"/>
-    </div>
-    <br>
-
-    This shows the **Create Claim** window:
-
-    <div align="center">
-    <img src= "../../imgs/create-cred-window.png" align="center" width="200"  border="1"/>
-    </div>
-    <br>
-
-7. Click the ***Schema*** dropdown menu and select the type of schema you want to use for creating a credential. 
-
-    Please note that in addition to selecting the schemas displayed on the menu, you can also select **Custom** to use your own schema. But for this flow, we are using a pre-existing KYCAGeCredential type of schema. As you select this schema, the JSON URL and JSON-LD Context URL are auto-populated under the ***URL*** and the ***Type*** fields. The ***Expiration*** (date on which the credential shall expire) and the ***Data JSON*** are also auto-populated. Click **Submit**
-
-    <div align="center">
-    <img src= "../../imgs/select-schema.png" align="center" width="200"  border="1"/>
-    </div>
-    <br>
-
-    This creates a new credential.
-
-    <div align="center">
-    <img src= "../../imgs/credential-created.png" align="center" width="200"  border="1"/>
-    </div>
-    <br>
-
-8. Once a credential is created, you can view it on the Issuer site. For this, click the icon to open and view the credential. 
-
-    <div align="center">
-    <img src= "../../imgs/open-credential-link.png" align="center" width="500" border="1"/>
-    </div>
-    <br>
-
 ### Create QR Code to Accept a Credential
 
 With the `Get Claim QR Code` endpoint, you can generate a JSON which is then used to create a QR code. A user can use a third-party application to generate a QR Code from this JSON. 
@@ -310,7 +218,6 @@ This adds the credential to the user's wallet.
     <img src= "../../imgs/adding-credential.jpg" align="center" width="200"  border="1"/>
     </div>
 <br>
-
 
 <div align="center">
     <img src= "../../imgs/cred-added.png" align="center" width="200"  border="1"/>
