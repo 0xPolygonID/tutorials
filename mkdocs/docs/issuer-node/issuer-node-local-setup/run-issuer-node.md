@@ -2,10 +2,10 @@
 
 ## Run Issuer Node Locally on IDE
 
-As we stated earlier in the tutorials, the Issuer Node is platform-agnostic and can be run with CLI or IDE, or even on a cloud-based platfrom. In this tutorial, we are going to show you the steps needed to start the Node on GoLand IDE.
+As we stated earlier in the tutorials, the Issuer Node is platform-agnostic and can be run with CLI or IDE, or even on a cloud-based platform. In this tutorial, we are going to show you the steps needed to start the Node on an IDE.
 
 
-1. **Clone the Repositoy**: Clone the <a href="https://github.com/0xPolygonID/sh-id-platform" target="_blank">Issuer Node Repository</a>
+1. **Clone the Repository**: Clone the <a href="https://github.com/0xPolygonID/sh-id-platform" target="_blank">Issuer Node Repository</a>
 to your system.
 
       ```
@@ -19,7 +19,7 @@ to your system.
     ```
     
 
-3. **Start Docker Desktop**: Assuming that you have the Docker installed on your machine, start the Docker Desktop, this initiates the Docker Daemon service. 
+3. **Start Docker Desktop**: Assuming that you have Docker installed on your machine, start the Docker Desktop, this initiates the Docker Daemon service. 
 
 4. **Run Docker Containers**: On the Terminal on IDE, enter the following command to start the three docker containers:
 
@@ -34,7 +34,7 @@ to your system.
       ```
       where the `path` shows the location of the docker-compose.yml file.
 
-      This starts the postgres, redis, and vault containers:
+      This starts the Postgres, Redis, and Vault containers:
 
       <div align="center">
          <img src= "../../../imgs/makeup.png" align="center" style="border: 1px solid black"/>
@@ -86,7 +86,7 @@ to your system.
 
       - Keystore Address: It is the address of the vault running locally in the docker.  (for example, http://localhost:8200/)
 
-      - Keystore Token: It is the Initial Root Token of the Vault. Copy the value of this token from the Vault container and paste it here. Or, once you have run the docker conatiners, the token can be copied from this path in the repository: "infrastructure/local/.vault/data/init.out".  
+      - Keystore Token: It is the Initial Root Token of the Vault. Copy the value of this token from the Vault container and paste it here. Or, once you have run the docker containers, the token can be copied from this path in the repository: "infrastructure/local/.vault/data/init.out".  
 
       - Keystore PluginIden3MountPath: The path that needs to be added to the vault so that it can be configured correctly.
 
@@ -104,7 +104,7 @@ to your system.
       - Circuit Path: The path to the circuits folder in your Issuer Node repository. This contains files for prover circuits.
 
 
-7. Run the following command to start the Issuer Node:
+7. **Start Issuer Node**: Run the following command to start the Issuer Node:
 
       ```
       make run
@@ -115,20 +115,21 @@ to your system.
    <div align="center">
       <img src= "../../../imgs/node-start.png" align="center" style="border: 1px solid black"/>
       </div>
+      <br>
       
-8. Browse ServerUrl configured in the config.toml file (in this case: http://localhost:3001). This shows the API documentation. 
+8. **Open API Documentation**: Browse ServerUrl configured in the config.toml file (in this case: http://localhost:3001). This shows the API documentation. 
 
-> Note: Please note that for the M1 chips, running the Issuer Node with dockerization might give some errors. This is a "known issue". We have tested this for ubuntu and macOS however for Windows, testing has not yet been carried out. To avoid getting this error, please follow the steps to start the Issuer Node in the standalone mode explained in the next section. 
+      > Note: Please note that for the M1 chips, running the Issuer Node with dockerization might give some errors. This is a "known issue". We have tested this for ubuntu and macOS however for Windows, testing has not yet been carried out. To avoid getting this error, please follow the steps to start the Issuer Node in the standalone mode explained in the next section. 
 
 ## Run Issuer Node in Standalone Mode
 
-The standalone mode of the Issuer Node allows to compile the Issuer Node and creating the executables to run it without using docker. To run in the standalone mode, you would need compile it with GoLang 1.19 environment.  
+The standalone mode of the Issuer Node allows compiling the Issuer Node and creating the executables to run it without using docker. To run in the standalone mode, you would need to compile it with GoLang 1.19 environment.  
 
 Follow these steps to start the Issuer Node in the standalone mode:
 
-1. **Set Field Values in Configuration File**: We have provided a `config.toml.sample` file. Copy this file in the `config.toml` in your project, and then set different values. This is same as step 6 of the previous section. 
+1. **Set Field Values in Configuration File**: We have provided a `config.toml.sample` file. Copy this file in the `config.toml` in your project, and then set different values. This is same as the step 6 of the previous section. 
 
-2. Run this command:
+2. **Compile Project**: Run this command:
 
       ```
       make build
@@ -137,7 +138,7 @@ This command will compile, run a `go install`, and will generate a binary for ea
 
 - Platform: It is the main executable required to run the project. It is the platform API. 
 
-- Migrate: It is used to create database schema in Posgres. 
+- Migrate: It is used to create a database schema in Postgres. 
 
 - Pending_Publisher: It is a service that runs in the background and the purpose is to check for transactions that we send to the blockchain. 
 
@@ -147,7 +148,7 @@ This command will compile, run a `go install`, and will generate a binary for ea
          </div>
          <br>
 
-3. Make sure that all the services: Postgres, Vault, and Redis are up and running. This is to be noted that if you are running your Issuer Node only for evaluation purposes, it is ok to use the docker images. But for production, you must use set up your own Postgres, Vault, and Redis. Like in the previous secion, you can use the following command to start docker containers:
+3. **Run Postgres, Redis and Vault Services**: Make sure that all the services including Postgres, Vault, and Redis are up and running. This is to be noted that if you are running your Issuer Node only for evaluation purposes, it is ok to use the docker images. But for production, you must use set up your own Postgres, Vault, and Redis. Like in the previous section, you can use the following command to start docker containers:
 
       ```
       make up
@@ -158,7 +159,7 @@ This command will compile, run a `go install`, and will generate a binary for ea
          </div>
          <br>
 
-4. Configure your datbase using the following command:
+4. **Configure Database**: Configure your database using the following command:
 
       ```
       make db/migrate
@@ -169,9 +170,9 @@ This command will compile, run a `go install`, and will generate a binary for ea
          </div>
          <br>
 
-This checks the current structure of the database, and accordingly, either creates or updates the database. 
+      This checks the current structure of the database, and accordingly, either creates or updates the database. 
 
-5. Run this command to start the Issuer Node:
+5. **Start the Issuer Node**: Run this command to start the Issuer Node:
 
       ```
       ./bin/platform
@@ -182,14 +183,14 @@ This checks the current structure of the database, and accordingly, either creat
          </div>
          <br>
 
-This starts the Issuer Node. You can now browse to the port configured for your server (ServerPort)in the `config.toml` file and view the API documetation. For example, this could be: http://localhost:3001.
+      This starts the Issuer Node. You can now browse to the port configured for your server (ServerPort)in the `config.toml` file and view the API documentation. For example, this could be http://localhost:3001.
 
-6. Run the following command to start the Pending_Publisher service:
+6. **Start Pending_Publisher**: Run the following command to start the Pending_Publisher service:
 
       ```
       ./bin/pending_publisher
       ```
-This step checks for errors, if any, as the transactions are published on-chain. 
+      This step, though not mandatory checks for errors, if any, as the transactions are published on-chain. 
 
 
 

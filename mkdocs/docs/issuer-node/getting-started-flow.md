@@ -7,8 +7,7 @@ This flow details the steps that can be carried out to achieve full integration 
 1. Setup the Issuer Node
 2. Create an Identity
 3. Create Credential 
-4. Create Credential Using Existing Schemas
-5. Create a QR Code to Accept Credential
+4. Create a QR Code to Accept Credential
 
 
 ### Setup the Issuer Node
