@@ -296,20 +296,23 @@ Copy this JSON and paste it on a third-party website that can generate a QR code
 <div align="center">
     <img src= "../../imgs/qr-code-generated.png" align="center" width="200"  border="1"/>
     </div>
-    <br>
-
+<br>
 The user can scan this QR Code using the Polygon ID app and accept the credentials.
 
 <div align="center">
     <img src= "../../imgs/credential-offer.jpg" align="center" width="200"  border="1"/>
     </div>
-    <br>
+    
 
 This adds the credential to the user's wallet. 
 
 <div align="center">
     <img src= "../../imgs/adding-credential.jpg" align="center" width="200"  border="1"/>
     </div>
-    
+<br>
 
+
+<div align="center">
+    <img src= "../../imgs/cred-added.png" align="center" width="200"  border="1"/>
+    </div>
 
