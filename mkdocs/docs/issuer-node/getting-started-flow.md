@@ -310,4 +310,6 @@ This adds the credential to the user's wallet.
 <div align="center">
     <img src= "../../imgs/adding-credential.jpg" align="center" width="200"  border="1"/>
     </div>
-    <br>
+    
+
+
