@@ -121,22 +121,15 @@ The Issuer Node responds by sending a response message that contains:
 
 ```
 {
-"identifier": "string",
-"state": {
-"stateID": 0,
-"identifier": "string",
-"state": "string",
-"rootOfRoots": "string",
-"claimsTreeRoot": "string",
-"revocationTreeRoot": "string",
-"blockTimestamp": 0,
-"blockNumber": 0,
-"txID": "string",
-"previousState": "string",
-"status": "string",
-"modifiedAt": "1970-01-01T00:00:00.000Z",
-"createdAt": "1970-01-01T00:00:00.000Z"
-}}
+    "identifier": "did:polygonid:polygon:mumbai:2qNDpfD8A2zjdiDbrzKsKe5XoP583FeBkpPyJnUEVx",
+    "state": {
+        "claimsTreeRoot": "96041fd8c899994d8b493c9f844f8ff17f1218e5400bfe68cc659b5386a88b07",
+        "createdAt": "2023-02-22T14:55:34.89165+05:30",
+        "modifiedAt": "2023-02-22T14:55:34.89165+05:30",
+        "state": "569bd6c053d6ddf463245127a82570841a76099a4dab3c279c6b461cf0438408",
+        "status": "confirmed"
+    }
+}
 ```
 
 ### Create Credential
@@ -159,7 +152,7 @@ The Issuer Node responds by sending a credential id string. When this credential
 
 ```
 {
-"id": "string"
+    "id": "9c08a414-b29c-11ed-9bd2-2e7e0e869740"
 }
 ```
 
@@ -173,19 +166,21 @@ The Issuer Node responds by sending a JSON.
 
 ```
 {
-"id": "string",
-"typ": "string",
-"type": "string",
-"thid": "string",
-"body": {
-"url": "string",
-"credentials": [
-{
-"id": "string",
-"description": "string"
-}]},
-"from": "string",
-"to": "string"
+    "body": {
+        "credentials": [
+            {
+                "description": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld#KYCAgeCredential",
+                "id": "75d7ca20-b1ea-11ed-9bd2-2e7e0e869740"
+            }
+        ],
+        "url": "http://localhost:3001/v1/agent"
+    },
+    "from": "did:polygonid:polygon:mumbai:2qPUbMiYD8qFVjM6KLTY5qSMQpR9x6aSRfNByRkckm",
+    "id": "cf858ea9-ab66-4c3c-8c55-e99885b086e0",
+    "thid": "cf858ea9-ab66-4c3c-8c55-e99885b086e0",
+    "to": "did:polygonid:polygon:mumbai:2qNZRvFrnVfANm9UTJ3Wn3AP4wmy9CUvX1qpYE28up",
+    "typ": "application/iden3comm-plain-json",
+    "type": "https://iden3-communication.io/credentials/1.0/offer"
 }
 ```
 
