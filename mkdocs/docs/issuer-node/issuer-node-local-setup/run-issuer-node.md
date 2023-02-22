@@ -93,9 +93,10 @@ to your system.
       - Ethereum URL: For this, you first need to sign up on Alchemy. Then create an app; enter app details including chain as Polygon and Network as Polygon Mumbai. Click **View Key** to know your JSON RPC URL and paste it into the field in the Ethereum URL field. 
 
       <div align="center">
-         <img src= "../../../imgs/alchemy.png" align="center" style="border: 1px solid black"/>
-         </div>
-         <br>
+            <img src= "../../../imgs/alchemy.png" align="center" style="border: 1px solid black"/>
+      </div>
+      <br>
+
 
       - Ethereum Contract Address: Paste your Ethereum Contract Address here. 
 
