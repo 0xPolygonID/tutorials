@@ -32,42 +32,42 @@ To create a credential, the Polygon ID app must be installed on your mobile.
 3. On app, click **Connect**.
 
     <div align="center">
-    <img src= "../imgs/connect.jpg" align="center" width="200" height="400" border="2"/>
+    <img src= "../../imgs/connect.jpg" align="center" width="200" height="400" border="2"/>
     </div>
     <br>
 
 4. With app, scan the QR code displayed on the site and click **Connect Wallet**. 
 
     <div align="center">
-    <img src= "../imgs/connect-wallet.jpg" align="center" width="200" height="400" border="1"/>
+    <img src= "../../imgs/connect-wallet.jpg" align="center" width="200" height="400" border="1"/>
     </div>
     <br>
 
 5. Authenticate again with your pin/biometrics. This starts the authentication of the user's wallet. 
 
     <div align="center">
-    <img src= "../imgs/authenticating.png" align="center" width="200" height="400" border="1"/>
+    <img src= "../../imgs/authenticating.png" align="center" width="200" height="400" border="1"/>
     </div>
     <br>
 
     After authentication process is complete, the app shows the message if the identity is successfully authenticated or it failed to authenticate.  
 
     <div align="center">
-    <img src= "../imgs/authenticated.png" align="center" width="200" height="400" border="1"/>
+    <img src= "../../imgs/authenticated.png" align="center" width="200" height="400" border="1"/>
     </div>
     <br>
 
 6. On website, click **Create Claim**.
 
     <div align="center">
-    <img src= "../imgs/create-credentials.png" align="center" width="200"  border="1"/>
+    <img src= "../../imgs/create-credentials.png" align="center" width="200"  border="1"/>
     </div>
     <br>
 
     This shows the **Create Claim** window:
 
     <div align="center">
-    <img src= "../imgs/create-cred-window.png" align="center" width="200"  border="1"/>
+    <img src= "../../imgs/create-cred-window.png" align="center" width="200"  border="1"/>
     </div>
     <br>
 
@@ -92,29 +92,29 @@ For this example, we are using a pre-existing KYCAGeCredential type of schema. A
 8. Once a credential is created, you can view it on the Issuer site. For this, click the icon to open and view the credential. 
 
     <div align="center">
-    <img src= "../imgs/open-credential-link.png" align="center" width="500" border="1"/>
+    <img src= "../../imgs/open-credential-link.png" align="center" width="500" border="1"/>
     </div>
     <br>
 
    A Credential looks like this:
 
     <div align="center">
-    <img src= "../imgs/cred1.png" align="center" width="200" border="1"/>
+    <img src= "../../imgs/cred1.png" align="center" width="200" border="1"/>
     </div>
     
 
    <div align="center">
-    <img src= "../imgs/cred2.png" align="center" width="200" border="1"/>
+    <img src= "../../imgs/cred2.png" align="center" width="200" border="1"/>
     </div>
     
 
     <div align="center">
-    <img src= "../imgs/cred3.png" align="center" width="200" border="1"/>
+    <img src= "../../imgs/cred3.png" align="center" width="200" border="1"/>
     </div>
     
 
     <div align="center">
-    <img src= "../imgs/cred4.png" align="center" width="200" border="1"/>
+    <img src= "../../imgs/cred4.png" align="center" width="200" border="1"/>
     </div>
     <br>
 
