@@ -50,58 +50,60 @@ When presented with this query, the user must prove that he/she is a Person.
         };
     ```
 
-<!-- === "on-chain"
+=== "on-chain"
 
     ```ts
-    const schemaHash = "bc17cbe68b8dd1868281dd1f23f823e1" // extracted from PID Platform
+    // you can run https://go.dev/play/p/rnrRbxXTRY6 to get schema hash and claimPathKey using YOUR schema
+    const schemaBigInt = "324849518749029195374186444632030216125"
 
-    const schemaEnd = fromLittleEndian(hexToBytes(schemaHash))
+    // merklized path to field in the W3C credential according to JSONLD schema 
+    const schemaClaimPathKey = "14815366841010849835350402710291849818496586666144492189460088557509920034090"
 
-    const circuitId = "credentialAtomicQuerySig";
+    const requestId = 1;
 
     const query = {
-    schema: ethers.BigNumber.from(schemaEnd),
-    slotIndex: 2, // slotIndex2 indicates the value stored as Attribute 1 inside the claim
-    operator: 1,
-    value: [1, ...new Array(63).fill(0).map(i => 0)], // the value must be 1 = true
-    circuitId,
-    };
+        schema: schemaBigInt,
+        claimPathKey  : schemaClaimPathKey,
+        operator: 1,
+        value: [1, ...new Array(63).fill(0).map(i => 0)], // for operators 1,2,3,6 only first value matters
+        };
     ```
     ```json
     // Corresponding QR Code
-    {  
-        "id":"c811849d-6bfb-4d85-936e-3d9759c7f105",
-        "typ":"application/iden3comm-plain-json",
-        "type":"https://iden3-communication.io/proofs/1.0/contract-invoke-request",
-        "body":{
-            "transaction_data":{
-                "contract_address":"0x53baE2308366cd5799B2A95539Ec9E2F5d6f1e0c",  //replace it with your contract address
-                "method_id":"b68967e2",
-                "chain_id":80001,
-                "network":"polygon-mumbai"
-                },
-            "reason":"airdrop participation",
-            "scope":[{
-                "id":1,
-                "circuit_id":"credentialAtomicQuerySig",
-                "rules":{
-                    "query":{
-                        "allowed_issuers":["*"],
-                        "req":{ 
-                            "VerifiedPerson":{
-                                "$eq":1
-                                }
-                            },
-                        "schema":{
-                                "url":"https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9fe70c03-ea4a-432c-a64d-ee8783549713.json-ld", 
-                                "type":"ProofOfPersonhood" 
-                                }
+    {
+        "id": "7f38a193-0918-4a48-9fac-36adfdb8b542",
+        "typ": "application/iden3comm-plain-json",
+        "type": "https://iden3-communication.io/proofs/1.0/contract-invoke-request",
+        "thid": "7f38a193-0918-4a48-9fac-36adfdb8b542",
+        "body": {
+            "reason": "airdrop participation",
+            "transaction_data": {
+                "contract address" : "<add your contract address here>", // replace with your contract address
+                "method_id": "b68967e2",
+                "chain_id": 80001,
+                "network": "polygon-mumbai"
+            },
+            "scope": [
+                {
+                    "id": 1,
+                    "circuitId": "credentialAtomicQuerySigV2OnChain",
+                    "query": {
+                        "allowedIssuers": [
+                            "*"
+                        ],
+                        "context": "https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-humanity/proof-of-humanity.jsonld",
+                        "credentialSubject": {
+                            "isHuman": {
+                                "$eq": 1
                             }
-                        }
-                    }]
+                        },
+                        "type": "ProofOfHumanity"
+                    }
                 }
+            ]
+        }
     }
-    ``` -->
+    ```
 
 ### Less-than - Operator 2
 
@@ -133,58 +135,60 @@ When presented with this query, the user must prove that he/she has been born be
     ```
 
 
-<!-- === "on-chain"
+=== "on-chain"
 
     ```ts
-    const schemaHash = "f03ac39aa54a5a2770a30f17d8042507" // extracted from PID Platform
+    // you can run https://go.dev/play/p/rnrRbxXTRY6 to get schema hash and claimPathKey using YOUR schema
+    const schemaBigInt = "267831521922558027206082390043321796944"
 
-    const schemaEnd = fromLittleEndian(hexToBytes(schemaHash))
+    // merklized path to field in the W3C credential according to JSONLD schema 
+    const schemaClaimPathKey = "20376033832371109177683048456014525905119173674985843915445634726167450989630"
 
-    const circuitId = "credentialAtomicQuerySig";
+    const requestId = 1;
 
     const query = {
-    schema: ethers.BigNumber.from(schemaEnd),
-    slotIndex: 2, // slotIndex2 indicates the value stored as Attribute 1 inside the claim
-    operator: 2,
-    value: [20010101, ...new Array(63).fill(0).map(i => 0)],
-    circuitId,
-    };
+        schema: schemaBigInt,
+        claimPathKey  : schemaClaimPathKey,
+        operator: 1,
+        value: [1, ...new Array(63).fill(0).map(i => 0)],  // for operators 1,2,3,6 only first value matters
+        };
     ```
     ```json
     // Corresponding QR Code
-    {  
-        "id":"c811849d-6bfb-4d85-936e-3d9759c7f105",
-        "typ":"application/iden3comm-plain-json",
-        "type":"https://iden3-communication.io/proofs/1.0/contract-invoke-request",
-        "body":{
-            "transaction_data":{
-                "contract_address":"0xCe03F5d970b0BA0e5d2b1C82160dEa1b05191C73",  //replace it with your contract address
-                "method_id":"b68967e2",
-                "chain_id":80001,
-                "network":"polygon-mumbai"
-                },
-            "reason":"airdrop participation",
-            "scope":[{
-                "id":1,
-                "circuit_id":"credentialAtomicQuerySig",
-                "rules":{
-                    "query":{
-                        "allowed_issuers":["*"],
-                        "req":{ 
-                            "dateOfBirth":{
-                                "$lt":20010101
-                                }
-                            },
-                        "schema":{
-                                "url":"https://s3.eu-west-1.amazonaws.com/polygonid-schemas/9b1c05f4-7fb6-4792-abe3-d1ddbd9a9609.json-ld", 
-                                "type":"AgeCredential" 
-                                }
+    {
+        "id": "7f38a193-0918-4a48-9fac-36adfdb8b542",
+        "typ": "application/iden3comm-plain-json",
+        "type": "https://iden3-communication.io/proofs/1.0/contract-invoke-request",
+        "thid": "7f38a193-0918-4a48-9fac-36adfdb8b542",
+        "body": {
+            "reason": "airdrop participation",
+            "transaction_data": {
+                "contract address" : "<add your contract address here>",
+                "method_id": "b68967e2",
+                "chain_id": 80001,
+                "network": "polygon-mumbai"
+            },
+            "scope": [
+                {
+                    "id": 1,
+                    "circuitId": "credentialAtomicQuerySigV2OnChain",
+                    "query": {
+                        "allowedIssuers": [
+                            "*"
+                        ],
+                        "context": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v4.jsonld",
+                        "credentialSubject": {
+                            "birthday": {
+                                "$lt": 20010101
                             }
-                        }
-                    }]
+                        },
+                        "type": "KYCAgeCredential"
+                    }
                 }
+            ]
+        }
     }
-    ``` -->
+    ```
 
 ### Greater-than - Operator 3
 
@@ -214,62 +218,60 @@ When presented with this query, the user must prove that his/her monthly salary 
           },
         };
     ```
-
-
-<!-- === "on-chain"
+=== "on-chain"
 
     ```ts
-    const schemaHash = "f4cfcaa00dbc2954ded157c8e25792ee"  // extracted from PID platform
+    // you can run https://go.dev/play/p/rnrRbxXTRY6 to get schema hash and claimPathKey using YOUR schema
+    const schemaBigInt = "215529050624769177581695011121804343416"
 
-    const schemaEnd = fromLittleEndian(hexToBytes(schemaHash))
+    // merklized path to field in the W3C credential according to JSONLD schema 
+    const schemaClaimPathKey = "18323209396655941018370955962714740724727867245625378697671016248362870463698"
 
-    const circuitId = "credentialAtomicQuerySig";
+    const requestId = 1;
 
     const query = {
-    schema: ethers.BigNumber.from(schemaEnd),
-    slotIndex: 3,  // slotIndex3 indicates the value stored as Attribute 2 inside the claim
-    operator: 3,
-    value: [1000, ...new Array(63).fill(0).map(i => 0)],
-    circuitId,
+        schema: schemaBigInt,
+        claimPathKey  : schemaClaimPathKey,
+        operator: 3, // operator
+        value: [1000, ...new Array(63).fill(0).map(i => 0)],
     };
     ```
     ```json
-    // Corresponding QR Code
-    {  
-        "id":"c811849d-6bfb-4d85-936e-3d9759c7f105",
-        "typ":"application/iden3comm-plain-json",
-        "type":"https://iden3-communication.io/proofs/1.0/contract-invoke-request",
-        "body":{
-            "transaction_data":{
-                "contract_address":"0x114cdF17C054782BbFB6F182B3502f1Ea2973dbd",  //replace it with your contract address
-                "method_id":"b68967e2",
-                "chain_id":80001,
-                "network":"polygon-mumbai"
-                },
-            "reason":"airdrop participation",
-            "scope":[{
-                "id":1,
-                "circuit_id":"credentialAtomicQuerySig",
-                "rules":{
-                    "query":{
-                        "allowed_issuers":["*"],
-                        "req":{ 
-                            "MonthlySalary":{
-                                "$gt":1000
-                                }
-                            },
-                        "schema":{
-                                "url":"https://s3.eu-west-1.amazonaws.com/polygonid-schemas/ccbec58c-7f05-4cd3-994c-614b1f066e1c.json-ld", 
-                                "type":"EmployeeData" 
-                                }
+    {
+        "id": "7f38a193-0918-4a48-9fac-36adfdb8b542",
+        "typ": "application/iden3comm-plain-json",
+        "type": "https://iden3-communication.io/proofs/1.0/contract-invoke-request",
+        "thid": "7f38a193-0918-4a48-9fac-36adfdb8b542",
+        "body": {
+            "reason": "airdrop participation",
+            "transaction_data": {
+                "contract address" : "<add your contract address here>",
+                "method_id": "b68967e2",
+                "chain_id": 80001,
+                "network": "polygon-mumbai"
+            },
+            "scope": [
+                {
+                    "id": 1,
+                    "circuitId": "credentialAtomicQuerySigV2OnChain",
+                    "query": {
+                        "allowedIssuers": [
+                            "*"
+                        ],
+                        "context": "https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/employee-data/employee-data.jsonld",
+                        "credentialSubject": {
+                            "monthlySalary": {
+                                "$gt": 1000
                             }
-                        }
-                    }]
+                        },
+                        "type": "EmployeeData"
+                    }
                 }
+            ]
+        }
     }
-    ``` -->
+    ```
 
-<!-- > Note that the slotIndex queried inside the on-chain example is no longer 2. That's because this claim schema comprises of two attributes and the query refers to the second atttribute, therefore the value is put inside of slotIndex 3, according to claim structure. -->
 
 ### In - Operator 4 
 
@@ -295,67 +297,67 @@ When presented with this query, the user must prove that he/she is either an Adm
             context: 'https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role.jsonld',
             credentialSubject: {
             role: {
-              $in: [4, 5]],
+              $in: [4, 5],
             },
             },
           },
         };
     ```
 
-
-<!-- === "on-chain"
+=== "on-chain"
 
     ```ts
-    const schemaHash = "c6cd9c4ea01df58ef5386515a3e3acc0" // extracted from PID Platform
+    // you can run https://go.dev/play/p/rnrRbxXTRY6 to get schema hash and claimPathKey using YOUR schema
+    const schemaBigInt = "80689572245316684375295691372009959153"
 
-    const schemaEnd = fromLittleEndian(hexToBytes(schemaHash))
+    // merklized path to field in the W3C credential according to JSONLD schema 
+    const schemaClaimPathKey = "19483179179477598314891505360164348442915562939736565831310034495973163044179"
 
-    const circuitId = "credentialAtomicQuerySig";
+    const requestId = 1;
 
     const query = {
-    schema: ethers.BigNumber.from(schemaEnd),
-    slotIndex: 2, // slotIndex2 indicates the value stored as Attribute 1 inside the claim
-    operator: 4,
-    value: [2, 3, ...new Array(62).fill(0).map(i => 0)],
-    circuitId,
+        schema: schemaBigInt,
+        claimPathKey  : schemaClaimPathKey,
+        operator: 4, // operator
+        value: [4, 5, ...new Array(62).fill(0).map(i => 0)],
     };
     ```
     ```json
     // Corresponding QR Code
-    {  
-        "id":"c811849d-6bfb-4d85-936e-3d9759c7f105",
-        "typ":"application/iden3comm-plain-json",
-        "type":"https://iden3-communication.io/proofs/1.0/contract-invoke-request",
-        "body":{
-            "transaction_data":{
-                "contract_address":"0xB2858515075057EF5a91e872ef4adB11ae639536",  //replace it with your contract address
-                "method_id":"b68967e2",
-                "chain_id":80001,
-                "network":"polygon-mumbai"
-                },
-            "reason":"airdrop participation",
-            "scope":[{
-                "id":1,
-                "circuit_id":"credentialAtomicQuerySig",
-                "rules":{
-                    "query":{
-                        "allowed_issuers":["*"],
-                        "req":{ 
-                            "Role":{
-                                "$in":[2, 3]
-                                }
-                            },
-                        "schema":{
-                                "url":"https://s3.eu-west-1.amazonaws.com/polygonid-schemas/edf4e0da-d023-42cd-b627-0717566382b1.json-ld", 
-                                "type":"PolygonDAOMember" 
-                                }
+    {
+        "id": "7f38a193-0918-4a48-9fac-36adfdb8b542",
+        "typ": "application/iden3comm-plain-json",
+        "type": "https://iden3-communication.io/proofs/1.0/contract-invoke-request",
+        "thid": "7f38a193-0918-4a48-9fac-36adfdb8b542",
+        "body": {
+            "reason": "airdrop participation",
+            "transaction_data": {
+                "contract address" : "<add your contract address here>",
+                "method_id": "b68967e2",
+                "chain_id": 80001,
+                "network": "polygon-mumbai"
+            },
+            "scope": [
+                {
+                    "id": 1,
+                    "circuitId": "credentialAtomicQuerySigV2OnChain",
+                    "query": {
+                        "allowedIssuers": [
+                            "*"
+                        ],
+                        "context": "https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/schemas-examples/proof-of-dao-role/proof-of-dao-role.jsonld",
+                        "credentialSubject": {
+                            "role": {
+                                "$in": [4, 5]
                             }
-                        }
-                    }]
+                        },
+                        "type": "ProofOfDaoRole"
+                    }
                 }
+            ]
+        }
     }
-    ``` -->
-
+    ```
 ### Not-in - Operator 5
 
 **Credential Schema**
@@ -386,61 +388,60 @@ When presented with this query, the user must prove that he/she is not resident 
         };
     ```
 
-
-<!-- === "on-chain"
+=== "on-chain"
 
     ```ts
-    const schemaHash = "27dca47f1a53c4738850d627e2c4bd48"
+    // you can run https://go.dev/play/p/rnrRbxXTRY6 to get schema hash and claimPathKey using YOUR schema
+    const schemaBigInt = "201134713754279235117373236841506344285"
 
-    const schemaEnd = fromLittleEndian(hexToBytes(schemaHash))
+    // merklized path to field in the W3C credential according to JSONLD schema 
+    const schemaClaimPathKey = "17002437119434618783545694633038537380726339994244684348913844923422470806844"
 
-    const circuitId = "credentialAtomicQuerySig";
+    const requestId = 1;
 
     const query = {
-    schema: ethers.BigNumber.from(schemaEnd),
-    slotIndex: 2, // slotIndex2 indicates the value stored as Attribute 1 inside the claim
-    operator: 5,
-    value: [840, 120, 340, 509, ...new Array(60).fill(0).map(i => 0)],
-    circuitId,
+        schema: schemaBigInt,
+        claimPathKey  : schemaClaimPathKey,
+        operator: 5, // operator
+        value: [840, 120, 340, 509, ...new Array(60).fill(0).map(i => 0)],
     };
     ```
     ```json
     // Corresponding QR Code
-    {  
-        "id":"c811849d-6bfb-4d85-936e-3d9759c7f105",
-        "typ":"application/iden3comm-plain-json",
-        "type":"https://iden3-communication.io/proofs/1.0/contract-invoke-request",
-        "body":{
-            "transaction_data":{
-                "contract_address":"0x58899aB4176e71d779c25C901eBc5F921211E0C2", //replace it with your contract address
-                "method_id":"b68967e2",
-                "chain_id":80001,
-                "network":"polygon-mumbai"
-                },
-            "reason":"airdrop participation",
-            "scope":[{
-                "id":1,
-                "circuit_id":"credentialAtomicQuerySig",
-                "rules":{
-                    "query":{
-                        "allowed_issuers":["*"],
-                        "req":{ 
-                            "CountryOfResidence":{
-                                "$nin":[840, 120, 340, 509]
-                                }
-                            },
-                        "schema":{
-                                "url":"https://s3.eu-west-1.amazonaws.com/polygonid-schemas/a57232c5-b9b8-41b6-b6bc-7fbf10c5046c.json-ld", 
-                                "type":"Residence" 
-                                }
+    {
+        "id": "7f38a193-0918-4a48-9fac-36adfdb8b542",
+        "typ": "application/iden3comm-plain-json",
+        "type": "https://iden3-communication.io/proofs/1.0/contract-invoke-request",
+        "thid": "7f38a193-0918-4a48-9fac-36adfdb8b542",
+        "body": {
+            "reason": "airdrop participation",
+            "transaction_data": {
+                "contract address" : "<add your contract address here>",
+                "method_id": "b68967e2",
+                "chain_id": 80001,
+                "network": "polygon-mumbai"
+            },
+            "scope": [
+                {
+                    "id": 1,
+                    "circuitId": "credentialAtomicQuerySigV2OnChain",
+                    "query": {
+                        "allowedIssuers": [
+                            "*"
+                        ],
+                        "context": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v4.jsonld",
+                        "credentialSubject": {
+                            "countryCode": {
+                                "$nin": [840, 120, 340, 509]
                             }
-                        }
-                    }]
+                        },
+                        "type": "KYCCountryOfResidenceCredential"
+                    }
                 }
+            ]
+        }
     }
-    ```   -->
-
-> When designing a query, filling the `req` field is not mandatory. For instance, a platform can just ask the user to have an AgeCredential claim as a way to identify unique humans without any requirements related to the date of birth. In that case, the Veriifer should simply not fill the `req` field inside the query. -->
+    ```
 
 ### Not-equal - Operator 6
 
@@ -464,9 +465,64 @@ When presented with this query, the user must prove that he/she is not resident 
             context: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v4.jsonld',
             credentialSubject: {
             countryCode: {
-              $neq: 840
+              $ne: 840
             },
             },
           },
         };
+    ```
+
+=== "on-chain"
+
+    ```ts
+    // you can run https://go.dev/play/p/rnrRbxXTRY6 to get schema hash and claimPathKey using YOUR schema
+    const schemaBigInt = "201134713754279235117373236841506344285"
+
+    // merklized path to field in the W3C credential according to JSONLD schema 
+    const schemaClaimPathKey = "17002437119434618783545694633038537380726339994244684348913844923422470806844"
+
+    const requestId = 1;
+
+    const query = {
+        schema: schemaBigInt,
+        claimPathKey  : schemaClaimPathKey,
+        operator: 6,
+        value: [840, ...new Array(63).fill(0).map(i => 0)], // for operators 1,2,3,6 only first value matters
+        };
+    ```
+    ```json
+    // Corresponding QR Code
+    {
+        "id": "7f38a193-0918-4a48-9fac-36adfdb8b542",
+        "typ": "application/iden3comm-plain-json",
+        "type": "https://iden3-communication.io/proofs/1.0/contract-invoke-request",
+        "thid": "7f38a193-0918-4a48-9fac-36adfdb8b542",
+        "body": {
+            "reason": "airdrop participation",
+            "transaction_data": {
+                "contract address" : "<add your contract address here>",
+                "method_id": "b68967e2",
+                "chain_id": 80001,
+                "network": "polygon-mumbai"
+            },
+            "scope": [
+                {
+                    "id": 1,
+                    "circuitId": "credentialAtomicQuerySigV2OnChain",
+                    "query": {
+                        "allowedIssuers": [
+                            "*"
+                        ],
+                        "context": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v4.jsonld",
+                        "credentialSubject": {
+                            "countryCode": {
+                                "$ne": 840
+                            }
+                        },
+                        "type": "KYCCountryOfResidenceCredential"
+                    }
+                }
+            ]
+        }
+    }
     ```
