@@ -224,8 +224,8 @@ As previously mentioned, the actual zkp request "to be born before 01/01/2002" h
 
 1. `requestId`: the id associated with the request.
 2. `validator`: the address of the <a href="https://github.com/0xPolygonID/contracts/tree/main/contracts/validators" target="_blank">Validators Smart Contract</a> already deployed on Mumbai. This is the contracts that executes the verification on the zk proof submitted by the user. It can be of type [CredentialAtomicQuerySigValidator](../../contracts/overview.md#credentialatomicquerysigvalidator) or [CredentialAtomicQueryMTPValidator](../../contracts/overview.md#credentialatomicquerymtpvalidator).
-3. `schema` namely the bigInt representation of the schema of the requested credential. This can be obtained by passing your schema to this Go Sandbox [link](https://go.dev/play/p/rnrRbxXTRY6)
-4. `claimPathKey` represents the path to the queries key inside the merklized credential. In this case it is the path to the `birthday` key. This can be obtained by passing your schema to this Go Sandbox [link](https://go.dev/play/p/rnrRbxXTRY6).
+3. `schema` namely the bigInt representation of the schema of the requested credential. This can be obtained by passing your schema to this [Go Sandbox](https://go.dev/play/p/rnrRbxXTRY6). In order to use the sandbox, the constants `jsonLDContext`, `typ`, `fieldName` and `schemaJSONLD` need to be modified according to your request.
+4. `claimPathKey` represents the path to the queries key inside the merklized credential. In this case it is the path to the `birthday` key. This can be obtained by passing your schema to this [Go Sandbox](https://go.dev/play/p/rnrRbxXTRY6). In order to use the sandbox, the constants `jsonLDContext`, `typ`, `fieldName` and `schemaJSONLD` need to be modified according to your request.
 5. `operator` is either 1,2,3,4,5,6. To understand more about the operator you can check the [zk query language](../verification-library/zk-query-language.md)
 6. `value` represents the threshold value you are querying. In this case it is the date 01/01/2002. 
 
