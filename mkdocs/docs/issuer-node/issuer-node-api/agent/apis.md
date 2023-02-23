@@ -96,7 +96,7 @@ A typical response looks like this:
 
 ```
 
+<a href="https://self-hosted-platform.polygonid.me/#post-/v1/agent" target="_blank">API Reference</a>
 
-[API Reference](https://self-hosted-platform.polygonid.me/#post-/v1/agent)
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-2a66c833-a76e-4486-8ef6-b78a09ff65d2)

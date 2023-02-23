@@ -8,7 +8,7 @@ A DID can be represented as:
 ```
 did: did method: did method-specific identifier. 
 ```
-This is a standard form of expressing a Decentralised Identifier as defined by the [W3C DID Core 1.0 specification](https://www.w3.org/TR/did-core)
+This is a standard form of expressing a Decentralised Identifier as defined by the <a href="https://www.w3.org/TR/did-core" target="_blank">W3C DID Core 1.0 Specifications</a>
 
 A user can have multiple DIDs. 
 
@@ -57,9 +57,10 @@ The Issuer Node responds by sending a response message that contains:
 
 For each call to the `Create Identity`, a random Identifier is created. 
 
-[API Reference](https://self-hosted-platform.polygonid.me/#post-/v1/identities)
+<a href="https://self-hosted-platform.polygonid.me/#post-/v1/identities" target="_blank">API Reference</a>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-ccf43950-f7a6-4155-a54b-4755d92f0b48)
+
 
 ## Get Identities
 
@@ -73,7 +74,7 @@ The Issuer Node responds by sending a response message that contains:
 
 `did:polygonid:polygon:mumbai:2qNBWSAsyvaGBpqQVHk3E4cgChaN6ogaZnYCQUyoRQ`
 
-[API Reference](https://self-hosted-platform.polygonid.me/#get-/v1/identities)
+<a href="https://self-hosted-platform.polygonid.me/#get-/v1/identities" target="_blank">API Reference</a>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-793c9e52-cdfa-423a-8b42-62b6b05d8e8c)
 
@@ -96,5 +97,6 @@ The Issuer Node responds by sending a response message that indicates the publis
 
 - `txID`: Transaction ID of the Published state on-chain. For example, 0xaed59e4195e73ee6c4278be1a5e01ecbdf2ff9565511916200dedda9bb20ff38
 
+<a href="https://self-hosted-platform.polygonid.me/#post-/v1/-identifier-/state/publish" target="_blank">API Reference</a>
 
-
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-e193e1e1-a740-4c3c-b74c-4696496e0e1e)

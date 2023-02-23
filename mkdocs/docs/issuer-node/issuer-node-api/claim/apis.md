@@ -28,8 +28,7 @@ An id (also called credential id) is assigned to a Verifiable Credential when it
 
 The Issuer Node responds by sending a response message that contains the string `id`, which is the id of the Verifiable Credential created by the Issuer Node. 
 
-
-[API Reference](https://self-hosted-platform.polygonid.me/#post-/v1/-identifier-/claims)
+<a href="https://self-hosted-platform.polygonid.me/#post-/v1/-identifier-/claims" target="_blank">API Reference</a>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-f7c15972-bb5c-4614-974a-c18e367839a6)
 
@@ -71,13 +70,12 @@ The server responds by sending the following data about the Verifiable Credentia
 
 - `proof`: The proof that the user creates to prove that s/he is the real owner of the Verifiable Credential issued from the Issuer and that the Verifiable Credential that it holds is valid. It includes:
 
-
     - `type` of proof (for example, BJJSignature2021 or SparseMerkleTreeProof)
     - `issuerData`: It includes the Issuer's `id` (DID of the Issuer) and its `state` (value of its claimstreeroot, i.e. root of the claims (credential) tree)
     -  `authclaim`: Value of authclaim along with its mtp `existence` (proof of its existence/non-existence in the Merkle tree) - `coreclaim`: Value of coreclaim along with `signature` (Issuer's signature which verifies that the credential is issued by a valid Issuer). 
 
 
-[API Reference](https://self-hosted-platform.polygonid.me/#get-/v1/-identifier-/claims/-id-)
+<a href="https://self-hosted-platform.polygonid.me/#get-/v1/-identifier-/claims/-id-" target="_blank">API Reference</a>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-dbfc361b-fc11-4a2f-ad0f-420c64bbfb58)
 
@@ -133,8 +131,7 @@ The Issuer Node responds by sending a response message that contains the Verifia
     - `issuerData`: It includes the Issuer's `id` (DID of the Issuer) and its `state` (value of its claimstreeroot, i.e. root of the claims (credential) tree)
     -  `authclaim`: Value of authclaim along with its mtp `existence` (proof of its existence/non-existence in the Merkle tree) - `coreclaim`: Value of coreclaim along with `signature` (Issuer's signature which verifies that the credential is issued by a valid Issuer). 
 
-
-[API Reference](https://self-hosted-platform.polygonid.me/#get-/v1/-identifier-/claims)
+<a href="https://self-hosted-platform.polygonid.me/#get-/v1/-identifier-/claims" target="_blank">API Reference</a>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-cd69b428-9659-4e82-87c7-c2012f04327b)
 
@@ -142,7 +139,6 @@ The Issuer Node responds by sending a response message that contains the Verifia
 ## Get Claim QR Code
 
 **Function**: Endpoint to generate a JSON which is then used to generate a QR code on a third-party app. The user can then scan this QR code and accept credentials to his/her wallet.  
-
 
 **How it Works**: The DID (identifier string retrieved from calling the `Create Identity` endpoint) and credential Identifier (or `cid` retrieved from the `Create Claim` endpoint) are passed as path variables in the request URL. 
 
@@ -160,10 +156,9 @@ The Issuer Node responds by sending a response message that contains a JSON whic
 
 This JSON can then be pasted on a third-party app's interface that supports generating QR codes. Once a QR code is generated, the user can scan it via Polygon ID app on mobile and accept a credential to his/her wallet. 
 
-[API Reference](https://self-hosted-platform.polygonid.me/#get-/v1/-identifier-/claims/-id-/qrcode)
+<a href="https://self-hosted-platform.polygonid.me/#get-/v1/-identifier-/claims/-id-/qrcode" target="_blank">API Reference</a>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-258a68a6-6301-454b-84c2-62219748def3)
-
 
 
 ## Revoke Claim
@@ -174,7 +169,7 @@ This JSON can then be pasted on a third-party app's interface that supports gene
 
 The server responds by showing the Revocation Status of the credential.
 
-[API Reference](https://self-hosted-platform.polygonid.me/#post-/v1/-identifier-/claims/revoke/-nonce-)
+<a href="https://self-hosted-platform.polygonid.me/#post-/v1/-identifier-/claims/revoke/-nonce-" target="_blank">API Reference</a>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-a038c968-9e13-4e41-8364-a91e747cc871)
 
@@ -192,10 +187,9 @@ The server responds by sending the following details:
     - `claimstreeRoot`: Root of the Claims Merkle Tree of the Issuer
     - `state`: The Issuer's Identity State 
 - `mtp`
-    - `existence`: Existence or Non-existence of the Revocation Nonce on the Revocation Merkle Tree. For retrieving the revocation status from this endpoint, we need to first send a transaction and after that, the state is published on-chain. Once that is done, the existence of the revocation nonce on Merkle Tree changes to "true". 
-    
+    - `existence`: Existence or Non-existence of the Revocation Nonce on the Revocation Merkle Tree. For retrieving the revocation status from this endpoint, we need to first send a transaction and after that, the state is published on-chain. Once that is done, the existence of the revocation nonce on Merkle Tree changes to "true".    
 
-[API Reference](https://self-hosted-platform.polygonid.me/#get-/v1/-identifier-/claims/revocation/status/-nonce-)
+<a href="https://self-hosted-platform.polygonid.me/#get-/v1/-identifier-/claims/revocation/status/-nonce-" target="_blank">API Reference</a>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-474c51a2-b026-4750-9bc7-488bc52c02ce)
 
