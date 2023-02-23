@@ -1,6 +1,6 @@
 # Agent
 
-The agent endpoint acts as a port to  communicate messages between the mobile app and the server. The user, using agent endpoint, can access functionality through his/her mobile app. 
+The agent endpoint acts as a port to communicate messages between the mobile app and the server. The user, using the agent endpoint, can access the functionality through his/her mobile app. 
 
 The core feature of  message-based communication initiation in messaging specification is the process of looking up the two main properties of each identity: 
 
@@ -13,11 +13,11 @@ The JWZ is generated within the user's identity wallet in response to the authen
 
 ## Agent Endpoint
 
-**Function**: Endpoint to send a JWZ token from user's mobile app. 
+**Function**: Endpoint to send a JWZ token from the user's mobile app. 
 
 **How it Works**: The user's app sends a JWZ token in the request body. 
 
-The Issuer Node responds by sending a response message that contains details related Verifiable Credential and Issuer. It also includes metadata such as:
+The Issuer Node responds by sending a response message that contains details related to Verifiable Credential and Issuer. It also includes metadata such as:
 
 `from`: from which user DID the message is sent
 `to`: to which Issuer DID the message is sent
