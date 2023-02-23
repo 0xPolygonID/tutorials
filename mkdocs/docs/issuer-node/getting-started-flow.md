@@ -182,6 +182,7 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
     <div align="center">
          <img src= "../../imgs/publisher-started.png" align="center" style="border: 1px solid black"/>
          </div>
+
 ### Authenticate to Send Requests
 
 Before you can start making API calls to the Issuer Node with endpoints, you need to authenticate first with a username and a password. This is done using the `Authentication` endpoint using Postman or your own API platform. 
