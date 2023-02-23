@@ -31,7 +31,7 @@ Though not mandatory, it is good to have the following software installed on you
  
 ## Issuer Node Components
  
-The Issuer Node comprises the following components and each one of these components can be either dockerized or each one of these can be launched as separate services. 
+The Issuer Node comprises the following components and each one of these components can be either dockerized or each one of these can be launched as separate service. 
 
 - **Issuer Application** to issue the Verifiable Credentials to an entity.
 
