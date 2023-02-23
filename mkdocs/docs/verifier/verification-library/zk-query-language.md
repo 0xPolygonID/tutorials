@@ -443,7 +443,7 @@ When presented with this query, the user must prove that he/she is not resident 
     }
     ```
 
-<!-- ### Not-equal - Operator 6
+### Not-equal - Operator 6
 
 **Credential Schema**
 
@@ -465,7 +465,7 @@ When presented with this query, the user must prove that he/she is not resident 
             context: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v4.jsonld',
             credentialSubject: {
             countryCode: {
-              $neq: 840
+              $ne: 840
             },
             },
           },
@@ -516,7 +516,7 @@ When presented with this query, the user must prove that he/she is not resident 
                         "context": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v4.jsonld",
                         "credentialSubject": {
                             "countryCode": {
-                                "$neq": 840
+                                "$ne": 840
                             }
                         },
                         "type": "KYCCountryOfResidenceCredential"
@@ -525,4 +525,4 @@ When presented with this query, the user must prove that he/she is not resident 
             ]
         }
     }
-    ``` -->
+    ```
