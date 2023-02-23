@@ -14,13 +14,44 @@ This flow details the steps that can be carried out to achieve full integration 
 
 #### Start Issuer Node Using Docker-Compose
 
-1. Start Docker Daemon and use the following command to run all the Vault, Redis, And Postgres containers.
+1. Start Docker Daemon and use the following command to run all the Vault, Redis, And Postgres containers. 
 
     ```
     make up
     ```
 
-2. Place Ethereum Private Key in Vault. For that, run the following command to start the vault container in the interactive mode. This command is used to go inside the vault and run `sh` or `bsh` commands inside it. 
+    With this, the system runs a `docker-compose` command to start the redis, postgres, and vault containers:
+
+      ```
+      docker-compose -p “project name” -f path/docker-compose.yml up -d redis postgres vault
+
+      ```
+
+    where the `path` shows the location of the docker-compose.yml file.
+
+      
+    This starts the Postgres, Redis, and Vault containers:
+    <br>
+      <div align="center">
+         <img src= "../../imgs/makeup.png" align="center" style="border: 1px solid black"/>
+         </div>
+         <br>
+
+      To verify that the containers are running, execute this command:
+
+      ```
+      docker ps
+      ```
+      This lets you see all the containers that are currently running along with their statuses and ports.
+
+      <div align="center">
+         <img src= "../../imgs/docker-ps.png" align="center" style="border: 1px solid black"/>
+         </div>
+      <br>
+
+    > Note: Use these docker images only for evaluation purposes. For production, you must secure each of these services first. 
+
+2. Place Ethereum Private Key in Vault. For this, run the following command to start the vault container in the interactive mode. This command is used to go inside the vault and run `sh` or `bsh` commands inside it. 
 
       ```
       docker exec -it vault-docker-name sh (or bash)
@@ -33,6 +64,13 @@ This flow details the steps that can be carried out to achieve full integration 
       ```
       vault write iden3/import/pbkey key_type=ethereum private_key=<privkey>
       ```
+
+      <div align="center">
+         <img src= "../../imgs/ethereum-priv-key.png" align="center" style="border: 1px solid black"/>
+         </div>
+         <br>
+
+      With this, the Ethereum Private Key is written into the vault container. 
 
 3. To set up your Issuer Node and make it all up and running, you need to configure it first. This is done using a `config.toml` file. The repository provides you with a `config.toml.sample` file that contains different fields and their sample values. To start configuring these fields, create a `config.toml` file in your repository and paste the contents of the `config.toml.sample` in it. Now you can set values as required:
 
@@ -62,6 +100,14 @@ This flow details the steps that can be carried out to achieve full integration 
       make run
       ```
 
+    This starts the Issuer Node at the port specified in the `config.toml` file. 
+      <div align="center">
+      <img src= "../../imgs/node-start.png" align="center" style="border: 1px solid black"/>
+      </div>
+     
+
+> **Important**: Please note that for the users of the M1/M2 chips on Mac, running the Issuer Node with dockerization might give some errors. This is a "known issue". We have tested this for Ubuntu and macOS, however for Windows, testing has not yet been carried out. There is an alternative set of steps that involves running the Issuer Node in the standalone mode. You will read more about these steps in the upcoming section. 
+
 #### Start Issuer Node in the Standalone Mode 
 
 In the Standalone Mode, we compile the Issuer Node and create the executables to run it without using docker.
@@ -73,15 +119,46 @@ In the Standalone Mode, we compile the Issuer Node and create the executables to
       ```
       make build
       ```
-This command will compile and create binaries for `Platform` (for APIs), `Migrate` (for creating database schemas from scratch), and `Pending_Publisher`(to check transactions sent to the blockchain)
+This command will compile and create binaries for `Platform` (for APIs), `Migrate` (for creating database schemas from scratch), and `Pending_Publisher`(to check errors in transactions sent to the blockchain).
 
-3. Make sure that Vault, Redis, and Postgres are all up and running. 
+    <div align="center">
+         <img src= "../../imgs/make-build.png" align="center" style="border: 1px solid black"/>
+         </div>
+         <br>
+
+3. Make sure that Vault, Redis, and Postgres are all up and running. You can use the `make up` command to start the containers (but as mentioned previously, use these images only for evaluation purposes):
+
+    ```
+    make up
+    ```
+    <div align="center">
+         <img src= "../../imgs/makeup.png" align="center" style="border: 1px solid black"/>
+         </div>
+         <br>
+
+    To verify that the containers are running, execute this command:
+
+      ```
+      docker ps
+      ```
+      This lets you see all the containers that are currently running along with their statuses and ports.
+
+      <div align="center">
+         <img src= "../../imgs/docker-ps.png" align="center" style="border: 1px solid black"/>
+         </div>
+      <br>
 
 4. Configure your database using the following command:
 
       ```
       make db/migrate
       ```
+    <div align="center">
+         <img src= "../../imgs/migration-done.png" align="center" style="border: 1px solid black"/>
+         </div>
+        
+
+      This checks the current structure of the database, and accordingly, either creates or updates the database. 
 
 5. Run this command to start the Issuer Node:
 
@@ -89,7 +166,12 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
       ./bin/platform
       ```
 
-    This starts the Issuer Node. 
+    <div align="center">
+         <img src= "../../imgs/issuer-node-starts.png" align="center" style="border: 1px solid black"/>
+         </div>
+        
+
+    This starts the Issuer Node. You can now browse to the port configured for your server (ServerPort)in the `config.toml` file and view the API documentation. For example, this could be http://localhost:3001.
 
 6. Run the following command to start the Pending_Publisher service:
 

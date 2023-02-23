@@ -36,9 +36,7 @@ nav:
         - API Reference:
           - Identity: "issuer-node/issuer-node-api/identity/apis.md"
           - Claim: "issuer-node/issuer-node-api/claim/apis.md"
-          - Agent: "issuer-node/issuer-node-api/agent/apis.md"
-      - Local Setup:     
-          - Run Issuer Node: "issuer-node/issuer-node-local-setup/run-issuer-node.md"
+          - Agent: "issuer-node/issuer-node-api/agent/apis.md" 
       - Getting Started Flow: "issuer-node/getting-started-flow.md"      
   - Verifier:
     - Overview: "verifier/verifier-overview.md"
