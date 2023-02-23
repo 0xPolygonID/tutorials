@@ -4,7 +4,8 @@ The Issuer Node APIs provide a user with the following functionalities:
 
 - Create and Retrieve Identities
 - Create Verifiable Credentials (VC)
-- Retrieve a verifiable Credential or a list of Verifiable Credentials
+- Retrieve a Verifiable Credential or a List of Verifiable Credentials
+- Generate JSON to Create a QR Code and Use That to Accept Credentials
 - Revoke a Verifiable Credential
 - Retrieve the Revocation Status of the Verifiable Credential
 - Call Agent Endpoint using the Wallet App
