@@ -15,7 +15,7 @@ To create a credential, you require a schema that contains semantics of the JSON
 
 To create a credential, the Polygon ID app must be installed on your mobile. 
 
-1. On Issuer website, click **Signup**.
+1. On the Issuer website, click **Signup**.
 
     <div align="center">
     <img src= "../../imgs/signup.png" align="center" width="300"/>
@@ -29,21 +29,21 @@ To create a credential, the Polygon ID app must be installed on your mobile.
     </div>
     <br>
 
-2. Open Polygon ID app and authenticate with pin/biometrics
+2. Open the Polygon ID app and authenticate with pin/biometrics
 
     <div align="center">
     <img src= "../../imgs/authenticate.png" align="center" width="200" height="400"/>
     </div>
     <br>
 
-3. On app, click **Connect**.
+3. On the app, click **Connect**.
 
     <div align="center">
     <img src= "../../imgs/connect.jpg" align="center" width="200" height="400" border="2"/>
     </div>
     <br>
 
-4. With app, scan the QR code displayed on the site and click **Connect Wallet**. 
+4. With the app, scan the QR code displayed on the site and click **Connect Wallet**. 
 
     <div align="center">
     <img src= "../../imgs/connect-wallet.jpg" align="center" width="200" height="400" border="1"/>
@@ -57,14 +57,14 @@ To create a credential, the Polygon ID app must be installed on your mobile.
     </div>
     <br>
 
-    After authentication process is complete, the app shows the message if the identity is successfully authenticated or it failed to authenticate.  
+    After the authentication process is complete, the app shows the message if the identity is successfully authenticated or if it failed to authenticate.  
 
     <div align="center">
     <img src= "../../imgs/authenticated.png" align="center" width="200" height="400" border="1"/>
     </div>
     <br>
 
-6. On website, click **Create Claim**.
+6. On the website, click **Create Claim**.
 
     <div align="center">
     <img src= "../../imgs/create-credentials.png" align="center" width="500"  border="1"/>
@@ -89,7 +89,7 @@ To create a credential, the Polygon ID app must be installed on your mobile.
     - `ProofOfDaoLongevity`
 
     The ***expiration*** date sets the date on which the credential will expire. 
-    The ***Data JSON*** contains the actual data that the credential is attesting to. In this case the credential contains a single field `entryDate` that needs to be populated with the date the user joined the DAO.
+    The ***Data JSON*** contains the actual data that the credential is attesting to. In this case, the credential contains a single field `entryDate` that needs to be populated with the date the user joined the DAO.
     
     Once filled up, click **Submit**.
 
