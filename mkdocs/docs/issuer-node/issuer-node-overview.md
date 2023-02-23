@@ -3,10 +3,10 @@
 The Issuer Node is a self-hosted Node that any implementer can quickly set up and integrate into their application. Once the setup is completed, the Issuer Node exposes all the functionalities necessary to run an issuer such as:
  
 - Create, manage, and revocate an identity on behalf of the Issuer
-- Issue Credentials to an identity
-- Share Credentials to the user's wallet
-- Publish [identity states](https://docs.iden3.io/getting-started/identity/identity-state/) on-chain 
-- Manage data communication protocols between wallet agents 
+- Issue credentials to an identity
+- Share credentials with the user's wallet using QR Code
+- Publish <a href="https://docs.iden3.io/getting-started/identity/identity-state/" target="_blank">Identity States</a> on-chain 
+- Revocate credentials 
 
  
 The Issuer Node can generate multiple identities for multiple Issuers and manages the states of these identities by updating the state stored on-chain. 
