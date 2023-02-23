@@ -73,9 +73,9 @@ In the Standalone Mode, we compile the Issuer Node and create the executables to
       ```
       make build
       ```
-This command will compile and create binaries for `Platform` (for APIs), `Migrate` (for creating database schemas from scratch) and `Pending_Publisher`(to check transactions sent to blockchain)
+This command will compile and create binaries for `Platform` (for APIs), `Migrate` (for creating database schemas from scratch), and `Pending_Publisher`(to check transactions sent to the blockchain)
 
-3. Make sure that Vault, Redis, and Postgres are all running. 
+3. Make sure that Vault, Redis, and Postgres are all up and running. 
 
 4. Configure your database using the following command:
 
@@ -185,7 +185,7 @@ The Issuer Node responds by sending a JSON.
 
 where `credentials` contains the credential id (`cid`) and the related schema link. 
 
-`url` is the address to which the user's mobile  calls the endpoint. 
+`url` is the address at which the user's wallet makes a call to the endpoint.
 
 `from` is the `did` of the Issuer.
 
