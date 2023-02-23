@@ -21,7 +21,7 @@ Though not mandatory, it is good to have the following software installed on you
 - **Docker Compose**: Docker Compose must be installed on your system. Docker Compose is used to start multiple containers together.
 
 
-    > Note: You can install Docker Daemon and Docker Compose separately. Alternatively, you can install [Docker Desktop]((https://docs.docker.com/desktop/)) which includes both Daemon and Docker Compose. It is a tool to build and run containers for your applications. Due to its simplistic model, it removes the need to use CLI(Command Line Interface) to do core actions. With Docker Desktop, you can manage your containers from your application itself. 
+    > Note: You can install Docker Daemon and Docker Compose separately. Alternatively, you can install [Docker Desktop](https://docs.docker.com/desktop/) which includes both Daemon and Docker Compose. It is a tool to build and run containers for your applications. Due to its simplistic model, it removes the need to use CLI(Command Line Interface) to do core actions. With Docker Desktop, you can manage your containers from your application itself. 
 
 - **Go**: If you intend to run the Issuer Node on an IDE, install the latest version of Go. If the Go backend is dockerized like other containers, there is no need to install Go locally. 
 

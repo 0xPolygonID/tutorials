@@ -51,7 +51,7 @@ This flow details the steps that can be carried out to achieve full integration 
 
     > Note: Use these docker images only for evaluation purposes. For production, you must secure each of these services first. 
 
-2. Place Ethereum Private Key in Vault. For this, run the following command to start the vault container in the interactive mode. This command is used to go inside the vault and run `sh` or `bsh` commands inside it. 
+2. <a id="issuer-node-using-docker"></a>Add Ethereum Private Key to the Vault. For this, run the following command to start the vault container in the interactive mode. This command is used to go inside the vault and run `sh` or `bsh` commands inside it. 
 
       ```
       docker exec -it vault-docker-name sh (or bash)
@@ -148,7 +148,9 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
          </div>
       <br>
 
-4. Configure your database using the following command:
+4. Add Ethereum Private Key to the Vault; for this, follow [step 2](#issuer-node-using-docker) of the previous section.
+
+5. Configure your database using the following command:
 
       ```
       make db/migrate
@@ -160,7 +162,7 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
 
       This checks the current structure of the database, and accordingly, either creates or updates the database. 
 
-5. Run this command to start the Issuer Node:
+6. Run this command to start the Issuer Node:
 
       ```
       ./bin/platform
@@ -173,7 +175,7 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
 
     This starts the Issuer Node. You can now browse to the port configured for your server (ServerPort)in the `config.toml` file and view the API documentation. For example, this could be http://localhost:3001.
 
-6. Run the following command to start the Pending_Publisher service:
+7. Run the following command to start the Pending_Publisher service:
 
       ```
       ./bin/pending_publisher
