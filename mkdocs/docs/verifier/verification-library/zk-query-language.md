@@ -78,7 +78,7 @@ When presented with this query, the user must prove that he/she is a Person.
         "body": {
             "reason": "airdrop participation",
             "transaction_data": {
-                "contract_address": "0xE4aFDa9db86853BDf387cA6d0bb54616b6681e7d", // replace with your contract address
+                "contract address" : "<add your contract address here>", // replace with your contract address
                 "method_id": "b68967e2",
                 "chain_id": 80001,
                 "network": "polygon-mumbai"
@@ -163,7 +163,7 @@ When presented with this query, the user must prove that he/she has been born be
         "body": {
             "reason": "airdrop participation",
             "transaction_data": {
-                "contract_address": "0x7dfc563799f62BeF65cF5622Df617CE1a53E5D0b",
+                "contract address" : "<add your contract address here>",
                 "method_id": "b68967e2",
                 "chain_id": 80001,
                 "network": "polygon-mumbai"
@@ -245,7 +245,7 @@ When presented with this query, the user must prove that his/her monthly salary 
         "body": {
             "reason": "airdrop participation",
             "transaction_data": {
-                "contract_address": "0x8231DD285C6cE1d1308d8C55b185b62B5BAa8C69",
+                "contract address" : "<add your contract address here>",
                 "method_id": "b68967e2",
                 "chain_id": 80001,
                 "network": "polygon-mumbai"
@@ -332,7 +332,7 @@ When presented with this query, the user must prove that he/she is either an Adm
         "body": {
             "reason": "airdrop participation",
             "transaction_data": {
-                "contract_address": "0xdFE7B2343ed58eF2f0A083AaCEE6D19d5939f7d3",
+                "contract address" : "<add your contract address here>",
                 "method_id": "b68967e2",
                 "chain_id": 80001,
                 "network": "polygon-mumbai"
@@ -416,7 +416,7 @@ When presented with this query, the user must prove that he/she is not resident 
         "body": {
             "reason": "airdrop participation",
             "transaction_data": {
-                "contract_address": "0xdc018a5b9EE41b6943cF29D8E234db89d193AD33",
+                "contract address" : "<add your contract address here>",
                 "method_id": "b68967e2",
                 "chain_id": 80001,
                 "network": "polygon-mumbai"
@@ -500,7 +500,7 @@ When presented with this query, the user must prove that he/she is not resident 
         "body": {
             "reason": "airdrop participation",
             "transaction_data": {
-                "contract_address": "0x1F4Be988dd0b429D9BE71e4A3b5734F79909ca55",
+                "contract address" : "<add your contract address here>",
                 "method_id": "b68967e2",
                 "chain_id": 80001,
                 "network": "polygon-mumbai"
