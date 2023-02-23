@@ -1,6 +1,6 @@
 # Identity
 
-The identity endpoint is used to create and retrieve identities for a user/issuer. Poylgon ID supports the creation of identities the in form of DIDs (Decentralized Identifiers).
+The identity endpoint is used to create and retrieve identities for a user/issuer. Polygon ID supports the creation of identities the in form of DIDs (Decentralized Identifiers).
 
 > Note: A DID is a cryptographically verifiable decentralized identifier. How a DID is verified is specified in its DID method. A DID resolves to a DID document that describes how to interact with the DID subject (The user that holds the identity). The DID document contains public keys that are used to authenticate the DID subject. An example of DID resolution could be a verifier resolving an Issuer's DID to get the public key, which is required to verify the signature on a Verifiable Credential. 
 
