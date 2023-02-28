@@ -129,7 +129,8 @@ The Issuer Node responds by sending a response message that contains the Verifia
 
     - `type` of proof (for example, BJJSignature2021 or SparseMerkleTreeProof)
     - `issuerData`: It includes the Issuer's `id` (DID of the Issuer) and its `state` (value of its claimstreeroot, i.e. root of the claims (credential) tree)
-    -  `authclaim`: Value of authclaim along with its mtp `existence` (proof of its existence/non-existence in the Merkle tree) - `coreclaim`: Value of coreclaim along with `signature` (Issuer's signature which verifies that the credential is issued by a valid Issuer). 
+    -  `authclaim`: Value of authclaim along with its mtp `existence` (proof of its existence/non-existence in the Merkle tree) 
+    - `coreclaim`: Value of coreclaim along with `signature` (Issuer's signature which verifies that the credential is issued by a valid Issuer). 
 
 <a href="https://self-hosted-platform.polygonid.me/#get-/v1/-identifier-/claims" target="_blank">API Reference</a>
 
