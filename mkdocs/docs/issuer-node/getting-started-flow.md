@@ -108,7 +108,7 @@ In the Standalone Mode, we compile the Issuer Node and create the executables to
       ```
       make build
       ```
-This command will compile and create binaries for `Platform` (for APIs), `Migrate` (for creating database schemas from scratch), and `Pending_Publisher`(to check errors in transactions sent to the blockchain).
+This command will compile and create binaries for `Platform` (for APIs), `Migrate` (for creating database schemas from scratch), and `Pending_Publisher`(which is a program that runs in the background and gets the failed transactions and retries them).
 
     <div align="center">
          <img src= "../../imgs/make-build.png" align="center" style="border: 1px solid black"/>
@@ -166,7 +166,7 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
 
 ### Authenticate to Send Requests
 
-Before you can start making API calls to the Issuer Node with endpoints, you need to authenticate first with a username and a password. This is done using the `Authentication` endpoint using Postman or your own API platform. 
+Before you can start making API calls to the Issuer Node with endpoints, you need to authenticate first with a `username` and a `password`. This is done using the Basic Auth endpoint using Postman or your own API platform. That usernmae and password are the ones that you have configured in the `config.toml` file.
 
 ## Create Identity
 
