@@ -81,7 +81,7 @@ The Issuer Node responds by sending a response message that contains:
 
 ## Publish State On-Chain
 
-**Function**: Endpoint to publish the state of an Identity on-chain. 
+**Function**: Endpoint to publish the [Identity State](https://docs.iden3.io/getting-started/identity/identity-state/) on-chain. 
 
 **How it Works**: The identifier string in the DID format (retrieved from calling the `Create Identity` endpoint) is passed as a path variable in the request URL. 
 

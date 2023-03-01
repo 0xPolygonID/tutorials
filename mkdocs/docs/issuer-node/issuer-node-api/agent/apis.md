@@ -8,8 +8,7 @@ The core feature of  message-based communication initiation in messaging specifi
 
 2. The public key that a specific identity agent is using for communication with another identity.
 
-The JWZ is generated within the user's identity wallet in response to the authentication requested by an Issuer. 
-
+The [JWZ](../../../wallet/wallet-sdk/polygonid-sdk/iden3comm/jwz.md) is generated within the user's identity wallet in response to the authentication requested by an Issuer. 
 
 ## Agent Endpoint
 

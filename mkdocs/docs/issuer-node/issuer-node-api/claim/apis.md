@@ -19,12 +19,12 @@ An id (also called credential id) is assigned to a Verifiable Credential when it
 
  The following parameters are passed in the body of the request:
 
-- `credentialSchema`: It is a template for a Verifiable Credential that guarantees the structure of a credential. This way, an Issuer, a Holder, and a Verifier can reference the data in a known way. The request uses the https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json schema.
-- `type`: the type of the credential schema sent; for this request, an example of the type of credential can be `KYCAgeCredential` which is a credential issued based on the age of the user. 
-- `credentialSubject`: Contains DID (Decentralized Identifier), i.e. `did`, which is assigned to the user, `birthday` (user's birth date), and `documentType`. 
+- `credentialSchema`: It is a template for a Verifiable Credential that guarantees the structure of a credential. This way, an Issuer, a Holder, and a Verifier can reference the data in a known way. Further details on the `credentialSchema` can be found in the [Create Custom Schema](../../../issuer/schema.md) section.
+- `type`: the type of the credential schema sent.
+- `credentialSubject`: Contains DID (Decentralized Identifier), i.e. `did`, of the user and the fields related to the data to be attested.
 - `expiration`: Date of expiry of the Verifiable Credential. 
 
-> Note: Depending on the schema a user opts for, the request body may contain some fields of the schema while leaving out the others. For example, in the explanation above, we have considered the schema of the type `KYCAgeCredential` and therefore, included the `birthday` and `documentType` fields. 
+> Note: Depending on the schema a user opts for, the request body may contain some fields of the schema while leaving out the others. For example, in the API reference, we have considered the schema of the type `KYCAgeCredential` and therefore, included the `birthday` and `documentType` fields. 
 
 The Issuer Node responds by sending a response message that contains the string `id`, which is the id of the Verifiable Credential created by the Issuer Node. 
 
@@ -39,24 +39,18 @@ The Issuer Node responds by sending a response message that contains the string 
 
 **How it Works**: The DID (the identifier string retrieved from calling the `Create Identity` endpoint) and the Claim ID, i.e.`id` (or CID) of the Verifiable Credential (retrieved from calling the `Create Claim` endpoint) are passed as path variables in the request URL. 
 
- The following parameters are passed in the body of the request:
-
- - `credentialSchema`: It is a template for a Verifiable Credential that guarantees the structure of a credential. This way, an Issuer, a Holder, and a Verifier can reference the data in a known way. The request uses the https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json schema.
-- `type`: the type of the credential schema sent; for this request, an example of the type  of credential can be `KYCAgeCredential` which is a credential issued based on the age of the user 
-- `credentialSubject`: Contains DID (Decentralised IDentifier), i.e. `did`, which is assigned to the user, `birthday` (user's birth date), and `documentType`. 
-- `expiration`: Date of Verifiable Credential expiry.
+The endpoint requires to pass the issuer `did` and the Verifiable Credential `CID` as path variables in the request URL.
 
 The server responds by sending the following data about the Verifiable Credential:
 
-- `Context`: URL pointing to the json-ld documents that define how claim-schema-vocab (here we are using schemas of the type SparseMerkleTreeProof and KYCAgeCredential)are defined.
+- `Context`: URL pointing to the JSON-LD Context of the Verifiable Credential.
 
-- `credentialSchema`: URL pointing to the credential schema of type json. 
+- `credentialSchema`: URL pointing to the credential JSON schema. 
 
-- `credentialStatus`: Shows credentialStatus `id` (which is the Revocation status of the credential (presence or absence of the revocation nonce value), `revocationNonce` (zero or any value), `type`(type of Proof, for example, SparseMerkleTreeProof). 
+- `credentialStatus`: Shows the URL to fetch the [Revocation status](https://docs.iden3.io/getting-started/claim-revocation/) of the credential, `revocationNonce` (zero or any value), `type` (type of Proof, for example, SparseMerkleTreeProof). 
 
 - `credentialSubject`: Contains details of the subject (to whom the credential is issued) and includes:
-    - `birthday`: subject's date of birth, DID of the Subject
-    - `documentType`
+    - Credential Fields (for example, `birthday` and `documentType` in the case of KYCAgeCredential)
     - `id`: DID of the Subject
     - `type`: Type of credential for credentialSubject (for example, KYCAgeCredential)
 
@@ -78,7 +72,6 @@ The server responds by sending the following data about the Verifiable Credentia
 <a href="https://self-hosted-platform.polygonid.me/#get-/v1/-identifier-/claims/-id-" target="_blank">API Reference</a>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-star-200015/workspace/public/request/23322631-dbfc361b-fc11-4a2f-ad0f-420c64bbfb58)
-
 
 
 ## Get Claims
@@ -103,9 +96,7 @@ You can retrieve a set of credentials based on different filters or criteria. Th
 
 > Note: The "subject" and "self" filters cannot be applied together. 
 
-
 The Issuer Node responds by sending a response message that contains the Verifiable Credential and all the information related to it. The response consists of information related to **authclaim** (which authorizes the user that requests for credential) and **coreclaim** (the actual credential issued by an Issuer to the user. Depending on these two claims, the information related to these two may differ in the response body. Here, we are going to provide an overview of some of these fields:
-
 
 - `Context`: URL pointing to the json-ld documents that define how credential schema (here we are using BJJAuthCredential) and claim-schema-vocab (here we are using SparseMerkleTreeProof)are defined. 
 
@@ -141,7 +132,7 @@ The Issuer Node responds by sending a response message that contains the Verifia
 
 **Function**: Endpoint to generate a JSON which is then used to generate a QR code on a third-party app. The user can then scan this QR code and accept credentials to his/her wallet.  
 
-**How it Works**: The DID (identifier string retrieved from calling the `Create Identity` endpoint) and credential Identifier (or `cid` retrieved from the `Create Claim` endpoint) are passed as path variables in the request URL. 
+**How it Works**: The Issuer DID (identifier string retrieved from calling the `Create Identity` endpoint) and credential Identifier (or `cid` retrieved from the `Create Claim` endpoint) are passed as path variables in the request URL. 
 
 The Issuer Node responds by sending a response message that contains a JSON which carries the following fields:
 
@@ -166,7 +157,7 @@ This JSON can then be pasted on a third-party app's interface that supports gene
 
 **Function**: Endpoint to revoke a Verifiable Credential 
 
-**How it Works**: The DID (The identifier string retrieved from calling the `Create Identity` endpoint) and `nonce` (Revocation Nonce) are passed as a path variable in the request URL. 
+**How it Works**: The Issuer DID (The identifier string retrieved from calling the `Create Identity` endpoint) and `nonce` of the VC to be revoked (Revocation Nonce) are passed as a path variable in the request URL. 
 
 The server responds by showing the Revocation Status of the credential.
 
@@ -180,7 +171,6 @@ The server responds by showing the Revocation Status of the credential.
 **Function**: Endpoint to retrieve the Revocation Status of the Verifiable Credential.  
 
 **How it Works**: The DID (The identifier string retrieved from calling the `Create Identity` endpoint) and `nonce` (Revocation Nonce) are passed as a path variable in the request URL. For the credential to be marked "revoked", we need to publish the state first on-chain, and then wait for 5 confirmation blocks. 
-
 
 The server responds by sending the following details:
 
