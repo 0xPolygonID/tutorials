@@ -59,10 +59,10 @@ The Issuer Node can be set up in two ways: using [Docker](#start-issuer-node-usi
 4. <a id="issuer-node-using-docker"></a>Add Ethereum Private Key to the Vault. For this, run the following command to start the vault container in the interactive mode. This command is used to go inside the vault and run `sh` or `bsh` commands inside it. 
 
       ```
-      docker exec -it vault-docker-name sh (or bash)
+      docker exec -it sh-id-platform-test-vault sh
       ```
 
-      where `-it` flag stands for the interactive mode that allows you to interact with the shell of the vault container. `vault-docker-name` is the name of your vault container. 
+      <!-- where `-it` flag stands for the interactive mode that allows you to interact with the shell of the vault container. `vault-docker-name` is the name of your vault container.  -->
 
       As you run this command, it waits for your input. Here, as an input,  we shall place the `Ethereum Private Key` in the vault:
 
@@ -125,23 +125,9 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
          </div>
          <br>
 
-    To verify that the containers are running, execute this command:
-
-      ```
-      docker ps
-      ```
-      This lets you see all the containers that are currently running along with their statuses and ports.
-
-      <div align="center">
-         <img src= "../../imgs/docker-ps.png" align="center" style="border: 1px solid black"/>
-         </div>
-      <br>
-
 4. Add Ethereum Private Key to the Vault; for this, follow step 4 of the previous section.
 
-
 5. Configure the `config.toml` file like you did in the previous section at step 5.
-
 
 6. Configure your database using the following command:
 
@@ -184,7 +170,7 @@ Before you can start making API calls to the Issuer Node with endpoints, you nee
 
 ## Create Identity
 
-Next, you need to create an Identity for the issuer/user. For this, make a call to the `Create Identity` endpoint. You need to enter the server URL (where you started the Issuer Node) in the request URL. The
+Next, you need to [create an Identity](./issuer-node-api/identity/apis.md#create-identity) for the issuer/user. For this, make a call to the `Create Identity` endpoint. The
 `didMetaData` is passed in the request body. This metadata is required to create Issuer's DID.
 
 ```
@@ -214,7 +200,7 @@ The Issuer Node responds by sending a response message that contains:
 
 ## Create Credential
 
-Post Identity creation, you can start the process of credential creation. For this, the `Create Claim` endpoint is used. The `identifier` (or `id`) of the issuer/user you generated in the previous step is passed in the request URL. `credentialSchema` (schema on which credential's format would be based) and `credentialSubject` (Subject details such as `id`(user's wallet id ), and other information (for example, birthday) are passed in the request body. 
+Post Identity creation, you can start the process of credential creation. For this, the [`Create Claim`](./issuer-node-api/claim/apis.md#create-claim) endpoint is used. The `identifier` (or `id`) of the issuer you generated in the previous step is passed as path parameter in the request URL. `credentialSchema` (schema on which credential's format would be based) and `credentialSubject` (Subject details such as `id`(user's wallet id ), and other information related to the credential schema (for example, in this case, `birthday` and `documentType`) are passed in the request body. 
 
 ```
 {
@@ -238,9 +224,9 @@ The Issuer Node responds by sending a credential id string. When this credential
 
 ## Create QR Code to Accept a Credential
 
-With the `Get Claim QR Code` endpoint, you can generate a JSON which is then used to create a QR code. A user can use a third-party application to generate a QR Code from this JSON. 
+With the [`Get Claim QR Code`](./issuer-node-api/claim/apis.md#get-claim-qr-code) endpoint, you can generate a JSON which is then used to create a QR code. A user can use a third-party application to generate a QR Code from this JSON. 
 
-The identifier `did` of the user that we generated with the `Create Identity` endpoint and Credential Id `cid` that we generated in the `Create Claim` endpoint are passed as the path variable in the request URL. 
+The identifier `did` of the issuer that we generated with the `Create Identity` endpoint and Credential Id `cid` that we generated in the `Create Claim` endpoint are passed as the path parameters in the request URL. 
 
 The Issuer Node responds by sending a JSON. 
 
@@ -280,6 +266,7 @@ Copy this JSON and paste it on a third-party website that can generate a QR code
     <img src= "../../imgs/qr-code-generated.png" align="center" width="200"  border="1"/>
     </div>
 <br>
+
 The user can scan this QR Code using the Polygon ID app and accept the credentials.
 
 <div align="center">
