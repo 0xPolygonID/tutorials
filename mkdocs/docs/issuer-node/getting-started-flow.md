@@ -79,7 +79,7 @@ The Issuer Node can be set up in two ways: using [Docker](#start-issuer-node-usi
 
 5. To set up your Issuer Node and make it all up and running, you need to configure it first. This is done using a `config.toml` file. The repository provides you with a `config.toml.sample` file that contains different fields and their sample values. To start configuring these fields, create a `config.toml` file in your repository and paste the contents of the `config.toml.sample` in it. A few fields need to be configured before you can start the Issuer Node.
 
-    - ServerUrl:  If the Issuer Node is to be started locally, enter the localhost URL (for example, http://localhost:3001). If the Issuer Node is to be hosted on Google Cloud or an AWS or some other cloud (instead of being installed locally), enter the URL where the machine is located.
+    - ServerUrl:  If the Issuer Node is to be started locally, enter the localhost URL (for example, http://localhost:3001). If the Issuer Node is to be hosted on Google Cloud or an AWS or some other cloud (instead of being installed locally), enter the URL where the machine is located. **Note:** In order to communicate with the Polygon ID Wallet App, the Issuer Node must be hosted on a public URL. For a local setup, you can use [ngrok](https://ngrok.com/) to expose your local server to the internet.
 
     - Keystore Token: It is the Initial Root Token of the Vault. Copy the value of this token from the Vault container and paste it here. OR, once you have run the docker containers, the token can be copied from this path in the repository: "infrastructure/local/.vault/data/init.out".  
 
@@ -223,6 +223,8 @@ The Issuer Node responds by sending a credential id string. When this credential
 ```
 
 ## Create QR Code to Accept a Credential
+
+**Note:** In order to communicate with the Polygon ID Wallet App, the Issuer Node must be hosted on a public URL.
 
 With the [`Get Claim QR Code`](./issuer-node-api/claim/apis.md#get-claim-qr-code) endpoint, you can generate a JSON which is then used to create a QR code. A user can use a third-party application to generate a QR Code from this JSON. 
 

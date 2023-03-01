@@ -130,6 +130,8 @@ The Issuer Node responds by sending a response message that contains the Verifia
 
 ## Get Claim QR Code
 
+**Note:** In order to communicate with the Polygon ID Wallet App, the Issuer Node must be hosted on a public URL.
+
 **Function**: Endpoint to generate a JSON which is then used to generate a QR code on a third-party app. The user can then scan this QR code and accept credentials to his/her wallet.  
 
 **How it Works**: The Issuer DID (identifier string retrieved from calling the `Create Identity` endpoint) and credential Identifier (or `cid` retrieved from the `Create Claim` endpoint) are passed as path variables in the request URL. 
