@@ -9,7 +9,6 @@ This flow details the steps that can be carried out to achieve full integration 
 3. Create Credential 
 4. Create a QR Code to Accept Credential
 
-
 ### Setup the Issuer Node
 
 #### Start Issuer Node Using Docker-Compose

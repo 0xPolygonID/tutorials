@@ -1,6 +1,6 @@
 # Issuer Node Overview
 
-The Issuer Node is a self-hosted Node that any implementer can quickly set up and integrate into their application. Once the setup is completed, the Issuer Node exposes all the functionalities necessary to run an issuer such as:
+The [Issuer Node](https://github.com/0xPolygonID/sh-id-platform) is a self-hosted Node that any implementer can quickly set up and integrate into their application. Once the setup is completed, the Issuer Node exposes all the functionalities necessary to run an issuer such as:
  
 - Create, manage, and revoke an identity
 - Issue credentials to an identity
@@ -29,7 +29,7 @@ Though not mandatory, it is good to have the following software installed on you
  
 ## Issuer Node Components
  
-The Issuer Node comprises the following components and each one of these components can be either dockerized or each one of these can be launched as separate service. 
+The [Issuer Node](https://github.com/0xPolygonID/sh-id-platform) comprises the following components and each one of these components can be either dockerized or each one of these can be launched as separate service. 
 
 - **Issuer Application** to issue Verifiable Credentials and communicate with users' wallets.
 
@@ -41,9 +41,11 @@ The Issuer Node comprises the following components and each one of these compone
 
     > Note: In a testing environment, you can run the Vault, Redis, and Postgres services inside a docker. But for production, you are advised to secure these services first before using them. 
 
-## Core Libraries Used in Issuer Node
+## Core Library
+
+- [Issuer Node](https://github.com/0xPolygonID/sh-id-platform)
  
-The Issuer Node is built with:
+## Support Libraries
  
 - <a href="https://github.com/iden3/go-iden3-core" target="_blank">go Iden3 Core</a>: Go implementation of iden3 core functionality  
 - <a href="https://github.com/iden3/go-iden3-crypto" target="_blank">go Iden3 Crypto</a>: Go implementation of important cryptographic elements including baby jubjub key, Keccak256, and poseidon 
