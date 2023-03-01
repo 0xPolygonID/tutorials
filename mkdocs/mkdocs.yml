@@ -31,13 +31,13 @@ nav:
     - Create Custom Schemas : "issuer/schema.md"
     - Issuer Node: 
       - Overview: "issuer-node/issuer-node-overview.md"
+      - Getting Started Flow: "issuer-node/getting-started-flow.md"      
       - Issuer Node API: 
         - Introduction: "issuer-node/issuer-node-api/introduction.md"
         - API Reference:
           - Identity: "issuer-node/issuer-node-api/identity/apis.md"
           - Claim: "issuer-node/issuer-node-api/claim/apis.md"
           - Agent: "issuer-node/issuer-node-api/agent/apis.md" 
-      - Getting Started Flow: "issuer-node/getting-started-flow.md"      
   - Verifier:
     - Overview: "verifier/verifier-overview.md"
     - Quick Start - Demo Verifier : "verifier/demo-verifier.md"
