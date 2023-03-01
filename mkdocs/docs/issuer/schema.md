@@ -25,7 +25,7 @@ We are a DAO that wants to issue VC to its members. Unfortunately, there's no ex
 
 **1. Define which field to include in the schema**
 
-The `ProofOfDaoLongevity` should include a field defined `entryDate` able to attest the specific date when one joined the DAO. 
+The `ProofOfDaoLongevity` should include a field defined `entryDate` able to attest the specific date when one joined the DAO. A credential can contain as many fields as you want!
 
 **2. Create the vocabulary of the Schema Type**
 
@@ -39,7 +39,7 @@ Describes the date when a contributor joined the DAO
 
 **3. Create the JSON-LD Context**
 
-Create a .json-ld file in your repository to contain the JSON-LD Context of the Schema Type. We decide to name it `proof-of-dao-longevity.jsonld`.
+Create a `.jsonld` file in your repository to contain the JSON-LD Context of the Schema Type. We decide to name it `proof-of-dao-longevity.jsonld`.
 
 The JSON-LD Context contains:
 
@@ -229,6 +229,10 @@ This a document that contains the serialization rule and the instruction for the
       }
     ```
     
+**6. Publish it!**
+
+If you were working on a git repository, push all the files, make sure that the repo is public and that's it!
+
 ### Further Resources 
     
 - [JSON-LD - W3C VC Standard](https://www.w3.org/TR/vc-data-model/#json-ld)

@@ -19,4 +19,4 @@ To operate, an Issuer must run an [Issuer Node](../issuer-node/issuer-node-overv
 
 Using Polygon ID an Issuer can issue Credentials to their users (or friends!).
 
-Alternatively, you can quickly try out how the Credential Issuance experience using the [Demo Issuer](./demo-issuer.md).
+Alternatively, you can quickly try out the Credential Issuance experience using the [Demo Issuer](./demo-issuer.md).

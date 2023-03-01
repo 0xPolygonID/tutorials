@@ -11,7 +11,7 @@ Download the Polygon ID Wallet App and create an Identity.
 
 ## Quick Start
 
-To create a credential, you require a schema that contains semantics of the JSON vocabulary and is used to describe a large number of data sets. The schema contains links to JSON-LD Context and JSON URL. For this tutorial, we shall be using an existing KYC-based Age Credential schema.
+To create a credential, you require a schema that contains semantics of the JSON vocabulary and is used to describe a large number of data sets. The schema contains links to JSON-LD Context and JSON URL. For this tutorial, we will be using a customized Schema named `ProofOfDaoLongevity` that attests to someone's `entryDate` inside a DAO. You can find more info about that schema and how to [create a custom Schema](./schema.md).
 
 To create a credential, the Polygon ID app must be installed on your mobile. 
 
@@ -64,6 +64,8 @@ To create a credential, the Polygon ID app must be installed on your mobile.
     </div>
     <br>
 
+    At this point, the Issuer has received information about your Identifier (DID) and can use it as the subject of the credential that will be issued in the next step.
+
 6. On the website, click **Create Claim**.
 
     <div align="center">
@@ -105,39 +107,17 @@ To create a credential, the Polygon ID app must be installed on your mobile.
     </div>
     <br>
 
-<!-- 8. Once a credential is created, you can view it on the Issuer site. For this, click the icon to open and view the credential. 
+8. Once a credential is created, you can view it on the Issuer site. For this, click the icon to open and view the credential. 
 
     <div align="center">
     <img src= "../../imgs/open-credential-link.png" align="center" width="500" border="1"/>
     </div>
     <br>
 
-   A Credential looks like this:
-
-    <div align="center">
-    <img src= "../../imgs/cred1.png" align="center" width="200" border="1"/>
-    </div>
-    
-
-   <div align="center">
-    <img src= "../../imgs/cred2.png" align="center" width="200" border="1"/>
-    </div>
-    
-
-    <div align="center">
-    <img src= "../../imgs/cred3.png" align="center" width="200" border="1"/>
-    </div>
-    
-
-    <div align="center">
-    <img src= "../../imgs/cred4.png" align="center" width="200" border="1"/>
-    </div>
-    <br>
-
-    This shows all the information related to a credential; this includes:
+This shows all the information related to a credential; this includes:
 
 - @Context (JSON-LD Schema) and CredentialSchema (JSON) URLs
-- credentialStatus: Revocation status of the credential along with the revocation nonce. 
-- credentialSubject: Information related to the Subject of the Credential. In this example, this includes subject's birthday, documentType, and id of the Subject in the `did` format.
-- Other information such as expiration date, issuance date, and id of the Issuer in the `did` format.
-- Proof which includes information such as state of the identity published on-chain, the authorization claim, and the actual credential signed by the Issuer.   -->
+- credentialStatus: URL to fetch the [Revocation](https://docs.iden3.io/getting-started/claim-revocation/) status of the credential from the Issuer along with the revocation nonce. 
+- credentialSubject: Information related to the Subject of the Credential. In this example, this includes subject's  `entryDate` and id of the Subject in the `did` format.
+- Other information such as expiration date of the credential, issuance date, and id of the Issuer in the `did` format.
+- Proof which includes information such as state of the issuer identity published on-chain, the non-revocation proof for the [authorization claim](https://docs.iden3.io/getting-started/claim/auth-claim/), and the actual credential [signed](https://docs.iden3.io/getting-started/signature-claim/signature/) by the Issuer. 

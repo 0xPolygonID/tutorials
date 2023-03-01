@@ -27,8 +27,8 @@ nav:
   - Home: "index.md"
   - Issuer:
     - Overview: "issuer/issuer-overview.md"
-    - Create Custom Schemas : "issuer/schema.md"
     - Quick Start - Demo Issuer : "issuer/demo-issuer.md"
+    - Create Custom Schemas : "issuer/schema.md"
     - Issuer Node: 
       - Overview: "issuer-node/issuer-node-overview.md"
       - Issuer Node API: 
