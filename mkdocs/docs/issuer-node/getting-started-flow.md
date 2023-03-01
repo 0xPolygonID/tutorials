@@ -9,11 +9,17 @@ This flow details the steps that can be carried out to achieve full integration 
 3. Create Credential 
 4. Create a QR Code to Accept Credential
 
-### Setup the Issuer Node
+## Setup the Issuer Node
+
+The Issuer Node can be set up in two ways: using [Docker](#start-issuer-node-using-docker-compose) or in the [Standalone Mode](#start-issuer-node-in-the-standalone-mode). If you are using the M1/M2 chip on your Mac, it is advised to run it using the Standalone Mode.
 
 #### Start Issuer Node Using Docker-Compose
 
-1. Start Docker Daemon and use the following command to run all the Vault, Redis, And Postgres containers. 
+1. Clone the Issuer Node repository from [here](https://github.com/0xPolygonID/sh-id-platform)
+
+2. Start Docker Daemon 
+
+3. From inside your repository use the following command to run the Vault, Redis, And Postgres containers. 
 
     ```
     make up
@@ -50,7 +56,7 @@ This flow details the steps that can be carried out to achieve full integration 
 
     > Note: Use these docker images only for evaluation purposes. For production, you must secure each of these services first. 
 
-2. <a id="issuer-node-using-docker"></a>Add Ethereum Private Key to the Vault. For this, run the following command to start the vault container in the interactive mode. This command is used to go inside the vault and run `sh` or `bsh` commands inside it. 
+4. <a id="issuer-node-using-docker"></a>Add Ethereum Private Key to the Vault. For this, run the following command to start the vault container in the interactive mode. This command is used to go inside the vault and run `sh` or `bsh` commands inside it. 
 
       ```
       docker exec -it vault-docker-name sh (or bash)
@@ -71,29 +77,15 @@ This flow details the steps that can be carried out to achieve full integration 
 
       With this, the Ethereum Private Key is written into the vault container. 
 
-3. To set up your Issuer Node and make it all up and running, you need to configure it first. This is done using a `config.toml` file. The repository provides you with a `config.toml.sample` file that contains different fields and their sample values. To start configuring these fields, create a `config.toml` file in your repository and paste the contents of the `config.toml.sample` in it. Now you can set values as required:
-
-    - ServerPort: Enter the port on which Issuer Node would start. (Example: 3001)
+5. To set up your Issuer Node and make it all up and running, you need to configure it first. This is done using a `config.toml` file. The repository provides you with a `config.toml.sample` file that contains different fields and their sample values. To start configuring these fields, create a `config.toml` file in your repository and paste the contents of the `config.toml.sample` in it. A few fields need to be configured before you can start the Issuer Node.
 
     - ServerUrl:  If the Issuer Node is to be started locally, enter the localhost URL (for example, http://localhost:3001). If the Issuer Node is to be hosted on Google Cloud or an AWS or some other cloud (instead of being installed locally), enter the URL where the machine is located.
 
-    - Database Url: The database URL that is provided by Docker. For example,
-      Url="postgres://polygonid:polygonid@localhost:5432/platformid?sslmode=disable
-
-    - Keystore Address: It is the address of the vault running locally in the docker.  (for example, http://localhost:8200/)
-
     - Keystore Token: It is the Initial Root Token of the Vault. Copy the value of this token from the Vault container and paste it here. OR, once you have run the docker containers, the token can be copied from this path in the repository: "infrastructure/local/.vault/data/init.out".  
 
-    - Ethereum URL: For this, you first need to sign up on Alchemy. Then create an app; enter app details including chain as Polygon and Network as Polygon Mumbai. Click **View Key** to know your JSON RPC URL and paste it into the field in the Ethereum URL field. 
+    - Ethereum URL: enter a valid JSON RPC URL for Polygon Mumbai. 
 
-        <div align="center">
-         <img src= "../../imgs/alchemy.png" align="center" style="border: 1px solid black"/>
-         </div>
-         <br>
-
-    - Ethereum Contract Address: Paste your Ethereum Contract Address here. 
-
-4. Run the following command to start the Issuer Node:
+6. Run the following command to start the Issuer Node:
 
       ```
       make run
@@ -105,13 +97,11 @@ This flow details the steps that can be carried out to achieve full integration 
       </div>
      
 
-> **Important**: Please note that for the users of the M1/M2 chips on Mac, running the Issuer Node with dockerization might give some errors. This is a "known issue". We have tested this for Ubuntu and macOS, however for Windows, testing has not yet been carried out. There is an alternative set of steps that involves running the Issuer Node in the standalone mode. You will read more about these steps in the upcoming section. 
-
 #### Start Issuer Node in the Standalone Mode 
 
 In the Standalone Mode, we compile the Issuer Node and create the executables to run it without using docker.
 
-1. Configure the `config.toml` file like you did in the previous section.
+1. Clone the Issuer Node repository from [here](https://github.com/0xPolygonID/sh-id-platform)
 
 2. Run this command:
 
@@ -147,9 +137,13 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
          </div>
       <br>
 
-4. Add Ethereum Private Key to the Vault; for this, follow [step 2](#issuer-node-using-docker) of the previous section.
+4. Add Ethereum Private Key to the Vault; for this, follow step 4 of the previous section.
 
-5. Configure your database using the following command:
+
+5. Configure the `config.toml` file like you did in the previous section at step 5.
+
+
+6. Configure your database using the following command:
 
       ```
       make db/migrate
@@ -159,9 +153,9 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
          </div>
         
 
-      This checks the current structure of the database, and accordingly, either creates or updates the database. 
+    This checks the current structure of the database, and accordingly, either creates or updates the database. 
 
-6. Run this command to start the Issuer Node:
+7. Run this command to start the Issuer Node:
 
       ```
       ./bin/platform
@@ -174,7 +168,7 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
 
     This starts the Issuer Node. You can now browse to the port configured for your server (ServerPort)in the `config.toml` file and view the API documentation. For example, this could be http://localhost:3001.
 
-7. Run the following command to start the Pending_Publisher service:
+8. Run the following command to start the Pending_Publisher service:
 
       ```
       ./bin/pending_publisher
@@ -188,7 +182,7 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
 
 Before you can start making API calls to the Issuer Node with endpoints, you need to authenticate first with a username and a password. This is done using the `Authentication` endpoint using Postman or your own API platform. 
 
-### Create Identity
+## Create Identity
 
 Next, you need to create an Identity for the issuer/user. For this, make a call to the `Create Identity` endpoint. You need to enter the server URL (where you started the Issuer Node) in the request URL. The
 `didMetaData` is passed in the request body. This metadata is required to create Issuer's DID.
@@ -218,7 +212,7 @@ The Issuer Node responds by sending a response message that contains:
 }
 ```
 
-### Create Credential
+## Create Credential
 
 Post Identity creation, you can start the process of credential creation. For this, the `Create Claim` endpoint is used. The `identifier` (or `id`) of the issuer/user you generated in the previous step is passed in the request URL. `credentialSchema` (schema on which credential's format would be based) and `credentialSubject` (Subject details such as `id`(user's wallet id ), and other information (for example, birthday) are passed in the request body. 
 
@@ -242,7 +236,7 @@ The Issuer Node responds by sending a credential id string. When this credential
 }
 ```
 
-### Create QR Code to Accept a Credential
+## Create QR Code to Accept a Credential
 
 With the `Get Claim QR Code` endpoint, you can generate a JSON which is then used to create a QR code. A user can use a third-party application to generate a QR Code from this JSON. 
 
