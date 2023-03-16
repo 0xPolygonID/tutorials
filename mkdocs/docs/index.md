@@ -64,7 +64,7 @@ Another aspect of privacy comes from the fact that the Issuer would not be able 
 <a href="https://iden3.io/" target="_blank">Iden3</a> is the open-source protocol at the basis of Polygon ID. The protocol defines on a low-level how the parties listed above communicate and interact with each other. Polygon ID is an abstraction layer to enable developers to build applications leveraging the Iden3 protocol.
 
 ## Further Resources On Polygon ID
-
+- [Polygon University - Courses on Polygon ID (free)](https://university.polygon.technology/polygonid/)
 - [Identity Layer for Web3 - Paris - July 2022](https://youtu.be/bmRvQNmxFkM)
 - [A Deep Dive Into Polygon ID - November 2022](https://youtu.be/utpazrLrSbY)
 - [A Deeper Dive Into Polygon ID - November 2022](https://youtu.be/fQ9DiGUnvwA)
