@@ -14,6 +14,4 @@ These APIs can be tested locally on a <a href="https://self-hosted-platform.poly
 
 
 
- 
-
 > Note: Please note that the API endpoints listed in the testing links above need to be called in sequential order. For example, you need to first create an identity before a Verifiable Credential can be issued by the Issuer Node.
