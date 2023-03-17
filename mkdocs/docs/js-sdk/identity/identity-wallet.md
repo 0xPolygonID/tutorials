@@ -197,7 +197,9 @@ This method returns the Revocation Nonce of the credential.
 
 ## Generate Iden3 Sparse Merkle Tree Proof using generateIden3SparseMerkleTreeProof() Method
 
-This method generates the Iden3 SparseMerkleTree (SMTP) proof that an Issuer state of a specific credential is included in the Merkle Tree or not. 
+This method generates the Iden3 SparseMerkleTree (SMTP) proof that an Issuer state of a specific credential is included in the Merkle Tree or not.
+
+With the IssueCredential() method, a Credential is generated along with the Signature Proof. This credential is then added to the Claims Merkle tree and therefore, the state of the tree gets changed. For this, another proof called SMTP is required. This proof generates the changed state of the tree by taking Issuer DID, transaction data, and the list of credentials that are part of the changed state as the input parameters.  The JS SDK updates the credential with this SMT Proof, which is included in the state, the transaction data, and the Issuer.
 
 ```
 generateIden3SparseMerkleTreeProof(
@@ -208,17 +210,49 @@ generateIden3SparseMerkleTreeProof(
     blockTimestamp?: number
   ): Promise<W3CCredential[]>;
 ```
-where where <!--issuerDID--> is Issuer's identifier.
+where <issuerDID> is Issuer's identifier.
 
 `credential` is the list of Verifiable Credentials required to generate the proof. 
 
 `txId` is a hash of the transaction for which state transition is done. 
 
-`blockNumber` is number of the block in which state transition has been done.
+`blockNumber` is the number of the block in which state transition has been done.
 
 `blockTimestamp` is the timestamp of the block at which the state transition has been done.
 
 This method returns a list of credentials along with a Sparse Merkle Tree Proof. 
 
-   
+
+## Publish State to Reverse Hash Service with publishStateToRHS() Method
+
+For a self-hosted Issuer with a set of APIs, we can use hostUrl as a way to fetch the revocation status of a credential. But if we are using a browser, we need to fetch the revocation status via rhsURL (Reverse Hash Service URL) by pushing the state update to this URL. 
+
+The `publishStateRHS` method publishes the updated state of the tree to the Reverse HAsh Service. 
+
+```
+publishStateToRHS(issuerDID: DID, rhsURL: string, revokedNonces?: number[]): Promise<void>;
+```
+where `issuerDID` is the `did` of the Issuer
+`rhsURL` is the REverse Hash Service URL.
+`revokedNonces` are the nonces of the revoked credentials. 
+
+
+
+## Get Core Claim Representation with getCoreClaimFromCredential() Method
+
+This method extracts the core claim from either the Signature proof or the Merkle Tree Proof. If we have both types of proofs for the credential, this method extracts the core representation from the Merkle Tree Proof. 
+
+```
+getCoreClaimFromCredential(credential: W3CCredential): Promise<Claim>;
+```
+
+where `credential` is the Verifiable Credential in the W3CC format that is usd to extract the core representaion of the claim. 
+
+The method returns the core claim representation of the credential. 
+  
+  
+  
+
+
+
 
