@@ -1,6 +1,6 @@
-# JS SDK EXample
+# JS SDK Example
 
-This tutorial shows an example of how to run JS SDK for its different functionalities. 
+This tutorial shows an example of how to run JS SDK.  
 
 
 ## Example: Identity Creation 
