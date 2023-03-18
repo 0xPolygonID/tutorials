@@ -94,18 +94,18 @@ nav:
             - Overview: "wallet/wallet-sdk/polygonid-sdk/proof/overview.md"
             - APIs: 
               - Generate Proof: "wallet/wallet-sdk/polygonid-sdk/proof/api/prove.md"
-  - JS SDK:
-      Overview: "js-sdk/js-sdk-overview.md"
-      Components:
-        Identity:
-          Identity Wallet: "js-sdk/js-sdk-components/identity/identity-wallet.md" 
-        Credential:
-          Credential Wallet: "js-sdk/js-sdk-components/credential/credential-wallet.md"
-        Iden3comm:
-          Iden3comm: "js-sdk/js-sdk-components/iden3comm/iden3comm.md"
-        Proof:
-          Proof: "js-sdk/js-sdk-components/proof/proof.md"
-      Example: "js-sdk/js-sdk-example.md"  
+  #- JS SDK:
+  #    Overview: "js-sdk/js-sdk-overview.md"
+  #    Components:
+  #      Identity:
+  #        Identity Wallet: "js-sdk/js-sdk-components/identity/identity-wallet.md" 
+  #      Credential:
+  #        Credential Wallet: "js-sdk/js-sdk-components/credential/credential-wallet.md"
+  #      Iden3comm:
+  #        Iden3comm: "js-sdk/js-sdk-components/iden3comm/iden3comm.md"
+  #      Proof:
+  #        Proof: "js-sdk/js-sdk-components/proof/proof.md"
+  #    Example: "js-sdk/js-sdk-example.md"  
   - Smart Contracts: 
     - Overview: "contracts/overview.md"
 # If you declare plugins, you need to declare all of them, 
