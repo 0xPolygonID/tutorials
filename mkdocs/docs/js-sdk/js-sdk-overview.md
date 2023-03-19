@@ -50,8 +50,33 @@ The following components form the inherent part of the JS SDK:
 
 ## Dependencies
 
-<br>
+You can install project dependencies using either of the following way:
 
+ - Using **npm**:
+
+```
+npm install @0xpolygonid/js-sdk
+```
+- Adding import to your **index.html** file: 
+
+    ```
+    <script src="./dist/umd/index.js"></script>
+    <script>
+      const {
+          LocalStoragePrivateKeyStore,
+          IdentityStorage,
+          MerkleTreeLocalStorage,
+          CredentialStorage,
+          W3CCredential,
+          BrowserDataSource,
+          BjjProvider,
+          KmsKeyType,
+          IdentityWallet,
+          CredentialWallet,
+          KMS
+      } = PolygonIdSdk;
+    </script>
+    ```
 
 
 ## Core Libraries
@@ -87,13 +112,7 @@ On the Polygon ID JS SDK, you can build the following functionalities:
 - An Identity Wallet based on the Iden3 core protocol
 - The JS SDK also provides a revocation feature for credentials and proof generation
 
-## Install Polygon ID JS SDK
 
-You can install Polygon ID JS SDK using this command:
-
-```
-npm install @0xpolygonid/js-sdk
-```
 
 > Note: As our JS SDK is still in the public beta stage, you might find a few functionalities missing. 
 
