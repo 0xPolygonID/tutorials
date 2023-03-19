@@ -93,7 +93,7 @@ JS SDK is a fully-functional wrapper on top of our iden3 core libraries. The fol
 - <a href="https://github.com/iden3/js-jwz" target="_blank">JS JWZ</a>: JavaScript implementation of JSON Web Zero Knowledge and lets you create JWZ tokens. 
 
 
-- <a href="https://github.com/iden3/js-merkletree" target="_blank">JS Merkle Tree</a>: JavaScript implemnetation for creating a Sparse Merkle Tree (SMT). It carries code implenmentation for browser, local storage, and memory. 
+- <a href="https://github.com/iden3/js-merkletree" target="_blank">JS Merkle Tree</a>: JavaScript implemnetation for creating a Sparse Merkle Tree (SMT). It carries code implementation for browser, local storage, and memory. 
 
 Follow the links mentioned below to know more about W3C stanadards for Verifiable Credentials and DID (Decentralised Identifier):
 
