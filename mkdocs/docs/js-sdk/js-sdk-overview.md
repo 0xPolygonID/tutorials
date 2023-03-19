@@ -87,5 +87,13 @@ On the Polygon ID JS SDK, you can build the following functionalities:
 - An Identity Wallet based on the Iden3 core protocol
 - The JS SDK also provides a revocation feature for credentials and proof generation
 
+## Install Polygon ID JS SDK
 
+You can install Polygon ID JS SDK using this command:
+
+```
+npm install @0xpolygonid/js-sdk
+```
+
+> Note: As our JS SDK is still in the public beta stage, you might find a few functionalities missing. 
 

@@ -54,11 +54,17 @@ handleAuthorizationRequestForGenesisDID(
 ```
 It gets the payload and an identity (that can handle that request) as the input parameters, and returns a token, authrozation request, and authorization response.  
 
+Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.authhandler.handleauthorizationrequestforgenesisdid#authhandlerhandleauthorizationrequestforgenesisdid-method" target="_blank">API Reference</a>. 
+
+
 2. After token generation, the handler parses or unpacks the authorization message:
 
 ```
 parseAuthorizationRequest(request: Uint8Array): Promise<AuthorizationRequestMessage>;
 ```
+
+Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.authhandler.parseauthorizationrequest#authhandlerparseauthorizationrequest-method" target="_blank">API Reference</a>. 
+
 3. The handler then generates a zero-knowledge proof  for the given request:
 
 ```
@@ -81,6 +87,7 @@ where `userGenesisDIS` is the user's Gensis DID for which s/he holds the key pai
 
 The handler generates a proof of circuits that the user had requested (authorization request) and calls the package manager to pack the result in the form of JSON Web Zero Knowledge (JWZ) Token. 
 
+Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.authhandler.generateauthorizationresponse#authhandlergenerateauthorizationresponse-method" target="_blank">API Reference</a>.
 
 ### Fetch Handler
 
@@ -100,6 +107,10 @@ where `did` is the identifier that handles the Credential Offer.
 The handler returns a Verifiable Credential in the W3C format. 
 
 Read more on iden3comm [here](https://github.com/iden3/iden3comm/tree/main/protocol).
+
+Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.fetchhandler.handlecredentialoffer#fetchhandlerhandlecredentialoffer-method" target="_blank">API Reference</a>.
+
+
 
   
 
