@@ -105,7 +105,8 @@ nav:
   #        Iden3comm: "js-sdk/js-sdk-components/iden3comm/iden3comm.md"
   #      Proof:
   #        Proof: "js-sdk/js-sdk-components/proof/proof.md"
-  #    Example: "js-sdk/js-sdk-example.md"  
+  #    Example: "js-sdk/js-sdk-example.md"
+  #    Browser Wallet Demo: "js-sdk/js-sdk-browser-wallet-demo.md"    
   - Smart Contracts: 
     - Overview: "contracts/overview.md"
 # If you declare plugins, you need to declare all of them, 
