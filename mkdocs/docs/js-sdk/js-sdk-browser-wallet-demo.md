@@ -20,7 +20,7 @@ You need to install the browser wallet extension on your machine. This wallet wo
     <div align="center">
         <img src= "../imgs/create-password.png" align="center" border="1" />
     </div>
-
+    <br>
 
 4. This displays the Polygon Account window on your browser wallet. 
 
@@ -84,6 +84,7 @@ You need to install the browser wallet extension on your machine. This wallet wo
     </div>
     <br>
     The credential is created successfully. 
+    <br>
 
     <div align="center">
     <img src= "../imgs/claim-created-successfully.png" align="center" />
@@ -94,8 +95,9 @@ You need to install the browser wallet extension on your machine. This wallet wo
     <div align="center">
     <img src= "../imgs/receive-claim.png" align="center" />
     </div>
-
+    <br>
     The credential is now saved on your browser wallet.
+    <br>
 
     <div align="center">
     <img src= "../imgs/claim-received.png" align="center" />
@@ -108,7 +110,7 @@ You need to install the browser wallet extension on your machine. This wallet wo
     <div align="center">
     <img src= "../imgs/kycage-signature.png" align="center" border="1" />
     </div>
-
+    <br>
 2. Click **Sign In**. This shows the QR code for the credential type you selected in the step above. Click the ***Polygon ID*** icon to open your browser wallet.
 
     <div align="center">
@@ -120,13 +122,13 @@ You need to install the browser wallet extension on your machine. This wallet wo
     <div align="center">
     <img src= "../imgs/proof-request-window.png" align="center" />
     </div>
-
+    <br>
 4. The website verifies your membership successfully.
 
     <div align="center">
     <img src= "../imgs/membership-verified.png" align="center" border="1" />
     </div>
-
+    <br>
 5. On wallet, click **KYCAgeCredential** to view its details including ***birthday***, ***documentType***, ***Issuer*** (DID of Issuer), ***Issued On*** (Date of Issuance), ***Expiration Date***, and ***Proof types*** (in this case, it is BJJSignature2021)
 
     <div align="center">
@@ -139,7 +141,8 @@ You need to install the browser wallet extension on your machine. This wallet wo
     <img src= "../imgs/authorization-request.png" align="center" border="1" />
     </div>
     <br>
-    Scroll down the page to view ***Auth Response***. here, you can see the proof and the public signals (used to generate the proof), and the JWZ token. Copy the JWZ token and paste it on the [Polygon ID JWZ Validator](https://jwz.polygonid.me) site. Click **Validate**. 
+    Scroll down the page to view ***Auth Response***. here, you can see the proof and the public signals (used to generate the proof), and the JWZ token. Copy the JWZ token and paste it on the [Polygon ID JWZ Validator](https://jwz.polygonid.me) site. Click **Validate**.
+
     <br>
 
     <div align="center">
@@ -194,7 +197,7 @@ You need to install the browser wallet extension on your machine. This wallet wo
     </div>
     <br>
 
-    Click your KYCAgeCredential to view its details. You can now see that you have two types of proofs in your wallet: ***BJJSignature2021*** and ***iden3SparseMerkleTreeProof*** 
+    Click your ***KYCAgeCredential*** to view its details. You can now see that you have two types of proofs in your wallet: ***BJJSignature2021*** and ***iden3SparseMerkleTreeProof*** 
 
     <div align="center">
     <img src= "../imgs/proof-types.png" align="center" />
@@ -223,6 +226,7 @@ You need to install the browser wallet extension on your machine. This wallet wo
     </div>
     <br>
 4. The website verifies your membership successfully.
+    <br>
 
     <div align="center">
     <img src= "../imgs/membership-verified.png" align="center" />
