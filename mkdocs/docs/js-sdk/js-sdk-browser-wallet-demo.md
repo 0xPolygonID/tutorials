@@ -11,7 +11,7 @@ You need to install the browser wallet extension on your machine. This wallet wo
 2. When you open the extension for the first time, it prompts you to create a new wallet or import an existing wallet. Click **Create a New Wallet**. 
 
     <div align="center">
-    <img src= "../imgs/create-new-wallet.png" align="center" border="1" />
+    <img src= "../imgs/create-new-wallet.png" align="center" border="1" width="100"/>
     </div>
     <br>
 
