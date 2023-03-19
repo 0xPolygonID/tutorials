@@ -30,13 +30,13 @@ The following components form the inherent part of the JS SDK:
 
     In the upcoming tutorials, we shall read more about the implementation of these components in JS SDK. To know what each of these components stands for, go through the following links: 
 
-- [Identity Wallet](../wallet/wallet-sdk/polygonid-sdk/identity/overview.md)
+    - [Identity Wallet](../wallet/wallet-sdk/polygonid-sdk/identity/overview.md)
 
-- [Credential Wallet](../wallet/wallet-sdk/polygonid-sdk/credential/overview.md)
+    - [Credential Wallet](../wallet/wallet-sdk/polygonid-sdk/credential/overview.md)
 
-- [Iden3comm](../wallet/wallet-sdk/polygonid-sdk/iden3comm/overview.md)
+    - [Iden3comm](../wallet/wallet-sdk/polygonid-sdk/iden3comm/overview.md)
 
-- [Proof](../wallet/wallet-sdk/polygonid-sdk/proof/overview.md)
+    - [Proof](../wallet/wallet-sdk/polygonid-sdk/proof/overview.md)
 
 
 ## Prerequisites
@@ -112,7 +112,7 @@ On the Polygon ID JS SDK, you can build the following functionalities:
 - An Identity Wallet based on the Iden3 core protocol
 - The JS SDK also provides a revocation feature for credentials and proof generation
 
+<br>
 
-
-> Note: As our JS SDK is still in the public beta stage, you might find a few functionalities missing. 
+> Note: As our JS SDK is still in the public beta stage, you might find a few functionalities missing or not fully updated. 
 
