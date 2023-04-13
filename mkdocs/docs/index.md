@@ -21,19 +21,19 @@ Polygon ID, with the help of zero-knowledge proofs, lets users prove their ident
 
 ## Core Concepts of Polygon ID: Verifiable Credentials, Identity Holder, Issuer and Verifier (Triangle of Trust)
 
-Every identity is identified by a unique identifier called [DID (Decentralized Identifier)](https://www.w3.org/TR/did-core/). Every identity-based information is represented via a [Verifiable Credentials (VCs)](https://www.w3.org/TR/vc-data-model/).  In the simplest terms, a VC represents any type of information related to an individual/enterprise/object. The VC could be as simple as the age of the entity or the highest degree held by it. It could be a membership certificate issued by a DAO. Or anything that you can think of!
+Every identity is identified by a unique identifier called [DID (Decentralized Identifier)](https://www.w3.org/TR/did-core/). Every identity-based information is represented via a [Verifiable Credentials (VCs)](https://www.w3.org/TR/vc-data-model/).  In the simplest terms, a VC represents any type of information related to an individual/enterprise/object. The VC could be as simple as the age of the entity or the highest degree held by it. It could be a membership certificate issued by a DAO, for instance.
 
 The toolset made available by Polygon ID is fully compliant with the W3C standards.
 
-The architecture of the framework is composed of three modules: Identity Holder, Issuer, and Verifier. These three, together, form what we call the `triangle of trust`. Let us see what role each entity plays in Polygon ID. 
+The architecture of the framework is composed of three modules: Identity Holder, Issuer, and Verifier. These three, together, form what we call the **Triangle of Trust**. Let us see what role each entity plays in Polygon ID. 
 
 1. **Identity Holder**: An entity that holds claims in its [Wallet](./wallet/wallet-overview.md). A VC, as mentioned above, is issued by an Issuer to the Holder. The Identity Holder generates zero-knowledge proofs of the VCs issued and presents these proofs to the Verifier, which verifies that the proof is authentic and matches specific criteria. 
 
 2. [**Issuer**](./issuer/issuer-overview.md): An entity (person, organization, or thing) that issues VCs to the Holders. VCs are cryptographically signed by the Issuer. Every VC comes from an Issuer. 
 
-3. [**Verifier**](./verifier/verifier-overview.md): A Verifier verifies the proof presented by a Holder. It requests the Holder to send a proof based on the VCs they hold in their wallet. While verifying a proof, the Verifier performs a set of checks, for example that the VC was signed by the expected Issuer and that the VC matches the criteria requested by the Verifier. The simplest examples of a Verifier is a Bar that wants to verify if you are over 18. In the real world, the Identity Holder would need to provide an ID and show all their personal information. With Polygon ID they only need to pass a proof.
+3. [**Verifier**](./verifier/verifier-overview.md): A Verifier verifies the proof presented by a Holder. It requests the Holder to send a proof based on the VCs they hold in their wallet. While verifying a proof, the Verifier performs a set of checks, for example that the VC was signed by the expected Issuer and that the VC matches the criteria requested by the Verifier. The simplest examples of a Verifier is a Bar that wants to verify if you are over 18. In the real world, the Identity Holder would need to provide an ID and show all their personal information. With Polygon ID, they only need to pass a proof.
 
-A core concept here is the *trust* that must exist between a Verifier and an Issuer: the fact that the information contained inside a VC are cryptographically verifiable doesn't guarantee its truth. The Issuer must be a trusted and reptuable party so that Verifier can consume the VCs originated by that Issuer.
+A core concept here is the *trust* that must exist between a Verifier and an Issuer: the fact that the information contained inside a VC is cryptographically verifiable doesn't guarantee its truth. The Issuer must be a trusted and reputable party so that Verifier can consume the VCs originated by that Issuer.
 
 ---
 **The verification of a VC can happen either off-chain or on-chain!**
@@ -66,8 +66,8 @@ Another aspect of privacy comes from the fact that the Issuer would not be able 
 ## Further Resources On Polygon ID
 - [Polygon University - Courses on Polygon ID (free)](https://university.polygon.technology/polygonid/)
 - [Identity Layer for Web3 - Paris - July 2022](https://youtu.be/bmRvQNmxFkM)
-- [A Deep Dive Into Polygon ID - November 2022](https://youtu.be/utpazrLrSbY)
-- [A Deeper Dive Into Polygon ID - November 2022](https://youtu.be/fQ9DiGUnvwA)
+- [The Future of Identity is Self-Sovereign: Build a dapp with Polygon ID - ETH Global - November 2022](https://youtu.be/utpazrLrSbY)
+- [A Deep Dive into Polygon ID - ETH Vietnam - November 2022](https://youtu.be/fQ9DiGUnvwA)
 
 ## Further Resources On Verifiable Credentials
 
