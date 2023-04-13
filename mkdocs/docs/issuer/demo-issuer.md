@@ -15,7 +15,7 @@ To create a credential, you require a schema that contains semantics of the JSON
 
 To create a credential, the Polygon ID app must be installed on your mobile. 
 
-1. On the Issuer website, click **Signup**.
+1. On the [Issuer website](https://issuer-demo.polygonid.me/), click **Sign up**.
 
     <div align="center">
     <img src= "../../imgs/signup.png" align="center" width="300"/>
@@ -119,5 +119,5 @@ This shows all the information related to a credential; this includes:
 - @Context (JSON-LD Schema) and CredentialSchema (JSON) URLs
 - credentialStatus: URL to fetch the [Revocation](https://docs.iden3.io/getting-started/claim-revocation/) status of the credential from the Issuer along with the revocation nonce. 
 - credentialSubject: Information related to the Subject of the Credential. In this example, this includes subject's  `entryDate` and id of the Subject in the `did` format.
-- Other information such as expiration date of the credential, issuance date, and id of the Issuer in the `did` format.
+- Other information such as expiration date of the credential, issuance date, and ID of the Issuer in the `did` format.
 - Proof which includes information such as state of the issuer identity published on-chain, the non-revocation proof for the [authorization claim](https://docs.iden3.io/getting-started/claim/auth-claim/), and the actual credential [signed](https://docs.iden3.io/getting-started/signature-claim/signature/) by the Issuer. 
