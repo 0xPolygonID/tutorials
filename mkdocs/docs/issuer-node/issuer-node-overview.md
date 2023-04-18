@@ -28,7 +28,11 @@ Though not mandatory, it is good to have the following software installed on you
     > Note: If you intend to run the Issuer Node via an IDE (Integrated Development Environment), you can have any IDE installed on your system. Please note that the Issuer Node is platform-agnostic and can be run via CLI, IDE, and can be deployed on the cloud also. You can run it as a standalone server also.  -->
  
 ## Issuer Node Components
- 
+      
+<div align="center">
+<img src= "../../imgs/issuer-node-components.png" align="center" style="border: 1px solid black"/>
+</div>
+<br />
 The [Issuer Node](https://github.com/0xPolygonID/sh-id-platform) comprises the following components and each one of these components can be either dockerized or each one of these can be launched as separate service. 
 
 - **Issuer Application** to issue Verifiable Credentials and communicate with users' wallets.

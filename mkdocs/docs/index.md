@@ -23,7 +23,7 @@ Polygon ID, with the help of zero-knowledge proofs, lets users prove their ident
 
 Every identity is identified by a unique identifier called [DID (Decentralized Identifier)](https://www.w3.org/TR/did-core/). Every identity-based information is represented via a [Verifiable Credentials (VCs)](https://www.w3.org/TR/vc-data-model/).  In the simplest terms, a VC represents any type of information related to an individual/enterprise/object. The VC could be as simple as the age of the entity or the highest degree held by it. It could be a membership certificate issued by a DAO, for instance.
 
-The toolset made available by Polygon ID is fully compliant with the W3C standards.
+The toolset made available by Polygon ID is fully compliant with the W3C standards. We have a [definition spec. for the Polygon ID DID method](https://github.com/0xPolygonID/did-polygonid).
 
 The architecture of the framework is composed of three modules: Identity Holder, Issuer, and Verifier. These three, together, form what we call the **Triangle of Trust**. Let us see what role each entity plays in Polygon ID. 
 
@@ -73,6 +73,7 @@ Another aspect of privacy comes from the fact that the Issuer would not be able 
 
 - [Verifiable Credentials: The Ultimate Guide](https://www.dock.io/post/verifiable-credentials)
 - [Understanding and Using Verifiable Credentials](https://www.youtube.com/watch?v=BxLSSH_EHjo)
+- [Polygon ID DID Method Specification](https://github.com/0xPolygonID/did-polygonid)
 
 ---
 
