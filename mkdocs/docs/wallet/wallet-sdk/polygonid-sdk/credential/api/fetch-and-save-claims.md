@@ -3,7 +3,8 @@
 An Integrator can fetch credentials stored on an Issuer and then save them in his/her wallet. The`fetchAndSaveClaims()` function is called to fetch and save a list of credentials from an Issuer.
  
 ## Fetch and Save Credentials
-```
+
+```dart
 Future<List<ClaimEntity>> fetchAndSaveClaims(
       {required OfferIden3MessageEntity message,
       required String did,
@@ -14,7 +15,7 @@ Future<List<ClaimEntity>> fetchAndSaveClaims(
 
 The `fetchAndSaveClaims()` function uses `OfferIden3MessageEntity`, `privateKey`, and `did` as the input parameters. and returns a list of `ClaimEntity`.
 
-`OfferIden3MessageEntity`: OfferIden3MessageEntity is a type of `Iden3MessageEntity`. As you saw in the [iden3 Message API](/mkdocs/docs/wallet/wallet-sdk/polygonid-sdk/iden3comm/api/iden3-message.md) tutorial, we get `Iden3MessageEntity` when we call `getIden3Message()`method. 
+`OfferIden3MessageEntity`: OfferIden3MessageEntity is a type of `Iden3MessageEntity`. As you can see in the [iden3 Message API](/mkdocs/docs/wallet/wallet-sdk/polygonid-sdk/iden3comm/api/iden3-message.md) tutorial, we get `Iden3MessageEntity` when we call `getIden3Message()`method. 
  
 `privateKey` of the identity is a key that is used to access the sensitive information of the identity. This key is also used for generating proofs by using the credentials associated with the identity. 
 

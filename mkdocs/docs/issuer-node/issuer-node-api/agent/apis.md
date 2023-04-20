@@ -18,12 +18,12 @@ The [JWZ](../../../wallet/wallet-sdk/polygonid-sdk/iden3comm/jwz.md) is generate
 
 The Issuer Node responds by sending a response message that contains details related to Verifiable Credential and Issuer. It also includes metadata such as:
 
-`from`: from which user DID the message is sent
-`to`: to which Issuer DID the message is sent
-`id`: A random uuid generated for a transaction
-`threadID`: Part of the JWZ token
-`typ`: The way of communication between protocol and mobile 
-`type`: The way of communication between protocol and mobile 
+- `from`: from which user DID the message is sent
+- `to`: to which Issuer DID the message is sent
+- `id`: a random UUID generated for a transaction
+- `threadID`: part of the JWZ token
+- `typ`: The way of communication between protocol and mobile 
+- `type`: The way of communication between protocol and mobile 
 
 A typical response looks like this:
 

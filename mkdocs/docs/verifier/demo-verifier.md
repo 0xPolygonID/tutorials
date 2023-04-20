@@ -13,14 +13,14 @@ Download the Polygon ID Wallet App and create an Identity.
 
 ## Quick Start 
 
-1. On the Demo Verifier website click on the drop-down menu and, therefore **Custom**
+1. On the Demo Verifier website click on the drop-down menu and then **Custom**
 
     <div align="center">
     <img src= "../../imgs/verifier-demo-1.png" align="center" width="500"/>
     </div>
     <br>
 
-    Then click on **Sign In**.
+    Click on **Sign In**.
 
 2. Create the query via the editor.
 
@@ -29,13 +29,14 @@ Download the Polygon ID Wallet App and create an Identity.
     In this example, we are querying the date of entry of the user inside a DAO. In particular, we want to make sure that the user joined the DAO before a specific date.
     This query is based on the `ProofOfDaoLongevity` credential type described by this [JSON-LD Context](https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/proof-of-dao-longevity.json-ld).
 
-    Then click **Submit**.
+
 
     <div align="center">
     <img src= "../../imgs/verifier-demo-2.png" align="center" width="500"/>
     </div>
     <br>
 
+    Then click **Submit**.
 
 3. The query is then converted into a QR code that can be scanned by the user.
 

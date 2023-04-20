@@ -1,12 +1,12 @@
 # To Update Credentials: `updateClaim`
  
-The credentials stored on the SDK can be updated using the credential's id.
+The credentials stored on the SDK can be updated using the credential's ID.
 
 ## Update Credentials
 
 The `updateClaim()` method uses `claimId`, `issuer`, `did`, `state`, `expiration`, `type`, `date`, and `privateKey` as input parameters and updates the credential information. 
  
-```
+```dart
 Future<ClaimEntity> updateClaim({
     required String claimId,
     String? issuer,
@@ -18,13 +18,14 @@ Future<ClaimEntity> updateClaim({
     required String privateKey,
   });
 ```
+
 where:
 
-`claimId` is the credential's id.
+`claimId` is the credential's ID.
 
 `issuer` is the `did` of the issuer.
 
-`did` is the unique id of the identity.
+`did` is the unique ID of the identity.
 
 `state` is the credential's current state.
 

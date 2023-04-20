@@ -71,7 +71,7 @@ Let us see how to execute this verification.
     ```
 
 This creates a resolver which is used to fetch the identity state from the [State Smart Contract](https://docs.iden3.io/contracts/state/) and a verification key loader which is used to fetch the verification keys necessary to verify a zero knowledge proof. 
-Eventually, it returns an instance of a Verifier. To set up a verifier different parameters need to be passed:
+Eventually, it returns an instance of a Verifier. To set up a verifier, different parameters need to be passed:
 
 -  `keyDIR` is the path where the public verification keys for iden3 circuits are located (such as `"./keys"`). The verification key folder can be found <a href="https://github.com/0xPolygonID/phase2ceremony" target="_blank">here</a>.
 - `ethURL` is the URL of your RPC node provider such as `"https://polygon-testnet-rpc.allthatnode.com:8545"` for Polygon Mumbai.
@@ -107,7 +107,7 @@ Execute the verification. It verifies that the proof shared by the user satisfie
 `authRequest` is the request previously presented to that specific user.
 `AcceptedStateTransitionDelay(time.Minute*5))` is the delay accepted by the Verifier. By setting it to 5 minutes, as in this case, the Verifier accepts a proof that verifies the validity of a credential against a state, as stated in the [Smart Contract](https://docs.iden3.io/contracts/state/), which is up to 5 minutes old.
 
-> An example of the usage of this api can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/go/index.go#L77) (GO) and [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/js/index.js#L73) (JS)
+> An example of the usage of this API can be found [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/go/index.go#L77) (GO) and [here](https://github.com/0xPolygonID/tutorial-examples/blob/main/verifier-integration/js/index.js#L73) (JS)
 
 ## Verification - Under the Hood
 
@@ -130,7 +130,7 @@ In this part, it is also verified that the requested credential has not been rev
 
 This involves a verification based on the public inputs of the circuits used to generate the proof. These must match the rules requested by the Verifier inside the Auth Request. For example, the query and the credential schema used by the user to generate the proof must match the Auth Request:
 
-  - The message signed by the user is the same must match the one passed to the user inside the auth request.
+  - The message signed by the user must match the one passed to the user inside the auth request.
   - The rules such as the `query` or the credential `schema` used to generate the proof must match the ones included inside the auth request. 
   
 This "off-circuit" verification is important because a user can potentially modify the query and present a valid proof. A user born after 2000-12-31 shouldn't pass the check. But if they generate a proof using a query input `"$lt": 20010101`, the Verifier would see it as a valid proof. By doing verification of the public inputs of the circuit, the Verifier is able to detect malicious actors.

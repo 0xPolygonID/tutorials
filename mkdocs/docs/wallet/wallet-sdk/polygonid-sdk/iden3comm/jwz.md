@@ -249,7 +249,7 @@ JWT relies on digital signatures for the secure transmission of information. In 
 - The `header` and the `payload` get hashed together using the Poseidon hash.
 - The JWZ initiator signs the hashed content using his/her private key.
 - The JWZ creator generates a proof using the authorization circuit to demonstrate that his/her identity signed the content.
-- The proof gets included in the `zero- knowledge proof` of the JWZ together with the public inputs used inside the circuit to generate the proof.
+- The proof gets included in the zero- knowledge proof of the JWZ together with the public inputs used inside the circuit to generate the proof.
 - Any third party that accesses the JWZ can verify the proof to check if the information contained in the payload actually originated from that identity and hasn't been tampered with.
 
 ### Usage

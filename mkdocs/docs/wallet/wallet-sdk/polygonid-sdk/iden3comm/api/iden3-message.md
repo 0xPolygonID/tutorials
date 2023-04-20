@@ -6,7 +6,7 @@ All communication between SDK and Issuer/Verifier is done through an `Iden3Messa
 
 The `getIden3Message()` method uses a message String as the input parameter and returns an `Iden3MessageEntity`.
  
-```
+```dart
 Future<Iden3MessageEntity> getIden3Message({required String message});
    
 ```

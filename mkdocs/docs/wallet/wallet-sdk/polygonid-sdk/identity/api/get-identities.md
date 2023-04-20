@@ -4,7 +4,7 @@ We can get a list of public information about all the identities stored on the S
 
 ## Get a List of Identities
  
-```
+```dart
 Future<List<IdentityEntity>> getIdentities();
  
 {

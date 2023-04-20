@@ -15,7 +15,7 @@ At its core, every off-chain interaction between a Verifier and a user's Wallet 
 - The user fetches the revocation status of the requested credential from the Issuer of that credential.
 - The user generates a zk proof on mobile according to the request of the website starting from the credentials held in his/her wallet. This also contains the zk proof that the credential is not revoked.
 - The user sends the zk proof to the Verifier.
-- The Verifier verifies the zk Proof using the [verification API](./verification-api-guide.md).
+- The Verifier verifies the zk proof using the [verification API](./verification-api-guide.md).
 - The Verifier checks that the State of the Issuer of the credential and the State of the user are still valid and have not been revoked (this is still performed using the same [verification API](./verification-api-guide.md)).
 - If the verification is successful, the Verifier grants access to the user (or activates any customized logic)
 

@@ -2,22 +2,20 @@
 
 This flow details the steps that can be carried out to achieve full integration of the Issuer Node with the Polygon ID APIs.
 
-:::tip Video Tutorial Available
+>Video Tutorial Available
 
-For a more detailed walkthrough check out [<ins>this video tutorial</ins>](https://www.youtube.com/watch?v=KprrgVpIW5A)  from [@CodingWithManny](https://github.com/codingwithmanny). 
+>For a more detailed walkthrough check out [<ins>this video tutorial</ins>](https://www.youtube.com/watch?v=KprrgVpIW5A)  from [@CodingWithManny](https://github.com/codingwithmanny). 
+>The video tutorial walks over the following guide [<ins>issuer node setup guide</ins>](https://github.com/codingwithmanny/0xPolygonID--sh-id-platform/tree/docs/readme-walkthrough) which has additional details on how to setup the issuer node. 
 
-The video tutorial walks over the following guide [<ins>issuer node setup guide</ins>](https://github.com/codingwithmanny/0xPolygonID--sh-id-platform/tree/docs/readme-walkthrough) which has additional details on how to setup the issuer node. 
-
-:::
 
 ## Steps of Flow
 
-1. Setup the Issuer Node
+1. Set up the Issuer Node
 2. Create an Identity
 3. Create Credential 
 4. Create a QR Code to Accept Credential
 
-## Setup the Issuer Node
+## Set up the Issuer Node
 
 The Issuer Node can be set up in two ways: using [Docker](#start-issuer-node-using-docker-compose) or in the [Standalone Mode](#start-issuer-node-in-the-standalone-mode). If you are using the M1/M2 chip on your Mac, it is advised to run it using the Standalone Mode.
 
@@ -55,7 +53,7 @@ The Issuer Node can be set up in two ways: using [Docker](#start-issuer-node-usi
       ```
       docker ps
       ```
-      This lets you see all the containers that are currently running along with their statuses and ports.
+      This lets you see all the containers that are currently running, along with their statuses and ports.
 
       <div align="center">
          <img src= "../../imgs/docker-ps.png" align="center" style="border: 1px solid black"/>
@@ -160,7 +158,7 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
          </div>
         
 
-    This starts the Issuer Node. You can now browse to the port configured for your server (ServerPort)in the `config.toml` file and view the API documentation. For example, this could be http://localhost:3001.
+    This starts the Issuer Node. You can now browse to the port configured for your server (ServerPort) in the `config.toml` file and view the API documentation. For example, this could be `http://localhost:3001`.
 
 8. Run the following command to start the Pending_Publisher service:
 
@@ -169,12 +167,12 @@ This command will compile and create binaries for `Platform` (for APIs), `Migrat
       ```
 
     <div align="center">
-         <img src= "../../imgs/publisher-started.png" align="center" style="border: 1px solid black"/>
-         </div>
+    <img src= "../../imgs/publisher-started.png" align="center" style="border: 1px solid black"/>
+    </div>
 
 ### Authenticate to Send Requests
 
-Before you can start making API calls to the Issuer Node with endpoints, you need to authenticate first with a `username` and a `password`. This is done using the Basic Auth endpoint using Postman or your own API platform. That usernmae and password are the ones that you have configured in the `config.toml` file.
+Before you can start making API calls to the Issuer Node with endpoints, you need to authenticate first with a `username` and a `password`. This is done using the Basic Auth endpoint using Postman or your own API platform. That username and password are the ones that you have configured in the `config.toml` file.
 
 ## Create Identity
 
@@ -208,7 +206,7 @@ The Issuer Node responds by sending a response message that contains:
 
 ## Create Credential
 
-Post Identity creation, you can start the process of credential creation. For this, the [`Create Claim`](./issuer-node-api/claim/apis.md#create-claim) endpoint is used. The `identifier` (or `id`) of the issuer you generated in the previous step is passed as path parameter in the request URL. `credentialSchema` (schema on which credential's format would be based) and `credentialSubject` (Subject details such as `id`(user's wallet id ), and other information related to the credential schema (for example, in this case, `birthday` and `documentType`) are passed in the request body. 
+Post Identity creation, you can start the process of credential creation. For this, the [`Create Claim`](./issuer-node-api/claim/apis.md#create-claim) endpoint is used. The `identifier` (or `id`) of the issuer you generated in the previous step is passed as path parameter in the request URL. `credentialSchema` (schema on which credential's format would be based) and `credentialSubject` (Subject details such as `id` - user's wallet id), and other information related to the credential schema (for example, in this case, `birthday` and `documentType`) are passed in the request body. 
 
 ```
 {
