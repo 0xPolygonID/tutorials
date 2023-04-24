@@ -21,7 +21,7 @@ Without further ado, let's jump into building a new Schema Type!
 
 --- 
 
-We are a DAO that wants to issue VC to its members. Unfortunately, there's no existing schemas that can accommodate this type of data attestation. In order to issue these VCs, a schema of type `ProofOfDaoLongevity` needs to be created. This example will show you how to create a schema type that contains a single field, you can extend it to include more fields.
+Let's suppose we are a DAO that wants to issue VCs to its members. Unfortunately, there's no existing schemas that can accommodate this type of data attestation. In order to issue these VCs, a schema of type `ProofOfDaoLongevity` needs to be created. This example will show you how to create a schema type that contains a single field, you can extend it to include more fields.
 
 **1. Define which field to include in the schema**
 
@@ -45,15 +45,15 @@ The JSON-LD Context contains:
 
 - the name of the Type
 
-- its unique identifier `@id` which is a public url where the context can be resolved. 
+- its unique identifier `@id` which is a public URL where the context can be resolved. 
 
-    If you are working on Github, you can fetch the url directly from your published repository based on the file path. In this case it is 
+    If you are working on Github, you can fetch the URL directly from your published repository based on the file path. In this case it is 
 
     `https://raw.githubusercontent.com/0xPolygonID/tutorial-examples/main/credential-schema/proof-of-dao-longevity.jsonld#ProofOfDaoLongevity`
         
-- the definition of the vocabulary with its url
+- the definition of the vocabulary with its URL
 
-    In this case we create a field defined `vocab` and attach the url that identifies the vocabulary. In this case it is 
+    In this case we create a field defined `vocab` and attach the URL that identifies the vocabulary. In this case it is 
     
     `https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/proof-of-dao-longevity-vocab.md#`
 
@@ -98,9 +98,9 @@ The JSON-LD Context contains:
 Last but not least, we have to create the JSON Schema Document.  We decide to name it `proof-of-dao-longevity.json`.
 This a document that contains the serialization rule and the instruction for the Issuer to build Verifiable Credentials based on a specific schema type and spot any error in the process. Although it might seem complex and verbose, there are just a few values that need to be updated to adapt to your purpose:
 
-- Add the `uris` to your specific `jsonLdContext` and `jsonSchema`
+- Add the URIs to your specific `jsonLdContext` and `jsonSchema`:
     
-- Inside `CredentialSubject` update the information related to your field
+- Inside `CredentialSubject` update the information related to your field:
 
 
     ```json hl_lines="6 7 109 117 118"

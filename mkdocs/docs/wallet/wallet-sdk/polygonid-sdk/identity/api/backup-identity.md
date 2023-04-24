@@ -7,8 +7,12 @@ This method backs up the identity stored on SDK.
  
 A previously stored `IdentityEntity` on SDK is backed up using `backupIdentity()` method. The `IdentityEntity` is backed up from a `privateKey` associated with the Identity. 
  
-```
-Future<Map<int, String>?>backupIdentity({required String privateKey, required blockchain, required network}); 
+```dart
+Future<Map<int, String>?>backupIdentity({
+    required String privateKey, 
+    required blockchain, 
+    required network
+}); 
 
 ``` 
 

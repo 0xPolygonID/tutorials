@@ -1,4 +1,4 @@
- # Build an App using Flutter: First Few Steps
+# Build an App using Flutter: First Few Steps
 
 Once your Flutter and Dart plugins are installed, you can start creating your first Flutter app.
  

@@ -9,7 +9,7 @@ The collection of Claim endpoints is used to provide the following set of functi
 - Revoke a Verifiable Credential
 - Retrieve Revocation Status
 
-An id (also called credential id) is assigned to a Verifiable Credential when it is created by an Issuer. A user can then retrieve a VC via its id. If a credential is no longer valid or lost, it can be revoked (rendered inactive and cannot be used). 
+A credential ID is assigned to a Verifiable Credential when it is created by an Issuer. A user can then retrieve a VC via its ID. If a credential is no longer valid or lost, it can be revoked (rendered inactive and cannot be used). 
 
 ## Create Claim
 
@@ -26,7 +26,7 @@ An id (also called credential id) is assigned to a Verifiable Credential when it
 
 > Note: Depending on the schema a user opts for, the request body may contain some fields of the schema while leaving out the others. For example, in the API reference, we have considered the schema of the type `KYCAgeCredential` and therefore, included the `birthday` and `documentType` fields. 
 
-The Issuer Node responds by sending a response message that contains the string `id`, which is the id of the Verifiable Credential created by the Issuer Node. 
+The Issuer Node responds by sending a response message that contains the string `id`, which is the ID of the Verifiable Credential created by the Issuer Node. 
 
 <a href="https://self-hosted-platform.polygonid.me/#post-/v1/-identifier-/claims" target="_blank">API Reference</a>
 
@@ -35,7 +35,7 @@ The Issuer Node responds by sending a response message that contains the string 
 
 ## Get Claim
 
-**Function**: Endpoint to retrieve a Verifiable Credential based on its Claim ID (CID). This way, you can retrieve a credential issued by an Issuer based on this credential's id. 
+**Function**: Endpoint to retrieve a Verifiable Credential based on its Claim ID (CID). This way, you can retrieve a credential issued by an Issuer based on this credential's ID. 
 
 **How it Works**: The DID (the identifier string retrieved from calling the `Create Identity` endpoint) and the Claim ID, i.e.`id` (or CID) of the Verifiable Credential (retrieved from calling the `Create Claim` endpoint) are passed as path variables in the request URL. 
 
@@ -66,7 +66,8 @@ The server responds by sending the following data about the Verifiable Credentia
 
     - `type` of proof (for example, BJJSignature2021 or SparseMerkleTreeProof)
     - `issuerData`: It includes the Issuer's `id` (DID of the Issuer) and its `state` (value of its claimstreeroot, i.e. root of the claims (credential) tree)
-    -  `authclaim`: Value of authclaim along with its mtp `existence` (proof of its existence/non-existence in the Merkle tree) - `coreclaim`: Value of coreclaim along with `signature` (Issuer's signature which verifies that the credential is issued by a valid Issuer). 
+    -  `authclaim`: Value of authclaim along with its mtp `existence` (proof of its existence/non-existence in the Merkle tree) 
+    - `coreclaim`: Value of coreclaim along with `signature` (Issuer's signature which verifies that the credential is issued by a valid Issuer). 
 
 
 <a href="https://self-hosted-platform.polygonid.me/#get-/v1/-identifier-/claims/-id-" target="_blank">API Reference</a>
@@ -98,9 +99,9 @@ You can retrieve a set of credentials based on different filters or criteria. Th
 
 The Issuer Node responds by sending a response message that contains the Verifiable Credential and all the information related to it. The response consists of information related to **authclaim** (which authorizes the user that requests for credential) and **coreclaim** (the actual credential issued by an Issuer to the user. Depending on these two claims, the information related to these two may differ in the response body. Here, we are going to provide an overview of some of these fields:
 
-- `Context`: URL pointing to the json-ld documents that define how credential schema (here we are using BJJAuthCredential) and claim-schema-vocab (here we are using SparseMerkleTreeProof)are defined. 
+- `Context`: URL pointing to the JSON-LD documents that define how credential schema (here we are using BJJAuthCredential) and claim-schema-vocab (here we are using SparseMerkleTreeProof)are defined. 
 
-- `credentialSchema`: URL pointing to the credential schema of type json. It could be a schema for `authclaim` or `coreclaim`.
+- `credentialSchema`: URL pointing to the credential schema of type JSON. It could be a schema for `authclaim` or `coreclaim`.
 
 - `credentialStatus`: Shows credentialStatus `id` (which is the Revocation status of the credential (presence or absence of the revocation nonce value), `revocationNonce` (zero or any value), `type`(type of Proof, for example, SparseMerkleTreeProof). 
 
@@ -108,7 +109,7 @@ The Issuer Node responds by sending a response message that contains the Verifia
 
     - `type`: Type of credential for credentialSubject (AuthBJJCredential or KYCAgeCredential)
 
-- `id`: It is the id of the Verifiable Credential.
+- `id`: It is the ID of the Verifiable Credential.
 
 - `expiration`: The date on which the credential shall expire.
 
@@ -130,7 +131,7 @@ The Issuer Node responds by sending a response message that contains the Verifia
 
 ## Get Claim QR Code
 
-**Note:** In order to communicate with the Polygon ID Wallet App, the Issuer Node must be hosted on a public URL.
+>**Note:** In order to communicate with the Polygon ID Wallet App, the Issuer Node must be hosted on a public URL.
 
 **Function**: Endpoint to generate a JSON which is then used to generate a QR code on a third-party app. The user can then scan this QR code and accept credentials to his/her wallet.  
 
@@ -138,7 +139,7 @@ The Issuer Node responds by sending a response message that contains the Verifia
 
 The Issuer Node responds by sending a response message that contains a JSON which carries the following fields:
 
-`credentials` contains the credential id (`cid`) and a link to the schema associated with the credential.
+`credentials` contains the credential ID (`cid`) and a link to the schema associated with the credential.
 
 `url` is the address at which the user's wallet makes a call to the endpoint. 
 

@@ -6,7 +6,7 @@ The `prove()` function generates zero-knowledge proof using the valid credential
 
 The prove() method passes `did`, `profileNonce`, `claim`, `circuitData`, `request`, and `challenge` as input parameters. and generates a JWZ proof. 
 
-```
+```dart
 Future<JWZProof> prove(
       {required String did,
       int? profileNonce,  
@@ -19,11 +19,11 @@ Future<JWZProof> prove(
   }
 ```
 
-`did` is the unique id of the identity
+`did` is the unique ID of the identity
 `profileNonce` is the nonce of the profile of the identity
-`claim` is Verifiable Credential 
+`claim` is the Verifiable Credential 
 `circuitData` are the circuits used for generating a proof
-`request` is the proof request information that comes from the Verifier.
+`request` is the proof request information that comes from the Verifier
 `challenge` is a message the Verifier requires an Integrator to sign with its identity so that an Integrator can verify its identity
 
 `initCircuitsDownloadAndGetInfoStream()` and `isAlreadyDownloadedCircuitsFromServer()` methods above are used for downloading the circuit files as these circuits are too big to be stored on the SDK. 

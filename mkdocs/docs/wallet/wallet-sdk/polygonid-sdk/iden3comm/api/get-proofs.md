@@ -6,7 +6,7 @@ This function uses identity to generate the zero-knowledge proofs requested by t
 
 The `getProofs()` method uses `Iden3MessageEntity`, `did`, `profileNonce`, and `privateKey` as the input parameters and returns a `JWZProofEntity`.
 
-```
+```dart
 Future<List<JWZProofEntity>> getProofs(
       {required Iden3MessageEntity message,
       required String did,
@@ -14,13 +14,13 @@ Future<List<JWZProofEntity>> getProofs(
       required String privateKey}); 
 ```
    
-`Iden3MessageEntity`: Returned from `getIden3Message` method after a user scans the QR code on Issuer/Verifier website. 
+`Iden3MessageEntity`: returned from `getIden3Message` method after a user scans the QR code on Issuer/Verifier website. 
 
 `profileNonce` is the nonce of the profile of an identity.
 
 `privateKey` of the identity is a key that is used to access the sensitive information of the identity. This key is also used for generating proofs by using the credentials associated with the identity. 
 
-`did` is the unique id of the identity. 
+`did` is the unique ID of the identity. 
 
 `JWZProofEntity`is the JWZ message that the Integrator sends to the Issuer/Verifier after scanning the QR code. Read more about JWZ [here](../jwz.md).
 
