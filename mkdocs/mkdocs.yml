@@ -3,6 +3,7 @@ site_name: Polygon ID Documentation tutorials
 site_url: https://polygon.technology/polygon-id/
 theme:
   name: material
+  custom_dir: overrides
   palette:
     primary: deep purple
   logo: logo-white.svg
@@ -115,5 +116,7 @@ plugins:
   - search
   - mermaid2
 
-
- 
+extra:
+  analytics:
+    provider: custom
+    property: GTM-5TKTB44
