@@ -23,6 +23,9 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true 
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
 nav:
   - Home: "index.md"
