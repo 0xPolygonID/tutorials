@@ -427,7 +427,6 @@ Make sure you have Postgres, Redis and Vault properly installed & configured. Do
 6. Follow the [steps](#import-wallet-private-key-to-vault) for adding an Ethereum private key to the Vault.
 7. Follow the [steps](#create-issuer-did) for creating an identity as your issuer DID.
 8. _(Optional)_ To set up the UI with its own API, first copy `.env-ui.sample` as `.env-ui`. Please see the [configuration](#configuration) section for more details.
-9. _Documentation pending: standalone UI setup._
 
 ---
 
@@ -543,13 +542,12 @@ curl --location --request GET 'http://localhost:3001/v1/did:polygonid:polygon:mu
 
 ### Issuing Credential To Polygon ID Wallet User
 
-This will walk you through the steps of issuing a credentials to the Polygon ID wallet app.
+This will walk you through the steps of issuing a credential to the Polygon ID wallet app.
 
-#### Option 1 - Using the UI
+!!! note 
+    To learn how to issue credentials to a Polygon ID Wallet User, please refer to the [Issuer Node Guide](issuer-node-guide.md#schemas).
 
-_Documentation pending_
-
-#### Option 2 - Using a CLI
+#### Using a CLI
 
 In order to get the credential on the Polygon ID App, the credential QR Code payload is needed.
 
