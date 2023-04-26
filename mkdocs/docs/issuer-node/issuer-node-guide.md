@@ -1,0 +1,99 @@
+!!! info
+    Before you actually act as an Issuer and provide credentials, you need to set up a Polygon ID Issuer Node. You can find instructions to get your Issuer Node up and running [here](./getting-started-flow.md).
+
+## Schemas
+
+To create a credential, you require a schema that contains semantics of the JSON vocabulary and is used to describe a large number of datasets. The schema contains links to JSON-LD Context and JSON URL. 
+
+You can create your own schemas and import them to the Issuer Node. Here's how you can do that:
+
+1. Click on **Import Schema**:
+
+    <div align="center">
+    <img src= "../../imgs/schema-1.png" align="center" width="1000" height="1000"/>
+    </div>
+
+2. Then you provide the schema URL:
+
+    <div align="center">
+    <img src= "../../imgs/schema-2.png" align="center" width="1000" height="1000"/>
+    </div>
+
+3. After you pasted the schema URL, you can click on **Preview import**.
+
+    <div align="center">
+    <img src= "../../imgs/schema-3.png" align="center" width="1000" height="1000"/>
+    </div>
+
+4. The preview will show the details of the schema. You can also choose to see the attributes in a formatted way, as a JSON LD context or the JSON schema itself.
+
+    <div align="center">
+    <img src= "../../imgs/schema-4.png" align="center" width="1000" height="1000"/>
+    </div>
+
+5. Your new schema will be instantly added to your schema list.
+
+    <div align="center">
+    <img src= "../../imgs/schema-5.png" align="center" width="1000" height="1000"/>
+    </div>
+
+
+## Credentials
+
+The Credentials main page shows information about all the credentials that have been granted. Each of one those credentials can be revoked by clicking on the 3 dots at the end of the row.
+
+<div align="center">
+    <img src= "../../imgs/credential-main.png" align="center" width="1000" height="1000"/>
+</div>
+
+!!! info "Revocation and Issuer state publication"
+    Whenever an Issuer decides to revoke a credential, they have to publish the issuer state to the blockchain. This can be done on the **Issuer state**. Notice that there will be a **Pending actions** right next to the sidebar button.
+    <div align="center">
+    <img src= "../../imgs/issuer-state.png" align="center" width="1000" height="1000"/>
+    </div>
+
+The main responsibility of an Issuer is to create and provide credentials to ID holders. Here is how you can do it:
+
+1. You can start by clicking on the **Issue credential** button or choosing the **Issue** action next to one of your Schema types.
+
+    <div align="center">
+    <img src= "../../imgs/issue-credential-1.png" align="center" width="1000" height="1000"/>
+    </div>
+
+2. There are some available options for this credential: an expiring date and a maximum number of issuances. 
+
+    <div align="center">
+    <img src= "../../imgs/issue-credential-2.png" align="center" width="1000" height="1000"/>
+    </div>
+
+    !!! note
+        If you clicked on the **Issue credential** button, you will later be prompted to choose which Schema Type you would like to create your credential.
+        <div align="center">
+        <img src= "../../imgs/issue-credential-3.png" align="center" width="1000" height="1000"/>
+        </div>
+
+3. The credential we are trying to issue in this tutorial has one mandatory field: the **entryDate**. That would represent the day when the person would have joined the DAO.
+
+    <div align="center">
+    <img src= "../../imgs/issue-credential-4.png" align="center" width="1000" height="1000"/>
+    </div>
+
+4. After you click on **Create credential link**, you will have access to the credential link: 
+
+    <div align="center">
+    <img src= "../../imgs/issue-credential-5.png" align="center" width="1000" height="1000"/>
+    </div>
+
+5. You can also generate a QR code embedding that previous link, by clicking on **View link**:
+
+    <div align="center">
+    <img src= "../../imgs/issue-credential-6.png" align="center" />
+    </div>
+
+
+!!! info "What happens on the Holder's side?"
+    The holder will just have to log into his Polygon ID wallet, tap Connect, scan the QR code and choose **Connect Wallet**. After authentication, the holder finally receives their credential.
+
+    <div align="center">
+    <img src= "../../imgs/issuer-holder.png" align="center" width="1000" height="1000"/>
+    </div>

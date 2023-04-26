@@ -1,6 +1,6 @@
 # Create Custom Schemas
 
-A Schema Type encodes the structure of a particular Verifiable Credential (VC) by defining the new of the type, the fields that must be included inside the VC, and a description for these fields.
+A Schema Type encodes the structure of a particular Verifiable Credential (VC) by defining the type, the fields that must be included inside the VC, and a description for these fields.
 
 Schemas are a crucial component that allows for the interoperable use of VCs across different services. Just by parsing a schema, any program can interpret the content of a Verifiable Credential without having to interact with Issuer Party.
 

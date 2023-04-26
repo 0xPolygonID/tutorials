@@ -31,11 +31,11 @@ nav:
   - Home: "index.md"
   - Issuer:
     - Overview: "issuer/issuer-overview.md"
-    - Quick Start - Demo Issuer : "issuer/demo-issuer.md"
+    - Issuer Node Guide: "issuer-node/issuer-node-guide.md"
     - Create Custom Schemas : "issuer/schema.md"
     - Issuer Node: 
       - Overview: "issuer-node/issuer-node-overview.md"
-      - Getting Started Flow: "issuer-node/getting-started-flow.md"      
+      - Getting Started: "issuer-node/getting-started-flow.md"      
       - Issuer Node API: 
         - Introduction: "issuer-node/issuer-node-api/introduction.md"
         - API Reference:
