@@ -90,10 +90,20 @@ The main responsibility of an Issuer is to create and provide credentials to ID 
     <img src= "../../imgs/issue-credential-6.png" align="center" />
     </div>
 
-
 !!! info "What happens on the Holder's side?"
     The holder will just have to log into his Polygon ID wallet, tap Connect, scan the QR code and choose **Connect Wallet**. After authentication, the holder finally receives their credential.
 
     <div align="center">
     <img src= "../../imgs/issuer-holder.png" align="center" width="1000" height="1000"/>
     </div>
+
+## Connections
+
+This area of the Issuer Node UI shows all the current connections with ID Holders as well as the credentials issued to them. 
+
+<div align="center">
+<img src= "../../imgs/connection-1.png" align="center" />
+</div>
+
+
+

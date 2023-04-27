@@ -463,11 +463,10 @@ curl --location 'http://localhost:3001/v1/identities' \
 
 A connection is a DID that is linked to the issuer when they authenticate via an issued credential.
 
-#### Option 1 - Using the UI
+!!! note
+    You can check all the connections on the [Issue Node UI](issuer-node-guide.md#connections).
 
-_Documentation pending_
-
-#### Option 2 - Using a CLI
+#### Using a CLI
 
 This will output all DIDs (i.e. connections) that have been created with the issuer.
 
@@ -491,11 +490,10 @@ curl --location --request GET 'http://localhost:3001/v1/identities' \
 
 This will go through creating a `KYCAgeCredential` credential based off the following [KYC Age Credential Schema](https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json)
 
-#### Option 1 - Using the UI
+!!! note
+    Learn how to create credentials on [the Issuer Node guide](issuer-node-guide.md#schemas).
 
-_Documentation pending_
-
-#### Option 2 - Using a CLI
+#### Using a CLI
 
 Before creating a credential, the identifier of the service/person is needed. To retrieve this, the `identifier` can be copied from the Polygon ID app to the clipboard.
 
@@ -524,13 +522,12 @@ curl --location 'http://localhost:3001/v1/did:polygonid:polygon:mumbai:2qPdb2hNc
 
 ### (Optional) Verifying Credentials Creation
 
-#### Option 1 - Using the UI
+!!! note
+    You can always check the created credentials on the Issuer Node UI.
 
-_Documentation pending_
+#### Using a CLI
 
-#### Option 2 - Using a CLI
-
-Using the previous generated credential ID from [Creating Credentials](#creating-credentials).
+Using the previously generated credential ID from [Creating Credentials](#creating-credentials).
 
 ```bash
 curl --location --request GET 'http://localhost:3001/v1/did:polygonid:polygon:mumbai:2qPdb2hNczpXhkTDXfrNmmt9fGMzfDHewUnqGLahYE/claims/b1eab5be-dea3-11ed-8f7d-0242ac1e0005' \
@@ -583,10 +580,6 @@ A quick way to validate this KYCAge Claim is to use [https://verifier-demo.polyg
 !["Verifier Proof Verified"](../imgs/verifier-success-verified.png)
 
 ---
-
-## Configuration
-
-_Documentation pending for tutorial_
 
 ### Getting A Public URL
 
