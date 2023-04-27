@@ -47,8 +47,11 @@ pip3 install mkdocs-mermaid2-plugin
 pip3 install mkdocs-markdown-graphviz==1.3
 ```
 
+### Clone the repository
+Using this link https://github.com/0xPolygonID/tutorials.git, clone the repository in your local machine.
+
 ### Run the webserver
-Change the directory to 'mkdocs'
+Find the folder where the repository is installed in your computer and change the directory to 'mkdocs'.
 
 ```
 cd mkdocs

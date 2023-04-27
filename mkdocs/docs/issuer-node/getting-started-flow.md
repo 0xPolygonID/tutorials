@@ -2,10 +2,10 @@
 
 This flow details the steps that can be carried out to achieve full integration of the Issuer Node with the Polygon ID APIs.
 
->Video Tutorial Available
+!!! tip "Video Tutorial Available"
 
->For a more detailed walkthrough check out [<ins>this video tutorial</ins>](https://www.youtube.com/watch?v=KprrgVpIW5A)  from [@CodingWithManny](https://github.com/codingwithmanny). 
->The video tutorial walks over the following guide [<ins>issuer node setup guide</ins>](https://github.com/codingwithmanny/0xPolygonID--sh-id-platform/tree/docs/readme-walkthrough) which has additional details on how to setup the issuer node. 
+    For a more detailed walkthrough check out [<ins>this video tutorial</ins>](https://www.youtube.com/watch?v=KprrgVpIW5A)  from [@CodingWithManny](https://github.com/codingwithmanny). 
+    The video tutorial walks over the following guide [<ins>issuer node setup guide</ins>](https://github.com/codingwithmanny/0xPolygonID--sh-id-platform/tree/docs/readme-walkthrough) which has additional details on how to setup the issuer node. 
 
 
 ## Steps of Flow
