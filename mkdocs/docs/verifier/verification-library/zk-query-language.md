@@ -526,3 +526,29 @@ When presented with this query, the user must prove that he/she is not resident 
         }
     }
     ```
+
+### Selective Disclosure
+
+Selective Disclosure is a feature provided for the Verifier, which makes it capable of requiring some specific data from the ID Holder. Using a similar approach to the ZK language operations, the Verifier sends a verification request for a piece of the Holder's identity. 
+
+**Query**
+
+In the example below, the verifier requests the Holder's country code.
+
+```ts title="Off-chain"
+const proofRequest: protocol.ZKPRequest = {
+    id: 1,
+    circuitId: 'credentialAtomicQuerySigV2',
+    query: {
+        allowedIssuers: ['*'],
+        type: 'KYCCountryOfResidenceCredential',
+        context: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v4.jsonld',
+        credentialSubject: {
+            countryCode: {},
+        },
+    },
+};
+```
+
+!!! info
+    In fact, from the circuit point of view, this operation is similar to the ZK Query language equal operation.  
