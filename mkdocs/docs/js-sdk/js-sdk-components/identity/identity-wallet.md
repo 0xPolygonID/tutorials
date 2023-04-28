@@ -120,12 +120,12 @@ Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/
 This method generates Merkle Tree Proof (MTP) for the inclusion or non-inclusion of a credential in the Claims tree by following the path from the leaf to the root in the given Merkle tree storage. To know more about the credential's inclusion in a Merkle tree, read our iden3 core specification tutorials [here](https://docs.iden3.io/protocol/spec/#update-claims).
 
 ```typescript
-    generateCredentialMtp(
+  generateCredentialMtp(
     did: DID,
     credential: W3CCredential,
     treeState?: TreeState
   ): Promise<MerkleTreeProofWithTreeState>;
-  ```
+```
 
  where `did` is the DID of the Issuer that issued the credential to the user.
 
