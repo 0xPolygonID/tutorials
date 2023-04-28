@@ -57,6 +57,7 @@ nav:
       - ZK Query Language: "verifier/verification-library/zk-query-language.md"
   - Wallet:
       - Overview: "wallet/wallet-overview.md"
+      - Features: "wallet/features.md"
       - Wallet SDK:
           - Flutter SDK:
               - Overview: "wallet/wallet-sdk/flutter-sdk/flutter-sdk-overview.md"
