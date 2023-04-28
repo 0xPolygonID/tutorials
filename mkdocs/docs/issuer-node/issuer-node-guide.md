@@ -54,6 +54,39 @@ The Credentials main page shows information about all the credentials that have 
 
 The main responsibility of an Issuer is to create and provide credentials to ID holders. Here is how you can do it:
 
+### Direct Issuance
+If you already have a connection with an identifier or you have its DID, you can issue a credential directly to it.
+
+1. You can start by clicking on the **Issue credential** button or choosing the **Issue** action next to one of your Schema types.
+
+    <div align="center">
+    <img src= "../../imgs/issue-credential-1.png" align="center" width="1000" height="1000"/>
+    </div>
+
+    !!! note
+        The [Connections area](#connections) shows all identifiers who have been granted credentials. Direct issuance can also be done from there, by selecting the identifier you would like to issue a credential for.
+
+2. Either paste an identifier DID or select one from the list:
+
+    <div align="center">
+    <img src= "../../imgs/issue-credential-2.png" align="center" width="1000" height="1000"/>
+    </div>
+
+3. Now you will be prompted to choose which Schema Type you would like to create your credential with.
+    <div align="center">
+    <img src= "../../imgs/issue-credential-3.png" align="center" width="1000" height="1000"/>
+    </div>
+
+4. The credential we are trying to issue in this tutorial has one mandatory field: the **entryDate**. That would represent the day when the person would have joined the DAO.
+
+    <div align="center">
+    <img src= "../../imgs/issue-credential-4.png" align="center" width="1000" height="1000"/>
+    </div>
+
+5. Click on **Issue credential directly** and the credential is sent to the Holder. 
+
+### Generating a Credential link
+
 1. You can start by clicking on the **Issue credential** button or choosing the **Issue** action next to one of your Schema types.
 
     <div align="center">
@@ -63,11 +96,11 @@ The main responsibility of an Issuer is to create and provide credentials to ID 
 2. There are some available options for this credential: an expiring date and a maximum number of issuances. 
 
     <div align="center">
-    <img src= "../../imgs/issue-credential-2.png" align="center" width="1000" height="1000"/>
+    <img src= "../../imgs/issue-credential-2-link.png" align="center" width="1000" height="1000"/>
     </div>
 
     !!! note
-        If you clicked on the **Issue credential** button, you will later be prompted to choose which Schema Type you would like to create your credential.
+        If you clicked on the **Issue credential** button, you will later be prompted to choose which Schema Type you would like to create your credential with.
         <div align="center">
         <img src= "../../imgs/issue-credential-3.png" align="center" width="1000" height="1000"/>
         </div>
@@ -105,5 +138,10 @@ This area of the Issuer Node UI shows all the current connections with ID Holder
 <img src= "../../imgs/connection-1.png" align="center" />
 </div>
 
+You can also check the details about each of those connections, issue credentials directly or remove them by clicking on the 3 dots next to each connection.
 
+The Details page shows some useful information, such as identifier(DID), creation date and issued credentials. Some other available actions are direct issuance, credential revocation and removal.
 
+<div align="center">
+<img src= "../../imgs/connection-details.png" align="center" />
+</div>
