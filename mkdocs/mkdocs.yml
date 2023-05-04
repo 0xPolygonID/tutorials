@@ -101,6 +101,11 @@ nav:
                   - Overview: "wallet/wallet-sdk/polygonid-sdk/proof/overview.md"
                   - APIs:
                       - Generate Proof: "wallet/wallet-sdk/polygonid-sdk/proof/api/prove.md"
+              - Profiles:
+                  - Overview: "wallet/wallet-sdk/polygonid-sdk/profiles/overview.md"
+                  - Get Profiles: "wallet/wallet-sdk/polygonid-sdk/profiles/api/get-profiles.md"
+                  - Add Profile: "wallet/wallet-sdk/polygonid-sdk/profiles/api/add-profile.md"
+                  - Remove Profile: "wallet/wallet-sdk/polygonid-sdk/profiles/api/remove-profile.md"
   - Smart Contracts:
       - Overview: "contracts/overview.md"
   - JS SDK:
