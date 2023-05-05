@@ -44,7 +44,7 @@ For other platforms see: https://graphviz.org/download/
 
 ```
 pip3 install mkdocs-mermaid2-plugin
-pip3 install mkdocs-markdown-graphviz==1.3
+pip3 install mkdocs-graphviz
 ```
 
 ### Clone the repository
