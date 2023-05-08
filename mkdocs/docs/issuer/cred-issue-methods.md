@@ -11,7 +11,6 @@ There are two ways those credentials can be issued: using *BJJ key Signature* or
 
 The credential is not added to the Issuer’s Merkle tree, instead a **baby jub jub (BJJ)** signature is used which is then verified upon presentation.
 
-After the initial issuer state has been published on-chain; it is free to issue claims off-chain (similar to `did:ethr`).
 
 <div align="center">
     <img src="../../imgs/babyjubjub.png"></img>
