@@ -34,6 +34,7 @@ nav:
     - Overview: "issuer/issuer-overview.md"
     - Issuer Node Guide: "issuer-node/issuer-node-guide.md"
     - Create Custom Schemas : "issuer/schema.md"
+    - Credential Issuance Methods: "issuer/cred-issue-methods.md"
     - Issuer Node: 
       - Overview: "issuer-node/issuer-node-overview.md"
       - Getting Started: "issuer-node/getting-started-flow.md"      
