@@ -25,13 +25,14 @@ These steps can be followed to get up and running with all features as quickly a
 !!! note
     For more detailed step-by-step instructions and guides to commands and examples, you may skip to the next section.
 
-1. Copy `.env-api.sample` as `.env-api` and `.env-issuer.sample` as `.env-issuer`. Please see the [configuration](#configuration) section for more details.
+1. Copy `.env-api.sample` as `.env-api` and `.env-issuer.sample` as `.env-issuer`. Please see the [configuration](#node-issuer-configuration) section for more details.
 1. Run `make up`. This launches 3 containers with Postgres, Redis and Vault. Ignore the warnings about variables, since those are set up in the next step.
 1. **If you are on an Apple Silicon chip (e.g. M1/M2), run `make run-arm`**. Otherwise, run `make run`. This starts up the issuer API, whose frontend can be accessed via the browser (default <http://localhost:3001>).
 1. Follow the [steps](#import-wallet-private-key-to-vault) for adding an Ethereum private key to the Vault.
 1. Follow the [steps](#create-issuer-did) for creating an identity as your issuer DID.
 1. _(Optional)_ To run the UI with its own API, first copy `.env-ui.sample` as `.env-ui`. Please see the [configuration](#development-ui) section for more details.
 1. _(Optional)_ Run `make run-ui` (or `make run-ui-arm` on Apple Silicon) to have the Web UI available on <http://localhost:8088> (in production mode). Its HTTP auth credentials are set in `.env-ui`. The UI API also has a frontend for API documentation (default <http://localhost:3002>).
+1. _(Optional)_ If during the UI installation process it is necessary to redeploy the UI-related services, for example, because the value of an environment variable needs to be changed, this can be done easily with the command `make restart-ui` (or `make restart-ui-arm` on Apple Silicon).
 
 #### Docker Guide Requirements
 
@@ -581,9 +582,19 @@ In order for the service to work, we'll need a public URL.
 An easy way to set this up is by using [ngrok](https://ngrok.com) as a forwarding service that maps to a local port.
 
 ```bash
-# FROM: /path/to/ngrok binary
+# For issuer-api ISSUER_SERVER_URL env var (.env-issuer file)
+./ngrok http 3001; 
+```
 
-./ngrok http 3001;
+```bash
+# For issuer-api-ui ISSUER_API_UI_SERVER_URL env var (.env-api file)
+./ngrok http 3002; 
+```
+
+Copy the **Forwarding** output value into the desired env var
+
+```bash
+# FROM: /path/to/ngrok binary
 
 # Expected Output:
 # Add OAuth and webhook security to your ngrok (its free!): https://ngrok.com/free
