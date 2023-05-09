@@ -59,7 +59,7 @@ cp .env-ui.sample .env-ui;
 
 #### Node Issuer Configuration
 
-The `.env-issuer` will be loaded into the [Docker compose initializer](https://github.com/0xPolygonID/sh-id-platform/blob/develop/infrastructure/local/docker-compose.yml).
+The `.env-issuer` will be loaded into the [Docker compose initializer](https://github.com/0xPolygonID/issuer-node/blob/develop/infrastructure/local/docker-compose.yml).
 
 Any of the following RPC providers can be used:
 
