@@ -1,6 +1,6 @@
 # JS SDK Example
 
-This tutorial shows the steps to run different modules of the Polygon ID JS SDK with example code. After the steps for each module, you will find a sample output which is generated when these modules are run.
+This tutorial shows the steps to run different modules of the Polygon ID JS SDK with exampling code. After the steps for each module, you will find a sample output which is generated when these modules are run.
 
 ## Steps to Run Example Code
 
@@ -14,7 +14,7 @@ This tutorial shows the steps to run different modules of the Polygon ID JS SDK 
 
       where s3 is a bucket that has been created for storing the circuits' data in one of the Amazon Simple Storage Service (Amazon S3) for specific regions across the globe.
 
-      The `latest.zip` folder is accessed from the s3 bucket and is output to the local `latest.zip` file.  
+      The `latest.zip` folder is accessed from the s3 bucket and is the output to the local `latest.zip` file.  
 
       Unzip the `latest.zip` folder downloaded above to the `circuits` folder in the repository:
 
@@ -54,7 +54,8 @@ This tutorial shows the steps to run different modules of the Polygon ID JS SDK 
     };
     ```
 
-    > Note: The `CredentialStorage` accepts the interface of the Data Storage; it does not require Memory or Browser Storage. You can implement your own storage, be it  SQL storage or any other type of storage.
+    !!! note
+        The `CredentialStorage` accepts the interface of the Data Storage; it does not require Memory or Browser Storage. You can implement your own storage, be it  SQL storage or any other type of storage.
 
     `IdentityStorage` stores identities and profiles.
     `mt` stores Merkle Trees.
@@ -72,9 +73,9 @@ This tutorial shows the steps to run different modules of the Polygon ID JS SDK 
     const wallet = new IdentityWallet(kms, dataStorage, credWallet);
     ```
 
-    For `kms`, we need to define a `provider` that works with keys. For example, we can provide a Baby Jubjub Provider (`BJJProvider`) or an Ethereum Key Provider, or a Register Key Provider(`registerKeyProvider`), to name a few. For each Provider, we need to pass the storage: `AbstractPrivateKeyStore`. This storage allows you to create customized encrypted storage. For demo purposes, we have used `memoryKeyStore`. So in the nutshell, we create storage(`memoryKeyStore`), pass it to the Provider(`BJJProvider`), and register this Provider in Key Management System(`registerKeyProvider`).
+    For `kms`, we need to define a `provider` that works with keys. For example, we can provide a Baby Jubjub Provider (`BJJProvider`) or an Ethereum Key Provider, or a Register Key Provider(`registerKeyProvider`), to name a few. For each Provider, we need to pass the storage: `AbstractPrivateKeyStore`. This storage allows you to create customized encrypted storage. For demo purposes, we have used `memoryKeyStore`. So in a nutshell, we create storage(`memoryKeyStore`), pass it to the Provider(`BJJProvider`), and register this Provider in Key Management System(`registerKeyProvider`).
 
-2. After initialization is complete, to create identity, we need to pass an options, which is accepted by `IdentityCreationOptions` interface. The options are as follows:
+2. After initialization is complete, to create identity, we need to pass some options, which are accepted by the `IdentityCreationOptions` interface. The options are as follows:
 
 ```typescript
 export interface IdentityCreationOptions {
@@ -112,11 +113,12 @@ const { did, credential } = await wallet.createIdentity({
 
 - If we do not use `rhsUrl` within createIdentity() method, we get a `credentialStatus` with a URL as `id`, which contains an API to fetch the revocation status. Also, in this case, the `type` of the `credentialStatus` is `SparseMerkleTreeProof`.
 
-> Note: `revocationOpts` should provide info how to fetch the status of credential. If we use `CredentialStatusType.Iden3ReverseSparseMerkleTreeProof` within createIdentity() method, we get a `credentialStatus` with a Reverse Hash Service URL (`rhsUrl`) as `id`, which, upon running on a browser, shows a response that contains information about the identity state. If we use `CredentialStatusType.Iden3SparseMerkleTreeProof` within createIdentity() method, we get a `credentialStatus` with a URL as `id`, which contains an API to fetch the revocation status.
+!!! note
+    `revocationOpts` should provide info on how to fetch the status of a credential. If we use `CredentialStatusType.Iden3ReverseSparseMerkleTreeProof` within createIdentity() method, we get a `credentialStatus` with a Reverse Hash Service URL (`rhsUrl`) as `id`, which, upon running on a browser, shows a response that contains information about the identity state. If we use `CredentialStatusType.Iden3SparseMerkleTreeProof` within createIdentity() method, we get a `credentialStatus` with a URL as `id`, which contains an API to fetch the revocation status.
 
 ### Example: Issue Credential
 
-1. <a id="storage">Initialize all storage types</a>
+1. #### Initialize all storage types
 
     ```typescript
     const dataStorage = {
@@ -136,7 +138,7 @@ const { did, credential } = await wallet.createIdentity({
     const wallet = new IdentityWallet(kms, dataStorage, credWallet);
     ```
 
-2. <a id="issuer" />Create Issuer's Identity</a> (`issuerDID`):
+2. #### Create Issuer's Identity
 
     ```typescript
     const seedPhraseIssuer: Uint8Array = byteEncoder.encode('seedseedseedseedseedseedseedseed');
@@ -152,7 +154,7 @@ const { did, credential } = await wallet.createIdentity({
     });
     ```
 
-3. <a id="user">Create User's Identity</a> (`userDID`):
+3. #### Create User's Identity
 
     ```typescript
     const seedPhraseUser: Uint8Array = byteEncoder.encode('userseedseedseedseedseedseeduser');   
@@ -168,7 +170,7 @@ const { did, credential } = await wallet.createIdentity({
     });
     ```
 
-4. <a id="creq"> Create Credential Request</a> (`credentialRequest`) and  Issue Credential (`issueCredential`):
+4. #### Create Credential Request (`credentialRequest`) and  Issue Credential (`issueCredential`):
 
     ```typescript
     const claimReq: CredentialRequest = {
@@ -254,15 +256,15 @@ const { did, credential } = await wallet.createIdentity({
 
 ### Example: Generate Proof
 
-1. [Initialize all storages](#storage) including `dataStorage`, `identityWallet`, `credentialWallet`, `circuitStorage`, and `stateStorage`.
+1. [Initialize all storages](#initialize-all-storage-types) including `dataStorage`, `identityWallet`, `credentialWallet`, `circuitStorage`, and `stateStorage`.
 
     ```typescript
     const proofService: IProofService = new ProofService(idWallet, credentialWallet, circuitStorage, stateStorage);
     ```
 
-2. [Create Issuer's Identity](#issuer)
+2. [Create Issuer's Identity](#create-issuers-identity)
 
-3. [Create User's Identity](#user)
+3. [Create User's Identity](#create-users-identity)
 
 4. Create Credential Request (`credentialRequest`):
 
@@ -338,7 +340,7 @@ const { did, credential } = await wallet.createIdentity({
 
 10. Generate Proof for `ZeroKnowledgeProofRequest`. It uses the **AtomicQuerySignV2** as the `CircuitId`.
 
-- Processes Proof Request:
+- Processe Proof Request:
 
   ```typescript
   const proofReq: ZeroKnowledgeProofRequest = {

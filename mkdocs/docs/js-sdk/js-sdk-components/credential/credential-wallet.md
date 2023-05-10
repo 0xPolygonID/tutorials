@@ -46,14 +46,27 @@ Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/
 
 ## Find Credentials with Query with findByQuery() method
 
-This method lets you find credentials using iden3 protocol's query language.
+This method lets you find credentials using Iden3protocol's query language.
   
 ```typescript
 findByQuery(query: ProofQuery): Promise<W3CCredential[]>;
 
 ```
 
-where `ProofQuery` can contain parameters including `allowedIssuers` (Issuers that are allowed to issue a credential), `claimId`(Id of the credential issued), `credentialSubjectId`(id of the subject of the credential to whom a credential is issued), `type` (type of credential issued), `schema`(schema used to create a credential), and `credentialSubject`(subject of the credential to whom a credential is issued). This credential is then used to create a proof.
+where `ProofQuery` can contain parameters including:
+`allowedIssuers` (Issuers that are allowed to issue a credential),
+
+`claimId`(ID of the credential issued), 
+
+`credentialSubjectId`(ID of the subject of the credential to whom a credential is issued), 
+
+`type` (type of credential issued), 
+
+`schema`(schema used to create a credential), 
+
+`credentialSubject`(subject of the credential to whom a credential is issued). 
+
+This credential is then used to create a proof.
 
 ```typescript
 export interface ProofQuery {
@@ -129,11 +142,9 @@ This method creates a Verifiable Credential of W3C format.
   createCredential(issuer: DID, request: CredentialRequest, schema: JSONSchema): W3CCredential;
 ```
 
-where `hostUrl` is a prefix to the credential's identifier.
-`Issuer` is the DID of the Issuer.
+where `Issuer` is the DID of the Issuer.
 `request` is the specification for the credential creation parameters.
 `schema` is the JSON schema used for creating a credential.
-`rhsUrl` is the Reverse Hash Service URL. If `rhsUrl` is not passed as a parameter to the function, `hostUrl` is considered as default for creating Sparse Merkle Tree Proof.
 
 The method returns a Verifiable Credential in the W3C format.
 

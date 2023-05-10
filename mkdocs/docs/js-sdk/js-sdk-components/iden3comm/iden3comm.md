@@ -1,16 +1,16 @@
 # Iden3Comm
 
-Iden3comm is the implementation of the messages that exist in the iden3 protocol. It deals with different protocol message types; a few messages supported by the protocol are related to authentication, credential, proof, and revocation.
+Iden3comm is the implementation of the messages that exist in the Iden3protocol. It deals with different protocol message types; a few messages supported by the protocol are related to authentication, credential, proof, and revocation.
 
 ## Packers
 
 Iden3comm supports packers that receive some data as payload and create an envelope for different types of messages.
 
-The iden3 protocol supports packers for messages of 2 media types: plain messages and zero-knowledge proof (zkp) messages. These packers let you generate a token.
+The Iden3protocol supports packers for messages of 2 media types: plain messages and zero-knowledge proof (zkp) messages. These packers let you generate a token.
 
 ### ZKP Packer
 
-For the messages of the type **ZKP**, the packer receives payload (a serialized message) and zkp parameters (sender's DID and profile nonce) as input parameters and generates a JSON Web Zero Knowledge(JWZ) Token.
+For the messages of the type **ZKP**, the packer receives payload (a serialized message) and zkp parameters (sender's DID and profile nonce) as input parameters and generates a JSON Web Zero-knowledge(JWZ) Token.
 
 ```typescript
  async pack(payload: Uint8Array, params: ZKPPackerParams): Promise<Uint8Array> {
@@ -34,7 +34,7 @@ For the messages of the type **ZKP**, the packer receives payload (a serialized 
 
 ## Handler
 
-In iden3, a handler manages the packers described above. There are two types of handlers that the protocol supports: Authentication and Fetch Handlers.
+In Iden3, a handler manages the packers described above. There are two types of handlers that the protocol supports: Authentication and Fetch Handlers.
 
 ### Authentication Handler
 
@@ -53,7 +53,7 @@ handleAuthorizationRequestForGenesisDID(
   }>;
 ```
 
-It gets the payload and an identity (that can handle that request) as the input parameters, and returns a token, authrozation request, and authorization response.  
+It gets the payload and an identity (that can handle that request) as the input parameters, and returns a token, authorization request, and authorization response.  
 
 Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.authhandler.handleauthorizationrequestforgenesisdid#authhandlerhandleauthorizationrequestforgenesisdid-method" target="_blank">API Reference</a>.
 
@@ -81,12 +81,12 @@ Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/
 
 ```
 
-where `userGenesisDIS` is the user's Gensis DID for which s/he holds the key pair.
+where `userGenesisDIS` is the user's Genesis DID for which s/he holds the key pair.
 `authProfileNonce` is the profile nonce used for authorization.
 `authRequest`is the authorization request,
-`zkpRequestWithCredential` is the zero knowledge proof request along with the credential for which proof is required.
+`zkpRequestWithCredential` is the zero-knowledge proof request along with the credential for which the proof is required.
 
-The handler generates a proof of circuits that the user had requested (authorization request) and calls the package manager to pack the result in the form of JSON Web Zero Knowledge (JWZ) Token.
+The handler generates a proof of circuits that the user had requested (authorization request) and calls the package manager to pack the result in the form of a JSON Web Zero-knowledge (JWZ) Token.
 
 Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.authhandler.generateauthorizationresponse#authhandlergenerateauthorizationresponse-method" target="_blank">API Reference</a>.
 
