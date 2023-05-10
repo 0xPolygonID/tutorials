@@ -48,6 +48,7 @@ nav:
   - Verifier:
       - Overview: "verifier/verifier-overview.md"
       - Quick Start - Demo Verifier: "verifier/demo-verifier.md"
+      - Features: "verifier/features.md"
       - Verfier SDK - Off-chain:
           - Introduction: "verifier/verification-library/verifier-library-intro.md"
           - APIs:
