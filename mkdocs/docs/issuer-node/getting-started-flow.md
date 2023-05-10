@@ -14,6 +14,8 @@ There are two options for installing and running the server alongside the UI:
 1. [Docker Setup Guide](#docker-setup-guide)
 2. [Standalone Mode Guide](#standalone-mode-guide)
 
+**For either one, you first have to clone the repository.**
+
 ### Docker Setup Guide
 
 Running the app with Docker allows for minimal installation and a quick setup. This is recommended **for evaluation use-cases only**, such as local development builds.
