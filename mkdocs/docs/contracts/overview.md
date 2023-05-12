@@ -4,7 +4,7 @@
 
 ## Blockchain addresses
 
-For situations where one needs to publish data on the blockchain, such as creating a signature-type credential and generating on-chain proof, it is important to have the Smart Contracts addresses:
+For situations where one needs to publish data on the blockchain, such as creating a mtp-type credential, generating on-chain proofs and make credential revocations effective, it is important to have the Smart Contracts addresses:
 
 - Testnet(mumbai) -> `0x134B1BE34911E39A8397ec6289782989729807a4`
 - Mainnet -> `0x624ce98D2d27b20b8f8d521723Df8fC4db71D79D`
