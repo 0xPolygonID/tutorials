@@ -6,7 +6,7 @@ Iden3comm is the implementation of the messages that exist in the Iden3protocol.
 
 Iden3comm supports packers that receive some data as payload and create an envelope for different types of messages.
 
-The Iden3protocol supports packers for messages of 2 media types: plain messages and zero-knowledge proof (zkp) messages. These packers let you generate a token.
+The Iden3 protocol supports packers for messages of 2 media types: plain messages and zero-knowledge proof (zkp) messages. These packers let you generate a token.
 
 ### ZKP Packer
 

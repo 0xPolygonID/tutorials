@@ -46,7 +46,7 @@ Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/
 
 ## Find Credentials with Query with findByQuery() method
 
-This method lets you find credentials using Iden3protocol's query language.
+This method lets you find credentials using Iden3 protocol's query language.
   
 ```typescript
 findByQuery(query: ProofQuery): Promise<W3CCredential[]>;

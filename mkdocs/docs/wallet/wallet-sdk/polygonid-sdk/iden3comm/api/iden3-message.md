@@ -1,6 +1,6 @@
 # To Get Iden3 Message: `getIden3Message` 
  
-All communication between SDK and Issuer/Verifier is done through an `Iden3MessageEntity`. For example, an Integrator can retrieve this Iden3message from a message string obtained from an Issuer or a Verifier after scanning a QR code. 
+All communication between SDK and Issuer/Verifier is done through an `Iden3MessageEntity`. For example, an Integrator can retrieve this Iden3 message from a message string obtained from an Issuer or a Verifier after scanning a QR code. 
 
 ## Get Iden3 Message
 
