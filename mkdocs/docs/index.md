@@ -68,6 +68,7 @@ Another aspect of privacy comes from the fact that the Issuer would not be able 
 - [Identity Layer for Web3 - Paris - July 2022](https://youtu.be/bmRvQNmxFkM)
 - [The Future of Identity is Self-Sovereign: Build a dapp with Polygon ID - ETH Global - November 2022](https://youtu.be/utpazrLrSbY)
 - [A Deep Dive into Polygon ID - ETH Vietnam - November 2022](https://youtu.be/fQ9DiGUnvwA)
+- [Frequently Asked Questions on Polygon ID (FAQ)](https://support.polygon.technology/support/solutions/82000473421)
 
 ## Further Resources On Verifiable Credentials
 
