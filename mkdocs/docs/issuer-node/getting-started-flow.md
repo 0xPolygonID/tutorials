@@ -14,6 +14,8 @@ There are two options for installing and running the server alongside the UI:
 1. [Docker Setup Guide](#docker-setup-guide)
 2. [Standalone Mode Guide](#standalone-mode-guide)
 
+**For either one, you first have to [clone the repository](https://github.com/0xPolygonID/issuer-node).**
+
 ### Docker Setup Guide
 
 Running the app with Docker allows for minimal installation and a quick setup. This is recommended **for evaluation use-cases only**, such as local development builds.
@@ -25,7 +27,7 @@ These steps can be followed to get up and running with all features as quickly a
 !!! note
     For more detailed step-by-step instructions and guides to commands and examples, you may skip to the next section.
 
-1. Copy `.env-api.sample` as `.env-api` and `.env-issuer.sample` as `.env-issuer`. Please see the [configuration](#node-issuer-configuration) section for more details.
+1. Make sure you are in the root folder and copy `.env-api.sample` as `.env-api` and `.env-issuer.sample` as `.env-issuer`. 
 1. Run `make up`. This launches 3 containers with Postgres, Redis and Vault. Ignore the warnings about variables, since those are set up in the next step.
 1. **If you are on an Apple Silicon chip (e.g. M1/M2), run `make run-arm`**. Otherwise, run `make run`. This starts up the issuer API, whose frontend can be accessed via the browser (default <http://localhost:3001>).
 1. Follow the [steps](#import-wallet-private-key-to-vault) for adding an Ethereum private key to the Vault.
@@ -47,7 +49,7 @@ To help expedite a lot of the Docker commands, many have been abstracted using `
 
 #### Create Docker Configuration Files
 
-Make a copy of the following environment variables files:
+Make sure you are in the root folder and then make a copy of the following environment variables files:
 
 ```bash
 # FROM: ./
@@ -109,7 +111,7 @@ ISSUER_ETHEREUM_URL=<YOUR_RPC_PROVIDER_URI_ENDPOINT>
 
 #### Start Redis Postgres & Vault
 
-This will start the necessary local services needed to store the wallet private key to the Hashicorp vault and allow storing data associated to the issuer.
+This will start the necessary local services needed to store the wallet private key to the Hashicorp vault and allow storing data associated to the issuer. Don't forget to initialize Docker before running this command.
 
 ```bash
 # FROM: ./
@@ -155,7 +157,7 @@ make down;
 In order to secure the wallet private key so that the issuer can use it to issue credentials, it must be stored in the Hashicorp Vault.
 
 !!! note
-    Make sure the wallet that is provided has Testnet Matic to be able to send transactions.
+    Make sure the wallet that is provided has Testnet Matic to be able to send transactions and that you are providing the Private Key. Here's how you can [extract the private key from MetaMask](https://support.metamask.io/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key#:~:text=On%20the%20account%20page%2C%20click,click%20%E2%80%9CConfirm%E2%80%9D%20to%20proceed.), for instance.
 
 ```bash
 # FROM: ./
@@ -580,6 +582,7 @@ A quick way to validate this KYCAge Claim is to use [https://verifier-demo.polyg
 
 In order for the service to work, we'll need a public URL.
 An easy way to set this up is by using [ngrok](https://ngrok.com) as a forwarding service that maps to a local port.
+After downloading and installing ngrok, run the follwing command and copy the **Forwarding** URL:
 
 ```bash
 # For issuer-api ISSUER_SERVER_URL env var (.env-issuer file)
