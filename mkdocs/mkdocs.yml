@@ -122,6 +122,8 @@ nav:
               - Proof: "js-sdk/js-sdk-components/proof/proof.md"
       - Example: "js-sdk/js-sdk-example.md"
       - Browser Wallet Demo: "js-sdk/js-sdk-browser-wallet-demo.md"
+  - FAQ:
+      - Overview: "https://support.polygon.technology/support/solutions/82000473421"
 # If you declare plugins, you need to declare all of them,
 # including search (which would otherwise have been installed by default.)
 plugins:

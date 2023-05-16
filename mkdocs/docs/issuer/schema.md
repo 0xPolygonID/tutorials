@@ -4,13 +4,13 @@ A Schema Type encodes the structure of a particular Verifiable Credential (VC) b
 
 Schemas are a crucial component that allows for the interoperable use of VCs across different services. Just by parsing a schema, any program can interpret the content of a Verifiable Credential without having to interact with Issuer Party.
 
-In order to issue Verifiable Credentials, you can refer to [existing schemas](https://github.com/iden3/claim-schema-vocab/tree/main/schemas). If the existing ones are not able to describe the type of data you desire, you need to create your own schema `Type`.
+In order to issue Verifiable Credentials, you can refer to [existing schemas](https://github.com/0xPolygonID/issuer-node/tree/main/docs/examples/schemas). If the existing ones are not able to describe the type of data you desire, you need to create your own schema `Type`.
 
 A schema type is made of two documents:
 
-- `JSON-LD Context`, which contains a description of the type and its fields. [Here](https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v4.jsonld) is an example of JSON-LD Context for Schema Type `KYCAgeCredential`
+- `JSON-LD Context`, which contains a description of the type and its fields. [Here](https://github.com/0xPolygonID/issuer-node/blob/main/docs/examples/schemas/json-ld/exampleBoolean.json-ld) is an example of JSON-LD Context for Schema Type `CodingExperienceCredential`
 
-- `JSON Schema` which contains the validation rules for the Issuer Node. [Here](https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v4.json) is an example of a JSON Schema for Schema Type `KYCAgeCredential`.
+- `JSON Schema` which contains the validation rules for the Issuer Node. [Here](https://github.com/0xPolygonID/issuer-node/blob/main/docs/examples/schemas/json/exampleBoolean.json) is an example of a JSON Schema for Schema Type `CodingExperienceCredential`.
 
 Without further ado, let's jump into building a new Schema Type!
 

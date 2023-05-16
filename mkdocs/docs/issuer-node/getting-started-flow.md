@@ -34,6 +34,7 @@ These steps can be followed to get up and running with all features as quickly a
 1. Follow the [steps](#create-issuer-did) for creating an identity as your issuer DID.
 1. _(Optional)_ To run the UI with its own API, first copy `.env-ui.sample` as `.env-ui`. Please see the [configuration](#development-ui) section for more details.
 1. _(Optional)_ Run `make run-ui` (or `make run-ui-arm` on Apple Silicon) to have the Web UI available on <http://localhost:8088> (in production mode). Its HTTP auth credentials are set in `.env-ui`. The UI API also has a frontend for API documentation (default <http://localhost:3002>).
+1. _(Optional)_ If during the UI installation process, it becomes necessary to redeploy the UI-related services (due to the necessity of changing the value of an environment variable, for example), you can do so with the command `make restart-ui` (or `make restart-ui-arm` on Apple Silicon).
 
 #### Docker Guide Requirements
 
@@ -584,9 +585,19 @@ An easy way to set this up is by using [ngrok](https://ngrok.com) as a forwardin
 After downloading and installing ngrok, run the follwing command and copy the **Forwarding** URL:
 
 ```bash
-# FROM: /path/to/ngrok binary
+# For issuer-api ISSUER_SERVER_URL env var (.env-issuer file)
+./ngrok http 3001; 
+```
 
-./ngrok http 3001;
+```bash
+# For issuer-api-ui ISSUER_API_UI_SERVER_URL env var (.env-api file)
+./ngrok http 3002; 
+```
+
+Copy the **Forwarding** output value into the desired env var
+
+```bash
+# FROM: /path/to/ngrok binary
 
 # Expected Output:
 # Add OAuth and webhook security to your ngrok (its free!): https://ngrok.com/free
