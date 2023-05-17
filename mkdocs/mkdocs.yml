@@ -32,8 +32,10 @@ nav:
   - Home: "index.md"
   - Issuer:
     - Overview: "issuer/issuer-overview.md"
-    - Issuer Node Guide: "issuer-node/issuer-node-guide.md"
-    - Create Custom Schemas : "issuer/schema.md"
+    - Issuer Node UI Guide: "issuer-node/issuer-node-guide.md"
+    - Schemas:
+      - Create Custom Schemas : "issuer/schema.md"
+      - Schema Examples: "issuer/schema-exs.md"
     - Credential Issuance Methods: "issuer/cred-issue-methods.md"
     - Issuer Node: 
       - Overview: "issuer-node/issuer-node-overview.md"
