@@ -529,7 +529,7 @@ When presented with this query, the user must prove that he/she is not resident 
 
 ### Selective Disclosure
 
-Selective Disclosure is a feature provided for the Verifier, which makes it capable of requiring some specific data from the ID Holder. Using a similar approach to the ZK language operations, the Verifier sends a verification request for a piece of the Holder's identity. 
+Selective Disclosure is a feature provided for the Verifier, which makes it capable of requiring some specific data from the ID Holder. Using a similar approach to the ZK language operations, the Verifier sends a verification request for a piece of the Holder's identity. As seen below, the way to make this request is by sending an empty object as a value.
 
 **Query**
 
