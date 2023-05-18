@@ -263,118 +263,9 @@ There are two options for installing and running the server alongside the UI:
         #   WARN[0000] Found orphan containers ([issuer-vault-1 issuer-postgres-1 issuer-redis-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. 
         ```
 
-    Navigating to <http://localhost:3001> shows the issuer API's frontend:
+    Navigating to <http://localhost:3001> shows the issuer API endpoints:
 
     ![Issuer API frontend](../imgs/3001.png)
-
-    #### (Optional) Configure UI
-
-    This step is required to run the separate UI application, which allows intuitive and convenient management of schemas, credentials, connections and issuer state.
-
-    !!! tip
-        Running and using the UI is optional, since it implements funcionality already exposed via the [UI API](#using-the-ui-api). It is highly recommended though, because it makes issuer management far simpler and more intuitive.
-
-    ```bash
-    # FROM: ./
-
-    cp .env-ui.sample .env-ui;
-    ```
-
-    Configure the `.env-ui` file with the following details (or amend as desired):
-
-    ```bash
-    ISSUER_UI_BLOCK_EXPLORER_URL=https://mumbai.polygonscan.com
-    ISSUER_UI_AUTH_USERNAME=user-ui
-    ISSUER_UI_AUTH_PASSWORD=password-ui
-    ```
-
-    #### Start API UI, UI, Notifications server & Publisher
-
-    This will start the UI API that exposes endpoints to manage schemas, credentials, connections and issuer state, as well as the UI that relies on it.
-
-    === "_NON-Apple-M1/M2/Arm_ (ex: Intel/AMD)"
-
-        ```bash
-        # FROM: ./
-
-        make run-ui;
-        # (Equivalent)
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/local/docker-compose.yml up -d api-ui ui notifications pending_publisher;
-
-        # Expected Output:
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml up -d api-ui ui notifications pending_publisher
-        #   WARN[0000] Found orphan containers ([issuer-vault-1 issuer-postgres-1 issuer-redis-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. 
-        #   [+] Running 4/4
-        #    ⠿ Container issuer-ui-1                 Started                                                                                                           0.5s
-        #    ⠿ Container issuer-api-ui-1             Started                                                                                                           0.5s
-        #    ⠿ Container issuer-notifications-1      Started                                                                                                           0.4s
-        #    ⠿ Container issuer-pending_publisher-1  Running  
-        ```
-
-    === "_Apple-M1/M2/Arm_"
-
-        ```bash
-        # FROM: ./
-
-        make run-ui-arm;
-        # (Equivalent)
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile-arm" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/local/docker-compose.yml up -d api-ui ui notifications pending_publisher;
-
-        # Expected Output:
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile-arm" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml up -d api-ui ui notifications pending_publisher
-        #   WARN[0000] Found orphan containers ([issuer-vault-1 issuer-postgres-1 issuer-redis-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. 
-        #   [+] Running 4/4
-        #    ⠿ Container issuer-ui-1                 Started                                                                                                           0.5s
-        #    ⠿ Container issuer-api-ui-1             Started                                                                                                           0.5s
-        #    ⠿ Container issuer-notifications-1      Started                                                                                                           0.4s
-        #    ⠿ Container issuer-pending_publisher-1  Running  
-        ```
-
-    Now navigate to <http://localhost:3002> to see the UI API's frontend:
-
-    ![Issuer UI API frontend](../imgs/3002.png)
-
-    #### Using the UI API
-
-    Make sure to set the HTTP authentication credentials in `.env-api` to the following:
-
-    ```bash
-    # ...
-
-    ISSUER_API_UI_AUTH_USER=user-api
-    ISSUER_API_UI_AUTH_PASSWORD=password-api
-    ```
-
-    Then authenticate via the following form on <http://localhost:3002>:
-
-    ![Issuer UI API Authentication](../imgs/3002-auth.png)
-
-    This allows you to make a request via any of the endpoints using this frontend.
-
-    ![Issuer UI API Get Credentials](../imgs/3002-credentials.png)
-
-    #### (Optional) Using the UI
-
-    This service is running on <http://localhost:8088>.
-
-    !!! note 
-        If you are using Chrome, you might get the HTTP auth modal showing and disappearing quickly. To remedy this, use the following URL: <http://user-api:password-api@localhost:8088/>.
-
-    File containing the basic auth credentials: `.env-ui`
-
-    ```bash
-    # ...
-
-    ISSUER_UI_AUTH_USERNAME=user-ui
-    ISSUER_UI_AUTH_PASSWORD=password-ui
-    ```
-
-    ![Issuer UI](../imgs/8088.png)
-
-    !!! note
-        If you want to run the UI app in development mode, i.e. with HMR enabled, please follow the steps in the [Development (UI)](#development-ui) section.
-
-    ---
 
 === "Standalone Mode Guide"
 
@@ -411,3 +302,179 @@ There are two options for installing and running the server alongside the UI:
     8. _(Optional)_ To set up the UI with its own API, first copy `.env-ui.sample` as `.env-ui`. Please see the [configuration](#configuration) section for more details.
 
     ---
+## Configuration
+
+### Getting A Public URL
+
+In order for the service to work, we'll need a public URL.
+An easy way to set this up is by using [ngrok](https://ngrok.com) as a forwarding service that maps to a local port.
+After downloading and installing ngrok, run the follwing command and copy the **Forwarding** URL:
+
+```bash
+# For issuer-api ISSUER_SERVER_URL env var (.env-issuer file)
+./ngrok http 3001; 
+```
+
+```bash
+# For issuer-api-ui ISSUER_API_UI_SERVER_URL env var (.env-api file)
+./ngrok http 3002; 
+```
+
+Copy the **Forwarding** output value into the desired env var
+
+```bash
+# FROM: /path/to/ngrok binary
+
+# Expected Output:
+# Add OAuth and webhook security to your ngrok (its free!): https://ngrok.com/free
+# 
+# Session Status                online
+# Account                       YourAccountUsername (Plan: Free)
+# Update                        update available (version 3.2.1, Ctrl-U to update)
+# Version                       3.1.0
+# Region                        Europe (eu)
+# Latency                       -
+# Web Interface                 http://127.0.0.1:4040
+# Forwarding                    https://unique-forwading-address.eu.ngrok.io -> http://localhost:3001
+# 
+# Connections                   ttl     opn     rt1     rt5     p50     p90
+                              # 0       0       0.00    0.00    0.00    0.00
+```
+
+### Advanced setup
+
+Any variable defined in the config file can be overwritten using environment variables. The binding for this environment variables is defined in the function `bindEnv()` in the file `internal/config/config.go`
+
+An _experimental_ helper command is provided via `make config` to allow an interactive generation of the config file, but this requires Go 1.19.
+
+---
+
+## Development (UI)
+
+Completing the [installation](#installation) process yields the UI as a minified Javascript app. Any changes to the UI source code would necessitate a full re-build to apply them. In most development scenarios this is undesirable, so the UI app can also be run in development mode like any [React](https://17.reactjs.org/) application to enable hot module replacement ([HMR](https://webpack.js.org/guides/hot-module-replacement/)).
+
+1. Make sure that the UI API is set up and running properly (default <http://localhost:3002>).
+2. Go to the `ui/` folder.
+3. Copy the `.env.sample` file as `.env`
+4. All variables are required to be set, with the exception of `VITE_ISSUER_LOGO`. The following are the corresponding variables present in the parent folder's `.env-api`, which need to be the same. Only `VITE_ISSUER_NAME` can differ for the UI to function in development mode.
+    - `VITE_API_URL -> ISSUER_API_UI_SERVER_URL`
+    - `VITE_API_USERNAME -> ISSUER_API_UI_AUTH_USER`
+    - `VITE_API_PASSWORD -> ISSUER_API_UI_AUTH_PASSWORD`
+    - `VITE_BLOCK_EXPLORER_URL -> ISSUER_UI_BLOCK_EXPLORER_URL`
+    - `VITE_ISSUER_DID -> ISSUER_API_UI_ISSUER_DID`
+    - `VITE_ISSUER_NAME -> ISSUER_API_UI_ISSUER_NAME`
+    - `VITE_ISSUER_LOGO -> ISSUER_API_UI_ISSUER_LOGO`
+5. Run `npm install`
+6. Run `npm start`
+7. The app will be running on <http://localhost:5173>.
+
+---
+
+## Testing
+
+This will run you through the steps to test all aspects of the issuer node.
+
+### Start Testing Environment
+
+```bash
+# FROM: ./sh-id-platform
+
+make up-test;
+
+# Expected Output:
+# [+] Running 2/2
+#  ⠿ Container sh-id-platform-test_postgres-1  Started                                                                                                                      0.3s
+#  ⠿ Container sh-id-platform-test-vault       Running                                                                                                                      0.0s
+```
+
+### Run Tests
+
+```bash
+# FROM: ./sh-id-platform
+
+# Run tests with race, use `make tests-race`
+make tests;
+
+# Expected Output:
+# ...
+# ?       github.com/polygonid/sh-id-platform/pkg/loaders [no test files]
+# ?       github.com/polygonid/sh-id-platform/pkg/primitive       [no test files]
+# ?       github.com/polygonid/sh-id-platform/pkg/protocol        [no test files]
+# ?       github.com/polygonid/sh-id-platform/pkg/rand    [no test files]
+# ?       github.com/polygonid/sh-id-platform/pkg/reverse_hash    [no test files]
+# === RUN   TestMtSave
+# --- PASS: TestMtSave (0.20s)
+# PASS
+# ok      github.com/polygonid/sh-id-platform/pkg/sync_ttl_map    0.549s
+```
+
+### Run Lint
+
+```bash
+# FROM: ./sh-id-platform
+
+# Run tests with race, use `go test --race`
+make lint;
+
+# Expected Output:
+# /path/to/sh-id-platform/bin/golangci-lint run
+```
+
+---
+
+## Troubleshooting
+
+In case any of the spun-up domains shows a 404 or 401 error when accessing their respective URLs, the root cause can usually be determined by inspecting the Docker container logs.
+
+```bash
+$ docker ps
+CONTAINER ID   IMAGE                COMMAND                  CREATED          STATUS                    PORTS                                       NAMES
+60e992ea9271   issuer-api-ui        "sh -c 'sleep 4s && …"   15 seconds ago   Up 4 seconds              0.0.0.0:3002->3002/tcp, :::3002->3002/tcp   issuer-api-ui-1
+fae8873ac23b   issuer-ui            "/bin/sh /app/script…"   15 seconds ago   Up 4 seconds              0.0.0.0:8088->80/tcp, :::8088->80/tcp       issuer-ui-1
+80d4511ed7c4   issuer-api           "sh -c 'sleep 4s && …"   21 minutes ago   Up 21 minutes             0.0.0.0:3001->3001/tcp, :::3001->3001/tcp   issuer-api-1
+fa30b750848e   postgres:14-alpine   "docker-entrypoint.s…"   34 minutes ago   Up 34 minutes (healthy)   0.0.0.0:5432->5432/tcp, :::5432->5432/tcp   issuer-postgres-1
+abd1d3c93255   redis:6-alpine       "docker-entrypoint.s…"   34 minutes ago   Up 34 minutes (healthy)   0.0.0.0:6379->6379/tcp, :::6379->6379/tcp   issuer-redis-1
+0912c9920294   vault:latest         "docker-entrypoint.s…"   34 minutes ago   Up 34 minutes             0.0.0.0:8200->8200/tcp, :::8200->8200/tcp   issuer-vault-1
+```
+
+For example, for inspecting the issuer API node, run:
+
+`docker logs issuer-api-1`
+
+In most cases, a startup failure will be due to erroneous environment variables. In the case of the UI, any missing environment variable(s) will show as part of the error message.
+
+### Made Changes To Code But Not Showing In Docker?
+
+There is a good chance that you just need to rebuild the docker images if you made any changes to the golang code or any other services.
+
+To rebuild the docker images, just run the following (this might take a bit):
+
+**For _NON-Apple-M1/M2/Arm_ (ex: Intel/AMD):**
+
+```bash
+# FROM: ./
+
+# for `api` and `pending_publisher`
+make build;
+# for `api-ui` `ui` `notifications`and ` pending_publisher`
+make build-ui;
+
+# Expected Output:
+#   ...
+```
+
+**For _Apple-M1/M2/Arm_:**
+
+```bash
+# FROM: ./
+
+# for `api` and `pending_publisher`
+make build-arm;
+# for `api-ui` `ui` `notifications`and ` pending_publisher`
+make build-ui-arm;
+
+# Expected Output:
+#   ...
+```
+
+---

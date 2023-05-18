@@ -32,21 +32,26 @@ nav:
   - Home: "index.md"
   - Issuer:
     - Overview: "issuer/issuer-overview.md"
-    - Issuer Node UI Guide: "issuer-node/issuer-node-guide.md"
-    - Schemas:
-      - Create Custom Schemas : "issuer/schema.md"
-      - Schema Examples: "issuer/schema-exs.md"
-    - Credential Issuance Methods: "issuer/cred-issue-methods.md"
-    - Issuer Node: 
-      - Overview: "issuer-node/issuer-node-overview.md"
-      - Getting Started: "issuer-node/getting-started-flow.md"      
-      - Issuer Node API: 
+    - Issuer Node Core API: 
+      - Overview: "issuer/issuer-core.md"
+      - Setup Guide (Core API): "issuer/setup-issuer-core.md"
+      - API Reference: 
         - Introduction: "issuer-node/issuer-node-api/introduction.md"
         - API Reference:
           - Identity: "issuer-node/issuer-node-api/identity/apis.md"
           - Claim: "issuer-node/issuer-node-api/claim/apis.md"
-          - Agent: "issuer-node/issuer-node-api/agent/apis.md" 
-
+          - Agent: "issuer-node/issuer-node-api/agent/apis.md"
+    - Issuer Node UI: 
+      - Overview: "issuer/issuer-node-ui.md"
+      - Setup Guide (API UI): "issuer/setup-issuer-ui.md" 
+      - Issuer Node UI Guide: "issuer-node/issuer-node-guide.md"
+    - Schemas:
+      - Create Custom Schemas : "issuer/schema.md"
+      - Schema Examples: "issuer/schema-exs.md"
+    - Credential Issuance Methods: "issuer/cred-issue-methods.md"
+    - Issue Credentials via CLI: "issuer-node/issue-credential-cli.md"  
+    - Source Code: "issuer/source-code.md"   
+      
   - Verifier:
       - Overview: "verifier/verifier-overview.md"
       - Quick Start - Demo Verifier: "verifier/demo-verifier.md"
