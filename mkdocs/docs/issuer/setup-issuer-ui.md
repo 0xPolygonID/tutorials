@@ -10,6 +10,10 @@ There are two options for installing and running the server alongside the UI:
 
 **For either one, you first have to [clone the repository](https://github.com/0xPolygonID/issuer-node).**
 
+!!!note
+    You can follow the instructions below or watch this video showing the same steps to set up an issuer node.
+    <iframe src="../../videos/issuer-node-ui-setup.mp4" allowfullscreen width="100%" height="500"></iframe>
+
 === "Docker"
 
     ### Docker Setup Guide
@@ -232,42 +236,7 @@ There are two options for installing and running the server alongside the UI:
         #   issuer-initializer-1
         ```
 
-    #### Start Issuer API
-
-    Now that the issuer API is configured, it can be started.
-
-    === "_NON-Apple-M1/M2/Arm_ (ex: Intel/AMD)"
-
-        ```bash
-        # FROM: ./
-
-        make run;
-        # (Equivalent)
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml up -d api;
-
-        # Expected Output:
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/local/docker-compose.yml up -d api;
-        ```
-
-    === "_Apple-M1/M2/Arm_"
-
-        ```bash
-        # FROM: ./
-
-        make run-arm;
-        # (Equivalent)
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile-arm" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml up -d api;
-
-        # Expected Output:
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile-arm" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/local/docker-compose.yml up -d api;
-        #   WARN[0000] Found orphan containers ([issuer-vault-1 issuer-postgres-1 issuer-redis-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. 
-        ```
-
-    Navigating to <http://localhost:3001> shows the issuer API's frontend:
-
-    ![Issuer API frontend](../imgs/3001.png)
-
-    #### (Optional) Configure UI
+    #### Configure UI
 
     This step is required to run the separate UI application, which allows intuitive and convenient management of schemas, credentials, connections and issuer state.
 
@@ -411,3 +380,62 @@ There are two options for installing and running the server alongside the UI:
     8. _(Optional)_ To set up the UI with its own API, first copy `.env-ui.sample` as `.env-ui`. Please see the [configuration](#configuration) section for more details.
 
     ---
+## Configuration
+
+### Getting A Public URL
+
+In order for the service to work, we'll need a public URL.
+An easy way to set this up is by using [ngrok](https://ngrok.com) as a forwarding service that maps to a local port.
+After downloading and installing ngrok, run the follwing command and copy the **Forwarding** URL:
+
+```bash
+# For issuer-api ISSUER_SERVER_URL env var (.env-issuer file)
+./ngrok http 3001; 
+```
+
+```bash
+# For issuer-api-ui ISSUER_API_UI_SERVER_URL env var (.env-api file)
+./ngrok http 3002; 
+```
+
+Copy the **Forwarding** output value into the desired env var
+
+```bash
+# FROM: /path/to/ngrok binary
+
+# Expected Output:
+# Add OAuth and webhook security to your ngrok (its free!): https://ngrok.com/free
+# 
+# Session Status                online
+# Account                       YourAccountUsername (Plan: Free)
+# Update                        update available (version 3.2.1, Ctrl-U to update)
+# Version                       3.1.0
+# Region                        Europe (eu)
+# Latency                       -
+# Web Interface                 http://127.0.0.1:4040
+# Forwarding                    https://unique-forwading-address.eu.ngrok.io -> http://localhost:3001
+# 
+# Connections                   ttl     opn     rt1     rt5     p50     p90
+                              # 0       0       0.00    0.00    0.00    0.00
+```
+
+## Development (UI)
+
+Completing the [installation](#installation) process yields the UI as a minified Javascript app. Any changes to the UI source code would necessitate a full re-build to apply them. In most development scenarios this is undesirable, so the UI app can also be run in development mode like any [React](https://17.reactjs.org/) application to enable hot module replacement ([HMR](https://webpack.js.org/guides/hot-module-replacement/)).
+
+1. Make sure that the UI API is set up and running properly (default <http://localhost:3002>).
+2. Go to the `ui/` folder.
+3. Copy the `.env.sample` file as `.env`
+4. All variables are required to be set, with the exception of `VITE_ISSUER_LOGO`. The following are the corresponding variables present in the parent folder's `.env-api`, which need to be the same. Only `VITE_ISSUER_NAME` can differ for the UI to function in development mode.
+    - `VITE_API_URL -> ISSUER_API_UI_SERVER_URL`
+    - `VITE_API_USERNAME -> ISSUER_API_UI_AUTH_USER`
+    - `VITE_API_PASSWORD -> ISSUER_API_UI_AUTH_PASSWORD`
+    - `VITE_BLOCK_EXPLORER_URL -> ISSUER_UI_BLOCK_EXPLORER_URL`
+    - `VITE_ISSUER_DID -> ISSUER_API_UI_ISSUER_DID`
+    - `VITE_ISSUER_NAME -> ISSUER_API_UI_ISSUER_NAME`
+    - `VITE_ISSUER_LOGO -> ISSUER_API_UI_ISSUER_LOGO`
+5. Run `npm install`
+6. Run `npm start`
+7. The app will be running on <http://localhost:5173>.
+
+---

@@ -8,6 +8,10 @@ There are two options for installing and running the server alongside the UI:
 1. [Docker Setup Guide](#docker-setup-guide)
 2. [Standalone Mode Guide](#standalone-mode-guide)
 
+!!!note
+    You can follow the instructions below or watch this video showing the same steps to set up an issuer node.
+    <iframe src="../../videos/issuer-node-setup.mp4" allowfullscreen width="100%" height="500"></iframe>
+
 **For either one, you first have to [clone the repository](https://github.com/0xPolygonID/issuer-node).**
 
 === "Docker"
@@ -175,63 +179,6 @@ There are two options for installing and running the server alongside the UI:
     #   mv .env-issuer.tmp .env-issuer
     ```
 
-    #### Create Issuer DID
-
-    !!! note
-        This can also be done via the [UI API](#using-the-ui-api).
-
-    This will create a new issuer DID by creating a new Docker instance of the issuer, generating the DID of the issuer, storing it in the database, then deleting the instance.
-
-    It then copies the new DID to `.env-api`.
-
-    === "_NON-Apple-M1/M2/Arm_ (ex: Intel/AMD)"
-
-        ```bash
-        # FROM: ./
-
-        # NON-Apple-M1/M2/Arm Command:
-        make generate-issuer-did;
-        # (Equivalent)
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile" docker compose -p issuer -f ./infrastructure/local/docker-compose.yml up -d initializer
-        # sleep 5
-        #  $(eval DID = $(shell docker logs -f --tail 1 issuer-initializer-1 | grep "did"))
-        #  @echo $(DID)
-        #  sed '/ISSUER_API_UI_ISSUER_DID/d' .env-api > .env-api.tmp
-        #  @echo ISSUER_API_UI_ISSUER_DID=$(DID) >> .env-api.tmp
-        #  mv .env-api.tmp .env-api
-        #  docker rm issuer-initializer-1
-        ```
-
-    === "_Apple-M1/M2/Arm_"
-
-        ```bash
-        # FROM: ./
-
-        # Apple-M1/M2/Arm Command:
-        make generate-issuer-did-arm;
-        # (Equivalent)
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile-arm" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml up -d initializer;
-        # sleep 5;
-        #   DID=$(docker logs -f --tail 1 issuer-initializer-1 | grep "did");
-        #   echo $DID;
-        #   sed '/ISSUER_API_UI_ISSUER_DID/d' .env-api > .env-api.tmp;
-        #   echo ISSUER_API_UI_ISSUER_DID=$DID >> .env-api.tmp;
-        #   mv .env-api.tmp .env-api;
-        #   docker rm issuer-initializer-1;
-
-        # Expected Output:
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile-arm" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml up -d initializer
-        #   WARN[0000] Found orphan containers ([issuer-vault-1 issuer-postgres-1 issuer-redis-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. 
-        #   [+] Running 1/1
-        #   ⠿ Container issuer-initializer-1  Started                                                                                0.2s
-        #   sleep 5
-        #   did:polygonid:polygon:mumbai:uniqueAlphanumericKeyGenerated
-        #   sed '/ISSUER_API_UI_ISSUER_DID/d' .env-api > .env-api.tmp
-        #   mv .env-api.tmp .env-api
-        #   docker rm issuer-initializer-1
-        #   issuer-initializer-1
-        ```
-
     #### Start Issuer API
 
     Now that the issuer API is configured, it can be started.
@@ -263,118 +210,9 @@ There are two options for installing and running the server alongside the UI:
         #   WARN[0000] Found orphan containers ([issuer-vault-1 issuer-postgres-1 issuer-redis-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. 
         ```
 
-    Navigating to <http://localhost:3001> shows the issuer API's frontend:
+    Navigating to <http://localhost:3001> shows the issuer API endpoints:
 
     ![Issuer API frontend](../imgs/3001.png)
-
-    #### (Optional) Configure UI
-
-    This step is required to run the separate UI application, which allows intuitive and convenient management of schemas, credentials, connections and issuer state.
-
-    !!! tip
-        Running and using the UI is optional, since it implements funcionality already exposed via the [UI API](#using-the-ui-api). It is highly recommended though, because it makes issuer management far simpler and more intuitive.
-
-    ```bash
-    # FROM: ./
-
-    cp .env-ui.sample .env-ui;
-    ```
-
-    Configure the `.env-ui` file with the following details (or amend as desired):
-
-    ```bash
-    ISSUER_UI_BLOCK_EXPLORER_URL=https://mumbai.polygonscan.com
-    ISSUER_UI_AUTH_USERNAME=user-ui
-    ISSUER_UI_AUTH_PASSWORD=password-ui
-    ```
-
-    #### Start API UI, UI, Notifications server & Publisher
-
-    This will start the UI API that exposes endpoints to manage schemas, credentials, connections and issuer state, as well as the UI that relies on it.
-
-    === "_NON-Apple-M1/M2/Arm_ (ex: Intel/AMD)"
-
-        ```bash
-        # FROM: ./
-
-        make run-ui;
-        # (Equivalent)
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/local/docker-compose.yml up -d api-ui ui notifications pending_publisher;
-
-        # Expected Output:
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml up -d api-ui ui notifications pending_publisher
-        #   WARN[0000] Found orphan containers ([issuer-vault-1 issuer-postgres-1 issuer-redis-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. 
-        #   [+] Running 4/4
-        #    ⠿ Container issuer-ui-1                 Started                                                                                                           0.5s
-        #    ⠿ Container issuer-api-ui-1             Started                                                                                                           0.5s
-        #    ⠿ Container issuer-notifications-1      Started                                                                                                           0.4s
-        #    ⠿ Container issuer-pending_publisher-1  Running  
-        ```
-
-    === "_Apple-M1/M2/Arm_"
-
-        ```bash
-        # FROM: ./
-
-        make run-ui-arm;
-        # (Equivalent)
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile-arm" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/local/docker-compose.yml up -d api-ui ui notifications pending_publisher;
-
-        # Expected Output:
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile-arm" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml up -d api-ui ui notifications pending_publisher
-        #   WARN[0000] Found orphan containers ([issuer-vault-1 issuer-postgres-1 issuer-redis-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. 
-        #   [+] Running 4/4
-        #    ⠿ Container issuer-ui-1                 Started                                                                                                           0.5s
-        #    ⠿ Container issuer-api-ui-1             Started                                                                                                           0.5s
-        #    ⠿ Container issuer-notifications-1      Started                                                                                                           0.4s
-        #    ⠿ Container issuer-pending_publisher-1  Running  
-        ```
-
-    Now navigate to <http://localhost:3002> to see the UI API's frontend:
-
-    ![Issuer UI API frontend](../imgs/3002.png)
-
-    #### Using the UI API
-
-    Make sure to set the HTTP authentication credentials in `.env-api` to the following:
-
-    ```bash
-    # ...
-
-    ISSUER_API_UI_AUTH_USER=user-api
-    ISSUER_API_UI_AUTH_PASSWORD=password-api
-    ```
-
-    Then authenticate via the following form on <http://localhost:3002>:
-
-    ![Issuer UI API Authentication](../imgs/3002-auth.png)
-
-    This allows you to make a request via any of the endpoints using this frontend.
-
-    ![Issuer UI API Get Credentials](../imgs/3002-credentials.png)
-
-    #### (Optional) Using the UI
-
-    This service is running on <http://localhost:8088>.
-
-    !!! note 
-        If you are using Chrome, you might get the HTTP auth modal showing and disappearing quickly. To remedy this, use the following URL: <http://user-api:password-api@localhost:8088/>.
-
-    File containing the basic auth credentials: `.env-ui`
-
-    ```bash
-    # ...
-
-    ISSUER_UI_AUTH_USERNAME=user-ui
-    ISSUER_UI_AUTH_PASSWORD=password-ui
-    ```
-
-    ![Issuer UI](../imgs/8088.png)
-
-    !!! note
-        If you want to run the UI app in development mode, i.e. with HMR enabled, please follow the steps in the [Development (UI)](#development-ui) section.
-
-    ---
 
 === "Standalone Mode Guide"
 
@@ -406,8 +244,37 @@ There are two options for installing and running the server alongside the UI:
     3. Run `make db/migrate`. This checks the database structure and applies any changes to the database schema.
     4. Run `./bin/platform` command to start the issuer.
     5. Run `./bin/pending_publisher`. This checks that publishing transactions to the blockchain works.
-    6. Follow the [steps](#import-wallet-private-key-to-vault) for adding an Ethereum private key to the Vault.
-    7. Follow the [steps](#create-issuer-did) for creating an identity as your issuer DID.
-    8. _(Optional)_ To set up the UI with its own API, first copy `.env-ui.sample` as `.env-ui`. Please see the [configuration](#configuration) section for more details.
-
+    6. Follow the steps for adding an Ethereum private key to the Vault from the Docker installation mode.
     ---
+## Configuration
+
+### Getting A Public URL
+For the service to work, we'll need a public URL.
+An easy way to set this up is by using [ngrok](https://ngrok.com) as a forwarding service that maps to a local port.
+After downloading and installing ngrok, run the follwing command and copy the **Forwarding** URL:
+
+```bash
+# For issuer-api ISSUER_SERVER_URL env var (.env-issuer file)
+./ngrok http 3001; 
+```
+
+Copy the **Forwarding** output value into the desired env var
+
+```bash
+# FROM: /path/to/ngrok binary
+
+# Expected Output:
+# Add OAuth and webhook security to your ngrok (its free!): https://ngrok.com/free
+# 
+# Session Status                online
+# Account                       YourAccountUsername (Plan: Free)
+# Update                        update available (version 3.2.1, Ctrl-U to update)
+# Version                       3.1.0
+# Region                        Europe (eu)
+# Latency                       -
+# Web Interface                 http://127.0.0.1:4040
+# Forwarding                    https://unique-forwading-address.eu.ngrok.io -> http://localhost:3001
+# 
+# Connections                   ttl     opn     rt1     rt5     p50     p90
+                              # 0       0       0.00    0.00    0.00    0.00
+```
