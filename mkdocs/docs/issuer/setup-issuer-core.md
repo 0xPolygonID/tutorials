@@ -8,6 +8,10 @@ There are two options for installing and running the server alongside the UI:
 1. [Docker Setup Guide](#docker-setup-guide)
 2. [Standalone Mode Guide](#standalone-mode-guide)
 
+!!!note
+    You can follow the instructions below or watch this video showing the same steps to set up an issuer node.
+    <iframe src="../../videos/issuer-node-setup.mp4" allowfullscreen width="100%" height="500"></iframe>
+
 **For either one, you first have to [clone the repository](https://github.com/0xPolygonID/issuer-node).**
 
 === "Docker"
@@ -175,63 +179,6 @@ There are two options for installing and running the server alongside the UI:
     #   mv .env-issuer.tmp .env-issuer
     ```
 
-    #### Create Issuer DID
-
-    !!! note
-        This can also be done via the [UI API](#using-the-ui-api).
-
-    This will create a new issuer DID by creating a new Docker instance of the issuer, generating the DID of the issuer, storing it in the database, then deleting the instance.
-
-    It then copies the new DID to `.env-api`.
-
-    === "_NON-Apple-M1/M2/Arm_ (ex: Intel/AMD)"
-
-        ```bash
-        # FROM: ./
-
-        # NON-Apple-M1/M2/Arm Command:
-        make generate-issuer-did;
-        # (Equivalent)
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile" docker compose -p issuer -f ./infrastructure/local/docker-compose.yml up -d initializer
-        # sleep 5
-        #  $(eval DID = $(shell docker logs -f --tail 1 issuer-initializer-1 | grep "did"))
-        #  @echo $(DID)
-        #  sed '/ISSUER_API_UI_ISSUER_DID/d' .env-api > .env-api.tmp
-        #  @echo ISSUER_API_UI_ISSUER_DID=$(DID) >> .env-api.tmp
-        #  mv .env-api.tmp .env-api
-        #  docker rm issuer-initializer-1
-        ```
-
-    === "_Apple-M1/M2/Arm_"
-
-        ```bash
-        # FROM: ./
-
-        # Apple-M1/M2/Arm Command:
-        make generate-issuer-did-arm;
-        # (Equivalent)
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile-arm" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml up -d initializer;
-        # sleep 5;
-        #   DID=$(docker logs -f --tail 1 issuer-initializer-1 | grep "did");
-        #   echo $DID;
-        #   sed '/ISSUER_API_UI_ISSUER_DID/d' .env-api > .env-api.tmp;
-        #   echo ISSUER_API_UI_ISSUER_DID=$DID >> .env-api.tmp;
-        #   mv .env-api.tmp .env-api;
-        #   docker rm issuer-initializer-1;
-
-        # Expected Output:
-        #   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile-arm" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml up -d initializer
-        #   WARN[0000] Found orphan containers ([issuer-vault-1 issuer-postgres-1 issuer-redis-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. 
-        #   [+] Running 1/1
-        #   ⠿ Container issuer-initializer-1  Started                                                                                0.2s
-        #   sleep 5
-        #   did:polygonid:polygon:mumbai:uniqueAlphanumericKeyGenerated
-        #   sed '/ISSUER_API_UI_ISSUER_DID/d' .env-api > .env-api.tmp
-        #   mv .env-api.tmp .env-api
-        #   docker rm issuer-initializer-1
-        #   issuer-initializer-1
-        ```
-
     #### Start Issuer API
 
     Now that the issuer API is configured, it can be started.
@@ -297,27 +244,18 @@ There are two options for installing and running the server alongside the UI:
     3. Run `make db/migrate`. This checks the database structure and applies any changes to the database schema.
     4. Run `./bin/platform` command to start the issuer.
     5. Run `./bin/pending_publisher`. This checks that publishing transactions to the blockchain works.
-    6. Follow the [steps](#import-wallet-private-key-to-vault) for adding an Ethereum private key to the Vault.
-    7. Follow the [steps](#create-issuer-did) for creating an identity as your issuer DID.
-    8. _(Optional)_ To set up the UI with its own API, first copy `.env-ui.sample` as `.env-ui`. Please see the [configuration](#configuration) section for more details.
-
+    6. Follow the steps for adding an Ethereum private key to the Vault from the Docker installation mode.
     ---
 ## Configuration
 
 ### Getting A Public URL
-
-In order for the service to work, we'll need a public URL.
+For the service to work, we'll need a public URL.
 An easy way to set this up is by using [ngrok](https://ngrok.com) as a forwarding service that maps to a local port.
 After downloading and installing ngrok, run the follwing command and copy the **Forwarding** URL:
 
 ```bash
 # For issuer-api ISSUER_SERVER_URL env var (.env-issuer file)
 ./ngrok http 3001; 
-```
-
-```bash
-# For issuer-api-ui ISSUER_API_UI_SERVER_URL env var (.env-api file)
-./ngrok http 3002; 
 ```
 
 Copy the **Forwarding** output value into the desired env var
@@ -340,141 +278,3 @@ Copy the **Forwarding** output value into the desired env var
 # Connections                   ttl     opn     rt1     rt5     p50     p90
                               # 0       0       0.00    0.00    0.00    0.00
 ```
-
-### Advanced setup
-
-Any variable defined in the config file can be overwritten using environment variables. The binding for this environment variables is defined in the function `bindEnv()` in the file `internal/config/config.go`
-
-An _experimental_ helper command is provided via `make config` to allow an interactive generation of the config file, but this requires Go 1.19.
-
----
-
-## Development (UI)
-
-Completing the [installation](#installation) process yields the UI as a minified Javascript app. Any changes to the UI source code would necessitate a full re-build to apply them. In most development scenarios this is undesirable, so the UI app can also be run in development mode like any [React](https://17.reactjs.org/) application to enable hot module replacement ([HMR](https://webpack.js.org/guides/hot-module-replacement/)).
-
-1. Make sure that the UI API is set up and running properly (default <http://localhost:3002>).
-2. Go to the `ui/` folder.
-3. Copy the `.env.sample` file as `.env`
-4. All variables are required to be set, with the exception of `VITE_ISSUER_LOGO`. The following are the corresponding variables present in the parent folder's `.env-api`, which need to be the same. Only `VITE_ISSUER_NAME` can differ for the UI to function in development mode.
-    - `VITE_API_URL -> ISSUER_API_UI_SERVER_URL`
-    - `VITE_API_USERNAME -> ISSUER_API_UI_AUTH_USER`
-    - `VITE_API_PASSWORD -> ISSUER_API_UI_AUTH_PASSWORD`
-    - `VITE_BLOCK_EXPLORER_URL -> ISSUER_UI_BLOCK_EXPLORER_URL`
-    - `VITE_ISSUER_DID -> ISSUER_API_UI_ISSUER_DID`
-    - `VITE_ISSUER_NAME -> ISSUER_API_UI_ISSUER_NAME`
-    - `VITE_ISSUER_LOGO -> ISSUER_API_UI_ISSUER_LOGO`
-5. Run `npm install`
-6. Run `npm start`
-7. The app will be running on <http://localhost:5173>.
-
----
-
-## Testing
-
-This will run you through the steps to test all aspects of the issuer node.
-
-### Start Testing Environment
-
-```bash
-# FROM: ./sh-id-platform
-
-make up-test;
-
-# Expected Output:
-# [+] Running 2/2
-#  ⠿ Container sh-id-platform-test_postgres-1  Started                                                                                                                      0.3s
-#  ⠿ Container sh-id-platform-test-vault       Running                                                                                                                      0.0s
-```
-
-### Run Tests
-
-```bash
-# FROM: ./sh-id-platform
-
-# Run tests with race, use `make tests-race`
-make tests;
-
-# Expected Output:
-# ...
-# ?       github.com/polygonid/sh-id-platform/pkg/loaders [no test files]
-# ?       github.com/polygonid/sh-id-platform/pkg/primitive       [no test files]
-# ?       github.com/polygonid/sh-id-platform/pkg/protocol        [no test files]
-# ?       github.com/polygonid/sh-id-platform/pkg/rand    [no test files]
-# ?       github.com/polygonid/sh-id-platform/pkg/reverse_hash    [no test files]
-# === RUN   TestMtSave
-# --- PASS: TestMtSave (0.20s)
-# PASS
-# ok      github.com/polygonid/sh-id-platform/pkg/sync_ttl_map    0.549s
-```
-
-### Run Lint
-
-```bash
-# FROM: ./sh-id-platform
-
-# Run tests with race, use `go test --race`
-make lint;
-
-# Expected Output:
-# /path/to/sh-id-platform/bin/golangci-lint run
-```
-
----
-
-## Troubleshooting
-
-In case any of the spun-up domains shows a 404 or 401 error when accessing their respective URLs, the root cause can usually be determined by inspecting the Docker container logs.
-
-```bash
-$ docker ps
-CONTAINER ID   IMAGE                COMMAND                  CREATED          STATUS                    PORTS                                       NAMES
-60e992ea9271   issuer-api-ui        "sh -c 'sleep 4s && …"   15 seconds ago   Up 4 seconds              0.0.0.0:3002->3002/tcp, :::3002->3002/tcp   issuer-api-ui-1
-fae8873ac23b   issuer-ui            "/bin/sh /app/script…"   15 seconds ago   Up 4 seconds              0.0.0.0:8088->80/tcp, :::8088->80/tcp       issuer-ui-1
-80d4511ed7c4   issuer-api           "sh -c 'sleep 4s && …"   21 minutes ago   Up 21 minutes             0.0.0.0:3001->3001/tcp, :::3001->3001/tcp   issuer-api-1
-fa30b750848e   postgres:14-alpine   "docker-entrypoint.s…"   34 minutes ago   Up 34 minutes (healthy)   0.0.0.0:5432->5432/tcp, :::5432->5432/tcp   issuer-postgres-1
-abd1d3c93255   redis:6-alpine       "docker-entrypoint.s…"   34 minutes ago   Up 34 minutes (healthy)   0.0.0.0:6379->6379/tcp, :::6379->6379/tcp   issuer-redis-1
-0912c9920294   vault:latest         "docker-entrypoint.s…"   34 minutes ago   Up 34 minutes             0.0.0.0:8200->8200/tcp, :::8200->8200/tcp   issuer-vault-1
-```
-
-For example, for inspecting the issuer API node, run:
-
-`docker logs issuer-api-1`
-
-In most cases, a startup failure will be due to erroneous environment variables. In the case of the UI, any missing environment variable(s) will show as part of the error message.
-
-### Made Changes To Code But Not Showing In Docker?
-
-There is a good chance that you just need to rebuild the docker images if you made any changes to the golang code or any other services.
-
-To rebuild the docker images, just run the following (this might take a bit):
-
-**For _NON-Apple-M1/M2/Arm_ (ex: Intel/AMD):**
-
-```bash
-# FROM: ./
-
-# for `api` and `pending_publisher`
-make build;
-# for `api-ui` `ui` `notifications`and ` pending_publisher`
-make build-ui;
-
-# Expected Output:
-#   ...
-```
-
-**For _Apple-M1/M2/Arm_:**
-
-```bash
-# FROM: ./
-
-# for `api` and `pending_publisher`
-make build-arm;
-# for `api-ui` `ui` `notifications`and ` pending_publisher`
-make build-ui-arm;
-
-# Expected Output:
-#   ...
-```
-
----

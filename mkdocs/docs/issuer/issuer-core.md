@@ -1,5 +1,5 @@
 # Issuer Node Core API
-The [Issuer Node Core API](issuer-core.md) is ideal for users who need multiple identities, such as a large company or a university with many departments. For that last example, each department in a university would be represented by a single identity, capable of issuing credentials and creating schemas. 
+The Issuer Node Core API is ideal for users who need multiple identities and for **integrator profiles, who want to create solutions based on Polygon ID functionalities and might be interested in having access to low level information** such as Merkle Trees. 
 
 <figure markdown>
   ![3001](../../imgs/3001.png){ width="1000" }

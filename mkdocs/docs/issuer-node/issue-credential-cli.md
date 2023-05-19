@@ -1,14 +1,14 @@
 ## Issuing Credentials via CLI
 
-Once the [Installation](#installation) is completed, the following will walk you through issuing credentials via a CLI.
+Once the Issuer Node installation is completed, the following will walk you through issuing credentials via a CLI.
 
 !!! note
-    These steps can be done either via the API UI (<http://localhost:3001>) or directly in the UI (<http://localhost:8088>) (see [Docker setup](#docker-setup-guide)).
+    These steps can be done either via the API UI (<http://localhost:3001>) or directly in the UI (<http://localhost:8088>).
 
 ### Create Identity
 
 !!! note
-    This is an alternative to the following: [Create Issuer ID](#create-issuer-did).
+    This is an alternative to the following: [Create Issuer ID](../issuer/setup-issuer-ui.md#create-issuer-did).
 
 ```bash
 # NOTE: dXNlci1pc3N1ZXI6cGFzc3dvcmQtaXNzdWVy is a Basic HTTP Authorization as base64(user-issuer:password-issuer) from our .env-issuer file

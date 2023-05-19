@@ -10,6 +10,10 @@ There are two options for installing and running the server alongside the UI:
 
 **For either one, you first have to [clone the repository](https://github.com/0xPolygonID/issuer-node).**
 
+!!!note
+    You can follow the instructions below or watch this video showing the same steps to set up an issuer node.
+    <iframe src="../../videos/issuer-node-ui-setup.mp4" allowfullscreen width="100%" height="500"></iframe>
+
 === "Docker"
 
     ### Docker Setup Guide
@@ -415,14 +419,6 @@ Copy the **Forwarding** output value into the desired env var
                               # 0       0       0.00    0.00    0.00    0.00
 ```
 
-### Advanced setup
-
-Any variable defined in the config file can be overwritten using environment variables. The binding for this environment variables is defined in the function `bindEnv()` in the file `internal/config/config.go`
-
-An _experimental_ helper command is provided via `make config` to allow an interactive generation of the config file, but this requires Go 1.19.
-
----
-
 ## Development (UI)
 
 Completing the [installation](#installation) process yields the UI as a minified Javascript app. Any changes to the UI source code would necessitate a full re-build to apply them. In most development scenarios this is undesirable, so the UI app can also be run in development mode like any [React](https://17.reactjs.org/) application to enable hot module replacement ([HMR](https://webpack.js.org/guides/hot-module-replacement/)).
@@ -441,114 +437,5 @@ Completing the [installation](#installation) process yields the UI as a minified
 5. Run `npm install`
 6. Run `npm start`
 7. The app will be running on <http://localhost:5173>.
-
----
-
-## Testing
-
-This will run you through the steps to test all aspects of the issuer node.
-
-### Start Testing Environment
-
-```bash
-# FROM: ./sh-id-platform
-
-make up-test;
-
-# Expected Output:
-# [+] Running 2/2
-#  ⠿ Container sh-id-platform-test_postgres-1  Started                                                                                                                      0.3s
-#  ⠿ Container sh-id-platform-test-vault       Running                                                                                                                      0.0s
-```
-
-### Run Tests
-
-```bash
-# FROM: ./sh-id-platform
-
-# Run tests with race, use `make tests-race`
-make tests;
-
-# Expected Output:
-# ...
-# ?       github.com/polygonid/sh-id-platform/pkg/loaders [no test files]
-# ?       github.com/polygonid/sh-id-platform/pkg/primitive       [no test files]
-# ?       github.com/polygonid/sh-id-platform/pkg/protocol        [no test files]
-# ?       github.com/polygonid/sh-id-platform/pkg/rand    [no test files]
-# ?       github.com/polygonid/sh-id-platform/pkg/reverse_hash    [no test files]
-# === RUN   TestMtSave
-# --- PASS: TestMtSave (0.20s)
-# PASS
-# ok      github.com/polygonid/sh-id-platform/pkg/sync_ttl_map    0.549s
-```
-
-### Run Lint
-
-```bash
-# FROM: ./sh-id-platform
-
-# Run tests with race, use `go test --race`
-make lint;
-
-# Expected Output:
-# /path/to/sh-id-platform/bin/golangci-lint run
-```
-
----
-
-## Troubleshooting
-
-In case any of the spun-up domains shows a 404 or 401 error when accessing their respective URLs, the root cause can usually be determined by inspecting the Docker container logs.
-
-```bash
-$ docker ps
-CONTAINER ID   IMAGE                COMMAND                  CREATED          STATUS                    PORTS                                       NAMES
-60e992ea9271   issuer-api-ui        "sh -c 'sleep 4s && …"   15 seconds ago   Up 4 seconds              0.0.0.0:3002->3002/tcp, :::3002->3002/tcp   issuer-api-ui-1
-fae8873ac23b   issuer-ui            "/bin/sh /app/script…"   15 seconds ago   Up 4 seconds              0.0.0.0:8088->80/tcp, :::8088->80/tcp       issuer-ui-1
-80d4511ed7c4   issuer-api           "sh -c 'sleep 4s && …"   21 minutes ago   Up 21 minutes             0.0.0.0:3001->3001/tcp, :::3001->3001/tcp   issuer-api-1
-fa30b750848e   postgres:14-alpine   "docker-entrypoint.s…"   34 minutes ago   Up 34 minutes (healthy)   0.0.0.0:5432->5432/tcp, :::5432->5432/tcp   issuer-postgres-1
-abd1d3c93255   redis:6-alpine       "docker-entrypoint.s…"   34 minutes ago   Up 34 minutes (healthy)   0.0.0.0:6379->6379/tcp, :::6379->6379/tcp   issuer-redis-1
-0912c9920294   vault:latest         "docker-entrypoint.s…"   34 minutes ago   Up 34 minutes             0.0.0.0:8200->8200/tcp, :::8200->8200/tcp   issuer-vault-1
-```
-
-For example, for inspecting the issuer API node, run:
-
-`docker logs issuer-api-1`
-
-In most cases, a startup failure will be due to erroneous environment variables. In the case of the UI, any missing environment variable(s) will show as part of the error message.
-
-### Made Changes To Code But Not Showing In Docker?
-
-There is a good chance that you just need to rebuild the docker images if you made any changes to the golang code or any other services.
-
-To rebuild the docker images, just run the following (this might take a bit):
-
-**For _NON-Apple-M1/M2/Arm_ (ex: Intel/AMD):**
-
-```bash
-# FROM: ./
-
-# for `api` and `pending_publisher`
-make build;
-# for `api-ui` `ui` `notifications`and ` pending_publisher`
-make build-ui;
-
-# Expected Output:
-#   ...
-```
-
-**For _Apple-M1/M2/Arm_:**
-
-```bash
-# FROM: ./
-
-# for `api` and `pending_publisher`
-make build-arm;
-# for `api-ui` `ui` `notifications`and ` pending_publisher`
-make build-ui-arm;
-
-# Expected Output:
-#   ...
-```
 
 ---

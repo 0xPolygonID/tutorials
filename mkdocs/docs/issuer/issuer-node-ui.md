@@ -1,5 +1,5 @@
 # Issuer Node UI
-The [Issuer Node UI](issuer-ui.md) provides only a single identity. However, it also presents a few extra features, such as establishing connections and importing schemas. It is a ready for production environment with a full experience of being an issuer on Polygon ID. It comes in an API format but there is also a possibility to generate a full-fledged user interface.   
+The Issuer Node UI provides only a single identity. However, it also presents a few extra features, such as establishing connections and importing schemas. **The Issuer Node UI provides the full experience of having an Issuer Node with all its capabilities**. It comes in an API format but there is also a possibility to generate a full-fledged user interface. 
 
 <figure markdown>
   ![3002](../../imgs/3002.png){ width="1000" }
