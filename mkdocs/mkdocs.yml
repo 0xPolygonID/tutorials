@@ -137,6 +137,7 @@ nav:
 plugins:
   - search
   - mermaid2
+  - mkdocs-video
 
 extra:
   analytics:

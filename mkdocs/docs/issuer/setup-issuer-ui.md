@@ -12,7 +12,7 @@ There are two options for installing and running the server alongside the UI:
 
 !!!note
     You can follow the instructions below or watch this video showing the same steps to set up an issuer node.
-    <iframe src="../../videos/issuer-node-ui-setup.mp4" allowfullscreen width="100%" height="500"></iframe>
+    ![type:video](../../videos/issuer-node-ui-setup.mp4)
 
 === "Docker"
 
