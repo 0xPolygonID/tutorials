@@ -37,6 +37,10 @@ jobs:
       # Installs material graphviz
       - name: install graphviz
         run: pip install mkdocs_graphviz
+      
+      # Installs material graphviz
+      - name: install video
+        run: pip install mkdocs-video
 
       # Builds docs
       - name: build
