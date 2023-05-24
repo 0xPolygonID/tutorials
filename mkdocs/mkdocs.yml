@@ -32,21 +32,30 @@ nav:
   - Home: "index.md"
   - Issuer:
     - Overview: "issuer/issuer-overview.md"
-    - Issuer Node Guide: "issuer-node/issuer-node-guide.md"
-    - Create Custom Schemas : "issuer/schema.md"
-    - Issuer Node: 
-      - Overview: "issuer-node/issuer-node-overview.md"
-      - Getting Started: "issuer-node/getting-started-flow.md"      
-      - Issuer Node API: 
+    - Issuer Node Core API: 
+      - Overview: "issuer/issuer-core.md"
+      - Setup Guide (Core API): "issuer/setup-issuer-core.md"
+      - API Reference: 
         - Introduction: "issuer-node/issuer-node-api/introduction.md"
         - API Reference:
           - Identity: "issuer-node/issuer-node-api/identity/apis.md"
           - Claim: "issuer-node/issuer-node-api/claim/apis.md"
-          - Agent: "issuer-node/issuer-node-api/agent/apis.md" 
-
+          - Agent: "issuer-node/issuer-node-api/agent/apis.md"
+    - Issuer Node UI: 
+      - Overview: "issuer/issuer-node-ui.md"
+      - Setup Guide (API UI): "issuer/setup-issuer-ui.md" 
+      - Issuer Node UI Guide: "issuer-node/issuer-node-guide.md"
+    - Schemas:
+      - Create Custom Schemas : "issuer/schema.md"
+      - Schema Examples: "issuer/schema-exs.md"
+    - Credential Issuance Methods: "issuer/cred-issue-methods.md"
+    - Issue Credentials via CLI: "issuer-node/issue-credential-cli.md"  
+    - Source Code: "issuer/source-code.md"   
+      
   - Verifier:
       - Overview: "verifier/verifier-overview.md"
       - Quick Start - Demo Verifier: "verifier/demo-verifier.md"
+      - Features: "verifier/features.md"
       - Verfier SDK - Off-chain:
           - Introduction: "verifier/verification-library/verifier-library-intro.md"
           - APIs:
@@ -121,11 +130,14 @@ nav:
               - Proof: "js-sdk/js-sdk-components/proof/proof.md"
       - Example: "js-sdk/js-sdk-example.md"
       - Browser Wallet Demo: "js-sdk/js-sdk-browser-wallet-demo.md"
+  - FAQ:
+      - Overview: "https://support.polygon.technology/support/solutions/82000473421"
 # If you declare plugins, you need to declare all of them,
 # including search (which would otherwise have been installed by default.)
 plugins:
   - search
   - mermaid2
+  - mkdocs-video
 
 extra:
   analytics:

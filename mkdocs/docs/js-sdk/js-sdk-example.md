@@ -4,7 +4,7 @@ This tutorial shows the steps to run different modules of the Polygon ID JS SDK 
 
 ## Steps to Run Example Code
 
-  We have created a [JS SDK Example repository](https://github.com/iden3/polygonid-js-sdk-examples/blob/main/index.ts) that you can download and run. Follow these steps:
+  We have created a [JS SDK Example repository](https://github.com/0xPolygonID/js-sdk-examples/blob/main/index.ts) that you can download and run. Follow these steps:
 
   1. Download the latest circuits  from the following curl command:
 

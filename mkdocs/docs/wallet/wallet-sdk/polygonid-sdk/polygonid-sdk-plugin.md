@@ -15,12 +15,12 @@ To use the Polygon ID Flutter SDK plugin, you need to add this plugin as a depen
     ```
     where x stands for the major version, y stands for the minor version, and z stands for the patch version of the Polygon ID Flutter SDK.
  
-If you are working on a branch of the [Polygon ID Flutter SDK repository](https://github.com/iden3/polygonid-flutter-sdk.git), you can add the dependency in the following way:
+If you are working on a branch of the [Polygon ID Flutter SDK repository](https://github.com/0xPolygonID/polygonid-flutter-sdk.git), you can add the dependency in the following way:
 ```
 dependencies:
  polygonid_flutter_sdk:
    git:
-     url: ssh://git@github.com/iden3/polygonid-flutter-sdk.git
+     url: ssh://git@github.com/0xPolygonID/polygonid-flutter-sdk.git
      ref: branchPathName
 ```
 

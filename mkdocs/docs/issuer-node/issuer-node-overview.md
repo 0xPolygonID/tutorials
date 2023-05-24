@@ -1,6 +1,6 @@
 # Issuer Node Overview
 
-The [Issuer Node](https://github.com/0xPolygonID/sh-id-platform) is a self-hosted Node that any implementer can quickly set up and integrate into their application. Once the setup is completed, the Issuer Node exposes all the functionalities necessary to run an issuer such as:
+The [Issuer Node](https://github.com/0xPolygonID/issuer-node) is a self-hosted Node that any implementer can quickly set up and integrate into their application. Once the setup is completed, the Issuer Node exposes all the functionalities necessary to run an issuer such as:
  
 - Create, manage, and revoke an identity
 - Issue credentials to an identity
@@ -33,7 +33,7 @@ Though not mandatory, it is good to have the following software installed on you
 <img src= "../../imgs/issuer-node-components.png" align="center" style="border: 1px solid black"/>
 </div>
 <br />
-The [Issuer Node](https://github.com/0xPolygonID/sh-id-platform) comprises the following components and each one of these components can be either dockerized or each one of these can be launched as separate service. 
+The [Issuer Node](https://github.com/0xPolygonID/issuer-node) comprises the following components and each one of these components can be either dockerized or each one of these can be launched as separate service. 
 
 - **Issuer Application** to issue Verifiable Credentials and communicate with users' wallets.
 
@@ -47,7 +47,7 @@ The [Issuer Node](https://github.com/0xPolygonID/sh-id-platform) comprises the f
 
 ## Core Library
 
-- [Issuer Node](https://github.com/0xPolygonID/sh-id-platform)
+- [Issuer Node](https://github.com/0xPolygonID/issuer-node)
  
 ## Support Libraries
  

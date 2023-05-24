@@ -9,7 +9,7 @@ The following steps illustrate how to do initial setup to get things started and
 
 1. **Install Flutter**: Install Flutter SDK. To know the steps in detail, read the tutorial [here](../../wallet-sdk/flutter-sdk/install-flutter-sdk.md).
 
-2. **Clone Repository**: Clone the [polygonid-sdk-repository](https://github.com/iden3/polygonid-flutter-sdk.git).
+2. **Clone Repository**: Clone the [polygonid-sdk-repository](https://github.com/0xPolygonID/polygonid-flutter-sdk.git).
  
 3. **Set Directory**: On your Terminal, change the directory to `example`, which is a folder in the `polygonid-sdk-repository`.
 

@@ -17,7 +17,7 @@ You can always switch profiles:
 
 ## Switch Network
 
-Switching networks is alos available on Polygon ID. You just need to reach the Settings menu and tap the network you would like to change to:
+Switching networks is also available on Polygon ID. You just need to reach the Settings menu and tap the network you would like to change to:
 
 <div align="center">
 <img src="../../imgs/network-select.png" width="500"/>
