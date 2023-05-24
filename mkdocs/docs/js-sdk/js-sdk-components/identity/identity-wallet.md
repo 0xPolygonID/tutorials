@@ -42,7 +42,7 @@ where `method` is the type of `did` method used to create an identity.
 
 `seed` is a random/non-random number used to generate the BJJ key-pair.
 
-`revocationOpts` contains the way how the status of the credential can be fetched.
+`revocationOpts` contains the way how the status of the Auth BJJ credential can be fetched.
 
 The `createIdentity` method returns a `did` (Decentralised Identifier) in the DID format and a credential based on the W3C standard for a Verifiable Credential.  
 
