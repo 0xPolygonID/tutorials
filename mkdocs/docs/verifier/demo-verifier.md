@@ -45,4 +45,4 @@ Download the Polygon ID Wallet App and create an Identity.
     </div>
     <br>
 
-    Once scanning the QR code with the Polygon ID app, the user will be prompted to generate a zero knowledge proof that attests that the query is satisfied without revealing any further information about the credential. For example, the actual date of entry of the user inside the DAO is not revealed to the verifier.
+    Once scanning the QR code with the Polygon ID app, the user will be prompted to generate a zero-knowledge proof that attests that the query is satisfied without revealing any further information about the credential. For example, the actual date of entry of the user inside the DAO is not revealed to the verifier.

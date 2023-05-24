@@ -25,9 +25,9 @@ The `fetchAndSaveClaims()` function uses `OfferIden3MessageEntity`, `privateKey`
 ## Wallet-Issuer Interaction for Fetching Credentials
  
  
-1. Integrator scans the QR code displayed on the Issuer site to get the iden3 message.
+1. Integrator scans the QR code displayed on the Issuer site to get the Iden3 message.
  
-2. The Integrator uses the `OfferIden3MessageEntity` obtained from the iden3 message to authenticate and fetch the credentials from the Issuer.
+2. The Integrator uses the `OfferIden3MessageEntity` obtained from the Iden3 message to authenticate and fetch the credentials from the Issuer.
  
 3. The Issuer validates the identity and returns a list of `ClaimEntities` back to the Integrator.
  

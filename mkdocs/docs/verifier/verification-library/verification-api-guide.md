@@ -70,10 +70,10 @@ Let us see how to execute this verification.
     );
     ```
 
-This creates a resolver which is used to fetch the identity state from the [State Smart Contract](https://docs.iden3.io/contracts/state/) and a verification key loader which is used to fetch the verification keys necessary to verify a zero knowledge proof. 
+This creates a resolver which is used to fetch the identity state from the [State Smart Contract](https://docs.iden3.io/contracts/state/) and a verification key loader which is used to fetch the verification keys necessary to verify a zero-knowledge proof. 
 Eventually, it returns an instance of a Verifier. To set up a verifier, different parameters need to be passed:
 
--  `keyDIR` is the path where the public verification keys for iden3 circuits are located (such as `"./keys"`). The verification key folder can be found <a href="https://github.com/0xPolygonID/phase2ceremony" target="_blank">here</a>.
+-  `keyDIR` is the path where the public verification keys for Iden3 circuits are located (such as `"./keys"`). The verification key folder can be found <a href="https://github.com/0xPolygonID/phase2ceremony" target="_blank">here</a>.
 - `ethURL` is the URL of your RPC node provider such as `"https://polygon-testnet-rpc.allthatnode.com:8545"` for Polygon Mumbai.
 - `contractAddress` is the address of the identity state Smart Contract. On Polygon Mumbai, it is 0x134B1BE34911E39A8397ec6289782989729807a4.
 - `resolverPrefix` is the prefix of the resolver. For Polygon Mumbai it is `"polygon:mumbai"`
