@@ -11,10 +11,8 @@ The Polygon ID Wallet app is a reference implementation built using our Wallet S
 </div>
 <br>
 
->**Note**: Currently, we support only mobile-based apps as wallets. The web-based applications and cold-storage wallets are not yet supported. 
-
->**Note**: Polygon ID Wallet is built using Flutter SDK. No other SDK is supported yet. 
-
+!!!info
+    If you are interested in building web-based applications with Polygon Id, please visit the [JS SDK documentation](../js-sdk/js-sdk-overview.md). 
 
 ## Quick Start
 
