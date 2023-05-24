@@ -115,6 +115,9 @@ nav:
                   - Get Profiles: "wallet/wallet-sdk/polygonid-sdk/profiles/api/get-profiles.md"
                   - Add Profile: "wallet/wallet-sdk/polygonid-sdk/profiles/api/add-profile.md"
                   - Remove Profile: "wallet/wallet-sdk/polygonid-sdk/profiles/api/remove-profile.md"
+          - Android SDK:
+              - Implement Android SDK: "wallet/wallet-sdk/android-sdk/install-android-sdk.md"
+              - Example App: "wallet/wallet-sdk/android-sdk/example-app.md"     
   - Smart Contracts:
       - Overview: "contracts/overview.md"
   - JS SDK:
