@@ -2,10 +2,10 @@
 
 The Polygon ID JS SDK is a Software Development Kit created in JavaScript. Based on the Iden3 core protocol libraries, it is used for interacting with REST APIs and developing browser-based applications.
 
-The Polygon ID JS SDK allows developers to create a browser extension for the JS-based SDK. Using this SDK, these developers can start creating and issuing verifiable credentials (related to one's identity) based on our Iden3 protocol. Individuals and organizations can use this extension for their browser-based applications.
+The Polygon ID JS SDK allows developers to create applications like mobile or web wallets, browser extensions, and issuer nodes. Using this SDK developers can start creating and issuing verifiable credentials, and generate zero knowledge proofs based on our Iden3 protocol. Individuals and organizations can use this SDK for their existing applications.
 
 !!! note
-    With JS SDK, you can build custom applications/modules by applying your changes to our existing codebase. The functionalities that we provide in these tutorials can be extended as per your requirements. For example, JS SDK does not provide a codebase for database storage but you can implement that by extending SDK's functionality.
+    With JS SDK, you can build custom applications/modules by providing your implementation of our core interfaces. The functionalities that we provide in these tutorials can be extended as per your requirements. For example, JS SDK does not provide a codebase for database storage but you can implement that by extending SDK's functionality.
 
 ## Why JS SDK?
 

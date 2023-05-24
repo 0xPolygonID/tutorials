@@ -62,7 +62,7 @@ where `ProofQuery` can contain parameters including:
 
 `type` (type of credential issued), 
 
-`schema`(schema used to create a credential), 
+`schema`(json schema used to create a credential), 
 
 `credentialSubject`(subject of the credential to whom a credential is issued). 
 
