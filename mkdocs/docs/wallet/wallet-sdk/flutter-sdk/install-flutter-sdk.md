@@ -31,9 +31,9 @@ Flutter SDK installation is available for different operating systems including 
     ```
     echo $PATH
     ```
-    /opt/homebrew/bin:/opt/homebrew/sbin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/usr/local/bin:/**Users/username/Desktop/flutter/bin**
+    `/opt/homebrew/bin:/opt/homebrew/sbin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/usr/local/bin:/Users/username/Desktop/flutter/bin`
 
-    where the path in the bold is the intended path where we had set our path to.
+    where `Users/username/Desktop/flutter/bin` is the intended path where we had set our path to.
 
  
 ## Using Dart with Flutter
