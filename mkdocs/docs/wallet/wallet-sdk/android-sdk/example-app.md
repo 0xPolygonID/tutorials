@@ -2,95 +2,20 @@ You can find an executable [example app](https://github.com/0xPolygonID/polygoni
 
 ## Initial Setup
 
-1. **Install Flutter**: Install Flutter SDK. To know the steps in detail, read the tutorial [here](../../wallet-sdk/flutter-sdk/install-flutter-sdk.md).
-
-2. **Clone Repository**: Clone the [polygonid-android-sdk-repository](https://github.com/0xPolygonID/polygonid-android-sdk.git).
+1. **Clone Repository**: Clone the [polygonid-android-sdk repository](https://github.com/0xPolygonID/polygonid-android-sdk.git).
  
-3. **Set Directory**: On your Terminal, change the directory to `example`, which is a folder in the `polygonid-sdk-repository`.
+2. **Set Directory**: On your Terminal, change the directory to `app`, which is a folder in the `polygonid-android-sdk` repository.
 
       ```bash
       cd app
-      ```
-  
-4. **Set Dependencies**: To use the Polygon ID Flutter SDK plugin, add the following dependencies to your `pubspec.yaml` file:
+      ```  
 
-    **environment**:
+3. **Run the app**:
 
-    ```yaml
-      sdk: ">=2.17.0 <3.0.0"
-    ``` 
-
-    **dependencies**:
-
-    ```yaml
-      flutter:
-            sdk: flutter
-
-      polygonid_flutter-sdk: ^x.y.z
-      
-    ```
-
-    where "^x.y.z" stands for the version constraints (range of versions that are backward compatwith the x.y
-    version. For more details on version constraints, click [here](https://darttools/p
-    dependencies#version-constraints)
-
-    Read more [here](../../wallet-sdk/polygonid-sdk/polygonid-sdk-plugin.md).
-
-5. **Get Dart packages**: While in the `example` directory, run the following command:
- 
-      ```bash
-      flutter pub get
-      ```
-      The system runs the command and shows:
-
-      ***Running "flutter pub get" in example...***
-
-      where `pub` command (in Dart) invokes a set of tools for managing Dart packages and `pub get` downloads these packages for your Dart project. The `flutter pub get` indicates that the command is run via flutter SDK.
-
-6. **Build your first project and run it**. For more details, click [here](../../wallet-sdk/flutter-sdk/build-app-with-flutter-sdk.md).
-
-
-While running a Flutter command, if you encounter a ***command not found: flutter*** error, make sure that the path set above is correct. If you still encounter the error, install Vim emulation for Visual Studio Code as an extension and follow these steps:
-
-1. Run the following command:
-
-   ```bash
-   vim $HOME/.zshrc
-   ```
-
-  where we assume that you are working in the Z shell. 
-  
-  If you are using the Bash shell, you can run this command:
-
-   ```bash
-   vim $HOME/.bashrc
-   ```
-
-  To know your shell, type:
     ```bash
-    echo $SHELL
+    ./gradlew installDebug app
     ```
-  which, in our case shows:
-`/bin/zsh`
 
-2. This opens the `.zshrc` configuration window (for the Z Shell). Press "I" to initiate the insert mode.
-3. Run the following command to set your path variable:
-
-   ```bash
-   export PATH="$PATH:/Flutter-Directory-Path/flutter/bin"
-   ```
-   where "Flutter-Directory-Path" is the directory where your Flutter is installed.
- 
-4. Press `Escape` on your keyboard and then enter the following command:
-
-   ```bash
-   :wq!
-   ```
-   Press `Enter`. This saves the file in Vim and exits the editor (`wq` stands for write and quit).
- 
-5. Run your flutter commands.
- 
- 
 ## General Flow
 
 ### Overview
