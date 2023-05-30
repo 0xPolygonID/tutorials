@@ -10,7 +10,8 @@ There are two options for installing and running the server alongside the UI:
 
 !!!note
     You can follow the instructions below or watch this video showing the same steps to set up an issuer node.
-    ![type:video](../../videos/issuer-node-setup.mp4)
+    
+    <iframe src="https://www.youtube.com/embed/ASHuaXgfDPg" width="100%" length="100%" height="500" allowfullscreen></iframe>
 
 **For either one, you first have to [clone the repository](https://github.com/0xPolygonID/issuer-node).**
 
