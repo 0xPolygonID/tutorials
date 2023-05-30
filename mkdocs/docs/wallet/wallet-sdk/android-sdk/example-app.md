@@ -177,7 +177,7 @@ PolygonIdSdk.getInstance().getClaims(
 
 ##### ***3. Get Credentials by Ids***
 
-This functionality lets an Integrator get credentials from an Issuer based on their IDs. The list of ids `claimIds`, `did identifier`, and `privateKey`are passed as input parameters to the `getClaimsByIds()` function and a list of credentials in the form of `ClaimEntity` are retrieved.
+This functionality lets an Integrator get credentials from an Issuer based on their IDs. The list of IDs `claimIds`, `did identifier`, and `privateKey`are passed as input parameters to the `getClaimsByIds()` function and a list of credentials in the form of `ClaimEntity` is retrieved.
 
 ```kotlin
 PolygonIdSdk.getInstance().getClaimsByIds(
