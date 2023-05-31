@@ -9,8 +9,7 @@ There are two ways those credentials can be issued: using *BJJ key Signature* or
 
 ### SIG Method: Issuance of Credentials with Baby JubJub(BJJ) Key Signatures
 
-The credential is not added to the Issuer’s Merkle tree, instead a **baby jub jub (BJJ)** signature is used which is then verified upon presentation.
-
+The credential is not added to the Issuer’s Merkle tree, instead a **baby jub jub (BJJ)** signature is used which is then verified upon presentation. With this method issuers can issue a large number of credentials without needing to spend any gas to issue the credentials.
 
 <div align="center">
     <img src="../../imgs/babyjubjub.png"></img>
@@ -18,7 +17,7 @@ The credential is not added to the Issuer’s Merkle tree, instead a **baby jub 
 
 ### MTP Method: Issuance of Credentials with Merkle Tree Proof
 
-The validation of the proof is done against the state published on-chain. No personal information is stored on-chain. A key difference with this method is that the identity state has to be published on-chain (the hash of the merkle trees), since the [Identity State Transition function](https://docs.iden3.io/protocol/spec/#identity-state-update) has to be executed. Another important difference is that through this method smart contracts can issue credentials.
+The validation of the proof is done against the state published on-chain. No personal information is stored on-chain. A key difference with this method is that the identity state has to be published on-chain (the hash of the merkle trees), since the [Identity State Transition function](https://docs.iden3.io/protocol/spec/#identity-state-update) has to be executed. Another important difference is that through this method smart contracts can issue credentials. We currently do not have estimates on the gas cost to issue credentials using this method, but credential issuance batching could be done to optimize the issuance of credentials using this method.
 
 <div align="center">
     <img src="../../imgs/mtp.png"></img>
