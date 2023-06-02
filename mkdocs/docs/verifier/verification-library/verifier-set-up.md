@@ -219,9 +219,9 @@ In this example, the verifier will set up the query: "Prove that you were born b
 
 	!!!info "Testnet / Mainnet"
 		The code samples on this page are using Polygon's Testnet Mumbai, including the smart contract address and the RPC endpoint in the `ethURL` variable. If you want to use the Mainnet, you need to add
-		resolver for the main net. 
+		a resolver for it. 
 
-		Main net contract address: `0x624ce98D2d27b20b8f8d521723Df8fC4db71D79D`
+		Mainnet contract address: `0x624ce98D2d27b20b8f8d521723Df8fC4db71D79D`
 
 		DID prefix: `polygon:main`
 
@@ -240,7 +240,7 @@ In this example, the verifier will set up the query: "Prove that you were born b
 		};
 		```
 
-		Verifier can work with multiple networks simultaneously. Even more user and issuer can be in different networks. The verifier library can properly resolve the state of the issuer and the user from the different networks.
+		A Verifier can work with multiple networks simultaneously. Even users and issuers can be on different networks. The verifier library can properly resolve the state of the issuer and the user from the different networks.
 
 	!!!note
 		The public verification keys for Iden3 circuits generated after the trusted setup can be found <a href="https://github.com/0xPolygonID/phase2ceremony" target="_blank">here</a> and must be added to your project inside a folder called `keys`. 
