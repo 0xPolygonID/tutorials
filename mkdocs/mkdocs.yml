@@ -120,6 +120,8 @@ nav:
               - Example App: "wallet/wallet-sdk/android-sdk/example-app.md"     
   - Smart Contracts:
       - Overview: "contracts/overview.md"
+      - Advanced Topics:
+        - "contracts/credential-linkage.md"
   - JS SDK:
       - Overview: "js-sdk/js-sdk-overview.md"
       - Components:
