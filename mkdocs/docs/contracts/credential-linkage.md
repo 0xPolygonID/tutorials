@@ -12,6 +12,9 @@ There are 2 types of relationships between credentials and their issuers:
 
 ## Credential Linkage to Different Blockchains
 
-Credentials could be linked to different Ethereum Virtual Machine (EVM) blockchains, they are not limited to only being linked to the Polygon mainnet when they are issued. For instance, credentials could be linked to a Supernets chain or another EVM chain. The issuer state contract could be deployed to other EVM-compatible chains, and verifiers could validate the proofs from these credentials as long as they have access to the particular chain. Please note that credential linkage is only supported for a single chain for each credential (a credential cannot be linked to multiple blockchains at the same time).
+Credentials could be linked to different Ethereum Virtual Machine (EVM) blockchains, they are not limited to only being linked to the Polygon mainnet when they are issued. For instance, credentials could be linked to a Supernets chain or another EVM chain. The issuer state contract could be deployed to other EVM-compatible chains, and verifiers could validate the proofs from these credentials as long as they have access to the particular chain. 
+
+!!!note
+    Credential linkage is only supported for a single chain for each credential (a credential cannot be linked to multiple blockchains at the same time).
 
 ![img](../imgs/linkage-multiple.png)
