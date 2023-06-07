@@ -15,13 +15,13 @@ A credential ID is assigned to a Verifiable Credential when it is created by an 
 
 **Function**: Endpoint to create a Verifiable Credential for a user. 
 
-**How it Works**: The DID (identifier string retrieved from calling the `Create Identity` endpoint) is passed as a path variable in the request URL. 
+**How it Works**: The DID (identifier string retrieved from calling the `Create Identity` endpoint) is passed as a path variable in the request URL. This is your DID identifier that you use as an issuer of credentials.
 
  The following parameters are passed in the body of the request:
 
 - `credentialSchema`: It is a template for a Verifiable Credential that guarantees the structure of a credential. This way, an Issuer, a Holder, and a Verifier can reference the data in a known way. Further details on the `credentialSchema` can be found in the [Create Custom Schema](../../../issuer/schema.md) section.
 - `type`: the type of the credential schema sent.
-- `credentialSubject`: Contains DID (Decentralized Identifier), i.e. `did`, of the user and the fields related to the data to be attested.
+- `credentialSubject`: Contains DID (Decentralized Identifier), i.e. `did`, of the user and the fields related to the data to be attested. You should have previously obtained this identifier from the user by performing a "basic auth" step, this can be done through the [Authentication/QRcode step](https://issuer-admin.polygonid.me/#get-/v1/authentication/qrcode).
 - `expiration`: Date of expiry of the Verifiable Credential. 
 
 > Note: Depending on the schema a user opts for, the request body may contain some fields of the schema while leaving out the others. For example, in the API reference, we have considered the schema of the type `KYCAgeCredential` and therefore, included the `birthday` and `documentType` fields. 
