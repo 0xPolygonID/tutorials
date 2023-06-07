@@ -48,6 +48,7 @@ nav:
     - Schemas:
       - Create Custom Schemas : "issuer/schema.md"
       - Schema Examples: "issuer/schema-exs.md"
+    - Credential Linkage: "contracts/credential-linkage.md"
     - Credential Issuance Methods: "issuer/cred-issue-methods.md"
     - Issue Credentials via CLI: "issuer-node/issue-credential-cli.md"  
     - Source Code: "issuer/source-code.md"   
@@ -120,8 +121,7 @@ nav:
               - Example App: "wallet/wallet-sdk/android-sdk/example-app.md"     
   - Smart Contracts:
       - Overview: "contracts/overview.md"
-      - Advanced Topics:
-        - "contracts/credential-linkage.md"
+
   - JS SDK:
       - Overview: "js-sdk/js-sdk-overview.md"
       - Components:
