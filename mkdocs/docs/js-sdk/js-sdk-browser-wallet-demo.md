@@ -1,8 +1,11 @@
 ## Demo for Polygon ID JS SDK Browser Wallet Extension
 
-Polygon ID has created a browser wallet extension based on JS SDK that lets its user fetch credentials from an Issuer and generate proof for these credentials to be presented to a Verifier. 
+Polygon ID has created a [sample browser wallet extension](https://github.com/0xPolygonID/extension-demo) based on our JS SDK that lets its user fetch credentials from an Issuer and generate proof for these credentials to be presented to a Verifier. 
 
-You need to install the browser wallet extension on your machine. This wallet works like a common crypto wallet such as MetaMask Wallet but differs in functionality. 
+You need to [manually install the browser wallet extension](https://github.com/0xPolygonID/extension-demo#how-deploy-project-as-chrome-extension) on your machine. This wallet works like a common crypto wallet such as MetaMask Wallet but differs in functionality. 
+
+    !!! warning
+        Some of the content on this page is still to be updated. Please note that the "Polygon Verify" service mentioned in the screenshots has been eliminated. The screenshots illustrate the general process of how the JS SDK wallet extension works.
 
 ## Demo for JS SDK Browser Extension Wallet
 
