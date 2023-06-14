@@ -19,7 +19,7 @@ There are two options for installing and running the server alongside the UI:
 
     ### Docker Setup Guide
 
-    Running the app with Docker allows for minimal installation and a quick setup. This is recommended **for evaluation use-cases only**, such as local development builds.
+    Running the app with Docker allows for minimal installation and a quick setup, as we have already set the infrastructure configuration (database, cache and vault storage). This is recommended **for evaluation use-cases only**, such as local development builds.
 
     #### Docker Guide Requirements
 
@@ -34,20 +34,27 @@ There are two options for installing and running the server alongside the UI:
 
     #### Create Docker Configuration Files
 
-    Make sure you are in the root folder and then make a copy of the following environment variables files:
+    Make sure you are in the root folder and then make a copy of the `.env-api.sample`, `.env-issuer.sample`, `.env-ui.sample` environment variables files:
 
     ```bash
-    # FROM: ./
-
     cp .env-api.sample .env-api;
     cp .env-issuer.sample .env-issuer;
-    # (Optional - For issuer UI)
     cp .env-ui.sample .env-ui;
     ```
+
+    `.env-issuer` is used to configure the api-issuer. It contains the needed configuration to start the node such as the infrastructure configuration (postgres/redis/vault), the blockchain variables in to be able to publish the state, the basic auth variables and other variables.
+
+    `.env-api` is used to configure the api-ui. This file allows the user to configure the basic auth of the api-ui, the serverURL and others.
+
+    `.env-ui` is used to configure the UI with the user/password UI protection and the block explorer that will be used, among other variables.
 
     #### Node Issuer Configuration
 
     The `.env-issuer` will be loaded into the [Docker compose initializer](https://github.com/0xPolygonID/issuer-node/blob/develop/infrastructure/local/docker-compose.yml).
+
+    This configuration involves 2 procedures: acquiring a blockchain URL by an RPC provider and setting up a public URL.
+
+    ##### Acquiring a blockchain URL by an RPC provider  
 
     Any of the following RPC providers can be used:
 
@@ -60,14 +67,44 @@ There are two options for installing and running the server alongside the UI:
     !!!note "Mainnet or Testnet?"
         Using Mainnet or Testnet will depend on the RPC URL you are going to use in this step. After you decide which of the RPC providers you will be using, like any of the examples above, you will need to copy the URL for the network you are willing to use.
 
-    If it is desired to run a free public forwarding URL, see [Getting A Public URL](#getting-a-public-url).
+    ##### Setting up a public URL
 
-    Configure `.env-issuer` with the following details (or amend as desired).
+    If it is desired to run a public forwarding URL,  pointing to a host, as it is going to be stored inside the credential. Localhost can't be used in this situation because the mobile app can't access it. 
+    
+    !!! note  "Getting a free Public URL"
+        For testing purposes, you can use a public URL. A way to set this up is by using [ngrok](https://ngrok.com) as a forwarding service that maps to a local port.
+        After downloading and installing ngrok, run the following command and copy the **Forwarding** URL:
+
+        ```bash
+        # For issuer-api-ui ISSUER_API_UI_SERVER_URL env var (.env-api file)
+        ./ngrok http 3002; 
+        ```
+
+        Copy the **Forwarding** output value and paste it onto the `.env-issuer` file.
+
+        ```bash
+        # FROM: /path/to/ngrok binary
+
+        # Expected Output:
+        # Add OAuth and webhook security to your ngrok (its free!): https://ngrok.com/free
+        # 
+        # Session Status                online
+        # Account                       YourAccountUsername (Plan: Free)
+        # Update                        update available (version 3.2.1, Ctrl-U to update)
+        # Version                       3.1.0
+        # Region                        Europe (eu)
+        # Latency                       -
+        # Web Interface                 http://127.0.0.1:4040
+        # Forwarding                    https://unique-forwading-address.eu.ngrok.io -> http://localhost:3001
+        # 
+        # Connections                   ttl     opn     rt1     rt5     p50     p90
+                                    # 0       0       0.00    0.00    0.00    0.00
+        ```
+
+    Having the blockchain URL and a public URL, you can now add them respectively to the ISSUER_ETHEREUM_URL variable and ISSUER_SERVER_URL variable in the  `.env-issuer` file.
+
 
     ```bash
-    # ...
-
-    # See Section: Getting A Public URL
     ISSUER_SERVER_URL=<https://unique-forwaring-or-public-url.ngrok-free.app>
     # Defaults for Basic Auth in Base64 ("user-issuer:password-issuer" = "dXNlci1pc3N1ZXI6cGFzc3dvcmQtaXNzdWVy")
     # If you just want to get started, don't change these
@@ -81,8 +118,6 @@ There are two options for installing and running the server alongside the UI:
         In case the Vault was loaded multiple times and a fresh start is needed, the following will remove remnant data:
 
         ```bash
-        # FROM: ./
-
         make clean-vault;
         # (Equivalent)
         #   rm -R infrastructure/local/.vault/data/init.out
@@ -381,44 +416,6 @@ There are two options for installing and running the server alongside the UI:
     8. _(Optional)_ To set up the UI with its own API, first copy `.env-ui.sample` as `.env-ui`. Please see the [configuration](#configuration) section for more details.
 
     ---
-## Configuration
-
-### Getting A Public URL
-
-In order for the service to work, we'll need a public URL.
-An easy way to set this up is by using [ngrok](https://ngrok.com) as a forwarding service that maps to a local port.
-After downloading and installing ngrok, run the follwing command and copy the **Forwarding** URL:
-
-```bash
-# For issuer-api ISSUER_SERVER_URL env var (.env-issuer file)
-./ngrok http 3001; 
-```
-
-```bash
-# For issuer-api-ui ISSUER_API_UI_SERVER_URL env var (.env-api file)
-./ngrok http 3002; 
-```
-
-Copy the **Forwarding** output value into the desired env var
-
-```bash
-# FROM: /path/to/ngrok binary
-
-# Expected Output:
-# Add OAuth and webhook security to your ngrok (its free!): https://ngrok.com/free
-# 
-# Session Status                online
-# Account                       YourAccountUsername (Plan: Free)
-# Update                        update available (version 3.2.1, Ctrl-U to update)
-# Version                       3.1.0
-# Region                        Europe (eu)
-# Latency                       -
-# Web Interface                 http://127.0.0.1:4040
-# Forwarding                    https://unique-forwading-address.eu.ngrok.io -> http://localhost:3001
-# 
-# Connections                   ttl     opn     rt1     rt5     p50     p90
-                              # 0       0       0.00    0.00    0.00    0.00
-```
 
 ## Development (UI)
 
