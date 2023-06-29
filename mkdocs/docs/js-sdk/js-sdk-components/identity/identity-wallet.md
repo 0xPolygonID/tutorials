@@ -30,7 +30,7 @@ interface IdentityCreationOptions {
   blockchain?: Blockchain;
   networkId?: NetworkId;
   revocationOpts: {
-    baseUrl: string;
+    id: string;
     type: CredentialStatusType;
     nonce?: number;
   };
@@ -95,11 +95,11 @@ Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/
 This method lets an Issuer grant a credential to a user as requested by the user.
 
   ```typescript
-    issueCredential(issuerDID: DID, req: CredentialRequest): Promise<W3CCredential>;
+    issueCredential(issuerDID: DID, req: CredentialRequest,opts?:options): Promise<W3CCredential>;
   ```
 
 where `issuerDID` is the identifier of the Issuer in the `did` format we described earlier.
-
+`opts` are option merklization options. If you use IPFS schemas you must pass IPFS node or gateway url.
 This method returns a core claim which is then added to the Merkle tree and this claim is then transformed into a Verifiable Credential based on the W3C standards and issued to the user. The core claim is signed by the Issuer and a BabyJubjub [Signature Proof](https://docs.iden3.io/getting-started/signature-claim/signature/) is also added to the credential.  
 
 Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.issuecredential#identitywalletissuecredential-method" target="_blank">API Reference</a>.
