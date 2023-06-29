@@ -62,7 +62,7 @@ Let us see how to execute this verification.
         ['polygon:mumbai']: ethStateResolver,
     };
 
-    const verifier = new auth.Verifier(
+    const verifier = new Verifier.newVerifier(
         verificationKeyloader,
         resolvers,
         {

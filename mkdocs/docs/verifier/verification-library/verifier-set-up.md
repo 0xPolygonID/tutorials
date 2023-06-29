@@ -349,7 +349,7 @@ In this example, the verifier will set up the query: "Prove that you were born b
 			const sLoader = new loaders.UniversalSchemaLoader('ipfs.io');
 
 			// EXECUTE VERIFICATION
-			const verifier = new auth.Verifier(
+			const verifier = new Verifier.newVerifier(
 				verificationKeyloader,
 				resolvers,
 				{
