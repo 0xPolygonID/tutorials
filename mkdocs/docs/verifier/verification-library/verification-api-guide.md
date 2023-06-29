@@ -44,7 +44,7 @@ Let us see how to execute this verification.
 		resolverPrefix: resolver,
 	}
 
-    verifier := auth.NewVerifier(verificationKeyloader, loaders.DefaultSchemaLoader{IpfsURL: "ipfs.io"}, resolvers)
+    verifier, err := auth.NewVerifierWithExplicitError(verificationKeyloader, loaders.DefaultSchemaLoader{IpfsURL: "ipfs.io"}, resolvers)
     ```
 
 
@@ -52,7 +52,6 @@ Let us see how to execute this verification.
 
     ```js
     const verificationKeyloader = new loaders.FSKeyLoader(keyDIR);
-    const sLoader = new loaders.UniversalSchemaLoader('ipfs.io');
 
     const ethStateResolver = new resolver.EthStateResolver(
         ethURL,
@@ -64,9 +63,11 @@ Let us see how to execute this verification.
     };
 
     const verifier = new auth.Verifier(
-    verificationKeyloader,
-    sLoader, 
-    resolvers,
+        verificationKeyloader,
+        resolvers,
+        {
+        ipfsGatewayURL:"<gateway url>"
+        },
     );
     ```
 
@@ -77,6 +78,7 @@ Eventually, it returns an instance of a Verifier. To set up a verifier, differen
 - `ethURL` is the URL of your RPC node provider such as `"https://polygon-testnet-rpc.allthatnode.com:8545"` for Polygon Mumbai.
 - `contractAddress` is the address of the identity state Smart Contract. On Polygon Mumbai, it is 0x134B1BE34911E39A8397ec6289782989729807a4.
 - `resolverPrefix` is the prefix of the resolver. For Polygon Mumbai it is `"polygon:mumbai"`
+- `ipfsGatewayURL` can be your ipfs node or public one. You can path your loader or ipfs gateway also.
 
 **Execute the verification**
 
