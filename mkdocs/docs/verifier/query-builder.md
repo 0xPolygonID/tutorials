@@ -1,5 +1,5 @@
 
-There is an interactive way of creating verification queries by utilizing an intuitive form with all the fields a comprehensive query must have. In Polygon ID, this useful feature is called **Query Builder**.
+There is an interactive way of creating verification queries by utilizing an intuitive form with all the fields a comprehensive query must have. In Polygon ID, this useful feature is called [Query Builder](https://schema-builder-test.polygonid.me/query-builder).
 
 Verifiers can create a set of rules that users need to meet to prove their identity using their existing credentials. These rules could range from being a member of a specific organization to being at a certain age. Polygon ID makes it easy and secure for users to prove their identity by using these rules for authentication purposes.
 
@@ -9,7 +9,7 @@ By providing a standardized interface for query creation, a user interface can h
 
 ![Query Builder Form](../imgs/query-builder.png){width="1000"}
 
-The Query Builder contains the following fields:
+The[Query Builder](https://schema-builder-test.polygonid.me/query-builder) contains the following fields:
 
 - Proof type: credential issuance methods. SIG for Credentials with Baby JubJub(BJJ) Key Signatures and MTP for credentials with Merkle Tree Proof.
 - URL to JSON-LD Context: this should be the address where the JSON-LD Context is stored, containing schema data.
@@ -21,7 +21,7 @@ The Query Builder contains the following fields:
 - Value: this is the value the operator refers to. For example, for a query requesting a user to be older than 21 years old, the operator should read "21".
 - Skip Revocation Check: will skip the check to see if a credential was revoked or not.
 
-The Query Builder outcome should look like this: 
+The [Query Builder](https://schema-builder-test.polygonid.me/query-builder) outcome should look like this: 
 
 ![Query Builder Form](../imgs/query-builder-outcome.png){width="1000"}
 
