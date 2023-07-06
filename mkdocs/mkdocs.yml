@@ -67,6 +67,7 @@ nav:
           - Tutorial - Run a Verifier: "verifier/verification-library/verifier-set-up.md"
       - Verifier SDK - On-chain:
           - Implement ERC20 zk airdrop in 20 minutes: "verifier/on-chain-verification/overview.md"
+      - Query Builder: "verifier/query-builder.md"
       - ZK Query Language: "verifier/verification-library/zk-query-language.md"
   - Wallet:
       - Overview: "wallet/wallet-overview.md"
