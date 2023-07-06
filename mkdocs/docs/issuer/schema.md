@@ -1,7 +1,7 @@
 # Create Custom Schemas
 
 !!!info
-    Polygon ID offers an intuitve tool to create schemas, the Schema Builder. [Here](schema-builder.md) you can find a tutorial for this tool. 
+    Polygon ID offers an intuitive, user-friendly user interface to create schemas: the Schema Builder. [Here](schema-builder.md) you can find a tutorial for this tool. You can also access it on [https://schema-builder-test.polygonid.me/](https://schema-builder-test.polygonid.me/). 
 
 A Schema Type encodes the structure of a particular Verifiable Credential (VC) by defining the type, the fields that must be included inside the VC, and a description for these fields.
 
