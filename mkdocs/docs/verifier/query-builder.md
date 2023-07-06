@@ -18,7 +18,7 @@ The[Query Builder](https://schema-builder-test.polygonid.me/query-builder) conta
 - Attribute field: this is the attribute the query is based on. For example, for a query requesting a user to be older than 21 years old, the attribute field should read "Age".
 - Query type: the two options of queries that are available, a Condition or Selective disclosure. Condition depends on a value and an operator; that would be the case of a query requesting a user to be older than 21 years old. [Selective Disclosure](../verifier/features.md#selective-disclosure) is the feature used to ask the ID holder for a specific piece of their data.
 - Operator: this is the relation between the attribute and the value. For example, for a query requesting a user to be older than 21 years old, the operator should read "More than".
-- Value: this is the value the operator refers to. For example, for a query requesting a user to be older than 21 years old, the operator should read "21".
+- Value: this is the value the operator refers to. For example, for a query requesting a user to be older than 21 years old, the value should read "21".
 - Skip Revocation Check: will skip the check to see if a credential was revoked or not.
 
 The [Query Builder](https://schema-builder-test.polygonid.me/query-builder) outcome should look like this: 
