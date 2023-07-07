@@ -236,7 +236,7 @@ There are two options for installing and running the server alongside the UI:
     #### Standalone Mode Setup
 
     1. Copy `.env-api.sample` as `.env-api` and `.env-issuer.sample` as `.env-issuer`. Please see the [configuration](#configuration) section for more details.
-    2. Run `make build`. This will generate a binary for each of the following commands:
+    2. Run `make build-local`. This will generate a binary for each of the following commands:
         - `platform`
         - `platform_ui`
         - `migrate`
