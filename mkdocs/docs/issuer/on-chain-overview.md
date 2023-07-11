@@ -1,11 +1,11 @@
-The On-chain Issuer is a way of issuing credentials by leveraging the full power of a smart contract. As it is commonly known, a smart contract is software that resides in a blockchain network, meaning that its code and data aren’t necessarily stored in a server, but rather it is distributed in a decentralized manner. Therefore, an on-chain issuer could be billed as a decentralized issuer, as all the underlying logic of the credentials is written on a smart contract with its inherent publicity. 
+The On-chain Issuer is a way of issuing credentials by leveraging the full power of a smart contract. As it is commonly known, a smart contract is software that resides in a blockchain network, meaning that its code and data aren’t necessarily stored in a server, but rather it is distributed in a decentralized manner. Therefore, an on-chain issuer could be considered a decentralized issuer, as all the underlying logic of the credentials is written on a smart contract with its inherent publicity. 
 
 This issuance method then serves as an alternative to the [Issuer Node](https://0xpolygonid.github.io/tutorials/issuer/issuer-overview/), whose implementation depends on a dedicated setup and its own infrastructure. 
 
 The fact that all this logic is present on the blockchain enables credential issuance for DAOs in a programmatic way. It can also be useful for entities like oracles and on-chain analytics companies since the contract code can be audited and verified. 
 
 ## On-chain issuance
-On-chain issuance is trustless. It reduces dependency on non-auditable decisions for issuing credentials.
+On-chain issuance is trustless or trust-minimized, depending on smart contract business logic. It reduces dependency on non-auditable decisions for issuing credentials.
 The properties of smart contracts make them good candidates to act as trusted attestation services since the attestation mechanism is transparent and auditable to everyone. This serves as an alternative to a number of centralized issuers for use cases when an Identity needs to issue credentials about themselves or their activity, which can be verified by the smart contract logic.
 
 In simple words, you can see everything happening, all the logic used to generate the credential is live on the blockchain and ready to be checked and verified.
@@ -44,13 +44,13 @@ Some interesting examples of public use cases would be:
 ### Private use cases
 On the other hand, private credentials usually stem from privately-held data that are used for self-attestation, meaning that the ID holder is able to create a credential himself with his data and share zero-knowledge proofs of its validity.
 
-When the information used to generate the credential contains personal data that shouldn’t be on-chain, the smart contract is used to verify that the credentials were built correctly. In this case, the credential is generated off-chain by the end user in a way that it includes some cryptographic proofs of validity: 
+When the information used to generate the credential contains personal data that shouldn’t be on-chain, the zk-circuit is used to verify that the credentials were built correctly. In this case, the credential is generated off-chain by the end user in a way that it includes some cryptographic proofs of validity: 
 
-After generating the credential and using an AD-HOC circuit, the application that generated the credential could send a zero-knowledge proof of “Validity of Credential” to the on-chain issuer smart contract. Then, what the Smart Contract would verify is that there is a Verifiable Credential that was built following a certain process (that includes the cryptographical proof of validity, such as government public keys).
+After generating the credential and using a contract-specific circuit, the application that generated the credential could send a zero-knowledge proof of “Validity of Credential” to the on-chain issuer smart contract. Then, what the Smart Contract would verify is that there is a Verifiable Credential that was built following a certain process (that includes the cryptographical proof of validity, such as government public keys).
 
 In this scenario, the value is in allowing end users to leverage existing cryptographic proofs of different types that they have available (government keys, JWT tokens in Web2 accounts etc) to self-issue credentials that they can add to their identities.
 
 Some interesting examples of private use cases would be: 
 
-- User performs a self-attestation of their identity backed by the government public signature. Circuits running privately on a user's mobile phone could verify the input of an NFC chip and then send the transaction to a smart contract, which will be able to create a credential from it.
+- User performs a self-attestation of their identity backed by the government public signature. Circuits running privately on a user's mobile phone could verify the input of an NFC chip, build credential and then send the transaction to a smart contract, which will be able to verify proof and issue (by adding its hash to claims merkle tree) a credential from it.
 - Using JWT claims from Web2 applications through a browser extension - i.e. creating a credential with a date of birth and address from a company store.
