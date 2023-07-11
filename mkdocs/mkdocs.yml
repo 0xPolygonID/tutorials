@@ -45,6 +45,10 @@ nav:
       - Overview: "issuer/issuer-node-ui.md"
       - Setup Guide (API UI): "issuer/setup-issuer-ui.md" 
       - Issuer Node UI Guide: "issuer-node/issuer-node-guide.md"
+    - On-chain Issuer:
+      - Overview: "issuer/on-chain-overview.md"
+    # - Tutorial: "issuer/on-chain-tutorial.md"
+    # - Demo: "issuer/on-chain-demo.md"     
     - Schemas:
       - Schema Builder UI: "issuer/schema-builder.md"
       - Create Custom Schemas : "issuer/schema.md"
