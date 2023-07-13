@@ -322,6 +322,7 @@ Future<void> removeClaims({
 ##### ***6. Update Credential***
 
 To update a credential, the `credential.updateClaim()` function is used with the following fields passed as input parameters:
+
 - `claimId`
 - `did identifier`
 - `privateKey`
