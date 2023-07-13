@@ -1,0 +1,110 @@
+This is an example of using an on-chain issuer. In this application, we communicate with Metamask to retrieve the user's balance and the issuer's claim about the user's balance via the on-chain issuer.
+
+There are three main components in this application:
+1. On-chain issuer ([demo](https://github.com/0xPolygonID/onchain-issuer-demo/)|[contract](https://github.com/iden3/contracts))
+2. Server for user authorization
+3. Front-end component for communication with Metamask
+
+## Requirements:
+1. Node js => 18.x
+2. Go => 1.20.x
+3. npm => 9.x.x
+3. docker => 20.x
+
+## How to run:
+1. Clone this repository:
+    ```bash
+    git clone https://github.com/0xPolygonID/onchain-issuer-integration-demo
+    ```
+
+    All the variables which need to be altered are in the `run.sh` file:
+
+    ```bash
+    ONCHAIN_ISSUER_CONTRACT_ADDRESS=<ONCHAIN_ISSUER_CONTRACT_ADDRESS>
+    URL_MUMBAI_NODE=<URL_TO_POLYGON_MUMBAI_NODE>
+    URL_POLYGON_NODE=<URL_TO_POLYGON_MAINNET_NODE>
+    ONCHAIN_CONTRACT_OWNER=<PRIVATE_KEY_IS_USED_FOR_DEPLOY_ONCHAIN_ISSUER_CONTRACT>
+    MUMBAI_CONTRACT_STATE_ADDRESS=0x134B1BE34911E39A8397ec6289782989729807a4
+    MAIN_CONTRACT_STATE_ADDRESS=0xdc2A724E6bd60144Cde9DEC0A38a26C619d84B90
+    ONCHAIN_ISSUER_CONTRACT_BLOCKCHAIN=<BLOCKCHAIN_OF_ISSUER_CONTRACT>
+    ONCHAIN_ISSUER_CONTRACT_NETWORK=<BLOCKCHAIN_OF_WITH_ISSUER_CONTRACT>
+    ``` 
+
+2. Deploy on-chain issuer contract. Use the following addresses:
+    * For mumbai network: `0x134B1BE34911E39A8397ec6289782989729807a4`
+    * For main net network: `0xdc2A724E6bd60144Cde9DEC0A38a26C619d84B90`
+
+    !!!note
+        You can find more information on how to deploy a smart contract using Hardhat [in this readme](https://github.com/iden3/contracts#readme).
+
+
+3. Fill in the configuration files with the actual values.
+
+- `ONCHAIN_ISSUER_CONTRACT_ADDRESS` should be retrieved from the smart contract deployment.
+- `URL_MUMBAI_NODE` is easily acquired with any Infrasctructure provider, such as Alchemy, Infura etc.
+- `URL_POLYGON_NODE`is easily acquired with any Infrasctructure provider, such as Alchemy, Infura etc.
+- `ONCHAIN_CONTRACT_OWNER` is where a private key should be set to deploy the contract.
+- `MUMBAI_CONTRACT_STATE_ADDRESS` represents the already deployed Mumbai State Contract and shouldn't be changed.
+- `MAIN_CONTRACT_STATE_ADDRESS`represents the already deployed Mainnet State Contract and shouldn't be changed.
+- `ONCHAIN_ISSUER_CONTRACT_BLOCKCHAIN` sets the blockchain where the on-chain issuer contract was deployed as `eth` or `polygon`.
+- `ONCHAIN_ISSUER_CONTRACT_NETWORK` sets the blockchain network where the on-chain issuer contract was deployed, as `main`, `mumbai` or `goerli`.
+
+4. Run the run.sh script:
+    ```bash
+    ./run.sh
+    ```
+5. Open http://localhost:3000 in your web browser.
+
+![on chain issuer sign up](../../imgs/onchain-issuer-1.png)
+
+Sign up and ...
+
+![on chain issuer qr](../../imgs/onchain-issuer-2.png)
+
+follow instructions on mobile
+
+your public DID (wallet)
+
+![on chain issuer metamask](../../imgs/onchain-issuer-3.png)
+
+connect to MetaMask, follow instructions on MetaMask and you now shared your balace with the onchain issuer.
+
+![on chain issuer balance](../../imgs/onchain-issuer-4.png)
+
+get balance in gwei
+
+![on chain issuer balance](../../imgs/onchain-issuer-5.png)
+
+claim content
+
+![on chain issuer claim content](../../imgs/onchain-issuer-6.png)
+
+now we can issue claim
+
+![on chain issuer claim issue](../../imgs/onchain-issuer-7.png)
+
+when we click on Get claim, we make a request to onchain issuer server
+server saves this claim in a contract address
+
+![on chain issuer get credential](../../imgs/onchain-issuer-8.png)
+
+Credential fetched
+XXXXXXXXXXXXXX
+
+
+## How to verify the balance claim:
+1. Go to https://verifier-v2.polygonid.me/
+2. Choose `custom` from the drop down
+3. Fill form:
+    * **Circuit Id**: Credential Atomic Query MTP;
+    * **Url**: https://gist.githubusercontent.com/ilya-korotya/b06baa37453ed9aedfcb79100b84d51f/raw/balance-v1.jsonld;
+    * **Type**: BalanceCredential;
+    * **Field**: balance;
+    * **Operator**: all operators work for the claim;
+    * **Value**: set value that you want to verify;
+4. Press submit;
+5. Use mobile application for verify.
+
+Verifier will check revocation status and additional information
+
+
