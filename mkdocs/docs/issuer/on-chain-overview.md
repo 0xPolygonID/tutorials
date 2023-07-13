@@ -22,6 +22,7 @@ There are still the possibilities of either using one smart contract with a set 
 ![On chain Issuance](../imgs/sc-diagram.png)
 
 Some of the methods that can be performed by the SC:
+
 - Add claim / claim hash
 - Revoke claim
 - Build credential
