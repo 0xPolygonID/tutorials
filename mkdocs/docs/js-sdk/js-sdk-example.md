@@ -69,7 +69,16 @@ This tutorial shows the steps to run different modules of the Polygon ID JS SDK 
     const kms = new KMS();
     kms.registerKeyProvider(KmsKeyType.BabyJubJub, bjjProvider);
 
-    const credWallet = new CredentialWallet(dataStorage);
+    const statusRegistry = new CredentialStatusResolverRegistry();
+    statusRegistry.register(
+      CredentialStatusType.SparseMerkleTreeProof,
+      new IssuerResolver()
+    );
+    statusRegistry.register(
+      CredentialStatusType.Iden3ReverseSparseMerkleTreeProof,
+      new RHSResolver(dataStorage.states)
+    );
+    const credWallet = new CredentialWallet(dataStorage,statusRegistry);
     const wallet = new IdentityWallet(kms, dataStorage, credWallet);
     ```
 
@@ -83,7 +92,7 @@ export interface IdentityCreationOptions {
   blockchain?: Blockchain;
   networkId?: NetworkId;
   revocationOpts: {
-    baseUrl: string;
+    id: string;
     type: CredentialStatusType;
     nonce?: number;
   };
@@ -103,7 +112,7 @@ const { did, credential } = await wallet.createIdentity({
   seed: seedPhrase,
   revocationOpts: {
     type: CredentialStatusType.Iden3ReverseSparseMerkleTreeProof,
-    baseUrl: 'http://rhs.com/node'
+    id: 'https://rhs-staging.polygonid.me'
   }
 });
     ```
@@ -135,6 +144,16 @@ const { did, credential } = await wallet.createIdentity({
     const kms = new KMS();
     kms.registerKeyProvider(KmsKeyType.BabyJubJub, bjjProvider);
     const credWallet = new CredentialWallet(dataStorage);
+    const statusRegistry = new CredentialStatusResolverRegistry();
+    statusRegistry.register(
+      CredentialStatusType.SparseMerkleTreeProof,
+      new IssuerResolver()
+    );
+    statusRegistry.register(
+      CredentialStatusType.Iden3ReverseSparseMerkleTreeProof,
+      new RHSResolver(dataStorage.states)
+    );
+    const credWallet = new CredentialWallet(dataStorage,statusRegistry);
     const wallet = new IdentityWallet(kms, dataStorage, credWallet);
     ```
 
@@ -149,7 +168,7 @@ const { did, credential } = await wallet.createIdentity({
       seed: seedPhraseIssuer,
       revocationOpts: {
         type: CredentialStatusType.Iden3ReverseSparseMerkleTreeProof,
-        baseUrl: 'http://rhs.com/node'
+        id: 'https://rhs-staging.polygonid.me'
       }
     });
     ```
@@ -165,7 +184,7 @@ const { did, credential } = await wallet.createIdentity({
       seed: seedPhraseUser,
       revocationOpts: {
         type: CredentialStatusType.Iden3ReverseSparseMerkleTreeProof,
-        baseUrl: 'http://rhs.com/node'
+        id: 'https://rhs-staging.polygonid.me'
       }
     });
     ```
@@ -185,7 +204,7 @@ const { did, credential } = await wallet.createIdentity({
       expiration: 12345678888,
       revocationOpts: {
         type: CredentialStatusType.Iden3ReverseSparseMerkleTreeProof,
-        baseUrl: 'http://rhs.com/node'
+        id: 'https://rhs-staging.polygonid.me'
       }
     };
     const issuerCred = await wallet.issueCredential(issuerDID, claimReq);
@@ -219,7 +238,7 @@ const { did, credential } = await wallet.createIdentity({
       "type": "JsonSchemaValidator2018"
     },
     "credentialStatus": {
-      "id": "http://rhs.com/node",
+      "id": "https://rhs-staging.polygonid.me",
       "revocationNonce": 4303,
       "type": "Iden3ReverseSparseMerkleTreeProof"
     },
@@ -240,7 +259,7 @@ const { did, credential } = await wallet.createIdentity({
             "siblings": []
           },
           "credentialStatus": {
-            "id": "http://rhs.com/node",
+            "id": "https://rhs-staging.polygonid.me",
             "revocationNonce": 0,
             "type": "Iden3ReverseSparseMerkleTreeProof"
           }
@@ -259,8 +278,9 @@ const { did, credential } = await wallet.createIdentity({
 1. [Initialize all storages](#initialize-all-storage-types) including `dataStorage`, `identityWallet`, `credentialWallet`, `circuitStorage`, and `stateStorage`.
 
     ```typescript
-    const proofService: IProofService = new ProofService(idWallet, credentialWallet, circuitStorage, stateStorage);
+    const proofService: IProofService = new ProofService(idWallet, credentialWallet, circuitStorage, stateStorage,{ ipfsNodeURL: "https://ipfs.io" });
     ```
+  Ipfs node option is mandatory if your are going to support schemas with `ipfs://` prefix
 
 2. [Create Issuer's Identity](#create-issuers-identity)
 
@@ -281,7 +301,7 @@ const { did, credential } = await wallet.createIdentity({
       expiration: 1693526400,
       revocationOpts: {
         type: CredentialStatusType.Iden3ReverseSparseMerkleTreeProof,
-        baseUrl: rhsUrl
+        id: rhsUrl
       }
     };
     ```

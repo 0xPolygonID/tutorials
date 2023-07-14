@@ -220,6 +220,7 @@ PolygonIdSdk.getInstance().removeClaims(
 ##### ***6. Update Credential***
 
 To update a credential, the `updateClaim()` function is used with the following fields passed as input parameters:
+
 - `claimId`
 - `identifier`
 - `privateKey`

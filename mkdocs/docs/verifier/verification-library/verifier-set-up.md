@@ -286,7 +286,12 @@ In this example, the verifier will set up the query: "Prove that you were born b
 			}
 
 			// EXECUTE VERIFICATION
-			verifier := auth.NewVerifier(verificationKeyloader, loaders.DefaultSchemaLoader{IpfsURL: "ipfs.io"}, resolvers)
+			verifier, err := auth.NewVerifierWithExplicitError(verificationKeyloader, loaders.DefaultSchemaLoader{IpfsURL: "ipfs.io"}, resolvers)
+			if err != nil {
+				log.Println(err.Error())
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
+			}
 			authResponse, err := verifier.FullVerify(
 				r.Context(),
 				string(tokenBytes),
@@ -344,10 +349,12 @@ In this example, the verifier will set up the query: "Prove that you were born b
 			const sLoader = new loaders.UniversalSchemaLoader('ipfs.io');
 
 			// EXECUTE VERIFICATION
-			const verifier = new auth.Verifier(
-			verificationKeyloader,
-			sLoader,
-			resolvers,
+			const verifier = await Verifier.newVerifier(
+				verificationKeyloader,
+				resolvers,
+				{
+					ipfsGatewayURL:"<gateway url>"
+				},
 			);
 
 
