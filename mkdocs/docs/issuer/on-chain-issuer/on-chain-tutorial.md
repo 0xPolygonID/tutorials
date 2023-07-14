@@ -34,7 +34,7 @@ There are three main components in this application:
 
 2. Deploy an on-chain issuer contract. You can use [this sample on here](https://github.com/iden3/contracts/blob/master/contracts/test-helpers/IdentityExample.sol) or create your own smart contract with custom logic.
 
-    Use the following addresses:
+    Use the following State Contract addresses:
     
     - For mumbai network: `0x134B1BE34911E39A8397ec6289782989729807a4`
     - For mainnet network: `0x624ce98D2d27b20b8f8d521723Df8fC4db71D79D`
