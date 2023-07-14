@@ -6,6 +6,9 @@ There are three main components in this application:
 2. Server for user authorization
 3. Front-end component for communication with Metamask
 
+!!!warning
+    The On-chain issuer is currently **not supported** in the mainnet.
+
 ## Requirements:
 1. Node js => 18.x
 2. Go => 1.20.x
