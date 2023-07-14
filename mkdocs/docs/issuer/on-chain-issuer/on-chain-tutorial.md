@@ -7,7 +7,7 @@ There are three main components in this application:
 3. Front-end component for communication with Metamask
 
 !!!warning
-    The On-chain issuer is currently **not supported** in the mainnet.
+    Currently, the state contract on the mainnet does not support onchain issuers. Please, use the Mumbai network instead.
 
 ## Requirements:
 1. Node js => 18.x
