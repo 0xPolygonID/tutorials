@@ -31,9 +31,12 @@ There are three main components in this application:
     ONCHAIN_ISSUER_CONTRACT_NETWORK=<BLOCKCHAIN_OF_WITH_ISSUER_CONTRACT>
     ``` 
 
-2. Deploy on-chain issuer contract. Use the following addresses:
-    * For mumbai network: `0x134B1BE34911E39A8397ec6289782989729807a4`
-    * For main net network: `0xdc2A724E6bd60144Cde9DEC0A38a26C619d84B90`
+2. Deploy an on-chain issuer contract. You can use [this sample on here](https://github.com/iden3/contracts/blob/master/contracts/test-helpers/IdentityExample.sol) or create your own smart contract with custom logic.
+
+    Use the following addresses:
+    
+    - For mumbai network: `0x134B1BE34911E39A8397ec6289782989729807a4`
+    - For mainnet network: `0x624ce98D2d27b20b8f8d521723Df8fC4db71D79D`
 
     !!!note
         You can find more information on how to deploy a smart contract using Hardhat [in this readme](https://github.com/iden3/contracts#readme).
@@ -42,8 +45,8 @@ There are three main components in this application:
 3. Fill in the configuration files with the actual values.
 
     - `ONCHAIN_ISSUER_CONTRACT_ADDRESS` should be retrieved from the smart contract deployment.
-    - `URL_MUMBAI_NODE` is easily acquired with any Infrasctructure provider, such as Alchemy, Infura etc.
-    - `URL_POLYGON_NODE`is easily acquired with any Infrasctructure provider, such as Alchemy, Infura etc.
+    - `URL_MUMBAI_NODE` is easily acquired with any Infrastructure provider, such as Alchemy, Infura etc.
+    - `URL_POLYGON_NODE`is easily acquired with any Infrastructure provider, such as Alchemy, Infura etc.
     - `ONCHAIN_CONTRACT_OWNER` is where a private key should be set to deploy the contract.
     - `MUMBAI_CONTRACT_STATE_ADDRESS` represents the already deployed Mumbai State Contract and shouldn't be changed.
     - `MAIN_CONTRACT_STATE_ADDRESS`represents the already deployed Mainnet State Contract and shouldn't be changed.
