@@ -48,7 +48,6 @@ nav:
     - On-chain Issuer:
       - Overview: "issuer/on-chain-issuer/on-chain-overview.md"
       - Tutorial: "issuer/on-chain-issuer/on-chain-tutorial.md"
-      - Demo: "issuer/on-chain-issuer/on-chain-demo.md"     
     - Schemas:
       - Schema Builder UI: "issuer/schema-builder.md"
       - Create Custom Schemas : "issuer/schema.md"
