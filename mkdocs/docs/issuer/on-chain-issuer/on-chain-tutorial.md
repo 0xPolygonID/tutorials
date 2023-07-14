@@ -1,6 +1,7 @@
-This is an example of using an on-chain issuer. In this application, we communicate with Metamask to retrieve the user's balance and the issuer's claim about the user's balance via the on-chain issuer.
+This guide presents an example of how to use the **on-chain issuer**. We created a small application, where we communicate with Metamask to retrieve the user's balance and a claim about this balance is generated via the on-chain issuer.
 
 There are three main components in this application:
+
 1. On-chain issuer ([demo](https://github.com/0xPolygonID/onchain-issuer-demo/)|[contract](https://github.com/iden3/contracts))
 2. Server for user authorization
 3. Front-end component for communication with Metamask
