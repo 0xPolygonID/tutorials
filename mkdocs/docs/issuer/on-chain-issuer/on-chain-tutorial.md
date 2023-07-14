@@ -30,7 +30,7 @@ There are three main components in this application:
     URL_POLYGON_NODE=<URL_TO_POLYGON_MAINNET_NODE>
     ONCHAIN_CONTRACT_OWNER=<PRIVATE_KEY_IS_USED_FOR_DEPLOY_ONCHAIN_ISSUER_CONTRACT>
     MUMBAI_CONTRACT_STATE_ADDRESS=0x134B1BE34911E39A8397ec6289782989729807a4
-    MAIN_CONTRACT_STATE_ADDRESS=0xdc2A724E6bd60144Cde9DEC0A38a26C619d84B90
+    MAIN_CONTRACT_STATE_ADDRESS=0x624ce98D2d27b20b8f8d521723Df8fC4db71D79D
     ONCHAIN_ISSUER_CONTRACT_BLOCKCHAIN=<BLOCKCHAIN_OF_ISSUER_CONTRACT>
     ONCHAIN_ISSUER_CONTRACT_NETWORK=<BLOCKCHAIN_OF_WITH_ISSUER_CONTRACT>
     ``` 
@@ -53,7 +53,7 @@ There are three main components in this application:
     - `URL_POLYGON_NODE`is easily acquired with any Infrastructure provider, such as Alchemy, Infura etc.
     - `ONCHAIN_CONTRACT_OWNER` is where a private key should be set to deploy the contract.
     - `MUMBAI_CONTRACT_STATE_ADDRESS` represents the already deployed Mumbai State Contract and shouldn't be changed.
-    - `MAIN_CONTRACT_STATE_ADDRESS`represents the already deployed Mainnet State Contract and shouldn't be changed.
+    - `MAIN_CONTRACT_STATE_ADDRESS` represents the already deployed Mainnet State Contract and shouldn't be changed.
     - `ONCHAIN_ISSUER_CONTRACT_BLOCKCHAIN` sets the blockchain where the on-chain issuer contract was deployed as `eth` or `polygon`.
     - `ONCHAIN_ISSUER_CONTRACT_NETWORK` sets the blockchain network where the on-chain issuer contract was deployed, as `main`, `mumbai` or `goerli`.
 
@@ -100,7 +100,7 @@ There are three main components in this application:
         <img width="700" src="../../../imgs/onchain-issuer-5.png"></img>
     </div>
 
-6. Clicking on **Get Claim** will finally lead to the QR Code used to fetch the credential. Here we are making a request to the on-chain issuer server. This server then saves this claim in a contract address. Scan it with the Polygon ID wallet and the credential should be added to the mobile app. 
+6. Clicking on **Get Claim** will finally lead to the QR Code used to fetch the credential with MTP proof. Here we are making a request to the on-chain issuer node. This node then saves this claim in a contract address. Scan it with the Polygon ID wallet and the credential should be added to the mobile app. 
 
     <div align="center">
         <img width="500" src="../../../imgs/onchain-issuer-6.png"></img>
