@@ -1,6 +1,10 @@
 In order to create new types of credentials, it is necessary to generate JSON schemas. These are the underlying files that define the credential attributes. 
 [The Schema Builder](https://schema-builder-test.polygonid.me/) is a tool created to simplify the process of creating schemas by using an intuitive user interface and enabling everyone to check previously made schemas.
 
+!!!info
+    All the information on this page is also in video format. You can check [this playlist](https://www.youtube.com/playlist?list=PLslsfan1R_z1IF-dTx8xMiF_qNAlcc7GP) on Youtube to learn more about the Schema Explorer and the Schema Builder. 
+    <iframe src="https://www.youtube.com/embed/FR1UgJo1Irk" width="100%" length="100%" height="250" allowfullscreen></iframe>
+
 ## Schema Explorer
 [The Schema Builder landing page](https://schema-builder-test.polygonid.me/) presents a Schema Explorer, where you can find all previously created schemas and drill down your search for specific kinds of schemas. Not all schemas need to be created from scratch. It is a good practice to utilize the ones that are already in use.
 
@@ -31,7 +35,6 @@ Forking a schema is similar to GitHub forks. It creates a copy of the schema and
     The forked schema also shows its number of forks:
 
     ![Forks](../../imgs/forks.png){ width="300"}
-
 
 
 ## Schema Builder
