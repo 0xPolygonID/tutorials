@@ -1,13 +1,13 @@
 This tutorial is a quick demonstration of some of Polygon ID's main functionalities. To illustrate how Polygon ID works, we will walk you through some of its products and tools by following along a simple POAP use case.
 POAP stands for Proof of Attendance Protocol, which is used to prove that someone has taken part in a given event.
  
-This guide will briefly touch on the 3 roles of the [Triangle of Trust](index.md#core-concepts-of-polygon-id-verifiable-credentials-identity-holder-issuer-and-verifier-triangle-of-trust), naminly the Identity Holder, the Issuer and the Verifier. For that, we will take the case of an individual who needs to prove that they were able to participate in a particular event.
+This guide will briefly touch on the 3 roles of the [Triangle of [Trust](index.md#core-concepts-of-polygon-id-verifiable-credentials-identity-holder-issuer-and-verifier-triangle-of-trust), namely the Identity Holder, the Issuer and the Verifier. For that, we will take the case of an individual who needs to prove that they were able to participate in a particular event.
 
 These are the steps we will cover in this article:
 
 1. [Set up a Polygon ID wallet](#set-up-a-polygon-id-wallet)
 2. [Issue a new credential to attest to the ID Holder's attendance to the event](#issue-a-new-credential-to-attest-to-the-id-holders-age)
-3. [Fetch the newly created credential](#fetch-the-newly-created-credential))
+3. [Fetch the newly created credential](#fetch-the-newly-created-credential)
 4. [Verify the credential validity](#verify-the-credential-validity)
 5. [Query the ID holder for specific information of his credential](#query-the-id-holder-for-specific-information-of-his-credential)
 
@@ -22,7 +22,7 @@ To get started with the Polygon ID Wallet, download the Polygon ID Wallet App an
 !!!note
     Polygon ID wallet is an implementation of the Wallet SDK, as a way of showcasing its possibilities. Head to [the Polygon ID SDK documentation](./wallet/wallet-sdk/polygonid-sdk/polygonid-sdk-overview.md) to know more about how it works. 
 
-The process from downloading to creating an identity on the Polygon ID Wallet is just as it shows below. You need to download the app, create a wallet, set up a PIN number and the wallet is ready to be used. 
+The process from downloading to creating an identity on the Polygon ID Wallet is just as it is shown below. You need to download the app, create a wallet, set up a PIN number and the wallet is ready to be used. 
 
 ![Quick start demo wallet](./imgs/quick-start-demo-wallet.png)
 
@@ -35,7 +35,7 @@ The process from downloading to creating an identity on the Polygon ID Wallet is
 ## Issue a new credential to attest to the ID Holder's event attendance
 A trusted entity, for instance, a private institution will now play the role of an issuer. It will be possible for creating the credential and send it to the ID Holder.
 We are using a testing environment to manage credentials: [https://issuer-ui.polygonid.me](https://issuer-ui.polygonid.me). This is the place where the trusted entity can create credentials, schemas and generate connections. 
-However, before we actually issue a credential using the Issuer node, we need to create a schema for that credential, which basically is the set of JSON files that gather all the attributes of that specific credential. 
+However, before you actually issue a credential using the Issuer node, you need to create a schema for that credential, which basically is the set of JSON files that gather all the attributes of that specific credential. 
 
 !!!note
     To learn how to set up your own issuer environment by deploying an issuer node, visit the [Issuer section in the documentation](./issuer/issuer-overview.md).
@@ -57,7 +57,7 @@ Here are the steps to generate a schema for a new credential type, in our case, 
     - Version: 0.01
     - Description: This is a test POAP schema.
 
-3. Click on **Add** and now we should be able add attributes for this schema. Here's how we can fill up each of the fields:
+3. Click on **Add** and now you should be able to add attributes for this schema. Here's how you can fill up each of the fields:
     
     For the city attribute where the event will take place:
 
@@ -92,9 +92,9 @@ With the new schema in hand, the issuer should now be able to generate a credent
     - password: `password-ui`
 
     !!!warning
-        This Issuer Node is is publicly available and used only for testing purposes. Do not use personal or sensitive data. All data is deleted every 48 hours.
+        This Issuer Node is publicly available and used only for testing purposes. Do not use personal or sensitive data. All data is deleted every 48 hours.
 
-2. Now we need to import the schema. Click on **Import Schema** and paste the IPFS address generated in the step 5 of [Create a Schema](#create-a-schema).
+2. Now you need to import the schema. Click on **Import Schema** and paste the IPFS address generated in step 5 of [Create a Schema](#create-a-schema).
 
     <div align="center">
         <img width="100%" src="../imgs/quick-start-demo/import-schema.png"></img>
@@ -156,7 +156,7 @@ Here are the steps to verify the credential:
         <img width="600" src="../imgs/quick-start-demo/verifier-lp.png"></img>
     </div>
 
-2. Now we will make use of the JSON-LD Context URL that was generated on the same process when we created the JSON schema URL in the step 5 of [Create a Schema](#create-a-schema). Here is how the query should look like:
+2. Now you will make use of the JSON-LD Context URL that was generated on the same process when you created the JSON schema URL in step 5 of [Create a Schema](#create-a-schema). Here is how the query should look like:
 
     <div align="center">
         <img width="600" src="../imgs/quick-start-demo/verifier-query.png"></img>
