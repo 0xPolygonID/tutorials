@@ -1,7 +1,7 @@
 This tutorial is a quick demonstration of some of Polygon ID's main functionalities. To illustrate how Polygon ID works, we will walk you through some of its products and tools by following along a simple POAP use case.
 POAP stands for Proof of Attendance Protocol, which is used to prove that someone has taken part in a given event.
  
-This guide will briefly touch on the 3 roles of the [Triangle of [Trust](index.md#core-concepts-of-polygon-id-verifiable-credentials-identity-holder-issuer-and-verifier-triangle-of-trust), namely the Identity Holder, the Issuer and the Verifier. For that, we will take the case of an individual who needs to prove that they were able to participate in a particular event.
+This guide will briefly touch on the 3 roles of the [Triangle of Trust](index.md#core-concepts-of-polygon-id-verifiable-credentials-identity-holder-issuer-and-verifier-triangle-of-trust), namely the Identity Holder, the Issuer and the Verifier. For that, we will take the case of an individual who needs to prove that they were able to participate in a particular event.
 
 These are the steps we will cover in this article:
 
@@ -12,7 +12,10 @@ These are the steps we will cover in this article:
 5. [Query the ID holder for specific information of his credential](#query-the-id-holder-for-specific-information-of-his-credential)
 
 ## Set up a Polygon ID wallet
-As an Identity Holder, the individual who wants to have a credential to prove his age will need an application that can hold their credentials. In our case, we will be using the Polygon ID Wallet.
+As an Identity Holder, the individual who wants to have a credential to prove his age, for example, will need an application that can hold their credentials. In our case, we will be using the Polygon ID Wallet. 
+
+!!!note
+    You can also use any Polygon ID compatible wallet. Please, check our [Ecosystem page](https://ecosystem.polygon.technology/PolygonID/) for other options.
 
 To get started with the Polygon ID Wallet, download the Polygon ID Wallet App and create an Identity:
 
@@ -24,10 +27,10 @@ To get started with the Polygon ID Wallet, download the Polygon ID Wallet App an
 
 The process from downloading to creating an identity on the Polygon ID Wallet is just as it is shown below. You need to download the app, create a wallet, set up a PIN number and the wallet is ready to be used. 
 
-![Quick start demo wallet](./imgs/quick-start-demo-wallet.png)
+![Quick start demo wallet](./imgs/quick-start-demo/quick-start-demo-wallet.png)
 
 !!!warning
-    This demo is using Polygon's Mumbai testnet. Make sure this network is selected on the app settings.
+    This demo is using Polygon's Mumbai testnet. Go to the gear icon at the top right and ensure "Polygon Mumbai" is selected instead of "Polygon Main".
     <div align="center">
         <img width="300" src="../imgs/quick-start-demo/settings-mumbai.jpeg"></img>
     </div>   
