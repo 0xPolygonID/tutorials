@@ -7,7 +7,7 @@ The Query Language sits on top of these circuits to provide a simple way for dev
 - Must be a verified human to vote for a DAO specific proposal - `equals` (operator 1).
 - Must have been born before 2000-01-01 to access an adult content website - `less-than` (operator 2).
 - Must have a monthly salary greater than $1000 to get a loan - `greater-than` (operator 3).
-- Must be an admin or an hacker of a Dao to enter a platform - `ìn` (operator 4).
+- Must be an admin or a hacker of a Dao to enter a platform - `ìn` (operator 4).
 - Must not be a resident of a country in the list of blacklisted countries to operate on an exchange - `not-in` (operator 5).
 - Must not be a resident of a specific country - `not-equal` (operator 6).
 
@@ -17,7 +17,7 @@ The Query Language follows the same rules whether the verification is implemente
 
 > The entire scripts to set a query are available here: [off-chain verification](./verifier-set-up.md), [on-chain verification](../on-chain-verification/overview.md)
 
-> Further examples on how to setup customized queries will be released soon!
+> Further examples of how to setup customized queries will be released soon!
 
 ### Equals - Operator 1
 
@@ -283,7 +283,7 @@ Here's the [JSON-LD Context](https://raw.githubusercontent.com/0xPolygonID/tutor
 
 **Query**
 
-When presented with this query, the user must prove that he/she is either an Admin or an Hacker of a DAO (which corresponds to value 4 and 5).
+When presented with this query, the user must prove that he/she is either an Admin or a Hacker of a DAO (which corresponds to value 4 and 5).
 
 === "off-chain"
 

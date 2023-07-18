@@ -63,4 +63,4 @@ CredentialAtomicQueryMTPValidator address:
 
 - <a href="https://mumbai.polygonscan.com/address/0x3DcAe4c8d94359D31e4C89D7F2b944859408C618" target="_blank">Mumbai: 0x3DcAe4c8d94359D31e4C89D7F2b944859408C618</a>
 
-> Further protocol related contracts can found at <a href="https://docs.iden3.io/contracts/state/" target="_blank">Iden3 - Smart Contracts</a>
+> Further protocol related contracts can be found at <a href="https://docs.iden3.io/contracts/state/" target="_blank">Iden3 - Smart Contracts</a>
