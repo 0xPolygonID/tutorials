@@ -36,7 +36,7 @@ The process from downloading to creating an identity on the Polygon ID Wallet is
     </div>   
 
 ## Issue a new credential to attest to the ID Holder's event attendance
-A trusted entity, for instance, a private institution will now play the role of an issuer. It will be possible for creating the credential and send it to the ID Holder.
+A trusted entity, for instance, a private institution will now play the role of an issuer. It will be responsible for creating the credential and sending it to the ID Holder.
 We are using a testing environment to manage credentials: [https://issuer-ui.polygonid.me](https://issuer-ui.polygonid.me). This is the place where the trusted entity can create credentials, schemas and generate connections. 
 However, before you actually issue a credential using the Issuer node, you need to create a schema for that credential, which basically is the set of JSON files that gather all the attributes of that specific credential. 
 
@@ -178,7 +178,7 @@ Here are the steps to verify the credential:
         <img width="300" src="../imgs/quick-start-demo/verifier-proof.jpeg"></img>
     </div>
 
-5. And finally, the proof will be added to the Verifier environment.
+5. And finally, the proof will be validated by the Verifier.
 
 !!!info
         This was a quick demonstration of Polygon ID's basic functionalities. However, Polygon ID is far more complex than this. It offers a range of SSI-focused tools that allow for decentralized identity and verifiable credentials management.  
