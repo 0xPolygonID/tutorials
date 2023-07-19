@@ -37,49 +37,20 @@ The process from downloading to creating an identity on the Polygon ID Wallet is
 
 ## Issue a new credential to attest to the ID Holder's event attendance
 A trusted entity, for instance, a private institution will now play the role of an issuer. It will be responsible for creating the credential and sending it to the ID Holder.
+
 We are using a testing environment to manage credentials: [https://issuer-ui.polygonid.me](https://issuer-ui.polygonid.me). This is the place where the trusted entity can create credentials, schemas and generate connections. 
+
 However, before you actually issue a credential using the Issuer node, you need to create a schema for that credential, which basically is the set of JSON files that gather all the attributes of that specific credential. 
+
+To facilitate this issuance process, we have already created the credential schema whose URLs are the following:
+
+- JSON schema URL
+    `ipfs://QmTSwnuCB9grYMB2z5EKXDagfChurK5MiMCS6efrRbsyVX`
+- JSON-LD Context
+    `ipfs://QmdH1Vu79p2NcZLFbHxzJnLuUHJiMZnBeT7SNpLaqK7k9X`
 
 !!!note
     To learn how to set up your own issuer environment by deploying an issuer node, visit the [Issuer section in the documentation](./issuer/issuer-overview.md).
-
-### Create a schema
-
-Here are the steps to generate a schema for a new credential type, in our case, a POAP credential: 
-
-1. Head to the [Schema Builder](https://schema-builder.polygonid.me/).
-
-    <div align="center">
-        <img width="100%" src="../imgs/quick-start-demo/schema-main.png"></img>
-    </div>   
-
-2. Let us define the schema in the following manner:
-
-    - Title: POAPSchema
-    - Schema type: POAP01
-    - Version: 0.01
-    - Description: This is a test POAP schema.
-
-3. Click on **Add** and now you should be able to add attributes for this schema. Here's how you can fill up each of the fields:
-    
-    For the city attribute where the event will take place:
-
-    - Name: city
-    - Title: This is the POAP city
-    - Data type: string
-    - Description: schema desc
-    
-    Mark the **Required** checkbox. 
-
-4. Publish it on IPFS, provided you already connected your MetaMask.
-
-5. The resulting schema should look like this:
-
-    <div align="center">
-        <img width="100%" src="../imgs/quick-start-demo/new-schema.png"></img>
-    </div>
-
-    Copy the JSON Schema URL, as it will be used to import the schema later in this tutorial.
 
 !!!info
     Learn more about creating new schemas on the [Schema Builder UI guide](./issuer/schema-builder.md) 
@@ -97,7 +68,7 @@ With the new schema in hand, the issuer should now be able to generate a credent
     !!!warning
         This Issuer Node is publicly available and used only for testing purposes. Do not use personal or sensitive data. All data is deleted every 48 hours.
 
-2. Now you need to import the schema. Click on **Import Schema** and paste the IPFS address generated in step 5 of [Create a Schema](#create-a-schema).
+2. Now you need to import the schema. Click on **Import Schema** and paste our previously generated schema IPFS address `ipfs://QmTSwnuCB9grYMB2z5EKXDagfChurK5MiMCS6efrRbsyVX`:
 
     <div align="center">
         <img width="100%" src="../imgs/quick-start-demo/import-schema.png"></img>
@@ -159,7 +130,7 @@ Here are the steps to verify the credential:
         <img width="600" src="../imgs/quick-start-demo/verifier-lp.png"></img>
     </div>
 
-2. Now you will make use of the JSON-LD Context URL that was generated on the same process when you created the JSON schema URL in step 5 of [Create a Schema](#create-a-schema). Here is how the query should look like:
+2. Now you will again make use of the JSON Schema URL `ipfs://QmTSwnuCB9grYMB2z5EKXDagfChurK5MiMCS6efrRbsyVX`. Here is how the query should look like:
 
     <div align="center">
         <img width="600" src="../imgs/quick-start-demo/verifier-query.png"></img>
