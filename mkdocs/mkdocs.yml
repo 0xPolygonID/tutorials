@@ -29,7 +29,9 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-  - Home: "index.md"
+  - Home: 
+    - Overview: "index.md"
+    - Quick Start Demo: "quick-start-demo.md"
   - Issuer:
     - Overview: "issuer/issuer-overview.md"
     - Issuer Node Core API: 
