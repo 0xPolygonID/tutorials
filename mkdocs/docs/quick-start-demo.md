@@ -9,7 +9,6 @@ These are the steps we will cover in this article:
 2. [Issue a new credential to attest to the ID Holder's attendance to the event](#issue-a-new-credential-to-attest-to-the-id-holders-age)
 3. [Fetch the newly created credential](#fetch-the-newly-created-credential)
 4. [Verify the credential validity](#verify-the-credential-validity)
-5. [Query the ID holder for specific information of his credential](#query-the-id-holder-for-specific-information-of-his-credential)
 
 ## Set up a Polygon ID wallet
 As an Identity Holder, the individual who wants to have a credential to prove his age, for example, will need an application that can hold their credentials. In our case, we will be using the Polygon ID Wallet. 
@@ -38,9 +37,9 @@ The process from downloading to creating an identity on the Polygon ID Wallet is
 ## Issue a new credential to attest to the ID Holder's event attendance
 A trusted entity, for instance, a private institution will now play the role of an issuer. It will be responsible for creating the credential and sending it to the ID Holder.
 
-We are using a testing environment to manage credentials: [https://issuer-ui.polygonid.me](https://issuer-ui.polygonid.me). This is the place where the trusted entity can create credentials, schemas and generate connections. 
+We are using a testing environment to manage credentials: [https://issuer-ui.polygonid.me](https://issuer-ui.polygonid.me). This is the place where the trusted entity can create credentials, manage schemas and generate connections. 
 
-However, before you actually issue a credential using the Issuer node, you need to create a schema for that credential, which basically is the set of JSON files that gather all the attributes of that specific credential. 
+However, if you are using a new credential type, you actually need to create a schema for that credential, which basically is the set of JSON files that gather all the attributes of that specific credential. 
 
 To facilitate this issuance process, we have already created the credential schema whose URLs are the following:
 
@@ -76,13 +75,13 @@ With the new schema in hand, the issuer should now be able to generate a credent
 
     You may preview the schema and then Import it.
 
-3. Access [https://issuer-ui.polygonid.me/credentials/issued](https://issuer-ui.polygonid.me/credentials/issued) and click on **Issue Credential**. Choose **Credential Link** on the next page and your schema on the dropdown menu ("POAP01", in our case). For this credential, we are providing a proof of attendance to an event in Paris:
+3. You can go ahead and click on **Issue Credential** in the top righ-hand corner. Choose **Credential Link** on the next page and your schema on the dropdown menu ("POAP01", in our case). For this credential, we are providing a proof of attendance to an event in Paris:
 
     <div align="center">
         <img width="500" src="../imgs/quick-start-demo/create-credential.png"></img>
     </div>
 
-4. You can click on **View Link** on the next screen to check the generated QR code.
+4. After you click on **Create Credential Link**, you can also click on **View Link** on the next screen to check the generated QR code.
 
     <div align="center">
         <img width="500" src="../imgs/quick-start-demo/qr-code.png"></img>
@@ -130,7 +129,7 @@ Here are the steps to verify the credential:
         <img width="600" src="../imgs/quick-start-demo/verifier-lp.png"></img>
     </div>
 
-2. Now you will again make use of the JSON Schema URL `ipfs://QmTSwnuCB9grYMB2z5EKXDagfChurK5MiMCS6efrRbsyVX`. Here is how the query should look like:
+2. Now you will again make use of the JSON-LD URL we have also provided: `ipfs://QmdH1Vu79p2NcZLFbHxzJnLuUHJiMZnBeT7SNpLaqK7k9X`. Here is how the query should look like:
 
     <div align="center">
         <img width="600" src="../imgs/quick-start-demo/verifier-query.png"></img>
