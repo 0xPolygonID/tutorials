@@ -346,7 +346,6 @@ In this example, the verifier will set up the query: "Prove that you were born b
 				
 			// Locate the directory that contains circuit's verification keys
 			const verificationKeyloader = new loaders.FSKeyLoader(keyDIR);
-			const sLoader = new loaders.UniversalSchemaLoader('ipfs.io');
 
 			// EXECUTE VERIFICATION
 			const verifier = await Verifier.newVerifier(
