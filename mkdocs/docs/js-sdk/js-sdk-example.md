@@ -153,6 +153,15 @@ const { did, credential } = await wallet.createIdentity({
       CredentialStatusType.Iden3ReverseSparseMerkleTreeProof,
       new RHSResolver(dataStorage.states)
     );
+    statusRegistry.register(
+      CredentialStatusType.Iden3OnchainSparseMerkleTreeProof2023,
+      new OnChainResolver([defaultEthConnectionConfig])
+    );
+     resolvers.register(
+     CredentialStatusType.Iden3commRevocationStatusV1,
+     new AgentResolver()
+     );
+
     const credWallet = new CredentialWallet(dataStorage,statusRegistry);
     const wallet = new IdentityWallet(kms, dataStorage, credWallet);
     ```
@@ -381,16 +390,10 @@ const { did, credential } = await wallet.createIdentity({
   };
   ```
 
-- Find Credential by Query:
-
-  ```typescript
-  const credsForMyUserDID = await credWallet.filterByCredentialSubject(creds, userDID);
-  ```
-
 - Generate Signature Proof
 
   ```typescript
-  const { proof, vp } = await proofService.generateProof(proofReq, userDID, credsForMyUserDID[0]);
+  const { proof, vp } = await proofService.generateProof(proofReq, userDID);
   ```
 
 #### Output of Run Command

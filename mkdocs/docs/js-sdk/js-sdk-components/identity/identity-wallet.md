@@ -76,6 +76,31 @@ This method returns a profile ID.
 
 Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.createprofile#identitywalletcreateprofile-method" target="_blank">API Reference</a>.
 
+another methods to work with profiles:
+```typescript
+  /**
+   *
+   * gets profile identity by genesis identifiers
+   *
+   * @param {string} did - genesis identifier from which profile has been derived
+   * @returns `{Promise<Profile[]>}`
+   */
+  async getProfilesByDID(did: DID): Promise<Profile[]> {
+    return this._storage.identity.getProfilesByGenesisIdentifier(did.string());
+  }
+
+  /**
+   *
+   * gets profile identity by verier
+   *
+   * @param {string} verifier - verifier for which profile has been created
+   * @returns `{Promise<Profile[]>}`
+   */
+  async getProfileByVerifier(verifier: string): Promise<Profile | undefined> {
+    return this._storage.identity.getProfileByVerifier(verifier);
+  }
+```
+
 ## Generate Key using generateKey() method
 
 This method creates a new Baby Jubjub or EDCSA type of key.

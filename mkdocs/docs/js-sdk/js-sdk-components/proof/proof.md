@@ -30,24 +30,20 @@ This method generates the zero-knowledge proof for the given ZKP request, identi
 generateProof(
     proofReq: ZeroKnowledgeProofRequest,
     identifier: DID,
-    credential: W3CCredential,
     opts?: ProofGenerationOptions
-  ): Promise<ZeroKnowledgeProofResponse>;
+  ): Promise<ZeroKnowledgeProofResponse>
 ```
 where `proofReq` is the ZKP request for the proof generation.
-`identifier` is the DID of the user's wallet for which the proof is requested.
-`credential` is the Verifiable Credential associated with the DID that is used for proof generation. 
+`identifier` is the DID of the user's wallet for which the proof is requested. 
 `opts` are the options selected for the proof generation. These are some of the possible options:
 
 ```typescript
 interface ProofGenerationOptions {
-  authProfileNonce: number;
-  credentialSubjectProfileNonce: number;
   skipRevocation: boolean;
+  challenge?: bigint;
+  credential?: W3CCredential;
 }
 ```
-!!! note
-    When a user logs into a Verifier, it does not share its identity. Instead, it shares with it the profile as the user does not receive a credential on his/her identifier but on his/her profile. This profile is defined by `credentialSubjectProfileNonce` parameter in the proof generation options mentioned above. Sharing one's profile instead of his/her identity prevents the possible identity tracking by a Verifier. 
 
 The method returns a Zero-knowledge Proof along with the credential used for proof generation. 
 
@@ -62,14 +58,12 @@ This method generates authentication inputs for a given circuit, DID, profile no
 generateAuthV2Inputs(
     hash: Uint8Array,
     did: DID,
-    profileNonce: number,
     circuitId: CircuitId
   ): Promise<Uint8Array>; 
 ``` 
 
 where `hash` is the payload token that the JS SDK signs.
 `did` is the DID of the Identity that generates the proof.
-`profileNonce` is the nonce associated with a specific profile of the Identity. 
 `circuitId` is the ID of the circuit used for authentication. 
 
 This method returns an array of inputs for the authentication circuit. 
