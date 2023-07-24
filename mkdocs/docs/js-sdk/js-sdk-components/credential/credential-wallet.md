@@ -115,20 +115,27 @@ Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/
 
 ## Get Revocation Status Depending on Type of Credential Status with getRevocationStatus() method
 
-This method retreives
+This method retrieves
 revocation status for a given credential depending on the type of its credential status.
 
 ```typescript
-getRevocationStatus(
-    credStatus: CredentialStatus | RHSCredentialStatus,
-    issuerDID: DID,
-    issuerData: IssuerData
+ /**
+   * 
+   *
+   * @param {(CredentialStatus )} credStatus - credentialStatus field of the Verifiable Credential.
+   * @param {CredentialStatusResolveOptions} credentialStatusResolveOptions - options to resolve credential status
+   * @returns `Promise<RevocationStatus>`
+   */
+  getRevocationStatus(
+    credStatus: CredentialStatus,
+    credentialStatusResolveOptions?: CredentialStatusResolveOptions
   ): Promise<RevocationStatus>;
 ```
-
-where `credStatus` is the credential status type: with or without Reverse Hash Service.
-`issuerDID` is the DID of the Issuer.
-`issuerData` is the metadata related to an Issuer. This metadata is contained in either the Signature Proof (BJJ Signature Proof) or Iden3SparseMerkleTreeProof (Merkle Tree Proof).
+where `credStatus` is the credential status type: with or without Reverse Hash Service / Agent / Onchain.
+`credentialStatusResolveOptions` are 
+  `issuerDID` is the DID of the Issuer.
+  `userDID` is the DID of the user who retrieves status.
+  `issuerData` is the metadata related to an Issuer. This metadata is contained in either the Signature Proof (BJJ Signature Proof) or Iden3SparseMerkleTreeProof (Merkle Tree Proof).
 
 The method returns the revocation status of the credential (a credential is revoked or not).
 
