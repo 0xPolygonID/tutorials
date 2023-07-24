@@ -1,13 +1,11 @@
  
 # Polygon ID SDK Overview
 
-Like any other SDK, the Polygon ID SDK is a set of tools that consists of core components including libraries, code samples, APIs, and documentation that have been used to create the Polygon ID Wallet App. An Integrator can use this PolygonID SDK to either create their own apps (that provide similar functionality as that of the Polygon ID Wallet App) or integrate the functionalities seamlessly with their existing apps. 
+Like any other SDK, the Polygon ID SDK is a Flutter-based set of tools that consists of core components including libraries, code samples, APIs, and documentation that have been used to create the Polygon ID Wallet App. An Integrator can use this PolygonID SDK to either create their own apps (that provide similar functionality as that of the Polygon ID Wallet App) or integrate the functionalities seamlessly with their existing apps. 
 
-> Disclaimer: Polygon ID Wallet SDK is not production-ready yet and will be subject to major changes in the upcoming months.
+## Polygon ID Wallet SDK and Polygon ID Wallet App
 
-# Polygon ID SDK and Polygon ID Wallet App
-
-In the wallet tutorials, you would be reading terms like **Polygon ID SDK** and **Polygon ID Wallet APP** repeatedly. Do not let the terminology confuse you here!! The Polygon ID SDK and the Polygon ID Wallet App are different concepts: the prior is the technology and the later one is one of its possible implementation. 
+In the wallet tutorials, you would be reading terms like **Polygon ID SDK** (also **Wallet SDK**) and **Polygon ID Wallet APP** repeatedly. Do not let the terminology confuse you here!! The Polygon ID SDK and the Polygon ID Wallet App are different concepts: the prior is the technology and the later one is one of its possible implementation. 
 
 While, as you read above, Polygon ID SDK is the software development kit that acts as a core functionality, Wallet App is an application that has been built over this SDK. This Identity Wallet helps Integrators create identities for their wallets and authenticate these identities while interacting with Issuers and Verifiers. 
 
@@ -17,4 +15,25 @@ In the sections to come, you will read more about the Polygon ID SDK plugin and 
 
 >Note: Please note that the iOS Simulator for testing the Polygon ID SDK application is still under maintenance and would be available to use soon. 
 
+### Why Polygon ID Wallet SDK?
+
+Integrating your app with Polygon ID Wallet SDK can provide you with the major features of an SSI system. As it is built on zero-knowledge protocol, it can let you create an identity application that is not only robust but also maintains high standards of privacy for your users, thus letting them protect their sensitive data from the third-party while revealing only the required information. The Polygon ID Wallet SDK lets you:
+
+- Create an Identity for a wallet
+- Remove and restore identities from a wallet.
+- Authenticate your wallet with an Issuer/Verifier.
+- Receive credentials from an Issuer and store them on the wallet.
+- Update credentials and remove them from the wallet when required.
+- Generate zero-knowledge proof that can be sent to a Verifier for verification. 
+
+## Flutter SDK
+ 
+[Flutter SDK](https://docs.flutter.dev/) is a set of tools that are built in Dart programming language and let the developers create and test apps. It is an open-source, platform-agnostic framework that helps in building mobile apps. Flutter SDK provides a developer with CLI(Command Line Interface) tools and APIs that help built cross-platform apps. 
+
+Flutter plug-in package helps in implementing code for a specific platform: Android/iOS/web. To know more about different types of packages and the plugins provided by Flutter, click [here](https://docs.flutter.dev/development/packages-and-plugins/developing-packages).
+
+
+ 
+
+ 
 
