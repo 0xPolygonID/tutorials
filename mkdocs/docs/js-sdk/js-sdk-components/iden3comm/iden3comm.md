@@ -40,7 +40,7 @@ In Iden3, a handler manages the packers described above. There are two types of 
 
 The following steps show how the Authorization Handler works:
 
-1. Before the token generation, the handler can unpack the authorization message, so the user can choose the DID to log in with. (it can be profile or public DID)
+1. Before the token generation, the handler can unpack the authorization message, so the user can choose the DID to log in with. (it can be private profile or public identity)
 
     ```typescript
     parseAuthorizationRequest(request: Uint8Array): Promise<AuthorizationRequestMessage>;
