@@ -15,3 +15,25 @@ The Polygon ID Wallet app is a reference implementation built using our Wallet S
     If you are interested in building web-based applications with Polygon ID, please visit the [JS SDK documentation](../js-sdk/js-sdk-overview.md). 
 
 
+CONNECTION PARAGRAPH NARRATIVE - PENDING VINI
+
+
+The modules (sdks) we provide to integrate are:
+
+- polygonid-flutter-sdk \[Dart plugin\]
+- polygonid-ios-wrapper-sdk \[Swift lib \(Framework\)\]
+- polygonid-android-wrapper-sdk \[Kotlin lib \(.aar\)\]
+- Polygonid-react-native-wrapper-sdk \[RN lib\]
+
+Depending which type of developer (integrator) you are you can use different modules (sdk):
+
+- "Flutter developer" should use "polygonid-flutter-sdk"
+- "IOS developers" should use "polygonid-ios-wrapper-sdk"
+- " Android developers" should use "polygonid-android-wrapper-sdk"
+
+"React native developers" can use several modules \(sdks\): 
+
+- "polygonid-ios-wrapper-sdk" AND "polygonid-android-wrapper-sdk" \(together for supporting both platforms\) OR 
+- "Polygonid-react-native-wrapper-sdk".
+
+This is a developer preference decision.
