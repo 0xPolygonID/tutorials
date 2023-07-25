@@ -81,7 +81,7 @@ nav:
               - Overview: "wallet/wallet-sdk/polygonid-sdk/polygonid-sdk-overview.md"              
               - Install Flutter SDK: "wallet/wallet-sdk/flutter-sdk/install-flutter-sdk.md"
               - Build App with SDK: "wallet/wallet-sdk/flutter-sdk/build-app-with-flutter-sdk.md"
-              - Polygon ID SDK Plugin: "wallet/wallet-sdk/polygonid-sdk/polygonid-sdk-plugin.md"
+              - Flutter Plugin: "wallet/wallet-sdk/polygonid-sdk/polygonid-sdk-plugin.md"
               - Example App: "wallet/wallet-sdk/polygonid-sdk/example-app.md"
           - Android SDK:
               - Implement Android SDK: "wallet/wallet-sdk/android-sdk/install-android-sdk.md"
