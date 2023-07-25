@@ -78,7 +78,7 @@ Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/
 
 ## Generate Key using generateKey() method
 
-This method creates a new Baby Jubjub or EDCSA type of key.
+This method creates a new Baby Jubjub or ECDSA type of key.
 
 ```typescript
  generateKey(keyType: KmsKeyType): Promise<KmsKeyId>;
