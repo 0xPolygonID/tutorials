@@ -23,7 +23,7 @@ Integrating your app with the Polygon ID Wallet SDK can provide you with the maj
 - Create an Identity for a wallet
 - Remove and restore identities from a wallet.
 - Authenticate your wallet with an Issuer/Verifier.
-- Receive credentials from an Issuer and store them on the wallet.
+- Receive credentials from an Issuer and store them in the wallet.
 - Update credentials and remove them from the wallet when required.
 - Generate zero-knowledge proof that can be sent to a Verifier for verification. 
 
