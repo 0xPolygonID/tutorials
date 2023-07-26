@@ -7,6 +7,9 @@ The Polygon ID Wallet app is a reference implementation built with the [Wallet S
 </div>
 <br>
 
+!!!note
+    In addition to this reference identity wallet you can see other Polygon ID compatible wallets in our [Polygon ID Ecosystem page](https://ecosystem.polygon.technology/PolygonID/).
+
 ## Quick Start
 
 To get started with the Polygon ID Wallet, download the Polygon ID Wallet App and create an Identity:
