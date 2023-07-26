@@ -10,9 +10,9 @@ The Wallet SDK is a Flutter-based SDK that can be used by developers to build ap
 
 These are the modules (SDKs) we provide:
 
-- polygonid-flutter-sdk \[Dart plugin\]
+- [polygonid-flutter-sdk](https://github.com/0xPolygonID/polygonid-flutter-sdk) \[Dart plugin\]
 - polygonid-ios-wrapper-sdk \[Swift lib (Framework)\] (_work in progress_)
-- polygonid-android-wrapper-sdk \[Kotlin lib (.aar)\]
+- (polygonid-android-wrapper-sdk)[https://github.com/0xPolygonID/polygonid-android-sdk] \[Kotlin lib (.aar)\]
 - Polygonid-react-native-wrapper-sdk \[RN lib\] (_work in progress_)
 
 Depending on which type of developer (integrator) you are, you can use different modules (SDK):
