@@ -348,7 +348,7 @@ In this example, the verifier will set up the query: "Prove that you were born b
 			const verificationKeyloader = new loaders.FSKeyLoader(keyDIR);
 
 			// EXECUTE VERIFICATION
-			const verifier = await Verifier.newVerifier(
+			const verifier = await auth.Verifier.newVerifier(
 				verificationKeyloader,
 				resolvers,
 				{
