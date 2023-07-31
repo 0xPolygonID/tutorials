@@ -550,4 +550,4 @@ const proofRequest: protocol.ZKPRequest = {
 };
 ```
 !!!warning "Allowed Issuers"
-    When we use `*` in the "allowed issuers" segment (`allowedIssuers: ['*']`), we mean that we accept any entity that might have provided the credential. Even though this seems to be more practical, it may also be considered risky. Applying due diligence by **actually choosing trusted specific issuers** should be the best approach.  
+    When we use `*` in the "allowed issuers" segment (`allowedIssuers: ['*']`), we mean that we accept any entity that might have provided the credential. Even though this seems to be convenient for testing purposes, it may also be considered risky. Applying due diligence by **actually choosing trusted specific issuers** should be the best approach. Only in rare cases, a verifier would accept any issuer, so we advise not to use `*`. 
