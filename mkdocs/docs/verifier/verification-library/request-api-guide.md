@@ -101,6 +101,10 @@ Generate a request to prove that the user owns a credential that satisfies certa
 
 In this case, the user has to provide a proof that he/she owns a credential issued by the `allowedIssuer` of schema `type` **KYCAgeCredential** described in the URL provided in `context`. **This is the JSON-LD context of the credential**.
 By setting the `allowedIssuer` to `*`, the user can provide a proof of that credential issued by any issuer. Alternatively, if the verifier adds the DID of a specific issuer inside the `allowedIssuer` array, the user must provide a proof of a credential issued by that specific issuer.
+
+!!!warning "Allowed Issuers"
+    As stated above, when we use `*` in the "allowed issuers" segment (`allowedIssuers: ['*']`), we mean that we accept any entity that might have provided the credential. Even though this seems to be more practical, it may also be considered risky. Applying due diligence by **actually choosing trusted specific issuers** should be the best approach.  
+
 This credential contains details in its `credentialSubject` of the birthday of the receiver. In this scenario, the user has to prove that the value contained in the attribute `birthday` is less than `lt` 20000101, namely that the user was born before 01/01/2000.
 
 An additional optional field that can be included in the query is `skipClaimRevocationCheck`. By setting it to `true`, the user doesn't need to provide the proof of the revocation of the credential, which would otherwise be provided by default. 
