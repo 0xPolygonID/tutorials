@@ -6,11 +6,11 @@ Iden3comm is the implementation of the messages that exist in the Iden3protocol.
 
 Iden3comm supports packers that receive some data as payload and create an envelope for different types of messages.
 
-The Iden3 protocol supports packers for messages of 2 media types: plain messages and zero-knowledge proof (zkp) messages. These packers let you generate a token.
+The Iden3 protocol supports packers for messages of 2 media types: plain messages and zero-knowledge proof (ZKP) messages. These packers let you generate a token.
 
 ### ZKP Packer
 
-For the messages of the type **ZKP**, the packer receives payload (a serialized message) and zkp parameters (sender's DID and profile nonce) as input parameters and generates a JSON Web Zero-knowledge(JWZ) Token.
+For the messages of the type **ZKP**, the packer receives payload (a serialized message) and ZKP parameters (the sender's DID and profile nonce) as input parameters and generates a JSON Web Zero-knowledge (JWZ) Token.
 
 ```typescript
  async pack(payload: Uint8Array, params: ZKPPackerParams): Promise<Uint8Array> {
@@ -23,7 +23,7 @@ For the messages of the type **ZKP**, the packer receives payload (a serialized 
       provingMethod,
       byteDecoder.decode(payload),
       (hash: Uint8Array, circuitID: CircuitId) => {
-        return dataPreparer.prepare(hash, params.senderDID, params.profileNonce, circuitID);
+        return dataPreparer.prepare(hash, params.senderDID, circuitID);
       }
     );
     token.setHeader(Header.Type, MediaType.ZKPMessage);
@@ -40,55 +40,35 @@ In Iden3, a handler manages the packers described above. There are two types of 
 
 The following steps show how the Authorization Handler works:
 
-1. It handles authorization request protocol messages and generates a token.
+1. Before the token generation, the handler can unpack the authorization message, so the user can choose the DID to log in with. (it can be private profile or public identity)
 
-```typescript
-handleAuthorizationRequestForGenesisDID(
-    did: DID,
-    request: Uint8Array
-  ): Promise<{
-    token: string;
-    authRequest: AuthorizationRequestMessage;
-    authResponse: AuthorizationResponseMessage;
-  }>;
-```
+    ```typescript
+    parseAuthorizationRequest(request: Uint8Array): Promise<AuthorizationRequestMessage>;
+    ```
+
+    Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.authhandler.parseauthorizationrequest#authhandlerparseauthorizationrequest-method" target="_blank">API Reference</a>.
+
+1. Then, it handles authorization request protocol messages and generates a token.
+
+    ```typescript
+    handleAuthorizationRequest(
+        did: DID,
+        request: Uint8Array,
+        opts?: AuthHandlerOptions
+      ): Promise<{
+        token: string;
+        authRequest: AuthorizationRequestMessage;
+        authResponse: AuthorizationResponseMessage;
+      }
+    ```
 
 It gets the payload and an identity (that can handle that request) as the input parameters, and returns a token, authorization request, and authorization response.  
 
-Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.authhandler.handleauthorizationrequestforgenesisdid#authhandlerhandleauthorizationrequestforgenesisdid-method" target="_blank">API Reference</a>.
+Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.authhandler.handleauthorizationrequest" target="_blank">API Reference</a>.
 
-2. After token generation, the handler parses or unpacks the authorization message:
+!!! note
+    When a user logs into a Verifier, it does not have to share its identity. Instead, it can share with it the profile as the user does not receive a credential on his/her identifier but on his/her profile. Sharing one's profile instead of his/her identity prevents the possible identity tracking by a Verifier. 
 
-```typescript
-parseAuthorizationRequest(request: Uint8Array): Promise<AuthorizationRequestMessage>;
-```
-
-Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.authhandler.parseauthorizationrequest#authhandlerparseauthorizationrequest-method" target="_blank">API Reference</a>.
-
-3. The handler then generates a zero-knowledge proof  for the given request:
-
-```typescript
- generateAuthorizationResponse(
-    userGenesisDID: DID,
-    authProfileNonce: number,
-    authRequest: AuthorizationRequestMessage,
-    zkpRequestsWithCreds: ZKPRequestWithCredential[]
-  ): Promise<{
-    token: string;
-    authRequest: AuthorizationRequestMessage;
-    authResponse: AuthorizationResponseMessage;
-  }>;
-
-```
-
-where `userGenesisDIS` is the user's Genesis DID for which s/he holds the key pair.
-`authProfileNonce` is the profile nonce used for authorization.
-`authRequest`is the authorization request,
-`zkpRequestWithCredential` is the zero-knowledge proof request along with the credential for which the proof is required.
-
-The handler generates a proof of circuits that the user had requested (authorization request) and calls the package manager to pack the result in the form of a JSON Web Zero-knowledge (JWZ) Token.
-
-Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.authhandler.generateauthorizationresponse#authhandlergenerateauthorizationresponse-method" target="_blank">API Reference</a>.
 
 ### Fetch Handler
 
@@ -96,18 +76,27 @@ The Fetch Handler handles the Credential Offer message and returns the fetched c
 
 ```typescript
 handleCredentialOffer(
-    did: DID,
     offer: Uint8Array,
-    profileNonce?: number
-  ): Promise<W3CCredential[]>;
+    opts?: FetchHandlerOptions
+  ): Promise<W3CCredential[]>
 ```
 
-where `did` is the identifier that handles the Credential Offer.
-`CredentialOfferMessage` is the offer message that the Fetch handler receives.
-`profileNonce` is the nonce of the DID to which the credential has been offered.
+The offer should just be passed to the function. The DID that is supposed to fetch the credential will be determined from the offer message itself. 
+
+`offer` is the offer message that the Fetch handler receives.
 
 The handler returns a Verifiable Credential in the W3C format.
 
-Read more on iden3comm [here](https://github.com/iden3/iden3comm/tree/main/protocol).
+Read more about iden3comm [here](https://github.com/iden3/iden3comm/tree/main/protocol).
 
 Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.fetchhandler.handlecredentialoffer#fetchhandlerhandlecredentialoffer-method" target="_blank">API Reference</a>.
+
+if you want to work with JWS instead of JWZ technology during the authorization or credential fetching you need to pass parameters to these functions.
+
+```typescript 
+let params = {
+  mediaType: MediaType;
+  packerOptions?: JWSPackerParams;
+}
+```
+where `mediaType` is the media type of iden3comm protocol and `packerOptions` are JWS required parameters.
