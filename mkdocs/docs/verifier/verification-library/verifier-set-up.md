@@ -211,7 +211,11 @@ In this example, the verifier will set up the query: "Prove that you were born b
         }
 		```  
 
-	> Note: The highlighted lines are to be added only if the authentication needs to design a [query](./zk-query-language.md) for a specific proof as in the case of [Query-based Auth](./request-api-guide.md#query-based-auth). When not included, it will perform a [Basic Auth](./request-api-guide.md#basic-auth). 
+	!!!warning "Allowed Issuers"
+    	When we use `*` in the "allowed issuers" segment (`allowedIssuers: ['*']`), we mean that we accept any entity that might have provided the credential. Even though this seems to be convenient for testing purposes, it may also be considered risky. Applying due diligence by **actually choosing trusted specific issuers** should be the best approach. Only in rare cases, a verifier would accept any issuer, so we advise not to use `*`.   
+
+	!!!note
+		The highlighted lines are to be added only if the authentication needs to design a [query](./zk-query-language.md) for a specific proof as in the case of [Query-based Auth](./request-api-guide.md#query-based-auth). When not included, it will perform a [Basic Auth](./request-api-guide.md#basic-auth). 
 
 4. **Callback Endpoint**
 

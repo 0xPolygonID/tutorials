@@ -529,7 +529,7 @@ When presented with this query, the user must prove that he/she is not resident 
 
 ### Selective Disclosure
 
-Selective Disclosure is a feature provided for the Verifier, which makes it capable of requiring some specific data from the ID Holder. Using a similar approach to the ZK language operations, the Verifier sends a verification request for a piece of the Holder's identity. As seen below, the way to make this request is by sending an empty object as a value.
+Selective Disclosure is a feature provided for the Verifier, which makes it capable of requiring some specific data from the ID Holder. Using a similar approach to the ZK language equal operation, the Verifier sends a verification request for a piece of the Holder's identity. As seen below, the way to make this request is by sending an empty object as a value.
 
 **Query**
 
@@ -549,6 +549,5 @@ const proofRequest: protocol.ZKPRequest = {
     },
 };
 ```
-
-!!! info
-    In fact, from the circuit point of view, this operation is similar to the ZK Query language equal operation.  
+!!!warning "Allowed Issuers"
+    When we use `*` in the "allowed issuers" segment (`allowedIssuers: ['*']`), we mean that we accept any entity that might have provided the credential. Even though this seems to be convenient for testing purposes, it may also be considered risky. Applying due diligence by **actually choosing trusted specific issuers** should be the best approach. Only in rare cases, a verifier would accept any issuer, so we advise not to use `*`. 
