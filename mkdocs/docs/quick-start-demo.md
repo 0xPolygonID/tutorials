@@ -6,7 +6,7 @@ This guide will briefly touch on the 3 roles of the [Triangle of Trust](index.md
 These are the steps we will cover in this article:
 
 1. [Set up a Polygon ID wallet](#set-up-a-polygon-id-wallet)
-2. [Issue a new credential to attest to the ID Holder's attendance to the event](#issue-a-new-credential-to-attest-to-the-id-holder's-event-attendance)
+2. [Issue a new credential to attest to the ID Holder's attendance to the event](#issue-a-new-credential-to-attest-to-the-id-holders-event-attendance)
 3. [Fetch the newly created credential](#fetch-the-newly-created-credential)
 4. [Verify the credential validity](#verify-the-credential-validity)
 
