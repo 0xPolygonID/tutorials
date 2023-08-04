@@ -348,16 +348,14 @@ In this example, the verifier will set up the query: "Prove that you were born b
 			// fetch authRequest from sessionID
 			const authRequest = requestMap.get(`${sessionId}`);
 				
-			// Locate the directory that contains circuit's verification keys
-			const verificationKeyloader = new loaders.FSKeyLoader(keyDIR);
 
 			// EXECUTE VERIFICATION
 			const verifier = await auth.Verifier.newVerifier(
-				verificationKeyloader,
-				resolvers,
-				{
+					{
+					stateResolver: resolvers,
+					circuitsDir: path.join(__dirname, './circuits-dir'),
 					ipfsGatewayURL:"<gateway url>"
-				},
+					}
 			);
 
 
