@@ -51,8 +51,6 @@ Let us see how to execute this verification.
 === "Javascript"
 
     ```js
-    const verificationKeyloader = new loaders.FSKeyLoader(keyDIR);
-
     const ethStateResolver = new resolver.EthStateResolver(
         ethURL,
         contractAddress,
@@ -63,22 +61,28 @@ Let us see how to execute this verification.
     };
 
     const verifier = await Verifier.newVerifier(
-        verificationKeyloader,
-        resolvers,
         {
+        stateResolver: resolvers,
+        circuitsDir: path.join(__dirname, './circuits-dir'),
         ipfsGatewayURL:"<gateway url>"
-        },
+        }
     );
     ```
 
 This creates a resolver which is used to fetch the identity state from the [State Smart Contract](https://docs.iden3.io/contracts/state/) and a verification key loader which is used to fetch the verification keys necessary to verify a zero-knowledge proof. 
 Eventually, it returns an instance of a Verifier. To set up a verifier, different parameters need to be passed:
 
--  `keyDIR` is the path where the public verification keys for Iden3 circuits are located (such as `"./keys"`). The verification key folder can be found <a href="https://github.com/0xPolygonID/phase2ceremony" target="_blank">here</a>.
+-  `circuitsDir` is the path where the public verification keys for Iden3 circuits are located (such as `"./circuits"`). If not folder is set './circuits' folder is used. The verification key folder can be found <a href="https://github.com/0xPolygonID/phase2ceremony" target="_blank">here</a>.
+Path to the circuit file is constructed from `${circuitsDir}/${circuitId}/verification_key.json`,
+ * hierarchical structure for files in curuits folder is mandatory
+ *     e.g. --circuits
+ *          -----circuitId
+ *          ---------file
+
 - `ethURL` is the URL of your RPC node provider such as `"https://polygon-testnet-rpc.allthatnode.com:8545"` for Polygon Mumbai.
 - `contractAddress` is the address of the identity state Smart Contract. On Polygon Mumbai, it is 0x134B1BE34911E39A8397ec6289782989729807a4.
 - `resolverPrefix` is the prefix of the resolver. For Polygon Mumbai it is `"polygon:mumbai"`
-- `ipfsGatewayURL` can be your IPFS node or public one. You can path your loader or IPFS gateway also.
+- `ipfsGatewayURL` can be your IPFS gateway or public one. You can path your loader or IPFS node also.
 
 **Execute the verification**
 
