@@ -3,7 +3,7 @@ POAP stands for Proof of Attendance Protocol, which is used to prove that someon
  
 This guide will briefly touch on the 3 roles of the [Triangle of Trust](index.md#core-concepts-of-polygon-id-verifiable-credentials-identity-holder-issuer-and-verifier-triangle-of-trust), namely the Identity Holder, the Issuer and the Verifier. For that, we will take the case of an individual who needs to prove that they were able to participate in a particular event.
 
-These are the steps we will cover in this article:
+These are the steps we will cover in this page: 
 
 1. [Set up a Polygon ID wallet](#set-up-a-polygon-id-wallet)
 2. [Issue a new credential to attest to the ID Holder's attendance to the event](#issue-a-new-credential-to-attest-to-the-id-holders-age)
