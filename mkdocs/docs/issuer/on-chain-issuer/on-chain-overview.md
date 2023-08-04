@@ -19,7 +19,7 @@ Each issuer has its own identity contract. Each contract, which is linked to an 
 
 There are still the possibilities of either using one smart contract with a set of different business logic for specific credentials or having one smart contract for each use case.
 
-![On chain Issuance](../imgs/sc-diagram.png)
+![On chain Issuance](../../imgs/sc-diagram.png)
 
 Some of the methods that can be performed by the SC:
 
