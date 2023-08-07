@@ -13,7 +13,7 @@ The Verifier Client is the point of interaction with the user. In its simplest f
 
 This tutorial is based on the verification of a Credential of Type `KYCAgeCredential` with an attribute `birthday` with a Schema URL `https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld`.
 
-The prerequisite is that users have the [Polygon ID Wallet app](../../wallet/wallet-overview.md) installed and self-issued a Credential of type `KYC Age Credential Merklized` using our [Demo Issuer](https://issuer-demo.polygonid.me/). Further credentials can be issued using the [Issuer Node](../../issuer/issuer-overview.md).
+The prerequisite is that users have the [Polygon ID Wallet app](../../wallet/wallet-overview.md) installed and self-issued a Credential of type `KYC Age Credential Merklized` using our [Demo Issuer](https://issuer-ui.polygonid.me/). Further credentials can be issued using the [Issuer Node](../../issuer/issuer-overview.md).
 
 In this example, the verifier will set up the query: "Prove that you were born before the `2000/01/01`. To set up a different query check out the [ZK Query Language section](./zk-query-language.md)
 
