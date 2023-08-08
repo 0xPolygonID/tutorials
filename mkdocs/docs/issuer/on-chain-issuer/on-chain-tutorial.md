@@ -76,7 +76,7 @@ There are three main components in this application:
         <img width="300" src="../../../imgs/onchain-issuer-1.png"></img>
     </div>
 
-2. Scan the QR code with your Polygon ID wallet app and following the instructions on the application. 
+2. Scan the QR code with your Polygon ID wallet app and follow the instructions on the application. 
 
     <div align="center">
         <img width="300" src="../../../imgs/onchain-issuer-2.png"></img>
