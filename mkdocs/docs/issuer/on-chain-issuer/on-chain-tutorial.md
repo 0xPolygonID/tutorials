@@ -35,7 +35,7 @@ There are three main components in this application:
     ONCHAIN_ISSUER_CONTRACT_NETWORK=<BLOCKCHAIN_OF_WITH_ISSUER_CONTRACT>
     ``` 
 
-2. Deploy an on-chain issuer contract. You can use [this sample on here](https://github.com/iden3/contracts/blob/master/contracts/test-helpers/IdentityExample.sol) or create your own smart contract with custom logic.
+2. Deploy an on-chain issuer contract. You can use [this sample here](https://github.com/iden3/contracts/blob/master/contracts/test-helpers/IdentityExample.sol) or create your own smart contract with custom logic.
 
     Use the following State Contract addresses:
     
