@@ -32,4 +32,11 @@ You can quickly try out the Verification experience by following the steps below
 - Fetch a credential from the [Demo Issuer](https://issuer-ui.polygonid.me/)
 - Verify it on the [Demo Verifier](https://verifier-demo.polygonid.me/)
 
+!!!warning "Demo Issuer username and password"
+    The [Demo Issuer](https://issuer-ui.polygonid.me/) requires a username and a password to log into the system.
+    
+    - Username: `user-ui`
+    - Password: `password-ui`
+
+    We are aware that we might not be using the best approach from a security standpoint, but we are working on a better alternative to be released soon.  
 
