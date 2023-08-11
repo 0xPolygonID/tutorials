@@ -390,6 +390,10 @@ In situations where the message content is too large to be included directly in 
 
 In summary, our platform's deep linking capabilities provide two flexible methods for delivering Credential Offers. Whether you choose to pass a base64 encoded message or an encoded link, you can ensure that users have a seamless and efficient experience when interacting with the content you provide.
 
+!!!warning "Polygon ID wallet"
+	Polygon ID wallet will support handling of `request_uri` in the next release, while your client can already implement this specification.
+
+
 ### (OPTIONAL) 10. Get QRCode of Offer
 
 The notification will only show up if the user has turned on the notifications for Polygon ID App. If that's not the case, the user will need to scan a second QR Code to fetch the claim inside their wallet. This action is performed via the [Get QRCode of Offer](../offers/apis.md#get-qrcode-of-offer).

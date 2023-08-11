@@ -391,6 +391,9 @@ if both params are present `i_m` is priority param and `request_uri` is ignored.
 
 The same request can also be delivered to users via Deep Linking. Same format for links must be used.
 
+!!!warning "Polygon ID wallet"
+	Polygon ID wallet will support handling of `request_uri` in the next release, while your client can already implement this specification.
+
 ***Shortened url algorithm***
 
 While it's not strictly restricted how you can perform url shortage algorithm, it is recommended to follow next instruction:
