@@ -11,15 +11,28 @@ An issuer might be:
 
 [Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) are a flexible data format able to express any type of information so that developers can unleash their creativity.
 
-To operate, an Issuer must run an [Issuer Node](../issuer-node/issuer-node-overview.md), which is a self-hosted Node that exposes all the functionalities necessary to run an issuer.
+# Operating an issuer
+
+There are some different ways one can perform issuer-related actions, that is, manage and issue credentials, establish connections with holders etc. These are the currently available options:   
+
+- Running an [Issuer Node](../issuer/issuer-core.md) directly in your infrastructure.
+
+- Utilizing the issuer node available in the[ Google Cloud Marketplace](https://console.cloud.google.com/marketplace/product/polygon-public/polygon-id-issuer-node?pli=1) (soon available also on the AWS Marketplace). 
+
+- Adapting the [JS SDK](https://0xpolygonid.github.io/tutorials/js-sdk/js-sdk-overview/) to your application that issues credentials.
+
+- Using [SaaS vendors](https://ecosystem.polygon.technology/PolygonID/) that leverage Polygon ID solutions.
+
+- Making use of Polygon ID smart contracts for [on-chain issuance](./on-chain-issuer/on-chain-overview.md).
+
+## Issuer Nodes
+
+To operate, an Issuer must run an [Issuer Node](../issuer-node/issuer-node/issuer-node-overview.md), which is a self-hosted Node that exposes all the functionalities necessary to run an issuer.
 
 <div align="center">
 <img src= "../../imgs/issuer-intro.png" align="center" />
 </div>
 
-Using Polygon ID an Issuer can issue Credentials to their users.
-
-## Issuer Node Types
 There are basically two ways the Issuer Node can be implemented:
 
 - Issuer Node Core API
