@@ -12,17 +12,17 @@ Both the APIs are available either in Golang or Javascript:
 === "GoLang"
 
     ```bash
-    go get github.com/iden3/go-iden3-auth
+    go get github.com/iden3/go-iden3-auth/v2
     ```
 
     ```go
     import (
-        "github.com/iden3/go-circuits"
-        auth "github.com/iden3/go-iden3-auth"
-        "github.com/iden3/go-iden3-auth/loaders"
-        "github.com/iden3/go-iden3-auth/pubsignals"
-        "github.com/iden3/go-iden3-auth/state"
-        "github.com/iden3/iden3comm/protocol"
+        "github.com/iden3/go-circuits/v2"
+        auth "github.com/iden3/go-iden3-auth/v2"
+        "github.com/iden3/go-iden3-auth/v2/loaders"
+        "github.com/iden3/go-iden3-auth/v2/pubsignals"
+        "github.com/iden3/go-iden3-auth/v2/state"
+        "github.com/iden3/iden3comm/v2/protocol"
     )
     ```    
 
@@ -33,5 +33,5 @@ Both the APIs are available either in Golang or Javascript:
     ```
 
     ```js
-    const {auth, resolver, protocol, loaders, circuits} = require('@iden3/js-iden3-auth')
+    const {auth, resolver, protocol} = require('@iden3/js-iden3-auth')
     ```

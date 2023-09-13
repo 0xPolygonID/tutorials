@@ -29,7 +29,7 @@ In this example, the verifier will set up the query: "Prove that you were born b
 	=== "GoLang"
 
 		``` bash 
-		go get github.com/iden3/go-iden3-auth
+		go get github.com/iden3/go-iden3-auth/v2
 		```
 
 	=== "Javascript"
@@ -60,12 +60,12 @@ In this example, the verifier will set up the query: "Prove that you were born b
 			"time"
 
 			"github.com/ethereum/go-ethereum/common"
-			"github.com/iden3/go-circuits"
-			auth "github.com/iden3/go-iden3-auth"
-			"github.com/iden3/go-iden3-auth/loaders"
-			"github.com/iden3/go-iden3-auth/pubsignals"
-			"github.com/iden3/go-iden3-auth/state"
-			"github.com/iden3/iden3comm/protocol"
+			"github.com/iden3/go-circuits/v2"
+			auth "github.com/iden3/go-iden3-auth/v2"
+			"github.com/iden3/go-iden3-auth/v2/loaders"
+			"github.com/iden3/go-iden3-auth/v2/pubsignals"
+			"github.com/iden3/go-iden3-auth/v2/state"
+			"github.com/iden3/iden3comm/v2/protocol"
 		)
 
 		func main() {
@@ -82,7 +82,7 @@ In this example, the verifier will set up the query: "Prove that you were born b
 
 		```js
 		const express = require('express');
-		const {auth, resolver, loaders} = require('@iden3/js-iden3-auth')
+		const {auth, resolver, protocol} = require('@iden3/js-iden3-auth')
 		const getRawBody = require('raw-body')
 
 		const app = express();
@@ -264,6 +264,9 @@ In this example, the verifier will set up the query: "Prove that you were born b
 			// Add Polygon Mumbai RPC node endpoint - needed to read on-chain state
 			ethURL := "https://polygon-testnet-rpc.allthatnode.com:8545"
 
+			// Add IPFS url - needed to load schemas from IPFS 
+			ipfsURL := "https://ipfs.io"
+
 			// Add identity state contract address
 			contractAddress := "0x134B1BE34911E39A8397ec6289782989729807a4"
 
@@ -290,7 +293,7 @@ In this example, the verifier will set up the query: "Prove that you were born b
 			}
 
 			// EXECUTE VERIFICATION
-			verifier, err := auth.NewVerifierWithExplicitError(verificationKeyloader, loaders.DefaultSchemaLoader{IpfsURL: "ipfs.io"}, resolvers)
+			verifier, err := auth.NewVerifier(verificationKeyloader, resolvers, auth.WithIPFSGateway(ipfsURL))
 			if err != nil {
 				log.Println(err.Error())
 				http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -559,7 +562,7 @@ To do so, add the <a href="https://github.com/0xPolygonID/tutorial-examples/tree
 
 	```js hl_lines="8"
 	const express = require('express');
-	const {auth, resolver, loaders} = require('@iden3/js-iden3-auth')
+	const {auth, resolver, protocol} = require('@iden3/js-iden3-auth')
 	const getRawBody = require('raw-body')
 
 	const app = express();

@@ -44,7 +44,8 @@ Let us see how to execute this verification.
 		resolverPrefix: resolver,
 	}
 
-    verifier, err := auth.NewVerifierWithExplicitError(verificationKeyloader, loaders.DefaultSchemaLoader{IpfsURL: "ipfs.io"}, resolvers)
+	verifier, err := auth.NewVerifier(
+			verificationKeyloader, resolvers, auth.WithIPFSGateway("<gateway url>"))
     ```
 
 
