@@ -1,0 +1,4102 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://polygon.technology/polygon-id/js-sdk/js-sdk-components/identity/identity-wallet/">
+      
+      
+        <link rel="prev" href="../../../js-sdk-overview/">
+      
+      
+        <link rel="next" href="../../credential/credential-wallet/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Identity Wallet - Polygon ID Documentation tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.35e1ed30.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5TKTB44');</script>
+<!-- End Google Tag Manager -->
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#identity-wallet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <p>This Documentation website is <b>outdated</b>. Check the current docs <a href="https://devs.polygonid.com/">here</a>.</p>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Polygon ID Documentation tutorials" class="md-header__button md-logo" aria-label="Polygon ID Documentation tutorials" data-md-component="logo">
+      
+  <img src="../../../../logo-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Polygon ID Documentation tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Identity Wallet
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../issuer/issuer-overview/" class="md-tabs__link">
+          
+  
+  Issuer
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../verifier/verifier-overview/" class="md-tabs__link">
+          
+  
+  Verifier
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../wallet/wallet-overview/" class="md-tabs__link">
+          
+  
+  Wallet
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../contracts/overview/" class="md-tabs__link">
+          
+  
+  Smart Contracts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../js-sdk-overview/" class="md-tabs__link">
+          
+  
+  JS SDK
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../push-service/guide/" class="md-tabs__link">
+          
+  
+  Push Service
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="https://support.polygon.technology/support/solutions/82000473421" class="md-tabs__link">
+          
+  
+  FAQ
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Polygon ID Documentation tutorials" class="md-nav__button md-logo" aria-label="Polygon ID Documentation tutorials" data-md-component="logo">
+      
+  <img src="../../../../logo-white.svg" alt="logo">
+
+    </a>
+    Polygon ID Documentation tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../quick-start-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start Demo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Issuer
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Issuer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer/issuer-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Issuer Node Core API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Issuer Node Core API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer/issuer-core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer/setup-issuer-core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Guide (Core API)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer-node/issuer-node-api/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3_2" id="__nav_2_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer-node/issuer-node-api/identity/apis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer-node/issuer-node-api/claim/apis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Claim
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer-node/issuer-node-api/agent/apis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Issuer Node UI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Issuer Node UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer/issuer-node-ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer/setup-issuer-ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Guide (API UI)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer-node/issuer-node-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Issuer Node UI Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    On-chain Issuer
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            On-chain Issuer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer/on-chain-issuer/on-chain-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer/on-chain-issuer/on-chain-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Schemas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Schemas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer/schema-builder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schema Builder UI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer/schema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create Custom Schemas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer/schema-exs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schema Examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contracts/credential-linkage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credential Linkage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer/cred-issue-methods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credential Issuance Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer-node/issue-credential-cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Issue Credentials via CLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../issuer/source-code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Source Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Verifier
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Verifier
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../verifier/verifier-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../verifier/demo-verifier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start - Demo Verifier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../verifier/features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Verfier SDK - Off-chain
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Verfier SDK - Off-chain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../verifier/verification-library/verifier-library-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../verifier/verification-library/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Config
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../verifier/verification-library/request-api-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Request APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../verifier/verification-library/verification-api-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Verification APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../verifier/verification-library/verifier-set-up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial - Run a Verifier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Verifier SDK - On-chain
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Verifier SDK - On-chain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../verifier/on-chain-verification/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implement ERC20 zk airdrop in 20 minutes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../verifier/query-builder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Query Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../verifier/verification-library/zk-query-language/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ZK Query Language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Wallet
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Wallet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Wallet SDK
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Wallet SDK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Flutter SDK
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Flutter SDK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/polygonid-sdk-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/flutter-sdk/install-flutter-sdk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Flutter SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/flutter-sdk/build-app-with-flutter-sdk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build App with SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/polygonid-sdk-plugin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flutter Plugin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/example-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Example App
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android SDK
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Android SDK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/android-sdk/install-android-sdk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implement Android SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/android-sdk/example-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Example App
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Wallet APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Wallet APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_1" id="__nav_4_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Identity
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Identity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/identity/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_1_2" id="__nav_4_3_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/identity/api/create-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/identity/api/backup-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backup Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/identity/api/get-did-identifier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get DID Identifier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/identity/api/get-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/identity/api/get-identities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Identities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/identity/api/remove-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Remove Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/identity/api/restore-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Restore Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/identity/api/get-state/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get State
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/identity/api/sign/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sign Message
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_2" id="__nav_4_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Credential
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Credential
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/credential/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_2_2" id="__nav_4_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/credential/api/fetch-and-save-claims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fetch and Save Claims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/credential/api/get-claims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Claims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/credential/api/update-claims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Update Claims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/credential/api/remove-claims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Remove Claims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_3" id="__nav_4_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Iden3comm
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Iden3comm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/iden3comm/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/iden3comm/auth-requests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Auth Requests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/iden3comm/jwz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JWZ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_3_4" id="__nav_4_3_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_3_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/iden3comm/api/authenticate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authenticate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/iden3comm/api/get-proofs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Proof
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/iden3comm/api/get-vocabs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Vocabulary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/iden3comm/api/iden3-message/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Iden3 Message
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Proof
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Proof
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/proof/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_4_2" id="__nav_4_3_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/proof/api/prove/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generate Proof
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_5" id="__nav_4_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Profiles
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Profiles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/profiles/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/profiles/api/get-profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Profiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/profiles/api/add-profile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add Profile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-sdk/profiles/api/remove-profile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Remove Profile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Polygon ID App
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Polygon ID App
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/wallet-sdk/polygonid-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../wallet/features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Smart Contracts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Smart Contracts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contracts/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    JS SDK
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            JS SDK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../js-sdk-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_1" id="__nav_6_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Identity
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Identity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Identity Wallet
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Identity Wallet
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-identity-using-createidentity" class="md-nav__link">
+    Create an Identity using createIdentity()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-profiles-using-createprofile" class="md-nav__link">
+    Create Profiles using createProfile()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-key-using-generatekey-method" class="md-nav__link">
+    Generate Key using generateKey() method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issue-credentials-using-issuecredential-method" class="md-nav__link">
+    Issue Credentials using issueCredential() method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-tree-model-using-getdidtreemodel-method" class="md-nav__link">
+    Create a Tree Model using getDIDTreeModel() method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-merkle-tree-proof-using-generatecredentialmtp-method" class="md-nav__link">
+    Generate Merkle Tree proof using generateCredentialMtp() Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-non-revocation-merkle-tree-proof-using-generatenonrevocationmtp-method" class="md-nav__link">
+    Generate Non-Revocation Merkle Tree Proof using generateNonRevocationMtp() method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign-credential-using-sign-method" class="md-nav__link">
+    Sign Credential Using Sign() Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign-a-challenge-using-signchallenge-method" class="md-nav__link">
+    Sign a Challenge using signChallenge() method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revoke-credential-using-revokecredential-method" class="md-nav__link">
+    Revoke Credential using revokeCredential() method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-iden3-sparse-merkle-tree-proof-using-generateiden3sparsemerkletreeproof-method" class="md-nav__link">
+    Generate Iden3 Sparse Merkle Tree Proof using generateIden3SparseMerkleTreeProof() Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publish-state-to-reverse-hash-service-with-publishstatetorhs-method" class="md-nav__link">
+    Publish State to Reverse Hash Service with publishStateToRHS() Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-core-claim-representation-with-getcoreclaimfromcredential-method" class="md-nav__link">
+    Get Core Claim Representation with getCoreClaimFromCredential() Method
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2" id="__nav_6_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Credential
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Credential
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../credential/credential-wallet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credential Wallet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_3" id="__nav_6_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Iden3comm
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Iden3comm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iden3comm/iden3comm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iden3comm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_4" id="__nav_6_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Proof
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Proof
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proof/proof/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proof
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../js-sdk-example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Example
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../js-sdk-browser-wallet-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Browser Wallet Demo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Push Service
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Push Service
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../push-service/guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            FAQ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://support.polygon.technology/support/solutions/82000473421" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-identity-using-createidentity" class="md-nav__link">
+    Create an Identity using createIdentity()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-profiles-using-createprofile" class="md-nav__link">
+    Create Profiles using createProfile()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-key-using-generatekey-method" class="md-nav__link">
+    Generate Key using generateKey() method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issue-credentials-using-issuecredential-method" class="md-nav__link">
+    Issue Credentials using issueCredential() method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-tree-model-using-getdidtreemodel-method" class="md-nav__link">
+    Create a Tree Model using getDIDTreeModel() method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-merkle-tree-proof-using-generatecredentialmtp-method" class="md-nav__link">
+    Generate Merkle Tree proof using generateCredentialMtp() Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-non-revocation-merkle-tree-proof-using-generatenonrevocationmtp-method" class="md-nav__link">
+    Generate Non-Revocation Merkle Tree Proof using generateNonRevocationMtp() method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign-credential-using-sign-method" class="md-nav__link">
+    Sign Credential Using Sign() Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign-a-challenge-using-signchallenge-method" class="md-nav__link">
+    Sign a Challenge using signChallenge() method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revoke-credential-using-revokecredential-method" class="md-nav__link">
+    Revoke Credential using revokeCredential() method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-iden3-sparse-merkle-tree-proof-using-generateiden3sparsemerkletreeproof-method" class="md-nav__link">
+    Generate Iden3 Sparse Merkle Tree Proof using generateIden3SparseMerkleTreeProof() Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publish-state-to-reverse-hash-service-with-publishstatetorhs-method" class="md-nav__link">
+    Publish State to Reverse Hash Service with publishStateToRHS() Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-core-claim-representation-with-getcoreclaimfromcredential-method" class="md-nav__link">
+    Get Core Claim Representation with getCoreClaimFromCredential() Method
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TKTB44"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+                  
+
+
+<div><h1 id="identity-wallet">Identity Wallet</h1>
+<p>An identity wallet holds the identity of the user and carries the following components:</p>
+<ul>
+<li>
+<p>Key Management Store (kms): it allows the user to sign data using keys and is the storage that is allocated to these keys.  It’s an abstraction that allows to communicate with different kinds of key storage.</p>
+</li>
+<li>
+<p>Data Storage Interface: it is an interface that allows you to communicate with Credential storage, Identity storage, Merkle tree storage, and State interfaces. This interface lets you create an identity for the user.</p>
+</li>
+<li>
+<p>Credential Wallet: it contains business logic on the top of the Credential storage. An Identity Wallet uses a Credential Wallet for mapping the credentials issued to an Identity.</p>
+</li>
+</ul>
+<p>The methods described below let you create and manage an identity wallet.</p>
+<h2 id="create-an-identity-using-createidentity">Create an Identity using createIdentity()</h2>
+<p>This method creates an Auth Baby Jub Jub Credential (for signing on behalf of an identity) and an Identifier for an Identity. The Baby Jub Jub Key is the elliptic curve implementation used in Iden3.</p>
+<p>Firstly, to create an Identity, the three Merkle trees (Claims tree, Revocation tree, and Roots of Root tree) are created. Auth BJJ key is then added to the Claims tree. The hash of these three trees creates a root that is used to create an Identity State. The first state created is called the Genesis State and it is from this Genesis State that a unique Identifier (in the DID format) is generated.</p>
+<p>The root of the three trees is used to create a Merkle Tree Proof (MTP)  which verifies the existence of a credential on the Merkle tree.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">createIdentity</span><span class="p">(</span><span class="nx">opts</span><span class="o">:</span><span class="w"> </span><span class="kt">IdentityCreationOptions</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="p">{</span><span class="w"> </span><span class="nx">did</span><span class="o">:</span><span class="w"> </span><span class="kt">DID</span><span class="p">;</span><span class="w"> </span><span class="nx">credential</span><span class="o">:</span><span class="w"> </span><span class="kt">W3CCredential</span><span class="w"> </span><span class="p">}</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<p><code>IdentityCreationOptions</code> lets you select the following options for creating an Identity:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">IdentityCreationOptions</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">method?</span><span class="o">:</span><span class="w"> </span><span class="kt">DidMethod</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">blockchain?</span><span class="o">:</span><span class="w"> </span><span class="kt">Blockchain</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">networkId?</span><span class="o">:</span><span class="w"> </span><span class="kt">NetworkId</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">revocationOpts</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">    </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="nx">CredentialStatusType</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">nonce?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="w">  </span><span class="nx">seed?</span><span class="o">:</span><span class="w"> </span><span class="kt">Uint8Array</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>where <code>method</code> is the type of <code>did</code> method used to create an identity.</p>
+<p><code>seed</code> is a random/non-random number used to generate the BJJ key-pair.</p>
+<p><code>revocationOpts</code> contains the way how the status of the Auth BJJ credential can be fetched.</p>
+<p>The <code>createIdentity</code> method returns a <code>did</code> (Decentralised Identifier) in the DID format and a credential based on the W3C standard for a Verifiable Credential.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is worth noting that <code>did</code> is a Decentralized Identifier associated with an identity and enables verifiable identities. A <code>did</code> could be a person, thing, organization, or even an abstract entity. The controller of the <code>did</code> can prove that it is the real owner of the identity without the need of seeking permissions/approvals from any centralized authority.</p>
+</div>
+<p>A <code>did</code> is expressed in the following format, as per <a href="https://www.w3.org/">w3.org</a> standards:</p>
+<p><strong>did: did method: did method-specific identifier</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>To know more on Iden3 core elements (Baby Jub Jub Key, Credentials, and Identifiers, read Iden3 tutorials <a href="https://docs.iden3.io/getting-started/getting-started/">here</a>.</p>
+</div>
+<p>Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.createidentity#identitywalletcreateidentity-method" target="_blank">API Reference</a>.</p>
+<h2 id="create-profiles-using-createprofile">Create Profiles using createProfile()</h2>
+<p>This method creates profiles based on the genesis identifier. To keep the user's identity hidden from a Verifier, we can generate different profiles from his/her existing identifier. So, a user has the option to select a particular profile for a particular Verifier so that his real identity is not revealed.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">createProfile</span><span class="p">(</span><span class="nx">did</span><span class="o">:</span><span class="w"> </span><span class="kt">DID</span><span class="p">,</span><span class="w"> </span><span class="nx">nonce</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">verifier</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">DID</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<p>where <code>did</code> is the DID from which a profile is generated.</p>
+<p><code>nonce</code> is a unique integer used to generate a profile.</p>
+<p><code>verifier</code> is the verifier identity/alias in the string format.</p>
+<p>This method returns a profile ID.</p>
+<p>Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.createprofile#identitywalletcreateprofile-method" target="_blank">API Reference</a>.</p>
+<p>another methods to work with profiles:
+</p><div class="highlight"><pre><span></span><code><span class="w">  </span><span class="cm">/**</span>
+<span class="cm">   *</span>
+<span class="cm">   * gets profile identity by genesis identifiers</span>
+<span class="cm">   *</span>
+<span class="cm">   * @param {string} did - genesis identifier from which profile has been derived</span>
+<span class="cm">   * @returns `{Promise&lt;Profile[]&gt;}`</span>
+<span class="cm">   */</span>
+<span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">getProfilesByDID</span><span class="p">(</span><span class="nx">did</span><span class="o">:</span><span class="w"> </span><span class="kt">DID</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Profile</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_storage</span><span class="p">.</span><span class="nx">identity</span><span class="p">.</span><span class="nx">getProfilesByGenesisIdentifier</span><span class="p">(</span><span class="nx">did</span><span class="p">.</span><span class="kt">string</span><span class="p">());</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="cm">/**</span>
+<span class="cm">   *</span>
+<span class="cm">   * gets profile identity by verier</span>
+<span class="cm">   *</span>
+<span class="cm">   * @param {string} verifier - verifier for which profile has been created</span>
+<span class="cm">   * @returns `{Promise&lt;Profile[]&gt;}`</span>
+<span class="cm">   */</span>
+<span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">getProfileByVerifier</span><span class="p">(</span><span class="nx">verifier</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Profile</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_storage</span><span class="p">.</span><span class="nx">identity</span><span class="p">.</span><span class="nx">getProfileByVerifier</span><span class="p">(</span><span class="nx">verifier</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<h2 id="generate-key-using-generatekey-method">Generate Key using generateKey() method</h2>
+<p>This method creates a new Baby Jubjub or ECDSA type of key.</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nx">generateKey</span><span class="p">(</span><span class="nx">keyType</span><span class="o">:</span><span class="w"> </span><span class="kt">KmsKeyType</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">KmsKeyId</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<p>where <code>keyType</code> is the type of key supported by the Key Management System.</p>
+<p>This method returns a <code>Promise&lt;KmsKeyId&gt;</code> which generates the key of the type mentioned in <code>keyType</code> parameter.</p>
+<p>Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.generatekey#identitywalletgeneratekey-method" target="_blank">API Reference</a>.</p>
+<h2 id="issue-credentials-using-issuecredential-method">Issue Credentials using issueCredential() method</h2>
+<p>This method lets an Issuer grant a credential to a user as requested by the user.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">issueCredential</span><span class="p">(</span><span class="nx">issuerDID</span><span class="o">:</span><span class="w"> </span><span class="kt">DID</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="o">:</span><span class="w"> </span><span class="kt">CredentialRequest</span><span class="p">,</span><span class="nx">opts?</span><span class="o">:</span><span class="kt">options</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">W3CCredential</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<p>where <code>issuerDID</code> is the identifier of the Issuer in the <code>did</code> format we described earlier.
+<code>opts</code> are option merklization options. If you use IPFS schemas you must pass IPFS node or gateway url.
+This method returns a core claim which is then added to the Merkle tree and this claim is then transformed into a Verifiable Credential based on the W3C standards and issued to the user. The core claim is signed by the Issuer and a BabyJubjub <a href="https://docs.iden3.io/getting-started/signature-claim/signature/">Signature Proof</a> is also added to the credential.  </p>
+<p>Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.issuecredential#identitywalletissuecredential-method" target="_blank">API Reference</a>.</p>
+<h2 id="create-a-tree-model-using-getdidtreemodel-method">Create a Tree Model using getDIDTreeModel() method</h2>
+<p>This method creates a tree model for a <code>did</code>; the model consists of a Claims tree, a Revocation tree, a Roots of Root tree, and the identity hash of the state created from these trees.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">getDIDTreeModel</span><span class="p">(</span><span class="nx">did</span><span class="o">:</span><span class="w"> </span><span class="kt">DID</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">TreesModel</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<p>This method returns a <code>Promise&lt;TreesModel&gt;</code> which returns the three Merkle trees from the database storage.</p>
+<p>Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.getdidtreemodel#identitywalletgetdidtreemodel-method" target="_blank">API Reference</a>.</p>
+<h2 id="generate-merkle-tree-proof-using-generatecredentialmtp-method">Generate Merkle Tree proof using generateCredentialMtp() Method</h2>
+<p>This method generates Merkle Tree Proof (MTP) for the inclusion or non-inclusion of a credential in the Claims tree by following the path from the leaf to the root in the given Merkle tree storage. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>To know more about the credential's inclusion in a Merkle tree, read our Iden3 core specification tutorials <a href="https://docs.iden3.io/protocol/spec/#update-claims">here</a>.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">generateCredentialMtp</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">did</span><span class="o">:</span><span class="w"> </span><span class="kt">DID</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">credential</span><span class="o">:</span><span class="w"> </span><span class="kt">W3CCredential</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">treeState?</span><span class="o">:</span><span class="w"> </span><span class="kt">TreeState</span>
+<span class="w">  </span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">MerkleTreeProofWithTreeState</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<p>where <code>did</code> is the DID of the Issuer that issued the credential to the user. </p>
+<p><code>credential</code> is the Verifiable Credential (in the W3C format) used to generate the MTP.</p>
+<p><code>TreeState</code> is the tree's state used to generate the MTP. If we do not pass the <code>TreeState</code> parameter, the method considers the latest state of the Identity for creating MTP.</p>
+<p>This method returns <code>MerkletTreeProof</code> along with the <code>TreeState</code> for which the proof is generated.</p>
+<p>Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.generatecredentialmtp#identitywalletgeneratecredentialmtp-method" target="_blank">API Reference</a>.</p>
+<h2 id="generate-non-revocation-merkle-tree-proof-using-generatenonrevocationmtp-method">Generate Non-Revocation Merkle Tree Proof using generateNonRevocationMtp() method</h2>
+<p>This method generates Merkle Tree Proof for the inclusion or non-inclusion of the revocation nonce of a credential in the Revocation Tree.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">generateNonRevocationMtp</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">did</span><span class="o">:</span><span class="w"> </span><span class="kt">DID</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">credential</span><span class="o">:</span><span class="w"> </span><span class="kt">W3CCredential</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">treeState?</span><span class="o">:</span><span class="w"> </span><span class="kt">TreeState</span>
+<span class="w">  </span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">MerkleTreeProofWithTreeState</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<p>where <code>did</code> is the DID of the Issuer that issues the credential.</p>
+<p><code>credential</code> is the Verifiable Credential (in the W3C format) used to generate the Non-Revocation Merkle Tree Proof.
+<code>TreeState</code> is the tree's state used to generate the Non-Revocation MTP. If we do not pass the <code>TreeState</code> parameter, the method considers the latest state of the Identity for creating MTP.</p>
+<p>This method returns <code>MerkletTreeProof</code> along with the <code>TreeState</code> for which proof is generated.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To know more about the Revocation of a credential, read <a href="https://docs.iden3.io/getting-started/claim-revocation/">here</a>.</p>
+</div>
+<p>Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.generatenonrevocationmtp#identitywalletgeneratenonrevocationmtp-method" target="_blank">API Reference</a>.</p>
+<h2 id="sign-credential-using-sign-method">Sign Credential Using Sign() Method</h2>
+<p>This method signs a payload of an arbitrary size with an Auth BJJ Credential, which contains a public key and a reference to the Key Management Store (where we store and fetch a private key for the credential).</p>
+<div class="highlight"><pre><span></span><code><span class="nx">sign</span><span class="p">(</span><span class="nx">payload</span><span class="o">:</span><span class="w"> </span><span class="kt">Uint8Array</span><span class="p">,</span><span class="w"> </span><span class="nx">credential</span><span class="o">:</span><span class="w"> </span><span class="kt">W3CCredential</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Signature</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<p>where <code>payload</code> is any arbitrary string or an unsigned integer array.</p>
+<p><code>credential</code> is Auth BJJ Credential in the W3C format.</p>
+<p>This method returns the signature object.</p>
+<p>Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.sign#identitywalletsign-method" target="_blank">API Reference</a>.</p>
+<h2 id="sign-a-challenge-using-signchallenge-method">Sign a Challenge using signChallenge() method</h2>
+<p>This method signs a big integer with the Auth BJJ Credential, which identifies a key for signing.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">signChallenge</span><span class="p">(</span><span class="nx">payload</span><span class="o">:</span><span class="w"> </span><span class="kt">bigint</span><span class="p">,</span><span class="w"> </span><span class="nx">credential</span><span class="o">:</span><span class="w"> </span><span class="kt">W3CCredential</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Signature</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<p>where <code>payload</code> is a big number (bigint). A big number is used in cryptography to prevent anyone from figuring them out.  </p>
+<p><code>credential</code> is Auth BJJ Credential in the W3C format.</p>
+<p>This method returns the signature object.</p>
+<p>Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.signchallenge#identitywalletsignchallenge-method" target="_blank">API Reference</a>.</p>
+<h2 id="revoke-credential-using-revokecredential-method">Revoke Credential using revokeCredential() method</h2>
+<p>This method generates a Revocation Nonce for a credential that we need to revoke (or render invalid due to its expiry, loss, or any other reason).</p>
+<div class="highlight"><pre><span></span><code><span class="nx">revokeCredential</span><span class="p">(</span><span class="nx">issuerDID</span><span class="o">:</span><span class="w"> </span><span class="kt">DID</span><span class="p">,</span><span class="w"> </span><span class="nx">credential</span><span class="o">:</span><span class="w"> </span><span class="kt">W3CCredential</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<p>where <code>issuerDID</code> is Issuer's identifier.
+<code>credential</code> is the W3C Credential that needs to be revoked.</p>
+<p>This method returns the Revocation Nonce of the credential.</p>
+<p>Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.revokecredential#identitywalletrevokecredential-method" target="_blank">API Reference</a>.</p>
+<h2 id="generate-iden3-sparse-merkle-tree-proof-using-generateiden3sparsemerkletreeproof-method">Generate Iden3 Sparse Merkle Tree Proof using generateIden3SparseMerkleTreeProof() Method</h2>
+<p>This method generates the Iden3 SparseMerkleTree (SMTP) proof that an Issuer state of a specific credential is included in the Merkle Tree or not.</p>
+<p>With the IssueCredential() method, a Credential is generated along with the Signature Proof. This credential is then added to the Claims Merkle tree and therefore, the state of the tree is changed. For this, another proof called SMTP is required. This proof generates the changed state of the tree by taking Issuer DID, transaction data, and the list of credentials that are part of the changed state as the input parameters.  The JS SDK updates the credential with this SMT Proof, which is included in the state, the transaction data, and the Issuer.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">generateIden3SparseMerkleTreeProof</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">issuerDID</span><span class="o">:</span><span class="w"> </span><span class="kt">DID</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">credentials</span><span class="o">:</span><span class="w"> </span><span class="kt">W3CCredential</span><span class="p">[],</span>
+<span class="w">    </span><span class="nx">txId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">blockNumber?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">blockTimestamp?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span>
+<span class="w">  </span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">W3CCredential</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<p>where <code>issuerDID</code> is Issuer's identifier.</p>
+<p><code>credentials</code> is the list of Verifiable Credentials required to generate the proof.</p>
+<p><code>txId</code> is a hash of the transaction for which the state transition is done.</p>
+<p><code>blockNumber</code> is the number of the block in which the state transition has been done.</p>
+<p><code>blockTimestamp</code> is the timestamp of the block at which the state transition has been done.</p>
+<p>This method returns a list of credentials along with a Sparse Merkle Tree Proof.</p>
+<p>Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.generateiden3sparsemerkletreeproof#identitywalletgenerateiden3sparsemerkletreeproof-method" target="_blank">API Reference</a>.</p>
+<h2 id="publish-state-to-reverse-hash-service-with-publishstatetorhs-method">Publish State to Reverse Hash Service with publishStateToRHS() Method</h2>
+<p>If we are using a browser, we need to fetch the revocation status via rhsURL (Reverse Hash Service URL) by pushing the state update to this URL.</p>
+<p>The <code>publishStateRHS</code> method publishes the updated state of the tree to the Reverse Hash Service.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">publishStateToRHS</span><span class="p">(</span><span class="nx">issuerDID</span><span class="o">:</span><span class="w"> </span><span class="kt">DID</span><span class="p">,</span><span class="w"> </span><span class="nx">rhsURL</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">revokedNonces?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<p>where <code>issuerDID</code> is the <code>did</code> of the Issuer.</p>
+<p><code>rhsURL</code> is the REverse Hash Service URL.</p>
+<p><code>revokedNonces</code> are the nonces of the revoked credentials.</p>
+<p>Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.publishstatetorhs#identitywalletpublishstatetorhs-method" target="_blank">API Reference</a>.</p>
+<h2 id="get-core-claim-representation-with-getcoreclaimfromcredential-method">Get Core Claim Representation with getCoreClaimFromCredential() Method</h2>
+<p>This method extracts the core claim from either the Signature proof or the Merkle Tree Proof. If we have both types of proofs for the credential, this method extracts the core representation from the Merkle Tree Proof.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">getCoreClaimFromCredential</span><span class="p">(</span><span class="nx">credential</span><span class="o">:</span><span class="w"> </span><span class="kt">W3CCredential</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Claim</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<p>where <code>credential</code> is the Verifiable Credential in the W3C format that is used to extract the core representation of the claim.</p>
+<p>The method returns the core claim representation of the credential.</p>
+<p>Click here for the <a href="https://0xpolygonid.github.io/js-sdk-tutorials/docs/api/js-sdk.identitywallet.getcoreclaimfromcredential#identitywalletgetcoreclaimfromcredential-method" target="_blank">API Reference</a>.</p></div>
+
+
+  
+
+
+
+<div id="newVersionPopup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>New Polygon ID Documentation Website Available!</h2>
+      <p>We've released a new version of our documention. Head to <a href="https://devs.polygonid.com/">devs.polygonid.com</a> to check it out.</p>
+    </div>
+</div>
+                
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "content.tabs.link", "content.code.copy", "header.autohide"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+        <script src="../../../../js/custom.js"></script>
+      
+    
+  </body>
+</html>

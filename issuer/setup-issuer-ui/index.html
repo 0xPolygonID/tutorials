@@ -1,0 +1,4421 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://polygon.technology/polygon-id/issuer/setup-issuer-ui/">
+      
+      
+        <link rel="prev" href="../issuer-node-ui/">
+      
+      
+        <link rel="next" href="../../issuer-node/issuer-node-guide/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Setup Guide (API UI) - Polygon ID Documentation tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35e1ed30.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5TKTB44');</script>
+<!-- End Google Tag Manager -->
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <p>This Documentation website is <b>outdated</b>. Check the current docs <a href="https://devs.polygonid.com/">here</a>.</p>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Polygon ID Documentation tutorials" class="md-header__button md-logo" aria-label="Polygon ID Documentation tutorials" data-md-component="logo">
+      
+  <img src="../../logo-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Polygon ID Documentation tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Setup Guide (API UI)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../issuer-overview/" class="md-tabs__link">
+          
+  
+  Issuer
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../verifier/verifier-overview/" class="md-tabs__link">
+          
+  
+  Verifier
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../wallet/wallet-overview/" class="md-tabs__link">
+          
+  
+  Wallet
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../contracts/overview/" class="md-tabs__link">
+          
+  
+  Smart Contracts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../js-sdk/js-sdk-overview/" class="md-tabs__link">
+          
+  
+  JS SDK
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../push-service/guide/" class="md-tabs__link">
+          
+  
+  Push Service
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="https://support.polygon.technology/support/solutions/82000473421" class="md-tabs__link">
+          
+  
+  FAQ
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Polygon ID Documentation tutorials" class="md-nav__button md-logo" aria-label="Polygon ID Documentation tutorials" data-md-component="logo">
+      
+  <img src="../../logo-white.svg" alt="logo">
+
+    </a>
+    Polygon ID Documentation tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick-start-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start Demo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Issuer
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Issuer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../issuer-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Issuer Node Core API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Issuer Node Core API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../issuer-core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-issuer-core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Guide (Core API)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../issuer-node/issuer-node-api/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3_2" id="__nav_2_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../issuer-node/issuer-node-api/identity/apis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../issuer-node/issuer-node-api/claim/apis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Claim
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../issuer-node/issuer-node-api/agent/apis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Issuer Node UI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Issuer Node UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../issuer-node-ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Setup Guide (API UI)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Setup Guide (API UI)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-setup-guide" class="md-nav__link">
+    Docker Setup Guide
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Setup Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-guide-requirements" class="md-nav__link">
+    Docker Guide Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-docker-configuration-files" class="md-nav__link">
+    Create Docker Configuration Files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-issuer-configuration" class="md-nav__link">
+    Node Issuer Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-redis-postgres-vault" class="md-nav__link">
+    Start Redis Postgres &amp; Vault
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-wallet-private-key-to-vault" class="md-nav__link">
+    Import Wallet Private Key To Vault
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-vault-to-configuration-file" class="md-nav__link">
+    Add Vault To Configuration File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-issuer-did" class="md-nav__link">
+    Create Issuer DID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-ui" class="md-nav__link">
+    Configure UI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-api-ui-ui-notifications-server-publisher" class="md-nav__link">
+    Start API UI, UI, Notifications server &amp; Publisher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-ui-api" class="md-nav__link">
+    Using the UI API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-using-the-ui" class="md-nav__link">
+    (Optional) Using the UI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standalone-mode-guide" class="md-nav__link">
+    Standalone Mode Guide
+  </a>
+  
+    <nav class="md-nav" aria-label="Standalone Mode Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standalone-mode-guide-requirements" class="md-nav__link">
+    Standalone Mode Guide Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standalone-mode-setup" class="md-nav__link">
+    Standalone Mode Setup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-a-public-url" class="md-nav__link">
+    Getting A Public URL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-ui" class="md-nav__link">
+    Development (UI)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../issuer-node/issuer-node-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Issuer Node UI Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    On-chain Issuer
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            On-chain Issuer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../on-chain-issuer/on-chain-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../on-chain-issuer/on-chain-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Schemas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Schemas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema-builder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schema Builder UI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create Custom Schemas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema-exs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schema Examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contracts/credential-linkage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credential Linkage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cred-issue-methods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credential Issuance Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../issuer-node/issue-credential-cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Issue Credentials via CLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../source-code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Source Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Verifier
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Verifier
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier/verifier-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier/demo-verifier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start - Demo Verifier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier/features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Verfier SDK - Off-chain
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Verfier SDK - Off-chain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier/verification-library/verifier-library-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier/verification-library/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Config
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier/verification-library/request-api-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Request APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier/verification-library/verification-api-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Verification APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier/verification-library/verifier-set-up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial - Run a Verifier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Verifier SDK - On-chain
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Verifier SDK - On-chain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier/on-chain-verification/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implement ERC20 zk airdrop in 20 minutes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier/query-builder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Query Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verifier/verification-library/zk-query-language/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ZK Query Language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Wallet
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Wallet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Wallet SDK
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Wallet SDK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Flutter SDK
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Flutter SDK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/polygonid-sdk-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/flutter-sdk/install-flutter-sdk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Flutter SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/flutter-sdk/build-app-with-flutter-sdk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build App with SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/polygonid-sdk-plugin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flutter Plugin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/example-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Example App
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android SDK
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Android SDK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/android-sdk/install-android-sdk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implement Android SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/android-sdk/example-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Example App
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Wallet APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Wallet APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_1" id="__nav_4_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Identity
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Identity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/identity/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_1_2" id="__nav_4_3_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/identity/api/create-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/identity/api/backup-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backup Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/identity/api/get-did-identifier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get DID Identifier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/identity/api/get-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/identity/api/get-identities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Identities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/identity/api/remove-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Remove Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/identity/api/restore-identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Restore Identity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/identity/api/get-state/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get State
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/identity/api/sign/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sign Message
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_2" id="__nav_4_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Credential
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Credential
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/credential/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_2_2" id="__nav_4_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/credential/api/fetch-and-save-claims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fetch and Save Claims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/credential/api/get-claims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Claims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/credential/api/update-claims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Update Claims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/credential/api/remove-claims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Remove Claims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_3" id="__nav_4_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Iden3comm
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Iden3comm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/iden3comm/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/iden3comm/auth-requests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Auth Requests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/iden3comm/jwz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JWZ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_3_4" id="__nav_4_3_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_3_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/iden3comm/api/authenticate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authenticate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/iden3comm/api/get-proofs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Proof
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/iden3comm/api/get-vocabs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Vocabulary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/iden3comm/api/iden3-message/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Iden3 Message
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Proof
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Proof
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/proof/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_4_2" id="__nav_4_3_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    APIs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            APIs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/proof/api/prove/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generate Proof
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_5" id="__nav_4_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Profiles
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Profiles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/profiles/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/profiles/api/get-profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Profiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/profiles/api/add-profile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Add Profile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-sdk/profiles/api/remove-profile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Remove Profile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Polygon ID App
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Polygon ID App
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/wallet-sdk/polygonid-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Smart Contracts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Smart Contracts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contracts/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    JS SDK
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            JS SDK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js-sdk/js-sdk-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_1" id="__nav_6_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Identity
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Identity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js-sdk/js-sdk-components/identity/identity-wallet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Identity Wallet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2" id="__nav_6_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Credential
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Credential
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js-sdk/js-sdk-components/credential/credential-wallet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Credential Wallet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_3" id="__nav_6_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Iden3comm
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Iden3comm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js-sdk/js-sdk-components/iden3comm/iden3comm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iden3comm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_4" id="__nav_6_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Proof
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Proof
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js-sdk/js-sdk-components/proof/proof/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proof
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js-sdk/js-sdk-example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Example
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js-sdk/js-sdk-browser-wallet-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Browser Wallet Demo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Push Service
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Push Service
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../push-service/guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            FAQ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://support.polygon.technology/support/solutions/82000473421" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-setup-guide" class="md-nav__link">
+    Docker Setup Guide
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Setup Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-guide-requirements" class="md-nav__link">
+    Docker Guide Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-docker-configuration-files" class="md-nav__link">
+    Create Docker Configuration Files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-issuer-configuration" class="md-nav__link">
+    Node Issuer Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-redis-postgres-vault" class="md-nav__link">
+    Start Redis Postgres &amp; Vault
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-wallet-private-key-to-vault" class="md-nav__link">
+    Import Wallet Private Key To Vault
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-vault-to-configuration-file" class="md-nav__link">
+    Add Vault To Configuration File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-issuer-did" class="md-nav__link">
+    Create Issuer DID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-ui" class="md-nav__link">
+    Configure UI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-api-ui-ui-notifications-server-publisher" class="md-nav__link">
+    Start API UI, UI, Notifications server &amp; Publisher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-ui-api" class="md-nav__link">
+    Using the UI API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-using-the-ui" class="md-nav__link">
+    (Optional) Using the UI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standalone-mode-guide" class="md-nav__link">
+    Standalone Mode Guide
+  </a>
+  
+    <nav class="md-nav" aria-label="Standalone Mode Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standalone-mode-guide-requirements" class="md-nav__link">
+    Standalone Mode Guide Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standalone-mode-setup" class="md-nav__link">
+    Standalone Mode Setup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-a-public-url" class="md-nav__link">
+    Getting A Public URL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-ui" class="md-nav__link">
+    Development (UI)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TKTB44"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+                  
+
+
+<div><h1 id="getting-started">Getting Started</h1>
+<p>This article details the steps that can be carried out to achieve full integration of the Issuer Node with the Polygon ID APIs.</p>
+<h2 id="installation">Installation</h2>
+<p>There are two options for installing and running the server alongside the UI:</p>
+<ol>
+<li><a href="#docker-setup-guide">Docker Setup Guide</a></li>
+<li><a href="#standalone-mode-guide">Standalone Mode Guide</a></li>
+</ol>
+<p><strong>For either one, you first have to <a href="https://github.com/0xPolygonID/issuer-node">clone the repository</a>.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can follow the instructions below or watch this video showing the same steps to set up an issuer node.</p>
+<p><iframe src="https://www.youtube.com/embed/w0anLue7yZI" width="100%" length="100%" height="500" allowfullscreen></iframe></p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Docker</label><label for="__tabbed_1_2">Standalone Mode Guide</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<h3 id="docker-setup-guide">Docker Setup Guide</h3>
+<p>Running the app with Docker allows for minimal installation and a quick setup. This is recommended <strong>for evaluation use-cases only</strong>, such as local development builds.</p>
+<h4 id="docker-guide-requirements">Docker Guide Requirements</h4>
+<ul>
+<li>Unix-based operating system (e.g. Debian, Arch, Mac OS)</li>
+<li><a href="https://docs.docker.com/engine/">Docker Engine</a> <code>1.27+</code></li>
+<li>Makefile toolchain <code>GNU Make 3.81</code></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There is no compatibility with Windows environments at this time.</p>
+</div>
+<p>To help expedite a lot of the Docker commands, many have been abstracted using <code>make</code> commands. Included in the following sections are the equivalent Docker commands that show what is being run.</p>
+<h4 id="create-docker-configuration-files">Create Docker Configuration Files</h4>
+<p>Make sure you are in the root folder and then make a copy of the following environment variables files:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># FROM: ./</span>
+
+cp<span class="w"> </span>.env-api.sample<span class="w"> </span>.env-api<span class="p">;</span>
+cp<span class="w"> </span>.env-issuer.sample<span class="w"> </span>.env-issuer<span class="p">;</span>
+<span class="c1"># (Optional - For issuer UI)</span>
+cp<span class="w"> </span>.env-ui.sample<span class="w"> </span>.env-ui<span class="p">;</span>
+</code></pre></div>
+<h4 id="node-issuer-configuration">Node Issuer Configuration</h4>
+<p>The <code>.env-issuer</code> will be loaded into the <a href="https://github.com/0xPolygonID/issuer-node/blob/develop/infrastructure/local/docker-compose.yml">Docker compose initializer</a>.</p>
+<p>Any of the following RPC providers can be used:</p>
+<ul>
+<li><a href="https://chainstack.com/">Chainstack</a></li>
+<li><a href="https://ankr.com/">Ankr</a></li>
+<li><a href="https://quicknode.com/">QuickNode</a></li>
+<li><a href="https://www.alchemy.com/">Alchemy</a></li>
+<li><a href="https://www.infura.io/">Infura</a></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Mainnet or Testnet?</p>
+<p>Using Mainnet or Testnet will depend on the RPC URL you are going to use in this step. After you decide which of the RPC providers you will be using, like any of the examples above, you will need to copy the URL for the network you are willing to use.</p>
+</div>
+<p>If it is desired to run a free public forwarding URL, see <a href="#getting-a-public-url">Getting A Public URL</a>.</p>
+<p>Configure <code>.env-issuer</code> with the following details (or amend as desired).</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+
+<span class="c1"># See Section: Getting A Public URL</span>
+<span class="nv">ISSUER_SERVER_URL</span><span class="o">=</span>&lt;https://unique-forwaring-or-public-url.ngrok-free.app&gt;
+<span class="c1"># Defaults for Basic Auth in Base64 ("user-issuer:password-issuer" = "dXNlci1pc3N1ZXI6cGFzc3dvcmQtaXNzdWVy")</span>
+<span class="c1"># If you just want to get started, don't change these</span>
+<span class="nv">ISSUER_API_AUTH_USER</span><span class="o">=</span>user-issuer
+<span class="nv">ISSUER_API_AUTH_PASSWORD</span><span class="o">=</span>password-issuer
+<span class="c1"># !!!MUST BE SET or other steps will not work</span>
+<span class="nv">ISSUER_ETHEREUM_URL</span><span class="o">=</span>&lt;YOUR_RPC_PROVIDER_URI_ENDPOINT&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In case the Vault was loaded multiple times and a fresh start is needed, the following will remove remnant data:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># FROM: ./</span>
+
+make<span class="w"> </span>clean-vault<span class="p">;</span>
+<span class="c1"># (Equivalent)</span>
+<span class="c1">#   rm -R infrastructure/local/.vault/data/init.out</span>
+<span class="c1">#   rm -R infrastructure/local/.vault/file/core/</span>
+<span class="c1">#   rm -R infrastructure/local/.vault/file/logical/</span>
+<span class="c1">#   rm -R infrastructure/local/.vault/file/sys/</span>
+
+<span class="c1"># Expected Output/Prompt:</span>
+<span class="c1">#   rm -R infrastructure/local/.vault/data/init.out</span>
+<span class="c1">#   rm -R infrastructure/local/.vault/file/core/</span>
+<span class="c1">#   rm -R infrastructure/local/.vault/file/logical/</span>
+<span class="c1">#   rm -R infrastructure/local/.vault/file/sys/</span>
+</code></pre></div>
+</div>
+<h4 id="start-redis-postgres-vault">Start Redis Postgres &amp; Vault</h4>
+<p>This will start the necessary local services needed to store the wallet private key to the Hashicorp vault and allow storing data associated to the issuer. Don't forget to initialize Docker before running this command.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># FROM: ./</span>
+
+make<span class="w"> </span>up<span class="p">;</span>
+<span class="c1"># (Equivalent)</span>
+<span class="c1">#   docker compose -p issuer -f ./infrastructure/local/docker-compose-infra.yml up -d redis postgres vault;</span>
+
+<span class="c1"># Expected Output:</span>
+<span class="c1">#   docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose-infra.yml up -d redis postgres vault</span>
+<span class="c1">#   [+] Running 4/4</span>
+<span class="c1">#   ⠿ Network issuer-network       Created                                                                                   0.0s</span>
+<span class="c1">#   ⠿ Container issuer-vault-1     Started                                                                                   0.5s</span>
+<span class="c1">#   ⠿ Container issuer-redis-1     Started                                                                                   0.4s</span>
+<span class="c1">#   ⠿ Container issuer-postgres-1  Started  </span>
+</code></pre></div>
+<p>To remove all services, run the following (ignore the warnings):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># FROM: ./</span>
+
+make<span class="w"> </span>down<span class="p">;</span><span class="w"> </span>
+<span class="c1"># (Equivalent)</span>
+<span class="c1">#   docker compose -p issuer -f ./infrastructure/local/docker-compose-infra.yml down --remove-orphans -v;</span>
+
+<span class="c1"># Expected Output:</span>
+<span class="c1">#   docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose-infra.yml down --remove-orphans</span>
+<span class="c1">#   [+] Running 4/3</span>
+<span class="c1">#   ⠿ Container issuer-postgres-1  Removed                                                                                   0.2s</span>
+<span class="c1">#   ⠿ Container issuer-redis-1     Removed                                                                                   0.2s</span>
+<span class="c1">#   ⠿ Container issuer-vault-1     Removed                                                                                   0.2s</span>
+<span class="c1">#   ⠿ Network issuer-network       Removed                                                                                   0.0s</span>
+<span class="c1">#   docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml down --remove-orphans</span>
+<span class="c1">#   WARN[0000] The "DOCKER_FILE" variable is not set. Defaulting to a blank string. </span>
+<span class="c1">#   WARN[0000] The "DOCKER_FILE" variable is not set. Defaulting to a blank string. </span>
+<span class="c1">#   WARN[0000] The "DOCKER_FILE" variable is not set. Defaulting to a blank string. </span>
+<span class="c1">#   WARN[0000] The "DOCKER_FILE" variable is not set. Defaulting to a blank string.</span>
+</code></pre></div>
+<h4 id="import-wallet-private-key-to-vault">Import Wallet Private Key To Vault</h4>
+<p>In order to secure the wallet private key so that the issuer can use it to issue credentials, it must be stored in the Hashicorp Vault.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure the wallet that is provided has Testnet Matic to be able to send transactions and that you are providing the Private Key. Here's how you can <a href="https://support.metamask.io/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key#:~:text=On%20the%20account%20page%2C%20click,click%20%E2%80%9CConfirm%E2%80%9D%20to%20proceed.">extract the private key from MetaMask</a>, for instance.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="c1"># FROM: ./</span>
+
+<span class="c1"># Make sure to verify that the issuer-vault-1 is full initialized to avoid: "Error writing data to iden3/import/pbkey: Error making API request."</span>
+make<span class="w"> </span><span class="nv">private_key</span><span class="o">=</span>&lt;YOUR_WALLET_PRIVATE_KEY&gt;<span class="w"> </span>add-private-key<span class="p">;</span>
+<span class="c1"># (Equivalent)</span>
+<span class="c1">#   docker exec issuer-vault-1 vault write iden3/import/pbkey key_type=ethereum private_key=&lt;YOUR_WALLET_PRIVATE_KEY&gt;;</span>
+
+<span class="c1"># Expected Output:</span>
+<span class="c1">#   docker exec issuer-vault-1 \</span>
+<span class="c1">#           vault write iden3/import/pbkey key_type=ethereum private_key=&lt;YOUR_WALLET_PRIVATE_KEY&gt;</span>
+<span class="c1">#   Success! Data written to: iden3/import/pbkey</span>
+</code></pre></div>
+<h4 id="add-vault-to-configuration-file">Add Vault To Configuration File</h4>
+<p>This will get the vault token from the Hashicorp vault docker instance and add it to our <code>./env-issuer</code> file.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># FROM: ./</span>
+
+make<span class="w"> </span>add-vault-token<span class="p">;</span>
+<span class="c1"># (Equivalent)</span>
+<span class="c1">#   TOKEN=$(docker logs issuer-vault-1 2&gt;&amp;1 | grep " .hvs" | awk  '{print $2}' | tail -1);</span>
+<span class="c1"># sed '/ISSUER_KEY_STORE_TOKEN/d' .env-issuer &gt; .env-issuer.tmp;</span>
+<span class="c1"># echo ISSUER_KEY_STORE_TOKEN=$TOKEN &gt;&gt; .env-issuer.tmp;</span>
+<span class="c1"># mv .env-issuer.tmp .env-issuer;</span>
+
+<span class="c1"># Expected Output:</span>
+<span class="c1">#   sed '/ISSUER_KEY_STORE_TOKEN/d' .env-issuer &gt; .env-issuer.tmp</span>
+<span class="c1">#   mv .env-issuer.tmp .env-issuer</span>
+</code></pre></div>
+<h4 id="create-issuer-did">Create Issuer DID</h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This can also be done via the <a href="#using-the-ui-api">UI API</a>.</p>
+</div>
+<p>This will create a new issuer DID by creating a new Docker instance of the issuer, generating the DID of the issuer, storing it in the database, then deleting the instance.</p>
+<p>It then copies the new DID to <code>.env-api</code>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1"><em>NON-Apple-M1/M2/Arm</em> (ex: Intel/AMD)</label><label for="__tabbed_2_2"><em>Apple-M1/M2/Arm</em></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1"># FROM: ./</span>
+
+<span class="c1"># NON-Apple-M1/M2/Arm Command:</span>
+make<span class="w"> </span>generate-issuer-did<span class="p">;</span>
+<span class="c1"># (Equivalent)</span>
+<span class="c1">#   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile" docker compose -p issuer -f ./infrastructure/local/docker-compose.yml up -d initializer</span>
+<span class="c1"># sleep 5</span>
+<span class="c1">#  $(eval DID = $(shell docker logs -f --tail 1 issuer-initializer-1 | grep "did"))</span>
+<span class="c1">#  @echo $(DID)</span>
+<span class="c1">#  sed '/ISSUER_API_UI_ISSUER_DID/d' .env-api &gt; .env-api.tmp</span>
+<span class="c1">#  @echo ISSUER_API_UI_ISSUER_DID=$(DID) &gt;&gt; .env-api.tmp</span>
+<span class="c1">#  mv .env-api.tmp .env-api</span>
+<span class="c1">#  docker rm issuer-initializer-1</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1"># FROM: ./</span>
+
+<span class="c1"># Apple-M1/M2/Arm Command:</span>
+make<span class="w"> </span>generate-issuer-did-arm<span class="p">;</span>
+<span class="c1"># (Equivalent)</span>
+<span class="c1">#   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile-arm" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml up -d initializer;</span>
+<span class="c1"># sleep 5;</span>
+<span class="c1">#   DID=$(docker logs -f --tail 1 issuer-initializer-1 | grep "did");</span>
+<span class="c1">#   echo $DID;</span>
+<span class="c1">#   sed '/ISSUER_API_UI_ISSUER_DID/d' .env-api &gt; .env-api.tmp;</span>
+<span class="c1">#   echo ISSUER_API_UI_ISSUER_DID=$DID &gt;&gt; .env-api.tmp;</span>
+<span class="c1">#   mv .env-api.tmp .env-api;</span>
+<span class="c1">#   docker rm issuer-initializer-1;</span>
+
+<span class="c1"># Expected Output:</span>
+<span class="c1">#   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile-arm" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml up -d initializer</span>
+<span class="c1">#   WARN[0000] Found orphan containers ([issuer-vault-1 issuer-postgres-1 issuer-redis-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. </span>
+<span class="c1">#   [+] Running 1/1</span>
+<span class="c1">#   ⠿ Container issuer-initializer-1  Started                                                                                0.2s</span>
+<span class="c1">#   sleep 5</span>
+<span class="c1">#   did:polygonid:polygon:mumbai:uniqueAlphanumericKeyGenerated</span>
+<span class="c1">#   sed '/ISSUER_API_UI_ISSUER_DID/d' .env-api &gt; .env-api.tmp</span>
+<span class="c1">#   mv .env-api.tmp .env-api</span>
+<span class="c1">#   docker rm issuer-initializer-1</span>
+<span class="c1">#   issuer-initializer-1</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="configure-ui">Configure UI</h4>
+<p>This step is required to run the separate UI application, which allows intuitive and convenient management of schemas, credentials, connections and issuer state.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Running and using the UI is optional, since it implements funcionality already exposed via the <a href="#using-the-ui-api">UI API</a>. It is highly recommended though, because it makes issuer management far simpler and more intuitive.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="c1"># FROM: ./</span>
+
+cp<span class="w"> </span>.env-ui.sample<span class="w"> </span>.env-ui<span class="p">;</span>
+</code></pre></div>
+<p>Configure the <code>.env-ui</code> file with the following details (or amend as desired):</p>
+<div class="highlight"><pre><span></span><code><span class="nv">ISSUER_UI_BLOCK_EXPLORER_URL</span><span class="o">=</span>https://mumbai.polygonscan.com
+<span class="nv">ISSUER_UI_AUTH_USERNAME</span><span class="o">=</span>user-ui
+<span class="nv">ISSUER_UI_AUTH_PASSWORD</span><span class="o">=</span>password-ui
+</code></pre></div>
+<h4 id="start-api-ui-ui-notifications-server-publisher">Start API UI, UI, Notifications server &amp; Publisher</h4>
+<p>This will start the UI API that exposes endpoints to manage schemas, credentials, connections and issuer state, as well as the UI that relies on it.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1"><em>NON-Apple-M1/M2/Arm</em> (ex: Intel/AMD)</label><label for="__tabbed_3_2"><em>Apple-M1/M2/Arm</em></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1"># FROM: ./</span>
+
+make<span class="w"> </span>run-ui<span class="p">;</span>
+<span class="c1"># (Equivalent)</span>
+<span class="c1">#   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/local/docker-compose.yml up -d api-ui ui notifications pending_publisher;</span>
+
+<span class="c1"># Expected Output:</span>
+<span class="c1">#   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml up -d api-ui ui notifications pending_publisher</span>
+<span class="c1">#   WARN[0000] Found orphan containers ([issuer-vault-1 issuer-postgres-1 issuer-redis-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. </span>
+<span class="c1">#   [+] Running 4/4</span>
+<span class="c1">#    ⠿ Container issuer-ui-1                 Started                                                                                                           0.5s</span>
+<span class="c1">#    ⠿ Container issuer-api-ui-1             Started                                                                                                           0.5s</span>
+<span class="c1">#    ⠿ Container issuer-notifications-1      Started                                                                                                           0.4s</span>
+<span class="c1">#    ⠿ Container issuer-pending_publisher-1  Running  </span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1"># FROM: ./</span>
+
+make<span class="w"> </span>run-ui-arm<span class="p">;</span>
+<span class="c1"># (Equivalent)</span>
+<span class="c1">#   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile-arm" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/local/docker-compose.yml up -d api-ui ui notifications pending_publisher;</span>
+
+<span class="c1"># Expected Output:</span>
+<span class="c1">#   COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_FILE="Dockerfile-arm" docker compose -p issuer -f /Users/username/path/to/sh-id-platform/infrastructure/local/docker-compose.yml up -d api-ui ui notifications pending_publisher</span>
+<span class="c1">#   WARN[0000] Found orphan containers ([issuer-vault-1 issuer-postgres-1 issuer-redis-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. </span>
+<span class="c1">#   [+] Running 4/4</span>
+<span class="c1">#    ⠿ Container issuer-ui-1                 Started                                                                                                           0.5s</span>
+<span class="c1">#    ⠿ Container issuer-api-ui-1             Started                                                                                                           0.5s</span>
+<span class="c1">#    ⠿ Container issuer-notifications-1      Started                                                                                                           0.4s</span>
+<span class="c1">#    ⠿ Container issuer-pending_publisher-1  Running  </span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Now navigate to <a href="http://localhost:3002">http://localhost:3002</a> to see the UI API's frontend:</p>
+<p><img alt="Issuer UI API frontend" src="../../imgs/3002.png"></p>
+<h4 id="using-the-ui-api">Using the UI API</h4>
+<p>Make sure to set the HTTP authentication credentials in <code>.env-api</code> to the following:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+
+<span class="nv">ISSUER_API_UI_AUTH_USER</span><span class="o">=</span>user-api
+<span class="nv">ISSUER_API_UI_AUTH_PASSWORD</span><span class="o">=</span>password-api
+</code></pre></div>
+<p>Then authenticate via the following form on <a href="http://localhost:3002">http://localhost:3002</a>:</p>
+<p><img alt="Issuer UI API Authentication" src="../../imgs/3002-auth.png"></p>
+<p>This allows you to make a request via any of the endpoints using this frontend.</p>
+<p><img alt="Issuer UI API Get Credentials" src="../../imgs/3002-credentials.png"></p>
+<h4 id="optional-using-the-ui">(Optional) Using the UI</h4>
+<p>This service is running on <a href="http://localhost:8088">http://localhost:8088</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using Chrome, you might get the HTTP auth modal showing and disappearing quickly. To remedy this, use the following URL: <a href="http://user-api:password-api@localhost:8088/">http://user-api:password-api@localhost:8088/</a>.</p>
+</div>
+<p>File containing the basic auth credentials: <code>.env-ui</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+
+<span class="nv">ISSUER_UI_AUTH_USERNAME</span><span class="o">=</span>user-ui
+<span class="nv">ISSUER_UI_AUTH_PASSWORD</span><span class="o">=</span>password-ui
+</code></pre></div>
+<p><img alt="Issuer UI" src="../../imgs/8088.png"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to run the UI app in development mode, i.e. with HMR enabled, please follow the steps in the <a href="#development-ui">Development (UI)</a> section.</p>
+</div>
+<hr>
+</div>
+<div class="tabbed-block">
+<h3 id="standalone-mode-guide">Standalone Mode Guide</h3>
+<p>Running the app in standalone mode means you will need to install the binaries for the server to run natively. This is essential for production deployments.</p>
+<p>Make sure you have Postgres, Redis and Vault properly installed &amp; configured. Do <em>not</em> use <code>make up</code> since those will start the containers for non-production builds, see <a href="#docker-setup-guide">Docker Setup Guide</a>.</p>
+<h4 id="standalone-mode-guide-requirements">Standalone Mode Guide Requirements</h4>
+<ul>
+<li><a href="https://docs.docker.com/engine/">Docker Engine</a> 1.27</li>
+<li>Makefile toolchain</li>
+<li>Unix-based operating system (e.g. Debian, Arch, Mac OS X)</li>
+<li><a href="https://go.dev/">Go</a> 1.19</li>
+<li><a href="https://www.postgresql.org/">Postgres</a></li>
+<li><a href="https://redis.io/">Redis</a></li>
+<li><a href="https://github.com/hashicorp/vault">Hashicorp Vault</a></li>
+</ul>
+<h4 id="standalone-mode-setup">Standalone Mode Setup</h4>
+<ol>
+<li>Copy <code>.env-api.sample</code> as <code>.env-api</code> and <code>.env-issuer.sample</code> as <code>.env-issuer</code>. Please see the <a href="#configuration">configuration</a> section for more details.</li>
+<li>Run <code>make build-local</code>. This will generate a binary for each of the following commands:<ul>
+<li><code>platform</code></li>
+<li><code>platform_ui</code></li>
+<li><code>migrate</code></li>
+<li><code>pending_publisher</code></li>
+<li><code>notifications</code></li>
+</ul>
+</li>
+<li>Run <code>make db/migrate</code>. This checks the database structure and applies any changes to the database schema.</li>
+<li>Run <code>./bin/platform</code> command to start the issuer.</li>
+<li>Run <code>./bin/pending_publisher</code>. This checks that publishing transactions to the blockchain works.</li>
+<li>Follow the <a href="#import-wallet-private-key-to-vault">steps</a> for adding an Ethereum private key to the Vault.</li>
+<li>Follow the <a href="#create-issuer-did">steps</a> for creating an identity as your issuer DID.</li>
+<li><em>(Optional)</em> To set up the UI with its own API, first copy <code>.env-ui.sample</code> as <code>.env-ui</code>. Please see the <a href="#configuration">configuration</a> section for more details.</li>
+</ol>
+<hr>
+</div>
+</div>
+</div>
+<h2 id="configuration">Configuration</h2>
+<h3 id="getting-a-public-url">Getting A Public URL</h3>
+<p>In order for the service to work, we'll need a public URL.
+An easy way to set this up is by using <a href="https://ngrok.com">ngrok</a> as a forwarding service that maps to a local port.
+After downloading and installing ngrok, run the follwing command and copy the <strong>Forwarding</strong> URL:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># For issuer-api ISSUER_SERVER_URL env var (.env-issuer file)</span>
+./ngrok<span class="w"> </span>http<span class="w"> </span><span class="m">3001</span><span class="p">;</span><span class="w"> </span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># For issuer-api-ui ISSUER_API_UI_SERVER_URL env var (.env-api file)</span>
+./ngrok<span class="w"> </span>http<span class="w"> </span><span class="m">3002</span><span class="p">;</span><span class="w"> </span>
+</code></pre></div>
+<p>Copy the <strong>Forwarding</strong> output value into the desired env var</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># FROM: /path/to/ngrok binary</span>
+
+<span class="c1"># Expected Output:</span>
+<span class="c1"># Add OAuth and webhook security to your ngrok (its free!): https://ngrok.com/free</span>
+<span class="c1"># </span>
+<span class="c1"># Session Status                online</span>
+<span class="c1"># Account                       YourAccountUsername (Plan: Free)</span>
+<span class="c1"># Update                        update available (version 3.2.1, Ctrl-U to update)</span>
+<span class="c1"># Version                       3.1.0</span>
+<span class="c1"># Region                        Europe (eu)</span>
+<span class="c1"># Latency                       -</span>
+<span class="c1"># Web Interface                 http://127.0.0.1:4040</span>
+<span class="c1"># Forwarding                    https://unique-forwading-address.eu.ngrok.io -&gt; http://localhost:3001</span>
+<span class="c1"># </span>
+<span class="c1"># Connections                   ttl     opn     rt1     rt5     p50     p90</span>
+<span class="w">                              </span><span class="c1"># 0       0       0.00    0.00    0.00    0.00</span>
+</code></pre></div>
+<h2 id="development-ui">Development (UI)</h2>
+<p>Completing the <a href="#installation">installation</a> process yields the UI as a minified Javascript app. Any changes to the UI source code would necessitate a full re-build to apply them. In most development scenarios this is undesirable, so the UI app can also be run in development mode like any <a href="https://17.reactjs.org/">React</a> application to enable hot module replacement (<a href="https://webpack.js.org/guides/hot-module-replacement/">HMR</a>).</p>
+<ol>
+<li>Make sure that the UI API is set up and running properly (default <a href="http://localhost:3002">http://localhost:3002</a>).</li>
+<li>Go to the <code>ui/</code> folder.</li>
+<li>Copy the <code>.env.sample</code> file as <code>.env</code></li>
+<li>All variables are required to be set, with the exception of <code>VITE_ISSUER_LOGO</code>. The following are the corresponding variables present in the parent folder's <code>.env-api</code>, which need to be the same. Only <code>VITE_ISSUER_NAME</code> can differ for the UI to function in development mode.<ul>
+<li><code>VITE_API_URL -&gt; ISSUER_API_UI_SERVER_URL</code></li>
+<li><code>VITE_API_USERNAME -&gt; ISSUER_API_UI_AUTH_USER</code></li>
+<li><code>VITE_API_PASSWORD -&gt; ISSUER_API_UI_AUTH_PASSWORD</code></li>
+<li><code>VITE_BLOCK_EXPLORER_URL -&gt; ISSUER_UI_BLOCK_EXPLORER_URL</code></li>
+<li><code>VITE_ISSUER_DID -&gt; ISSUER_API_UI_ISSUER_DID</code></li>
+<li><code>VITE_ISSUER_NAME -&gt; ISSUER_API_UI_ISSUER_NAME</code></li>
+<li><code>VITE_ISSUER_LOGO -&gt; ISSUER_API_UI_ISSUER_LOGO</code></li>
+</ul>
+</li>
+<li>Run <code>npm install</code></li>
+<li>Run <code>npm start</code></li>
+<li>The app will be running on <a href="http://localhost:5173">http://localhost:5173</a>.</li>
+</ol>
+<hr></div>
+
+
+  
+
+
+
+<div id="newVersionPopup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>New Polygon ID Documentation Website Available!</h2>
+      <p>We've released a new version of our documention. Head to <a href="https://devs.polygonid.com/">devs.polygonid.com</a> to check it out.</p>
+    </div>
+</div>
+                
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "content.tabs.link", "content.code.copy", "header.autohide"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+        <script src="../../js/custom.js"></script>
+      
+    
+  </body>
+</html>
