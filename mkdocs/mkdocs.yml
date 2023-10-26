@@ -160,3 +160,11 @@ extra:
   analytics:
     provider: custom
     property: GTM-5TKTB44
+
+extra_css:
+  - css/custom.css
+
+extra_javascript:
+  - js/custom.js
+
+
